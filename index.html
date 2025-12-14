@@ -1,322 +1,709 @@
 <!doctype html>
-<html lang="en">
+<html lang="sq" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <title>Klik Pixel – Web & E-Commerce Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Illyrian Pixel – Web, E-Commerce & Photography Studio</title>
+  <meta name="description" content="Illyrian Pixel – Web design, web development, e-commerce dhe fotografi. Faqe të shpejta, të pastra dhe të optimizuara për rezultate reale.">
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      scroll-behavior: smooth;
-    }
-    .navbar-brand span {
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      background: #0b1120;
-      color: #e5e7eb;
-    }
-    .hero h1 {
-      font-size: clamp(2.4rem, 4vw, 3.2rem);
-      font-weight: 700;
-    }
-    .hero p {
-      color: #9ca3af;
-    }
-    .tag-pill {
-      display: inline-block;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      padding: 0.18rem 0.85rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #9ca3af;
-    }
-    .section-title {
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .section-subtitle {
-      color: #6b7280;
-      max-width: 560px;
-    }
-    .service-card {
-      border-radius: 1rem;
-      border: 1px solid #e5e7eb;
-      transition: all 0.2s ease;
-      height: 100%;
-    }
-    .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
-      border-color: #cbd5f5;
-    }
-    .portfolio-thumb {
-      border-radius: 0.75rem;
-      overflow: hidden;
-    }
-    .portfolio-thumb img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      transition: transform 0.25s ease;
-    }
-    .portfolio-thumb:hover img {
-      transform: scale(1.05);
-    }
-    .badge-soft {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border-radius: 999px;
-      padding: 0.15rem 0.7rem;
-      font-size: 0.75rem;
-    }
-    .footer {
-      background: #020617;
-      color: #9ca3af;
-      padding: 2rem 0;
-      margin-top: 3rem;
-    }
-    .footer a {
-      color: #e5e7eb;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <span>Klik&nbsp;Pixel</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
-        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+<img class="brand-logo" src="./assets/img/logo-light.png" alt="Illyrian Pixel Logo" height="42">
+  <span>Illyrian Pixel</span>
+</a>
 
-<section class="hero">
-  <div class="container py-5">
-    <div class="row align-items-center">
-      <div class="col-lg-7">
-        <div class="mb-3">
-          <span class="tag-pill">Web · E-Commerce · UI</span>
-        </div>
-        <h1>Websites dhe e-commerce që duken bukur dhe shesin realisht.</h1>
-        <p class="mt-3">
-          Klik Pixel është studioja ime digitale ku ndërtoj faqe të shpejta, të pastra dhe të optimizuara
-          për biznese që duan rezultat, jo vetëm dizajn.
-        </p>
-        <div class="mt-4 d-flex flex-wrap gap-2">
-          <a href="#contact" class="btn btn-primary px-4">Kërko ofertë</a>
-          <a href="#work" class="btn btn-outline-light border text-light px-4">Shiko punët</a>
-        </div>
-        <div class="mt-4 small text-secondary">
-          Weiden i.d. OPf · Punoj edhe remote për Gjermani & Shqipëri
-        </div>
+
+      <div class="d-flex align-items-center gap-2 ms-auto ms-lg-0 order-lg-2">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ndrysho temën">
+          <span id="themeIcon" class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-label="Hap menynë">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
-      <div class="col-lg-5 mt-4 mt-lg-0">
-        <div class="p-4 bg-white rounded-4 shadow-sm">
-          <h6 class="text-muted mb-3">Highlights</h6>
-          <ul class="list-unstyled mb-0 small">
-            <li class="mb-2">✓ Faqe të personalizuara me HTML, CSS, JS & frameworks moderne</li>
-            <li class="mb-2">✓ E-commerce (Shop, booking, pagesë online) të optimizuara</li>
-            <li class="mb-2">✓ Fokus në shpejtësi, UX dhe SEO bazë</li>
-            <li>✓ Komunikim i drejtpërdrejtë – punon direkt me mua, jo me agjenci anonime</li>
-          </ul>
-        </div>
+
+      <div class="collapse navbar-collapse order-lg-1" id="navMain">
+        <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#services">Shërbimet</a></li>
+          <li class="nav-item"><a class="nav-link" href="#work">Punët</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Procesi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Çmimet</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-sm btn-primary px-3" href="#contact">Kërko ofertë</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section id="services" class="py-5">
-  <div class="container">
-    <h2 class="section-title">Shërbimet</h2>
-    <p class="section-subtitle">
-      Nga faqe të thjeshta prezantuese deri te dyqane online të plota. Çdo projekt ndërtohet me kod të pastër dhe dizajn të menduar.
-    </p>
-    <div class="row mt-4 g-4">
-      <div class="col-md-4">
-        <div class="service-card p-4">
-          <h5>Websites prezantuese</h5>
-          <p class="text-muted small mt-2">
-            Landing pages dhe faqe të pastra për biznese, profesionistë dhe marka personale.
+  <!-- HERO -->
+  <header id="top" class="hero">
+    <div class="container py-5">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <div class="mb-3">
+            <span class="tag-pill">Web · E-Commerce · UI/UX · Photo</span>
+          </div>
+
+          <h1>Websites dhe e-commerce që duken bukur dhe sjellin rezultate reale.</h1>
+
+          <p class="mt-3 hero-lead">
+            Illyrian Pixel është studioja ime kreative ku ndërtoj faqe të shpejta, të pastra dhe të optimizuara
+            për biznese që duan rezultat. Plus: fotografi që i jep fytyrë brendit.
           </p>
-          <ul class="small text-muted mb-0">
-            <li>One-page & multi-page</li>
-            <li>Responsive për çdo pajisje</li>
-            <li>Integrim me formularë dhe email</li>
-          </ul>
+
+          <div class="mt-4 d-flex flex-wrap gap-2">
+            <a href="#contact" class="btn btn-primary px-4">Kërko ofertë</a>
+            <a href="#work" class="btn btn-hero-secondary px-4">Shiko punët</a>
+          </div>
+
+          <div class="mt-4 hero-meta">
+            Weiden i.d. OPf · Punoj edhe remote për Gjermani & Shqipëri
+          </div>
+
+          <div class="mt-4 hero-metrics d-flex flex-wrap gap-3">
+            <div class="metric">
+              <div class="metric-num">+90</div>
+              <div class="metric-label">Performance target</div>
+            </div>
+            <div class="metric">
+              <div class="metric-num">1–3 javë</div>
+              <div class="metric-label">Kohë mesatare</div>
+            </div>
+            <div class="metric">
+              <div class="metric-num">SEO</div>
+              <div class="metric-label">Strukturë & bazat</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-card p-4">
-          <h5>E-commerce & shop online</h5>
-          <p class="text-muted small mt-2">
-            Dyqane online dhe sisteme porosie që janë të lehta për t’u përdorur dhe menaxhuar.
-          </p>
-          <ul class="small text-muted mb-0">
-            <li>Katalog produktesh</li>
-            <li>Checkout & pagesa online</li>
-            <li>E-commerce i përshtatur për biznesin tënd</li>
-          </ul>
+
+        <div class="col-lg-5">
+          <div class="hero-card">
+            <h6 class="hero-card-title">Highlights</h6>
+            <ul class="list-unstyled mb-0 small hero-card-list">
+              <li class="mb-2">✓ Web design & development me kod të pastër (Bootstrap/React/Next sipas projektit)</li>
+              <li class="mb-2">✓ E-commerce: katalog, pagesa, shipping, email flows</li>
+              <li class="mb-2">✓ Fokus në shpejtësi, UX dhe konvertime</li>
+              <li class="mb-2">✓ Foto për biznese: produkt, ambient, portret</li>
+              <li>✓ Komunikim i drejtpërdrejtë – punon direkt me mua</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-card p-4">
-          <h5>UI/UX & optimizim</h5>
-          <p class="text-muted small mt-2">
-            Përmirësim i faqeve ekzistuese, rishikim i dizajnit dhe rritje e konvertimit.
-          </p>
-          <ul class="small text-muted mb-0">
-            <li>Analizë e faqes aktuale</li>
-            <li>Ristrukturim i navigimit</li>
-            <li>Shpejtësi & SEO bazë</li>
-          </ul>
-        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="work" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="section-title">Punë të zgjedhura</h2>
-    <p class="section-subtitle">
-      Disa shembuj projektesh. Mund t’i zëvendësosh imazhet me screenshot-et e faqeve të tua reale.
-    </p>
-    <div class="row mt-4 g-4">
-      <div class="col-md-4">
-        <div class="portfolio-thumb mb-3">
-          <img src="https://via.placeholder.com/600x400?text=Clinic+Website" alt="Clinic website">
-        </div>
-        <span class="badge-soft">Healthcare</span>
-        <h6 class="mt-2 mb-1">Website për klinikë</h6>
-        <p class="small text-muted mb-1">Faqe e pastër me fokus te rezervimet online.</p>
-      </div>
-      <div class="col-md-4">
-        <div class="portfolio-thumb mb-3">
-          <img src="https://via.placeholder.com/600x400?text=E-commerce+Store" alt="E-commerce store">
-        </div>
-        <span class="badge-soft">E-commerce</span>
-        <h6 class="mt-2 mb-1">Dyqan online për brand veshjesh</h6>
-        <p class="small text-muted mb-1">Katalog, filtër, checkout i thjeshtë.</p>
-      </div>
-      <div class="col-md-4">
-        <div class="portfolio-thumb mb-3">
-          <img src="https://via.placeholder.com/600x400?text=Portfolio+Site" alt="Portfolio website">
-        </div>
-        <span class="badge-soft">Portfolio</span>
-        <h6 class="mt-2 mb-1">Portfolio për artist</h6>
-        <p class="small text-muted mb-1">Dizajn minimal, fokus te punët kreative.</p>
+  <!-- TRUST -->
+  <section class="py-4">
+    <div class="container">
+      <div class="trust-row">
+        <div class="trust-item">Responsive</div>
+        <div class="trust-item">Speed-first</div>
+        <div class="trust-item">SEO-ready</div>
+        <div class="trust-item">E-commerce</div>
+        <div class="trust-item">Photo</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="process" class="py-5">
-  <div class="container">
-    <h2 class="section-title">Si punoj</h2>
-    <p class="section-subtitle">
-      Proces i qartë nga ideja deri te lansimi i faqes, me komunikim të thjeshtë në çdo hap.
-    </p>
-    <div class="row mt-4 g-4">
-      <div class="col-md-4">
-        <h6>1. Konsultim i shkurtër</h6>
-        <p class="small text-muted mb-0">Bisedojmë për biznesin, qëllimet dhe çfarë realisht të duhet.</p>
-      </div>
-      <div class="col-md-4">
-        <h6>2. Dizajn & zhvillim</h6>
-        <p class="small text-muted mb-0">Prototip, feedback, pastaj implementim me kod të pastër.</p>
-      </div>
-      <div class="col-md-4">
-        <h6>3. Lansim & suport</h6>
-        <p class="small text-muted mb-0">Faqja ngrihet live, merr video/udhëzim si ta menaxhosh.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="section-title">Kontakto</h2>
-    <p class="section-subtitle">
-      Trego shkurt çfarë projekti ke në mendje dhe përgjigjem me një ide dhe buxhet orientues.
-    </p>
-    <div class="row mt-4">
-      <div class="col-lg-6">
-        <form>
-          <div class="mb-3">
-            <label class="form-label">Emri</label>
-            <input type="text" class="form-control" placeholder="Emri yt">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="email@shembull.com">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Lloji i projektit</label>
-            <select class="form-select">
-              <option>Website prezantues</option>
-              <option>E-commerce / shop online</option>
-              <option>Ridesign faqe ekzistuese</option>
-              <option>Tjetër (përshkruaj më poshtë)</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Mesazhi</label>
-            <textarea class="form-control" rows="4" placeholder="Shkruaj pak për biznesin dhe idenë tënde..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary px-4">Dërgo</button>
-        </form>
-      </div>
-      <div class="col-lg-5 offset-lg-1 mt-4 mt-lg-0">
-        <div class="small text-muted">
-          <p class="mb-2"><strong>Email:</strong> info@klikpixel.com</p>
-          <p class="mb-2"><strong>Location:</strong> Weiden i.d. OPf · Gjermani</p>
-          <p class="mb-0">
-            Mund të më gjesh edhe në Instagram / TikTok – kërko “Klik Pixel”.
+  <!-- SERVICES -->
+  <section id="services" class="py-5">
+    <div class="container">
+      <div class="row align-items-end g-3">
+        <div class="col-lg-8">
+          <h2 class="section-title">Shërbimet</h2>
+          <p class="section-subtitle">
+            Nga faqe të thjeshta prezantuese deri te dyqane online të plota dhe fotografi profesionale.
+            Çdo projekt ndërtohet me strukturë, dizajn të pastër dhe fokus në rezultat.
           </p>
         </div>
+        <div class="col-lg-4 text-lg-end">
+          <a class="btn btn-outline-secondary btn-sm" href="#contact">Ke pyetje? Shkruaj</a>
+        </div>
+      </div>
+
+      <div class="row mt-4 g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="service-icon">🧱</div>
+            <h5>Website prezantues</h5>
+            <p class="text-muted small mt-2">
+              Landing page ose faqe multi-page për biznesin tënd, me strukturë të qartë dhe design modern.
+            </p>
+            <ul class="small text-muted mb-0">
+              <li>One-page & multi-page</li>
+              <li>Responsive për çdo pajisje</li>
+              <li>Formularë, WhatsApp, email</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="service-icon">🛒</div>
+            <h5>E-commerce & shop online</h5>
+            <p class="text-muted small mt-2">
+              Dyqan online i lehtë për klientin dhe i thjeshtë për menaxhim. Fokus te checkout dhe konvertimi.
+            </p>
+            <ul class="small text-muted mb-0">
+              <li>Katalog, filtër, variante</li>
+              <li>Pagesa online & email flows</li>
+              <li>Shipping/booking sipas rastit</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="service-icon">✨</div>
+            <h5>UI/UX & optimizim</h5>
+            <p class="text-muted small mt-2">
+              Përmirësim i faqes ekzistuese: dizajn, strukturë, shpejtësi, konvertime dhe SEO bazë.
+            </p>
+            <ul class="small text-muted mb-0">
+              <li>Audit i shpejtë</li>
+              <li>Ristrukturim i navigimit</li>
+              <li>Speed & performance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="service-icon">📸</div>
+            <h5>Photography</h5>
+            <p class="text-muted small mt-2">
+              Fotografi për produkt, ambient, portret dhe content për social media. E menduar për brand.
+            </p>
+            <ul class="small text-muted mb-0">
+              <li>Produkt & e-commerce</li>
+              <li>Portret & lifestyle</li>
+              <li>Editing & color grading</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="service-icon">🔧</div>
+            <h5>Support & maintenance</h5>
+            <p class="text-muted small mt-2">
+              Updates, backup, rregullime, shtesa funksionesh dhe monitorim i performancës.
+            </p>
+            <ul class="small text-muted mb-0">
+              <li>Ndryshime mujore</li>
+              <li>Security basics</li>
+              <li>Monitoring</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="service-icon">🚀</div>
+            <h5>Brand starter kit</h5>
+            <p class="text-muted small mt-2">
+              Për fillim të fortë: logo bazë, tipografi, ngjyra dhe template për postime.
+            </p>
+            <ul class="small text-muted mb-0">
+              <li>Mini style guide</li>
+              <li>Template IG/FB</li>
+              <li>Guidelines për content</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- WORK -->
+  <section id="work" class="py-5 bg-soft">
+    <div class="container">
+      <div class="row align-items-end g-3">
+        <div class="col-lg-8">
+          <h2 class="section-title">Punë të zgjedhura</h2>
+          <p class="section-subtitle">
+            Këto janë shembuj vizualë (foto nga Unsplash). Kur të kesh punë reale, zëvendëso imazhet me screenshot-et e tua.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <span class="badge-soft">Tip: përdor screenshot + mockup</span>
+        </div>
+      </div>
+
+      <div class="row mt-4 g-4">
+        <div class="col-md-6 col-lg-4">
+          <article class="work-card">
+            <div class="portfolio-thumb">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80" alt="Website për biznes">
+            </div>
+            <div class="work-body">
+              <div class="work-tags">
+                <span class="badge-soft">Website</span>
+                <span class="badge-outline">Speed</span>
+              </div>
+              <h6 class="mt-2 mb-1">Website për biznes lokal</h6>
+              <p class="small text-muted mb-0">Dizajn i pastër, CTA të qarta dhe strukturë për konvertime.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <article class="work-card">
+            <div class="portfolio-thumb">
+              <img src="https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=1200&q=80" alt="E-commerce store">
+            </div>
+            <div class="work-body">
+              <div class="work-tags">
+                <span class="badge-soft">E-commerce</span>
+                <span class="badge-outline">Checkout</span>
+              </div>
+              <h6 class="mt-2 mb-1">Dyqan online për brand</h6>
+              <p class="small text-muted mb-0">Katalog, filtër, produkt i qartë dhe checkout i thjeshtë.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <article class="work-card">
+            <div class="portfolio-thumb">
+              <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1200&q=80" alt="Photography portfolio">
+            </div>
+            <div class="work-body">
+              <div class="work-tags">
+                <span class="badge-soft">Photo</span>
+                <span class="badge-outline">Portfolio</span>
+              </div>
+              <h6 class="mt-2 mb-1">Portfolio fotografi</h6>
+              <p class="small text-muted mb-0">Grid i thjeshtë, fokus te imazhi dhe storytelling.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <article class="work-card">
+            <div class="portfolio-thumb">
+              <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80" alt="Landing page design">
+            </div>
+            <div class="work-body">
+              <div class="work-tags">
+                <span class="badge-soft">Landing</span>
+                <span class="badge-outline">UI/UX</span>
+              </div>
+              <h6 class="mt-2 mb-1">Landing page për shërbime</h6>
+              <p class="small text-muted mb-0">Mesazh i qartë + seksione që bindin.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <article class="work-card">
+            <div class="portfolio-thumb">
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80" alt="Product photography">
+            </div>
+            <div class="work-body">
+              <div class="work-tags">
+                <span class="badge-soft">Product</span>
+                <span class="badge-outline">Photo</span>
+              </div>
+              <h6 class="mt-2 mb-1">Foto për produkt</h6>
+              <p class="small text-muted mb-0">Ndriçim i pastër dhe detaj për e-commerce.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <article class="work-card">
+            <div class="portfolio-thumb">
+              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80" alt="Team and process">
+            </div>
+            <div class="work-body">
+              <div class="work-tags">
+                <span class="badge-soft">Process</span>
+                <span class="badge-outline">Delivery</span>
+              </div>
+              <h6 class="mt-2 mb-1">Proces i qartë</h6>
+              <p class="small text-muted mb-0">Nga ideja te lansimi: pa konfuzion, pa vonesa.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Si punoj</h2>
+      <p class="section-subtitle">
+        Proces i thjeshtë dhe transparent. Ti e di gjithmonë çfarë po ndodh dhe ku jemi me projektin.
+      </p>
+
+      <div class="row mt-4 g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card p-4 h-100">
+            <div class="step-num">1</div>
+            <h6>Konsultim</h6>
+            <p class="small text-muted mb-0">Shkurt: qëllimet, audienca, çfarë duhet të arrijë faqja.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card p-4 h-100">
+            <div class="step-num">2</div>
+            <h6>Strukturë & dizajn</h6>
+            <p class="small text-muted mb-0">Wireframe + pamje moderne. Feedback i shpejtë.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card p-4 h-100">
+            <div class="step-num">3</div>
+            <h6>Zhvillim</h6>
+            <p class="small text-muted mb-0">Implementim me kod të pastër, performance dhe SEO bazë.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card p-4 h-100">
+            <div class="step-num">4</div>
+            <h6>Lansim</h6>
+            <p class="small text-muted mb-0">Publikim live + udhëzim si ta menaxhosh.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="py-5 bg-soft">
+    <div class="container">
+      <div class="row align-items-end g-3">
+        <div class="col-lg-8">
+          <h2 class="section-title">Paketa & çmime orientuese</h2>
+          <p class="section-subtitle">
+            Çmimet varen nga kompleksiteti. Këto janë orientuese që të kesh ide. Për ofertë të saktë, më shkruaj.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <span class="small text-muted">Pagesa: DE/AL · Invoice nëse duhet</span>
+        </div>
+      </div>
+
+      <div class="row mt-4 g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card p-4 h-100">
+            <h6 class="text-muted mb-2">Starter</h6>
+            <div class="price">€399+</div>
+            <div class="small text-muted mb-3">Landing page / faqe prezantuese e thjeshtë</div>
+            <ul class="small text-muted mb-4">
+              <li>1–3 seksione kryesore</li>
+              <li>Responsive + form kontakt</li>
+              <li>Speed basics</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-secondary w-100">Më shkruaj</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card p-4 h-100 price-featured">
+            <div class="price-badge">Most popular</div>
+            <h6 class="text-muted mb-2">Business</h6>
+            <div class="price">€899+</div>
+            <div class="small text-muted mb-3">Multi-page + strukturë serioze</div>
+            <ul class="small text-muted mb-4">
+              <li>5–8 faqe</li>
+              <li>SEO bazë + analytics</li>
+              <li>UI/UX polish</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-100">Kërko ofertë</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card p-4 h-100">
+            <h6 class="text-muted mb-2">E-commerce</h6>
+            <div class="price">€1490+</div>
+            <div class="small text-muted mb-3">Shop online me pagesa dhe produkte</div>
+            <ul class="small text-muted mb-4">
+              <li>Produkte + kategori</li>
+              <li>Pagesa online (sipas vendit)</li>
+              <li>Email flows + checkout</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-secondary w-100">Diskuto projektin</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 small text-muted">
+        * Nëse do edhe fotografi produktesh, mund ta fusim si paketë shtesë.
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title">Çfarë thonë klientët</h2>
+      <p class="section-subtitle">Tekst shembull. Zëvendëso me review reale kur t’i kesh.</p>
+
+      <div class="row mt-4 g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="quote-card p-4 h-100">
+            <p class="mb-2">“Faqja doli super e pastër dhe shpejt. Na solli më shumë kontakte brenda javës së parë.”</p>
+            <div class="small text-muted">— Klient, Business website</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="quote-card p-4 h-100">
+            <p class="mb-2">“Komunikim perfekt dhe rezultat i saktë. Checkout u bë shumë më i thjeshtë.”</p>
+            <div class="small text-muted">— Klient, E-commerce</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="quote-card p-4 h-100">
+            <p class="mb-2">“Fotot për produktet e ngritën brendin. Duken premium dhe shiten më mirë.”</p>
+            <div class="small text-muted">— Klient, Product photos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-5 bg-soft">
+    <div class="container">
+      <div class="row align-items-end g-3">
+        <div class="col-lg-8">
+          <h2 class="section-title">FAQ</h2>
+          <p class="section-subtitle">Pyetje të shpeshta. Për çdo gjë tjetër, më shkruaj direkt.</p>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-9">
+          <div class="accordion" id="faqAcc">
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="q1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="false" aria-controls="a1">
+                  Sa kohë merr një website?
+                </button>
+              </h2>
+              <div id="a1" class="accordion-collapse collapse" aria-labelledby="q1" data-bs-parent="#faqAcc">
+                <div class="accordion-body">
+                  Zakonisht 1–3 javë për website standard. E-commerce merr më shumë (varësisht nga produktet dhe pagesat).
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="q2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+                  A e bëni SEO?
+                </button>
+              </h2>
+              <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faqAcc">
+                <div class="accordion-body">
+                  Bëj bazat: strukturë headings, meta tags, performance, sitemap (kur duhet) dhe këshilla për content.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="q3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
+                  A punoni me klientë në Gjermani?
+                </button>
+              </h2>
+              <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faqAcc">
+                <div class="accordion-body">
+                  Po. Punoj remote dhe mund ta ndërtojmë projektin në DE/EN/SQ sipas nevojës.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="q4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
+                  A mund t’i bëni edhe fotot?
+                </button>
+              </h2>
+              <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#faqAcc">
+                <div class="accordion-body">
+                  Po. Sidomos për produkt/e-commerce dhe foto brendi. Kjo e rrit shumë cilësinë e faqes.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="row align-items-end g-3">
+        <div class="col-lg-8">
+          <h2 class="section-title">Kontakto</h2>
+          <p class="section-subtitle">
+            Trego shkurt çfarë projekti ke në mendje. Unë të kthej përgjigje me ide dhe buxhet orientues.
+          </p>
+        </div>
+      </div>
+
+      <div class="row mt-4 g-4">
+        <div class="col-lg-6">
+          <form class="contact-card p-4" id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Emri</label>
+                <input type="text" class="form-control" name="name" placeholder="Emri yt" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="email@shembull.com" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Lloji i projektit</label>
+                <select class="form-select" name="project">
+                  <option>Website prezantues</option>
+                  <option>E-commerce / shop online</option>
+                  <option>UI/UX & optimizim</option>
+                  <option>Photography</option>
+                  <option>Tjetër</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Mesazhi</label>
+                <textarea class="form-control" name="message" rows="4" placeholder="Shkruaj pak për biznesin dhe idenë..." required></textarea>
+              </div>
+              <div class="col-12 d-flex flex-wrap gap-2 align-items-center">
+                <button type="submit" class="btn btn-primary px-4">Dërgo</button>
+                <span class="small text-muted" id="formStatus" role="status" aria-live="polite"></span>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-lg-5 offset-lg-1">
+          <div class="contact-side p-4 h-100">
+            <h6 class="mb-3">Info</h6>
+            <div class="small text-muted">
+              <p class="mb-2"><strong>Email:</strong> info@illyrianpixel.com</p>
+              <p class="mb-2"><strong>Location:</strong> Weiden i.d. OPf · Gjermani</p>
+              <p class="mb-3"><strong>Social:</strong> Instagram / TikTok: <span class="text-nowrap">Illyrian Pixel</span></p>
+              <div class="divider"></div>
+              <p class="mb-2"><strong>Orar:</strong> 10:00–18:00 (CET)</p>
+              <p class="mb-0"><strong>Remote:</strong> Po, për Gjermani & Shqipëri</p>
+            </div>
+
+            <div class="mt-4">
+              <a class="btn btn-outline-secondary w-100" href="mailto:info@illyrianpixel.com">Dërgo email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-    <div class="small">
-      © <span id="year"></span> Klik Pixel. All rights reserved.
+  <div class="container">
+
+    <div class="row gy-4 align-items-start">
+
+      <!-- Brand -->
+      <div class="col-md-4">
+        <a href="#top" class="footer-brand d-flex align-items-center gap-2 mb-3">
+          <img src="./assets/img/logo-light.png" alt="Illyrian Pixel logo" class="footer-logo">
+          <span>Illyrian Pixel</span>
+        </a>
+        <p class="footer-text small">
+          Web, e-commerce & photography studio. 
+          Projekte të pastra, të shpejta dhe të menduara për rezultate reale.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="col-6 col-md-2">
+        <h6 class="footer-title">Menu</h6>
+        <ul class="footer-links">
+          <li><a href="#services">Shërbimet</a></li>
+          <li><a href="#work">Punët</a></li>
+          <li><a href="#pricing">Çmimet</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="col-6 col-md-3">
+        <h6 class="footer-title">Shërbime</h6>
+        <ul class="footer-links">
+          <li>Website prezantues</li>
+          <li>E-commerce</li>
+          <li>UI/UX & optimizim</li>
+          <li>Photography</li>
+          <li>Support & maintenance</li>
+        </ul>
+      </div>
+
+      <!-- Contact / Social -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Kontakt</h6>
+        <ul class="footer-links">
+          <li>Email: <a href="mailto:info@illyrianpixel.com">info@illyrianpixel.com</a></li>
+          <li>Weiden i.d. OPf · Gjermani</li>
+        </ul>
+
+        <div class="footer-social mt-3">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="mailto:info@illyrianpixel.com" aria-label="Email">@</a>
+        </div>
+      </div>
+
     </div>
-    <div class="small">
-      Operated by <strong>Xhuljan Sadiku</strong>
+
+    <div class="footer-bottom mt-4 pt-3">
+      <div class="small">
+        © <span id="year"></span> Illyrian Pixel. All rights reserved.
+      </div>
+      <div class="small">
+        Operated by <strong>Xhuljan Sadiku</strong>
+      </div>
     </div>
+
   </div>
 </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" type="button" aria-label="Kthehu lart">
+  <span aria-hidden="true">↑</span>
+</button>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>
