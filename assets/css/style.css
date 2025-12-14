@@ -65,125 +65,46 @@ body{
   scroll-behavior:smooth;
   background:var(--bg);
   color:var(--text);
-}
+} 
+
 /* =========================
-   NAVBAR (Modern Company)
+   ENTERPRISE NAV + MEGA MENU
    ========================= */
 
-/* Navbar container */
-.navbar{
-  background: var(--nav-bg) !important;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+.ip-navbar{
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
-  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* Slight shadow only when sticky feels premium */
-.navbar.shadow-sm{
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
-}
-[data-theme="dark"] .navbar.shadow-sm{
-  box-shadow: 0 14px 34px rgba(0,0,0,.35);
-}
-
-.navbar .container{
-  min-height: 74px;
+.ip-nav-wrap{
+  min-height: 76px;
+  align-items: center;
 }
 
 /* Brand */
-.navbar-brand{
-  padding: .4rem 0;
-  text-decoration: none;
-}
+.ip-brand{ text-decoration: none; }
+.brand-logo{ height: 60px; width: auto; display:block; }
+[data-theme="dark"] .brand-logo{ filter: invert(1) brightness(1.1); }
 
-.brand-logo{
-  height: 42px;
-  width: auto;
-  display: inline-block;
-  transition: filter .25s ease, transform .2s ease;
-}
-
-.navbar-brand:hover .brand-logo{
-  transform: translateY(-1px);
-}
-
-/* 1 logo + invert in dark */
-[data-theme="dark"] .brand-logo{
-  filter: invert(1) brightness(1.1) contrast(1.05);
-}
-[data-theme="light"] .brand-logo{
-  filter: none;
-}
-
-.navbar-brand span{
-  font-weight: 800;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--text);
-  font-size: .98rem;
-  line-height: 1;
-}
-
-/* Nav links */
-.navbar-nav{
-  gap: .15rem;
-}
-
-.nav-link{
-  color: var(--text) !important;
-  opacity: .92;
-  font-weight: 600;
-  font-size: .95rem;
-  padding: .55rem .85rem !important;
-  border-radius: 999px;
-  transition: background-color .2s ease, opacity .2s ease, transform .2s ease;
-  position: relative;
-}
-
-.nav-link:hover{
-  opacity: 1;
-  background: rgba(148,163,184,.10);
-  transform: translateY(-1px);
-}
-
-[data-theme="dark"] .nav-link:hover{
-  background: rgba(148,163,184,.12);
-}
-
-/* Optional "active" class look (if you add it later with JS) */
-.nav-link.active{
-  opacity: 1;
-  background: rgba(214,31,42,.12);
-  color: var(--text) !important;
-}
-[data-theme="dark"] .nav-link.active{
-  background: rgba(255,42,58,.14);
-}
-
-/* CTA button (Kërko ofertë) */
-.navbar .btn.btn-primary{
-  border: none;
-  border-radius: 999px;
+.brand-text{
   font-weight: 700;
-  padding: .55rem 1.05rem;
-  box-shadow: 0 10px 26px rgba(214,31,42,.18);
-  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: var(--text);
 }
-.navbar .btn.btn-primary:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 14px 32px rgba(214,31,42,.26);
-}
-.navbar .btn.btn-primary:active{
-  transform: translateY(0) scale(.99);
-}
+
+/* Actions */
+.ip-actions{ gap: 10px; }
 
 /* Theme toggle */
 .theme-toggle{
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
+  width: 40px;
+  height: 40px;
   border: 1px solid var(--border);
+  border-radius: 12px;
   background: rgba(148,163,184,.06);
   color: var(--text);
   display: inline-flex;
@@ -191,53 +112,314 @@ body{
   justify-content: center;
   transition: transform .15s ease, background-color .2s ease, border-color .2s ease;
 }
+.theme-toggle:hover{ transform: translateY(-1px); background: rgba(148,163,184,.12); }
+.theme-toggle:active{ transform: translateY(0) scale(.98); }
 
-.theme-toggle:hover{
-  transform: translateY(-1px);
-  background: rgba(148,163,184,.12);
-}
-
-.theme-toggle:active{
-  transform: translateY(0) scale(.98);
-}
-
-.theme-icon{
-  font-size: 18px;
-  line-height: 1;
-}
-
-/* Toggler (mobile) */
-.navbar-toggler{
+/* Toggler */
+.ip-toggler{
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: .55rem .65rem;
 }
-.navbar-toggler:focus{
-  box-shadow: 0 0 0 .25rem rgba(214,31,42,.18);
+.ip-toggler:focus{
+  box-shadow: 0 0 0 .25rem rgba(59,130,246,.18);
 }
 
-/* Dropdown area in mobile */
+/* Links */
+.ip-navbar .nav-link{
+  color: var(--text) !important;
+  font-weight: 600;
+  font-size: .95rem;
+  padding: .55rem .75rem;
+  opacity: .92;
+  border-radius: 12px;
+  transition: background .15s ease, opacity .15s ease, transform .15s ease;
+}
+.ip-navbar .nav-link:hover{
+  opacity: 1;
+  background: rgba(148,163,184,.10);
+  transform: translateY(-1px);
+}
+
+/* Desktop CTA */
+.ip-nav-cta .btn{
+  border-radius: 12px;
+  font-weight: 700;
+  padding: .52rem .95rem;
+}
+
+/* ===== Mega menu ===== */
+.ip-mega{ position: static; }
+
+.ip-mega-menu{
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 18px;
+  padding: 18px;
+  margin-top: 12px;
+}
+
+/* Wide & centered on desktop */
+@media (min-width: 992px){
+  .ip-mega-menu{
+    width: min(1120px, calc(100% - 32px));
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
+
+/* Keep visible on hover (prevents “disappear” when moving mouse) */
+@media (min-width: 992px){
+  .ip-mega:hover > .dropdown-menu{
+    display: block;
+  }
+  .ip-mega:hover > .nav-link{
+    opacity: 1;
+    background: rgba(148,163,184,.10);
+  }
+}
+
+.ip-mega-title{
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: .02em;
+  font-size: .95rem;
+  margin-bottom: 10px;
+}
+
+.ip-mega-link{
+  display: flex;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid transparent;
+  transition: background .15s ease, border-color .15s ease;
+  margin-bottom: 8px;
+}
+.ip-mega-link:hover{
+  background: rgba(148,163,184,.08);
+  border-color: rgba(148,163,184,.18);
+}
+
+.ip-mega-ic{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(148,163,184,.10);
+  flex: 0 0 auto;
+}
+
+.ip-mega-link strong{ display:block; font-size: .95rem; }
+.ip-mega-link small{
+  display:block;
+  color: var(--muted);
+  margin-top: 2px;
+  font-size: .85rem;
+}
+
+/* Right card */
+.ip-mega-card{
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(148,163,184,.06);
+  height: 100%;
+}
+[data-theme="dark"] .ip-mega-card{ background: rgba(148,163,184,.08); }
+
+.ip-mega-card-top{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.ip-mega-badge{
+  font-size: .75rem;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: var(--soft-badge-bg);
+  color: var(--soft-badge-text);
+  font-weight: 700;
+}
+.ip-mega-card-title{ font-weight: 800; color: var(--text); }
+.ip-mega-card-text{ color: var(--muted); font-size: .9rem; margin-bottom: 14px; }
+
+/* ===== Mobile overlay panel (nuk shtyn logo) ===== */
 @media (max-width: 991.98px){
-  .navbar .collapse{
-    margin-top: .75rem;
+  .navbar-collapse{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1050;
   }
 
-  .navbar-nav{
-    padding: .75rem;
+  .ip-mobile-panel{
+    margin: 10px 12px 14px;
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 18px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    padding: 12px;
+  }
+
+  .ip-mobile-head{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 6px 6px 12px;
+    border-bottom: 1px solid rgba(148,163,184,.14);
+    margin-bottom: 10px;
+  }
+
+  .ip-mobile-title{
+    font-weight: 800;
+    letter-spacing: .02em;
+    color: var(--text);
+  }
+
+  .ip-close{
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(148,163,184,.06);
+    color: var(--text);
+  }
+
+  .ip-navlist{
+    gap: 6px;
+  }
+
+  .ip-navbar .nav-link{
+    padding: .8rem .9rem;
+    border-radius: 14px;
     background: rgba(148,163,184,.06);
   }
 
-  [data-theme="dark"] .navbar-nav{
-    background: rgba(148,163,184,.08);
+  /* Mobile services accordion button */
+  .ip-mobile-dd{
+    width: 100%;
+    text-align: left;
+    padding: .8rem .9rem;
+    border-radius: 14px;
+    border: 1px solid rgba(148,163,184,.14);
+    background: rgba(148,163,184,.06);
+    color: var(--text);
+    font-weight: 700;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
   }
 
-  .nav-link{
+  .ip-submenu{
+    padding: 10px 8px 2px;
+    display: grid;
+    gap: 6px;
+  }
+
+  .ip-sub-link{
+    display:block;
+    padding: .7rem .85rem;
     border-radius: 12px;
-    padding: .65rem .85rem !important;
+    text-decoration: none;
+    color: var(--text);
+    background: rgba(148,163,184,.06);
+    border: 1px solid rgba(148,163,184,.14);
+  }
+
+  .ip-sub-link:hover{
+    background: rgba(148,163,184,.10);
   }
 }
+
+/* ===== Desktop layout fix: nav + CTA në 1 rresht ===== */
+@media (min-width: 992px){
+  /* mos e trajto si panel në desktop */
+  .ip-mobile-panel{
+    display: contents;
+  }
+
+  /* collapse bëhet flex row */
+  .ip-collapse{
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  /* nav list në rresht pa wrap */
+  .ip-navlist{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+    margin-bottom: 0 !important;
+  }
+
+  /* CTA mos bjerë poshtë */
+  .ip-nav-cta{
+    margin-top: 0 !important;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* pak hapsirë mes CTA dhe theme button (desktop) */
+@media (min-width: 992px){
+  .ip-actions{
+    margin-left: 12px;
+  }
+}
+
+ /* =========================
+   Hamburger ONLY mobile (final)
+   ========================= */
+
+/* Desktop: hide toggler */
+@media (min-width: 992px){
+  .ip-navbar .navbar-toggler{
+    display: none !important;
+  }
+}
+
+/* Mobile: show toggler */
+@media (max-width: 991.98px){
+  .ip-navbar .navbar-toggler{
+    display: inline-flex !important;
+  }
+}
+
+/* =========================
+   Dark mode – hamburger icon FIX
+   ========================= */
+
+/* vetë butoni */
+[data-theme="dark"] .ip-navbar .navbar-toggler{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.18);
+}
+
+/* ikona (3 vijat) */
+[data-theme="dark"] .ip-navbar .navbar-toggler-icon{
+  filter: invert(1) brightness(1.2);
+}
+
+/* hover pak më e dukshme */
+[data-theme="dark"] .ip-navbar .navbar-toggler:hover{
+  background: rgba(255,255,255,.14);
+}
+
+
+
 
 /* =========================
    HERO (Modern Marketing)
@@ -504,10 +686,45 @@ body{
   }
 }
 
+/* Mobile centering polish */
+@media (max-width: 991.98px){
+  .hero h1{ text-align: center; }
+  .hero-lead{ text-align: center; }
+  .hero-card{ margin-top: .25rem; }
+  .metric{ width: min(180px, 100%); }
+  .hero .btn{ width: 100%; }
+  @media (min-width: 576px){
+    .hero .btn{ width: auto; }
+  }
+}
+
+/* Prevent grid overlay from looking too “busy” on small screens */
+@media (max-width: 575.98px){
+  .hero::before{ opacity: .12; background-size: 52px 52px; }
+}
+
+
+@media (max-width: 991.98px){
+  .hero .btn{
+    width: auto;              /* shumë e rëndësishme */
+    min-width: 150px;         /* duken balanced */
+    justify-content: center;
+  }
+
+  .hero .btn-primary,
+  .hero .btn-hero-secondary{
+    padding: .75rem 1.1rem;
+  }
+}
+
 
 /* =========================
    TRUST / CREDENTIALS
    ========================= */
+
+.trust{
+  position: relative;
+}
 
 .trust-row{
   display: flex;
@@ -517,9 +734,10 @@ body{
   align-items: center;
 }
 
+/* pill */
 .trust-item{
   position: relative;
-  padding: .55rem 1.05rem;
+  padding: .55rem 1.05rem .55rem 1.45rem;
   font-size: .82rem;
   font-weight: 700;
   letter-spacing: .08em;
@@ -533,28 +751,29 @@ body{
     rgba(255,255,255,.55)
   );
   transition:
-    transform .2s ease,
-    box-shadow .2s ease,
-    border-color .2s ease,
-    color .2s ease;
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    color .18s ease;
+  will-change: transform;
 }
 
 /* dark mode */
 [data-theme="dark"] .trust-item{
-  color: rgba(255,255,255,.85);
+  color: rgba(255,255,255,.88);
   border-color: rgba(255,255,255,.16);
   background: linear-gradient(
     180deg,
-    rgba(255,255,255,.06),
+    rgba(255,255,255,.07),
     rgba(255,255,255,.03)
   );
 }
 
-/* subtle accent dot */
+/* accent dot */
 .trust-item::before{
   content:"";
   position: absolute;
-  left: .6rem;
+  left: .65rem;
   top: 50%;
   transform: translateY(-50%);
   width: 6px;
@@ -564,31 +783,37 @@ body{
   box-shadow: 0 0 0 4px rgba(214,31,42,.18);
 }
 
-/* spacing for text because of dot */
-.trust-item{
-  padding-left: 1.4rem;
-}
-
 /* hover */
 .trust-item:hover{
   transform: translateY(-2px);
   border-color: var(--primary);
-  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  box-shadow: 0 10px 26px rgba(0,0,0,.14);
   color: var(--primary);
 }
 
-/* dark hover */
 [data-theme="dark"] .trust-item:hover{
-  box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
 }
 
-/* responsive tweak */
+/* ===== Mobile polish ===== */
 @media (max-width: 575.98px){
+  .trust-row{
+    gap: .6rem;
+  }
+
   .trust-item{
-    font-size: .78rem;
-    padding: .5rem .9rem .5rem 1.3rem;
+    font-size: .76rem;
+    padding: .5rem .9rem .5rem 1.35rem;
   }
 }
+
+/* ===== Tablet ===== */
+@media (min-width: 576px) and (max-width: 991.98px){
+  .trust-item{
+    font-size: .8rem;
+  }
+}
+
 
 /* =========================
    SERVICES (Modern Agency)
@@ -671,27 +896,38 @@ body{
   box-shadow: 0 28px 80px rgba(0,0,0,.55);
   border-color: rgba(255,42,58,.28);
 }
-
-/* Icon bubble */
 .service-icon{
-  width: 46px;
-  height: 46px;
+  width: 52px;
+  height: 52px;
   border-radius: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  margin-bottom: .85rem;
+  margin-bottom: .9rem;
+
   background: rgba(214,31,42,.10);
   border: 1px solid rgba(214,31,42,.18);
   box-shadow: 0 10px 24px rgba(214,31,42,.12);
 }
 
+.service-icon i{
+  font-size: 22px;
+  line-height: 1;
+  color: var(--text);
+  opacity: .95;
+}
+
 [data-theme="dark"] .service-icon{
   background: rgba(255,42,58,.14);
-  border: 1px solid rgba(255,42,58,.20);
-  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+  border-color: rgba(255,42,58,.22);
+  box-shadow: 0 16px 34px rgba(0,0,0,.45);
 }
+
+[data-theme="dark"] .service-icon i{
+  color: var(--hero-text);
+  opacity: .95;
+}
+
 
 /* Titles */
 .service-card h5{
