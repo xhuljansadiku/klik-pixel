@@ -1,3 +1,10 @@
+.germania-one-regular {
+  font-family: "Germania One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 :root{
   /* Albania light */
   --bg:#ffffff;
@@ -68,35 +75,56 @@ body{
 } 
 
 /* =========================
-   ENTERPRISE NAV + MEGA MENU
+   REAL COMPANY NAV + MEGA
    ========================= */
 
 .ip-navbar{
-  background: var(--nav-bg);
+  background: rgba(255,255,255,.75);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+[data-theme="dark"] .ip-navbar{
+  background: rgba(10,15,25,.65);
 }
 
 .ip-nav-wrap{
-  min-height: 76px;
+  min-height: 78px;
   align-items: center;
 }
 
-/* Brand */
-.ip-brand{ text-decoration: none; }
-.brand-logo{ height: 60px; width: auto; display:block; }
-[data-theme="dark"] .brand-logo{ filter: invert(1) brightness(1.1); }
-
-.brand-text{
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  color: var(--text);
+/* ===== Brand (pro) ===== */
+.ip-brand{
+  text-decoration: none;
+  line-height: 1;
+}
+.brand-logo{
+  height: 48px;
+  width: auto;
+  display: block;
+}
+[data-theme="dark"] .brand-logo{
+  filter: invert(1) brightness(1.05);
 }
 
-/* Actions */
+.brand-text{
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 650;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  font-size: 1.02rem;
+  color: var(--text);
+  position: relative;
+  top: 1px;
+}
+
+/* Mobile: mos e ngjesh navbar-in */
+@media (max-width: 420px){
+  .brand-text{ display:none; }
+  .brand-logo{ height: 46px; }
+}
+
+/* ===== Actions ===== */
 .ip-actions{ gap: 10px; }
 
 /* Theme toggle */
@@ -120,6 +148,7 @@ body{
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: .55rem .65rem;
+  background: rgba(148,163,184,.06);
 }
 .ip-toggler:focus{
   box-shadow: 0 0 0 .25rem rgba(59,130,246,.18);
@@ -141,6 +170,12 @@ body{
   transform: translateY(-1px);
 }
 
+/* Active state (optional) */
+.ip-navbar .nav-link.active{
+  opacity: 1;
+  background: rgba(59,130,246,.10);
+}
+
 /* Desktop CTA */
 .ip-nav-cta .btn{
   border-radius: 12px;
@@ -152,15 +187,15 @@ body{
 .ip-mega{ position: static; }
 
 .ip-mega-menu{
-  border: 1px solid var(--border);
+  border: 1px solid rgba(148,163,184,.22);
   background: var(--card-bg);
-  box-shadow: var(--shadow);
+  box-shadow: 0 18px 50px rgba(0,0,0,.12);
   border-radius: 18px;
   padding: 18px;
   margin-top: 12px;
 }
 
-/* Wide & centered on desktop */
+/* centered & wide */
 @media (min-width: 992px){
   .ip-mega-menu{
     width: min(1120px, calc(100% - 32px));
@@ -169,11 +204,9 @@ body{
   }
 }
 
-/* Keep visible on hover (prevents “disappear” when moving mouse) */
+/* hover keep open */
 @media (min-width: 992px){
-  .ip-mega:hover > .dropdown-menu{
-    display: block;
-  }
+  .ip-mega:hover > .dropdown-menu{ display:block; }
   .ip-mega:hover > .nav-link{
     opacity: 1;
     background: rgba(148,163,184,.10);
@@ -184,7 +217,7 @@ body{
   font-weight: 800;
   color: var(--text);
   letter-spacing: .02em;
-  font-size: .95rem;
+  font-size: .92rem;
   margin-bottom: 10px;
 }
 
@@ -196,12 +229,13 @@ body{
   text-decoration: none;
   color: var(--text);
   border: 1px solid transparent;
-  transition: background .15s ease, border-color .15s ease;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
   margin-bottom: 8px;
 }
 .ip-mega-link:hover{
   background: rgba(148,163,184,.08);
-  border-color: rgba(148,163,184,.18);
+  border-color: rgba(148,163,184,.20);
+  transform: translateY(-1px);
 }
 
 .ip-mega-ic{
@@ -225,13 +259,15 @@ body{
 
 /* Right card */
 .ip-mega-card{
-  border: 1px solid var(--border);
+  border: 1px solid rgba(148,163,184,.22);
   border-radius: 18px;
   padding: 16px;
   background: rgba(148,163,184,.06);
   height: 100%;
 }
-[data-theme="dark"] .ip-mega-card{ background: rgba(148,163,184,.08); }
+[data-theme="dark"] .ip-mega-card{
+  background: rgba(148,163,184,.08);
+}
 
 .ip-mega-card-top{
   display:flex;
@@ -242,7 +278,7 @@ body{
 }
 .ip-mega-badge{
   font-size: .75rem;
-  padding: .2rem .55rem;
+  padding: .22rem .6rem;
   border-radius: 999px;
   background: var(--soft-badge-bg);
   color: var(--soft-badge-text);
@@ -251,7 +287,7 @@ body{
 .ip-mega-card-title{ font-weight: 800; color: var(--text); }
 .ip-mega-card-text{ color: var(--muted); font-size: .9rem; margin-bottom: 14px; }
 
-/* ===== Mobile overlay panel (nuk shtyn logo) ===== */
+/* ===== Mobile overlay panel ===== */
 @media (max-width: 991.98px){
   .navbar-collapse{
     position: absolute;
@@ -263,10 +299,10 @@ body{
 
   .ip-mobile-panel{
     margin: 10px 12px 14px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(148,163,184,.22);
     border-radius: 18px;
     background: var(--card-bg);
-    box-shadow: var(--shadow);
+    box-shadow: 0 18px 50px rgba(0,0,0,.12);
     padding: 12px;
   }
 
@@ -289,28 +325,25 @@ body{
     width: 38px;
     height: 38px;
     border-radius: 12px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(148,163,184,.22);
     background: rgba(148,163,184,.06);
     color: var(--text);
   }
 
-  .ip-navlist{
-    gap: 6px;
-  }
+  .ip-navlist{ gap: 6px; }
 
   .ip-navbar .nav-link{
-    padding: .8rem .9rem;
+    padding: .85rem .9rem;
     border-radius: 14px;
     background: rgba(148,163,184,.06);
   }
 
-  /* Mobile services accordion button */
   .ip-mobile-dd{
     width: 100%;
     text-align: left;
-    padding: .8rem .9rem;
+    padding: .85rem .9rem;
     border-radius: 14px;
-    border: 1px solid rgba(148,163,184,.14);
+    border: 1px solid rgba(148,163,184,.16);
     background: rgba(148,163,184,.06);
     color: var(--text);
     font-weight: 700;
@@ -327,27 +360,20 @@ body{
 
   .ip-sub-link{
     display:block;
-    padding: .7rem .85rem;
+    padding: .72rem .85rem;
     border-radius: 12px;
     text-decoration: none;
     color: var(--text);
     background: rgba(148,163,184,.06);
     border: 1px solid rgba(148,163,184,.14);
   }
-
-  .ip-sub-link:hover{
-    background: rgba(148,163,184,.10);
-  }
+  .ip-sub-link:hover{ background: rgba(148,163,184,.10); }
 }
 
-/* ===== Desktop layout fix: nav + CTA në 1 rresht ===== */
+/* ===== Desktop layout fix ===== */
 @media (min-width: 992px){
-  /* mos e trajto si panel në desktop */
-  .ip-mobile-panel{
-    display: contents;
-  }
+  .ip-mobile-panel{ display: contents; }
 
-  /* collapse bëhet flex row */
   .ip-collapse{
     display: flex !important;
     align-items: center;
@@ -355,7 +381,6 @@ body{
     gap: 12px;
   }
 
-  /* nav list në rresht pa wrap */
   .ip-navlist{
     display: flex;
     flex-direction: row;
@@ -365,64 +390,25 @@ body{
     margin-bottom: 0 !important;
   }
 
-  /* CTA mos bjerë poshtë */
-  .ip-nav-cta{
-    margin-top: 0 !important;
-    display: flex;
-    align-items: center;
-  }
-}
-
-/* pak hapsirë mes CTA dhe theme button (desktop) */
-@media (min-width: 992px){
-  .ip-actions{
-    margin-left: 12px;
-  }
-}
-
- /* =========================
-   Hamburger ONLY mobile (final)
-   ========================= */
-
-/* Desktop: hide toggler */
-@media (min-width: 992px){
-  .ip-navbar .navbar-toggler{
-    display: none !important;
-  }
-}
-
-/* Mobile: show toggler */
-@media (max-width: 991.98px){
-  .ip-navbar .navbar-toggler{
-    display: inline-flex !important;
-  }
+  .ip-actions{ margin-left: 12px; }
 }
 
 /* =========================
-   Dark mode – hamburger icon FIX
+   Dark mode hamburger icon
    ========================= */
-
-/* vetë butoni */
 [data-theme="dark"] .ip-navbar .navbar-toggler{
   background: rgba(255,255,255,.08);
   border-color: rgba(255,255,255,.18);
 }
-
-/* ikona (3 vijat) */
 [data-theme="dark"] .ip-navbar .navbar-toggler-icon{
   filter: invert(1) brightness(1.2);
 }
-
-/* hover pak më e dukshme */
 [data-theme="dark"] .ip-navbar .navbar-toggler:hover{
   background: rgba(255,255,255,.14);
 }
 
-
-
-
 /* =========================
-   HERO (Modern Marketing)
+   HERO (Real Company + Brand)
    ========================= */
 
 .hero{
@@ -461,10 +447,7 @@ body{
   opacity: .18;
   pointer-events:none;
 }
-
-[data-theme="light"] .hero::before{
-  opacity: .10;
-}
+[data-theme="light"] .hero::before{ opacity: .10; }
 
 /* glow blob */
 .hero::after{
@@ -479,11 +462,72 @@ body{
   pointer-events:none;
 }
 
-.hero .container{
-  position: relative;
-  z-index: 1;
+.hero .container{ position: relative; z-index: 1; }
+
+/* ===== NEW: Hero brand badge ===== */
+.hero-brand{
+  user-select: none;
 }
 
+.hero-logo-wrap{
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
+}
+
+[data-theme="light"] .hero-logo-wrap{
+  border: 1px solid rgba(11,15,25,.14);
+  background: rgba(255,255,255,.75);
+  box-shadow: 0 18px 44px rgba(0,0,0,.08);
+}
+
+.hero-logo{
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+[data-theme="dark"] .hero-logo{
+  filter: invert(1) brightness(1.05);
+}
+
+.hero-brand-text{
+  display: grid;
+  gap: 2px;
+}
+
+.hero-brand-name{
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 750;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  font-size: .95rem;
+  color: rgba(255,255,255,.90);
+}
+
+[data-theme="light"] .hero-brand-name{
+  color: rgba(11,15,25,.86);
+}
+
+.hero-brand-sub{
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+}
+
+[data-theme="light"] .hero-brand-sub{
+  color: rgba(11,15,25,.60);
+}
+
+/* Headline */
 .hero h1{
   font-size: clamp(2.3rem, 4.2vw, 3.3rem);
   font-weight: 800;
@@ -515,7 +559,6 @@ body{
   border: 1px solid rgba(255,255,255,.16);
   backdrop-filter: blur(10px);
 }
-
 [data-theme="light"] .tag-pill{
   color: rgba(11,15,25,.76);
   background: rgba(255,255,255,.70);
@@ -534,7 +577,6 @@ body{
   box-shadow: 0 16px 36px rgba(214,31,42,.22);
   transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
 }
-
 .hero .btn-primary:hover{
   transform: translateY(-1px);
   box-shadow: 0 22px 46px rgba(214,31,42,.30);
@@ -547,19 +589,16 @@ body{
   backdrop-filter: blur(10px);
   transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
 }
-
 .btn-hero-secondary:hover{
   transform: translateY(-1px);
   background: rgba(255,255,255,.10);
   border-color: rgba(255,255,255,.26);
 }
-
 [data-theme="light"] .btn-hero-secondary{
   border: 1px solid rgba(11,15,25,.14);
   color: #0b0f19;
   background: rgba(255,255,255,.78);
 }
-
 [data-theme="light"] .btn-hero-secondary:hover{
   background: rgba(255,255,255,.95);
 }
@@ -569,15 +608,12 @@ body{
   font-size: .92rem;
   color: rgba(255,255,255,.68);
 }
-
 [data-theme="light"] .hero-meta{
   color: rgba(11,15,25,.65);
 }
 
 /* Metrics */
-.hero-metrics{
-  margin-top: 1.1rem;
-}
+.hero-metrics{ margin-top: 1.1rem; }
 
 .metric{
   min-width: 150px;
@@ -588,13 +624,11 @@ body{
   backdrop-filter: blur(12px);
   transition: transform .2s ease, border-color .2s ease, background-color .2s ease;
 }
-
 .metric:hover{
   transform: translateY(-2px);
   border-color: rgba(255,255,255,.22);
   background: rgba(255,255,255,.08);
 }
-
 [data-theme="light"] .metric{
   border: 1px solid rgba(11,15,25,.12);
   background: rgba(255,255,255,.72);
@@ -607,31 +641,24 @@ body{
   letter-spacing: -0.01em;
   color: #fff;
 }
-
-[data-theme="light"] .metric-num{
-  color: #0b0f19;
-}
+[data-theme="light"] .metric-num{ color: #0b0f19; }
 
 .metric-label{
   margin-top: .35rem;
   font-size: .82rem;
   color: rgba(255,255,255,.68);
 }
+[data-theme="light"] .metric-label{ color: rgba(11,15,25,.62); }
 
-[data-theme="light"] .metric-label{
-  color: rgba(11,15,25,.62);
-}
-
-/* Hero card (right column) */
+/* Hero card */
 .hero-card{
   border-radius: 22px;
-  padding: 1.25rem 1.25rem;
+  padding: 1.25rem;
   border: 1px solid rgba(255,255,255,.16);
   background: rgba(255,255,255,.06);
   backdrop-filter: blur(14px);
   box-shadow: 0 20px 60px rgba(0,0,0,.25);
 }
-
 [data-theme="light"] .hero-card{
   border: 1px solid rgba(11,15,25,.12);
   background: rgba(255,255,255,.78);
@@ -644,18 +671,10 @@ body{
   color: rgba(255,255,255,.78);
   margin-bottom: .9rem;
 }
+[data-theme="light"] .hero-card-title{ color: rgba(11,15,25,.72); }
 
-[data-theme="light"] .hero-card-title{
-  color: rgba(11,15,25,.72);
-}
-
-.hero-card-list{
-  color: rgba(255,255,255,.70);
-}
-
-[data-theme="light"] .hero-card-list{
-  color: rgba(11,15,25,.70);
-}
+.hero-card-list{ color: rgba(255,255,255,.70); }
+[data-theme="light"] .hero-card-list{ color: rgba(11,15,25,.70); }
 
 .hero-card-list li{
   display: flex;
@@ -663,7 +682,6 @@ body{
   align-items: flex-start;
   line-height: 1.6;
 }
-
 .hero-card-list li::before{
   content: "";
   margin-top: .4rem;
@@ -675,143 +693,283 @@ body{
   flex: 0 0 auto;
 }
 
-/* spacing on smaller screens */
+/* Responsive */
 @media (max-width: 991.98px){
-  .hero{
-    min-height: auto;
-    padding: 2.8rem 0;
-  }
-  .metric{
-    min-width: 140px;
-  }
-}
-
-/* Mobile centering polish */
-@media (max-width: 991.98px){
-  .hero h1{ text-align: center; }
-  .hero-lead{ text-align: center; }
+  .hero{ min-height: auto; padding: 2.8rem 0; }
+  .metric{ min-width: 140px; }
+  .hero h1, .hero-lead{ text-align: center; }
   .hero-card{ margin-top: .25rem; }
   .metric{ width: min(180px, 100%); }
-  .hero .btn{ width: 100%; }
-  @media (min-width: 576px){
-    .hero .btn{ width: auto; }
-  }
+  .hero .btn{ width: auto; min-width: 150px; justify-content: center; }
 }
 
-/* Prevent grid overlay from looking too “busy” on small screens */
 @media (max-width: 575.98px){
   .hero::before{ opacity: .12; background-size: 52px 52px; }
+  .hero-logo-wrap{ width: 50px; height: 50px; border-radius: 16px; }
+  .hero-logo{ height: 32px; }
 }
 
 
-@media (max-width: 991.98px){
-  .hero .btn{
-    width: auto;              /* shumë e rëndësishme */
-    min-width: 150px;         /* duken balanced */
-    justify-content: center;
-  }
-
-  .hero .btn-primary,
-  .hero .btn-hero-secondary{
-    padding: .75rem 1.1rem;
-  }
+/* ===== Hero brand line (pro) ===== */
+.hero-brandline{
+  user-select: none;
 }
 
-
-/* =========================
-   TRUST / CREDENTIALS
-   ========================= */
-
-.trust{
-  position: relative;
-}
-
-.trust-row{
-  display: flex;
-  flex-wrap: wrap;
-  gap: .9rem 1.2rem;
-  justify-content: center;
+.hero-brandlogo{
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
 }
 
-/* pill */
-.trust-item{
-  position: relative;
-  padding: .55rem 1.05rem .55rem 1.45rem;
+[data-theme="light"] .hero-brandlogo{
+  border: 1px solid rgba(11,15,25,.14);
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 18px 44px rgba(0,0,0,.08);
+}
+
+.hero-brandimg{
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+[data-theme="dark"] .hero-brandimg{
+  filter: invert(1) brightness(1.05);
+}
+
+.hero-brandcopy{
+  display: grid;
+  gap: 2px;
+}
+
+.hero-brandname{
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 750;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  font-size: .98rem;
+  color: rgba(255,255,255,.92);
+}
+
+[data-theme="light"] .hero-brandname{
+  color: rgba(11,15,25,.86);
+}
+
+.hero-brandtag{
   font-size: .82rem;
-  font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--text);
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.75),
-    rgba(255,255,255,.55)
-  );
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease,
-    border-color .18s ease,
-    color .18s ease;
-  will-change: transform;
+  color: rgba(255,255,255,.65);
+}
+
+[data-theme="light"] .hero-brandtag{
+  color: rgba(11,15,25,.60);
+}
+
+/* Mobile polish */
+@media (max-width: 575.98px){
+  .hero-brandlogo{ width: 50px; height: 50px; }
+  .hero-brandimg{ height: 32px; }
+  .hero-brandtag{ font-size: .78rem; }
+}
+
+/* =========================
+   HERO SPLIT (Logo left)
+   ========================= */
+
+.hero-split{
+  min-height: 86vh;
+}
+
+/* BIG LOGO LEFT */
+.hero-logo-big-wrap{
+  width: 260px;
+  height: 260px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 40px 120px rgba(0,0,0,.35);
+}
+
+[data-theme="light"] .hero-logo-big-wrap{
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(11,15,25,.12);
+  box-shadow: 0 30px 80px rgba(0,0,0,.12);
+}
+
+.hero-logo-big{
+  width: 65%;
+  height: auto;
+}
+
+[data-theme="dark"] .hero-logo-big{
+  filter: invert(1) brightness(1.05);
+}
+
+/* BRAND LINE RIGHT */
+.hero-brand-badge{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+}
+
+[data-theme="light"] .hero-brand-badge{
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(11,15,25,.14);
+}
+
+.hero-brand-mini{
+  height: 26px;
+  width: auto;
+}
+
+[data-theme="dark"] .hero-brand-mini{
+  filter: invert(1) brightness(1.05);
+}
+
+.hero-brandname{
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .95rem;
+  color: rgba(255,255,255,.9);
+}
+
+[data-theme="light"] .hero-brandname{
+  color: rgba(11,15,25,.85);
+}
+
+.hero-brandtag{
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+
+[data-theme="light"] .hero-brandtag{
+  color: rgba(11,15,25,.6);
+}
+
+/* TITLE */
+.hero-title{
+  font-size: clamp(2.4rem, 4.6vw, 3.4rem);
+  font-weight: 850;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* MOBILE */
+@media (max-width: 991.98px){
+  .hero-logo-big-wrap{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+  }
+  .hero-logo-big{
+    width: 60%;
+  }
+  .hero-title{
+    text-align: center;
+  }
+}
+
+/* Hero meta – universal */
+.hero .hero-meta{
+  font-size: .92rem;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,.68);
+}
+
+/* Light mode FIX */
+[data-theme="light"] .hero .hero-meta{
+  color: rgba(255,255,255,.68);
+}
+
+
+/* TRUST minimal */
+.trust-kicker{
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(11,15,25,.55);
+}
+
+.trust-sub{
+  margin-top: .4rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(11,15,25,.75);
+}
+
+.trust-card{
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(11,15,25,.08);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.trust-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(214,31,42,.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+}
+
+.trust-emoji{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: rgba(214,31,42,.12);
+}
+
+.trust-label{
+  font-size: .92rem;
+  font-weight: 600;
+  color: rgba(11,15,25,.85);
+  white-space: nowrap;
 }
 
 /* dark mode */
-[data-theme="dark"] .trust-item{
-  color: rgba(255,255,255,.88);
-  border-color: rgba(255,255,255,.16);
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.07),
-    rgba(255,255,255,.03)
-  );
+[data-theme="dark"] .trust-kicker{ color: rgba(255,255,255,.55); }
+[data-theme="dark"] .trust-sub{ color: rgba(255,255,255,.72); }
+
+[data-theme="dark"] .trust-card{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.14);
 }
 
-/* accent dot */
-.trust-item::before{
-  content:"";
-  position: absolute;
-  left: .65rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--primary);
-  box-shadow: 0 0 0 4px rgba(214,31,42,.18);
+[data-theme="dark"] .trust-card:hover{
+  box-shadow: 0 20px 50px rgba(0,0,0,.45);
 }
 
-/* hover */
-.trust-item:hover{
-  transform: translateY(-2px);
-  border-color: var(--primary);
-  box-shadow: 0 10px 26px rgba(0,0,0,.14);
-  color: var(--primary);
+[data-theme="dark"] .trust-label{
+  color: rgba(255,255,255,.9);
 }
 
-[data-theme="dark"] .trust-item:hover{
-  box-shadow: 0 18px 40px rgba(0,0,0,.45);
-}
-
-/* ===== Mobile polish ===== */
-@media (max-width: 575.98px){
-  .trust-row{
-    gap: .6rem;
-  }
-
-  .trust-item{
-    font-size: .76rem;
-    padding: .5rem .9rem .5rem 1.35rem;
-  }
-}
-
-/* ===== Tablet ===== */
-@media (min-width: 576px) and (max-width: 991.98px){
-  .trust-item{
-    font-size: .8rem;
-  }
+[data-theme="dark"] .trust-emoji{
+  background: rgba(214,31,42,.18);
 }
 
 
