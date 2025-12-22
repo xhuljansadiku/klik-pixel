@@ -1,31 +1,22 @@
 /* ==============================
-   Illyrian Pixel – main.js (clean, one-time bindings)
-   Requires: Bootstrap JS loaded before this file
+   Illyrian Pixel – main.js (clean)
+   Requires: Bootstrap JS (bundle) loaded before this file
    ============================== */
 
-/* ------------------------------
-   Helpers
--------------------------------- */
+/* Helpers */
 const qs = (s, p = document) => p.querySelector(s);
 const qsa = (s, p = document) => Array.from(p.querySelectorAll(s));
 const hasBootstrap = () => typeof window.bootstrap !== "undefined";
 
-/* ------------------------------
-   DOM Ready wrapper (safe)
--------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ------------------------------
-     Footer year
-  -------------------------------- */
+  /* Footer year */
   (() => {
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   })();
 
-  /* ------------------------------
-     Theme toggle (data-theme on <html>)
-  -------------------------------- */
+  /* Theme toggle */
   (() => {
     const root = document.documentElement;
     const toggleBtn = document.getElementById("themeToggle");
@@ -38,10 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (icon) icon.textContent = theme === "dark" ? "🌙" : "☀️";
     };
 
-    const stored = (() => {
-      try { return localStorage.getItem(KEY); } catch (e) { return null; }
-    })();
-
+    let stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
     applyTheme(stored === "light" || stored === "dark" ? stored : "dark");
 
     if (toggleBtn) {
@@ -52,9 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })();
 
-  /* ------------------------------
-     Navbar shrink
-  -------------------------------- */
+  /* Navbar shrink */
   (() => {
     const bar = qs(".ip-navbar");
     if (!bar) return;
@@ -64,9 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     onScroll();
   })();
 
-  /* ------------------------------
-     Active link on scroll (IntersectionObserver)
-  -------------------------------- */
+  /* Active link on scroll (SAFE – ignores href="#") */
   (() => {
     const nav = qs("#ipNav");
     if (!nav || typeof IntersectionObserver === "undefined") return;
@@ -74,15 +59,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = qsa('a.nav-link[href^="#"]', nav);
     if (!links.length) return;
 
-    const sections = links
+    const pairs = links
       .map(a => {
-        const id = a.getAttribute("href");
-        const sec = id ? document.querySelector(id) : null;
+        const href = (a.getAttribute("href") || "").trim();
+        if (!href || href === "#") return null;
+        if (!href.startsWith("#") || href.length < 2) return null;
+
+        let sec = null;
+        try { sec = document.querySelector(href); } catch (e) { sec = null; }
         return sec ? { sec, a } : null;
       })
       .filter(Boolean);
 
-    if (!sections.length) return;
+    if (!pairs.length) return;
 
     const setActive = (a) => {
       links.forEach(x => x.classList.remove("active"));
@@ -95,17 +84,14 @@ document.addEventListener("DOMContentLoaded", () => {
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
       if (!visible) return;
-      const match = sections.find(x => x.sec === visible.target);
+      const match = pairs.find(x => x.sec === visible.target);
       if (match) setActive(match.a);
     }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.12, 0.25, 0.5] });
 
-    sections.forEach(x => obs.observe(x.sec));
+    pairs.forEach(x => obs.observe(x.sec));
   })();
 
-  /* ------------------------------
-     Mobile nav: close on link click + outside click + ESC
-     Uses #ipNav (collapse)
-  -------------------------------- */
+  /* Mobile nav close: link click + outside + ESC */
   (() => {
     const nav = qs("#ipNav");
     if (!nav || !hasBootstrap()) return;
@@ -117,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const isOpen = () => nav.classList.contains("show");
     const collapse = () => window.bootstrap.Collapse.getOrCreateInstance(nav, { toggle: false });
 
-    // close on internal link click (ignore dropdown toggles)
     nav.addEventListener("click", (e) => {
       const a = e.target.closest("a");
       if (!a) return;
@@ -132,28 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
       collapse().hide();
     });
 
-    // close on outside click
     document.addEventListener("click", (e) => {
       if (!isMobile() || !isOpen()) return;
-
       const clickedInside = panel.contains(e.target);
       const clickedToggler = toggler && toggler.contains(e.target);
-
       if (!clickedInside && !clickedToggler) collapse().hide();
     });
 
-    // close on ESC
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && isMobile() && isOpen()) collapse().hide();
     });
   })();
 
-  /* ------------------------------
-     Mega menu hover (desktop only)
-     Needs:
-       trigger: #megaServices
-       menu:    #megaMenu  (add id in HTML)
-  -------------------------------- */
+  /* Mega menu hover (desktop) – requires #megaMenu id in HTML */
   (() => {
     if (!hasBootstrap()) return;
 
@@ -208,9 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mq.addEventListener("change", (e) => (e.matches ? bind() : unbind()));
   })();
 
-  /* ------------------------------
-     Back to top
-  -------------------------------- */
+  /* Back to top */
   (() => {
     const backToTop = qs("#backToTop");
     if (!backToTop) return;
@@ -228,9 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })();
 
-  /* ------------------------------
-     Pricing filter + save + smooth scroll
-  -------------------------------- */
+  /* Pricing filter (ONE TIME ONLY) */
   (() => {
     const wrap = qs("#pricing");
     if (!wrap) return;
@@ -243,30 +215,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!buttons.length || !items.length) return;
 
     const setActive = (btn) => {
-      buttons.forEach(b => b.classList.remove("is-active"));
+      buttons.forEach(b => {
+        b.classList.remove("is-active");
+        b.setAttribute("aria-selected", "false");
+      });
       btn.classList.add("is-active");
+      btn.setAttribute("aria-selected", "true");
     };
 
-    const applyFilter = (cat) => {
-      let delay = 0;
+    const apply = (cat) => {
       items.forEach(item => {
         const itemCat = item.getAttribute("data-cat");
-        const show = cat === "all" || itemCat === cat;
-
-        if (show) {
-          item.classList.remove("is-hidden");
-          item.style.transitionDelay = `${delay}ms`;
-          delay += 60;
-        } else {
-          item.classList.add("is-hidden");
-          item.style.transitionDelay = "0ms";
-        }
+        const show = (cat === "all" || itemCat === cat);
+        item.classList.toggle("is-hidden", !show);
       });
     };
 
     const scrollToGrid = () => {
       if (!grid) return;
-      const nav = qs(".navbar.sticky-top, .ip-navbar.sticky-top");
+      const nav = qs(".ip-navbar.sticky-top, .navbar.sticky-top");
       const navH = nav ? Math.ceil(nav.getBoundingClientRect().height) : 0;
       const y = grid.getBoundingClientRect().top + window.pageYOffset - (navH + 14);
       window.scrollTo({ top: y, behavior: "smooth" });
@@ -275,29 +242,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const save = (cat) => { try { localStorage.setItem(KEY, cat); } catch (e) {} };
     const load = () => { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
 
-    const findBtn = (cat) => buttons.find(b => b.getAttribute("data-filter") === cat);
-
-    const setFilter = (cat, doScroll = true) => {
-      const btn = findBtn(cat) || findBtn("all") || buttons[0];
-      const finalCat = btn.getAttribute("data-filter") || "all";
-
+    const setFilter = (cat, doScroll) => {
+      const btn = buttons.find(b => b.dataset.filter === cat) || buttons[0];
+      const finalCat = btn.dataset.filter || "all";
       setActive(btn);
-      applyFilter(finalCat);
+      apply(finalCat);
       save(finalCat);
-
       if (doScroll) scrollToGrid();
     };
 
-    buttons.forEach(btn => btn.addEventListener("click", () => setFilter(btn.getAttribute("data-filter"), true)));
+    buttons.forEach(btn => btn.addEventListener("click", () => setFilter(btn.dataset.filter, true)));
 
     const saved = load();
-    if (saved && findBtn(saved)) setFilter(saved, false);
+    if (saved && buttons.some(b => b.dataset.filter === saved)) setFilter(saved, false);
     else setFilter("all", false);
   })();
 
-  /* ------------------------------
-     Testimonials tabs: save + auto rotate + pause on hover
-  -------------------------------- */
+  /* Testimonials tabs */
   (() => {
     const section = qs("#testimonials");
     if (!section || !hasBootstrap()) return;
@@ -364,9 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
     start();
   })();
 
-  /* ------------------------------
-     FAQ: chips + search + save + badge click + open specific
-  -------------------------------- */
+  /* FAQ */
   (() => {
     const section = qs("#faq");
     if (!section) return;
@@ -377,29 +336,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const empty = qs("#faqEmpty", section);
     const acc = qs("#faqAcc", section);
 
+    if (!chips.length || !items.length) return;
+
     const KEY_FILTER = "ip_faq_filter";
     const KEY_SEARCH = "ip_faq_search";
 
-    if (!chips.length || !items.length) return;
-
-    const textOf = (el) => ((el.innerText || el.textContent || "").toLowerCase());
-
-    const scrollToAcc = () => {
-      const el = qs(".faq-acc", section);
-      if (!el) return;
-      const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
-      window.scrollTo({ top: y, behavior: "smooth" });
+    const setActiveChip = (cat) => {
+      chips.forEach(c => c.classList.toggle("is-active", c.dataset.filter === cat));
     };
 
     const closeAll = () => {
-      if (!acc || !hasBootstrap()) return;
-      qsa(".accordion-collapse.show", acc).forEach(c => {
+      if (!acc || !window.bootstrap) return;
+      acc.querySelectorAll(".accordion-collapse.show").forEach(c => {
         window.bootstrap.Collapse.getOrCreateInstance(c, { toggle: false }).hide();
       });
-    };
-
-    const setActiveChip = (cat) => {
-      chips.forEach(c => c.classList.toggle("is-active", c.dataset.filter === cat));
     };
 
     const apply = (cat, q) => {
@@ -408,8 +358,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       items.forEach(item => {
         const itemCat = item.dataset.cat || "all";
-        const matchesCat = cat === "all" || itemCat === cat;
-        const matchesText = !query || textOf(item).includes(query);
+        const matchesCat = (cat === "all" || itemCat === cat);
+        const text = (item.innerText || item.textContent || "").toLowerCase();
+        const matchesText = (!query || text.includes(query));
 
         const show = matchesCat && matchesText;
         item.classList.toggle("is-hidden", !show);
@@ -441,10 +392,10 @@ document.addEventListener("DOMContentLoaded", () => {
     chips.forEach(chip => {
       chip.addEventListener("click", () => {
         const cat = chip.dataset.filter || "all";
+        const q = search ? search.value : "";
         setActiveChip(cat);
-        apply(cat, search ? search.value : "");
-        save(cat, search ? search.value : "");
-        if (window.innerWidth < 992) scrollToAcc();
+        apply(cat, q);
+        save(cat, q);
       });
     });
 
@@ -460,18 +411,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    if (acc) {
-      acc.addEventListener("show.bs.collapse", (e) => {
-        const item = e.target.closest(".accordion-item");
-        if (item) item.classList.add("is-opening");
-      });
-      acc.addEventListener("shown.bs.collapse", (e) => {
-        const item = e.target.closest(".accordion-item");
-        if (!item) return;
-        setTimeout(() => item.classList.remove("is-opening"), 220);
-      });
-    }
-
     section.addEventListener("click", (e) => {
       const badge = e.target.closest(".faq-badge");
       if (!badge) return;
@@ -479,38 +418,14 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       e.stopPropagation();
 
-      const key = badge.getAttribute("data-badge") || "all";
+      const cat = badge.getAttribute("data-badge") || "all";
       if (search) search.value = "";
 
-      setActiveChip(key);
-      apply(key, "");
-      save(key, "");
-      scrollToAcc();
+      setActiveChip(cat);
+      apply(cat, "");
+      save(cat, "");
     });
 
-    section.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-faq-open]");
-      if (!btn) return;
-
-      const sel = btn.getAttribute("data-faq-open");
-      const target = sel ? document.querySelector(sel) : null;
-      if (!target) return;
-
-      if (search) search.value = "";
-      setActiveChip("all");
-      apply("all", "");
-      save("all", "");
-
-      scrollToAcc();
-
-      if (hasBootstrap()) {
-        window.bootstrap.Collapse.getOrCreateInstance(target, { toggle: false }).show();
-      } else {
-        target.classList.add("show");
-      }
-    });
-
-    // init from storage
     const state = load();
     if (search) search.value = state.q;
 
@@ -521,15 +436,21 @@ document.addEventListener("DOMContentLoaded", () => {
     apply(cat, state.q);
   })();
 
-  /* ------------------------------
-     Contact form: validation + UX (front-end only)
-  -------------------------------- */
+  /* Contact wizard + submit (front-end only) */
   (() => {
     const form = qs("#contactForm");
     if (!form) return;
 
-    const btn = qs("#contactSubmit");
-    const status = qs("#contactStatus");
+    const panels = qsa(".cf-panel", form);
+    const stepsUI = qsa(".cf-step", form);
+    const btnNext = qsa(".cf-next", form);
+    const btnBack = qsa(".cf-back", form);
+
+    const serviceSelect = qs("#cService", form);
+    const status = qs("#contactStatus", form);
+    const submitBtn = qs("#contactSubmit", form);
+
+    let step = 1;
 
     const setStatus = (msg, type = "muted") => {
       if (!status) return;
@@ -538,9 +459,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const setLoading = (loading) => {
-      if (!btn) return;
-      btn.disabled = loading;
-      btn.innerHTML = loading
+      if (!submitBtn) return;
+      submitBtn.disabled = loading;
+      submitBtn.innerHTML = loading
         ? `<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Duke dërguar...`
         : `Dërgo`;
     };
@@ -554,22 +475,122 @@ document.addEventListener("DOMContentLoaded", () => {
       el.classList.toggle("is-valid", !invalid);
     };
 
+    const showPanel = (n) => {
+      step = n;
+
+      panels.forEach(p => p.classList.toggle("is-active", Number(p.dataset.step) === n));
+
+      stepsUI.forEach((s, i) => {
+        const idx = i + 1;
+        s.classList.toggle("is-active", idx === n);
+        s.classList.toggle("is-done", idx < n);
+      });
+
+      const active = panels.find(p => Number(p.dataset.step) === n);
+      if (active) active.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      setStatus("");
+    };
+
+    const activeService = () => (serviceSelect?.value || "").trim();
+
+    // supports cf-group in ANY step: only show groups inside ACTIVE panel
+    const showServiceGroup = () => {
+      const sv = activeService();
+      const panel = panels.find(p => p.classList.contains("is-active"));
+      if (!panel) return;
+
+      const groups = qsa(".cf-group", panel);
+      if (!groups.length) return;
+
+      groups.forEach(g => {
+        const on = g.dataset.service === sv;
+        g.hidden = !on;
+
+        qsa("[data-required]", g).forEach(el => {
+          el.required = on;
+          if (!on) el.classList.remove("is-invalid", "is-valid");
+        });
+      });
+    };
+
+    const validateStep = (n) => {
+      let ok = true;
+
+      const panel = panels.find(p => Number(p.dataset.step) === n);
+      if (!panel) return true;
+
+      const fields = qsa("input, select, textarea", panel);
+
+      fields.forEach(el => {
+        if (el.disabled || el.type === "hidden") return;
+
+        if (!el.required) {
+          el.classList.remove("is-invalid");
+          return;
+        }
+
+        let bad = false;
+
+        if (el.tagName === "SELECT") bad = !el.value;
+        else if (el.type === "email") bad = !el.value.trim() || !isValidEmail(el.value);
+        else bad = !String(el.value || "").trim();
+
+        mark(el, bad);
+        if (bad) ok = false;
+      });
+
+      return ok;
+    };
+
+    // init
+    showPanel(1);
+    showServiceGroup();
+
+    serviceSelect?.addEventListener("change", () => {
+      showServiceGroup();
+    });
+
+    btnNext.forEach(b => b.addEventListener("click", () => {
+      if (!validateStep(step)) {
+        setStatus("Kontrollo fushat e shënuara.", "err");
+        return;
+      }
+
+      if (step < 4) {
+        showPanel(step + 1);
+        showServiceGroup();
+      }
+    }));
+
+    btnBack.forEach(b => b.addEventListener("click", () => {
+      if (step > 1) {
+        showPanel(step - 1);
+        showServiceGroup();
+      }
+    }));
+
+    form.addEventListener("input", (e) => {
+      const el = e.target;
+      if (!el) return;
+
+      if (el.name === "email") {
+        if (el.classList.contains("is-invalid")) mark(el, !isValidEmail(el.value));
+        return;
+      }
+
+      if (el.classList.contains("is-invalid") && el.required) {
+        const bad = !String(el.value || "").trim();
+        mark(el, bad);
+      }
+    });
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       setStatus("");
 
-      const name = form.name?.value?.trim();
-      const email = form.email?.value?.trim();
-      const service = form.service?.value?.trim();
-      const message = form.message?.value?.trim();
-
-      mark(form.name, !name);
-      mark(form.email, !email || !isValidEmail(email));
-      mark(form.service, !service);
-      mark(form.message, !message);
-
-      const ok = name && email && isValidEmail(email) && service && message;
-      if (!ok) {
+      // validate step 4 (and required fields there)
+      if (!validateStep(4)) {
         setStatus("Kontrollo fushat e shënuara.", "err");
         return;
       }
@@ -578,118 +599,22 @@ document.addEventListener("DOMContentLoaded", () => {
         setLoading(true);
         setStatus("Po e dërgojmë...", "muted");
 
-        await new Promise((r) => setTimeout(r, 900));
+        // SIMULIM (zëvendëso me fetch real kur ta lidhësh backend)
+        await new Promise(r => setTimeout(r, 900));
 
         setStatus("U dërgua. Do të kthej përgjigje sa më shpejt.", "ok");
         form.reset();
 
-        ["name", "email", "service", "budget", "message"].forEach((k) => {
-          const el = form[k];
-          if (!el) return;
-          el.classList.remove("is-valid", "is-invalid");
-        });
+        // reset UI
+        panels.forEach(p => qsa(".is-valid,.is-invalid", p).forEach(x => x.classList.remove("is-valid", "is-invalid")));
+        showPanel(1);
+        showServiceGroup();
       } catch (err) {
         setStatus("S’funksionoi. Provo përsëri ose më shkruaj në email.", "err");
       } finally {
         setLoading(false);
       }
     });
-
-    form.addEventListener("input", (e) => {
-      const el = e.target;
-      if (!el || !el.classList.contains("is-invalid")) return;
-
-      if (el.name === "email") el.classList.toggle("is-invalid", !isValidEmail(el.value));
-      else el.classList.toggle("is-invalid", !String(el.value).trim());
-    });
-  })();
-
-  /* ------------------------------
-     Footer smooth scroll (footer links only)
-  -------------------------------- */
-  (() => {
-    const footer = qs("#footer");
-    if (!footer) return;
-
-    footer.addEventListener("click", (e) => {
-      const a = e.target.closest('a[href^="#"]');
-      if (!a) return;
-
-      const id = a.getAttribute("href");
-      if (!id || id === "#") return;
-
-      const target = qs(id);
-      if (!target) return;
-
-      e.preventDefault();
-
-      const nav = qs(".navbar.sticky-top, .ip-navbar.sticky-top");
-      const navH = nav ? Math.ceil(nav.getBoundingClientRect().height) : 80;
-      const top = target.getBoundingClientRect().top + window.pageYOffset - (navH + 10);
-
-      window.scrollTo({ top, behavior: "smooth" });
-    });
   })();
 
 });
-
-
-/* =========================
-   Pricing filter (save + smooth scroll)
-   ========================= */
-(() => {
-  const wrap = document.querySelector("#pricing");
-  if (!wrap) return;
-
-  const buttons = Array.from(wrap.querySelectorAll(".pf-btn"));
-  const items = Array.from(wrap.querySelectorAll(".pricing-item"));
-  const grid = wrap.querySelector("#pricingGrid");
-  const KEY = "ip_pricing_filter";
-
-  const setActive = (btn) => {
-    buttons.forEach(b => {
-      b.classList.remove("is-active");
-      b.setAttribute("aria-selected", "false");
-    });
-    btn.classList.add("is-active");
-    btn.setAttribute("aria-selected", "true");
-  };
-
-  const apply = (cat) => {
-    items.forEach(item => {
-      const itemCat = item.getAttribute("data-cat");
-      const show = (cat === "all" || itemCat === cat);
-      item.classList.toggle("is-hidden", !show);
-    });
-  };
-
-  const scrollToGrid = () => {
-    if (!grid) return;
-    const nav = document.querySelector(".ip-navbar.sticky-top, .navbar.sticky-top");
-    const navH = nav ? Math.ceil(nav.getBoundingClientRect().height) : 0;
-    const y = grid.getBoundingClientRect().top + window.pageYOffset - (navH + 14);
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
-
-  const save = (cat) => { try { localStorage.setItem(KEY, cat); } catch(e){} };
-  const load = () => { try { return localStorage.getItem(KEY); } catch(e){ return null; } };
-
-  const setFilter = (cat, doScroll) => {
-    const btn = buttons.find(b => b.dataset.filter === cat) || buttons[0];
-    const finalCat = btn.dataset.filter || "all";
-    setActive(btn);
-    apply(finalCat);
-    save(finalCat);
-    if (doScroll) scrollToGrid();
-  };
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => setFilter(btn.dataset.filter, true));
-  });
-
-  const saved = load();
-  if (saved && buttons.some(b => b.dataset.filter === saved)) setFilter(saved, false);
-  else setFilter("all", false);
-})();
-
-

@@ -170,7 +170,7 @@
                     </p>
 
                     <div class="d-grid gap-2">
-                      <a class="btn btn-primary btn-sm" href="#contact">Kontakt</a>
+                      <a class="btn btn-danger btn-sm" href="#contact">Kontakt</a>
                       <a class="btn btn-outline-secondary btn-sm" href="#pricing">Shiko paketat</a>
                     </div>
                   </div>
@@ -690,20 +690,6 @@
       </div>
     </div>
 
-    <!-- FILTER -->
-    <div class="row mt-4">
-      <div class="col-12">
-        <div class="pricing-filter" role="tablist" aria-label="Filtro çmimet">
-          <button class="pf-btn is-active" type="button" data-filter="all" aria-selected="true">Të gjitha</button>
-          <button class="pf-btn" type="button" data-filter="web" aria-selected="false">Website</button>
-          <button class="pf-btn" type="button" data-filter="ecom" aria-selected="false">E-commerce</button>
-          <button class="pf-btn" type="button" data-filter="ux" aria-selected="false">UI/UX</button>
-          <button class="pf-btn" type="button" data-filter="photo" aria-selected="false">Fotografi</button>
-          <button class="pf-btn" type="button" data-filter="maint" aria-selected="false">Mirëmbajtje</button>
-          <button class="pf-btn" type="button" data-filter="brand" aria-selected="false">Brand</button>
-        </div>
-      </div>
-    </div>
 
     <!-- GRID -->
     <div class="row mt-3 g-4" id="pricingGrid">
@@ -727,11 +713,6 @@
             <li>Responsive + kontakt</li>
             <li>SEO bazë + speed</li>
           </ul>
-
-          <div class="price-actions mt-auto d-flex gap-2">
-            <a class="btn btn-outline-secondary btn-sm flex-grow-1" href="#work">Shiko punët</a>
-            <a class="btn btn-danger btn-sm flex-grow-1" href="#contact">Kërko ofertë</a>
-          </div>
         </div>
       </div>
 
@@ -756,11 +737,7 @@
             <li>Pagesa &amp; checkout</li>
             <li>Email flows</li>
           </ul>
-
-          <div class="price-actions mt-auto d-flex gap-2">
-            <a class="btn btn-outline-secondary btn-sm flex-grow-1" href="#faq">Pyetje</a>
-            <a class="btn btn-danger btn-sm flex-grow-1" href="#contact">Kërko ofertë</a>
-          </div>
+ 
         </div>
       </div>
 
@@ -783,11 +760,7 @@
             <li>Ristrukturim UI</li>
             <li>Speed &amp; SEO bazë</li>
           </ul>
-
-          <div class="price-actions mt-auto d-flex gap-2">
-            <a class="btn btn-outline-secondary btn-sm flex-grow-1" href="#contact">Kërko audit</a>
-            <a class="btn btn-danger btn-sm flex-grow-1" href="#contact">Kërko ofertë</a>
-          </div>
+ 
         </div>
       </div>
 
@@ -810,11 +783,7 @@
             <li>Editim profesional</li>
             <li>Delivery për web</li>
           </ul>
-
-          <div class="price-actions mt-auto d-flex gap-2">
-            <a class="btn btn-outline-secondary btn-sm flex-grow-1" href="#work">Portfolio</a>
-            <a class="btn btn-danger btn-sm flex-grow-1" href="#contact">Book</a>
-          </div>
+ 
         </div>
       </div>
 
@@ -837,11 +806,7 @@
             <li>Backup &amp; security</li>
             <li>Monitorim basic</li>
           </ul>
-
-          <div class="price-actions mt-auto d-flex gap-2">
-            <a class="btn btn-outline-secondary btn-sm flex-grow-1" href="#faq">Detaje</a>
-            <a class="btn btn-danger btn-sm flex-grow-1" href="#contact">Nisemi</a>
-          </div>
+ 
         </div>
       </div>
 
@@ -864,11 +829,7 @@
             <li>Template postimesh</li>
             <li>Mini brand guide</li>
           </ul>
-
-          <div class="price-actions mt-auto d-flex gap-2">
-            <a class="btn btn-outline-secondary btn-sm flex-grow-1" href="#faq">Si punojmë</a>
-            <a class="btn btn-danger btn-sm flex-grow-1" href="#contact">Kërko ofertë</a>
-          </div>
+ 
         </div>
       </div>
 
@@ -1200,28 +1161,6 @@
         </div>
       </div>
 
-      <div class="faq-tools mt-4">
-        <div class="faq-chips" id="faqChips" aria-label="FAQ filters">
-          <button class="faq-chip is-active" type="button" data-filter="all">Të gjitha</button>
-          <button class="faq-chip" type="button" data-filter="website">Website</button>
-          <button class="faq-chip" type="button" data-filter="ecom">E-commerce</button>
-          <button class="faq-chip" type="button" data-filter="ux">UI/UX</button>
-          <button class="faq-chip" type="button" data-filter="photo">Fotografi</button>
-          <button class="faq-chip" type="button" data-filter="maint">Mirëmbajtje</button>
-          <button class="faq-chip" type="button" data-filter="brand">Brand</button>
-        </div>
-
-        <div class="faq-search">
-          <i class="bi bi-search" aria-hidden="true"></i>
-          <input
-            id="faqSearch"
-            class="form-control"
-            type="search"
-            placeholder="Kërko në FAQ..."
-            autocomplete="off"
-          />
-        </div>
-      </div>
 
       <div class="row justify-content-center mt-4">
         <div class="col-12 col-lg-10">
@@ -1488,76 +1427,425 @@
 
         <div class="col-12 col-lg-7">
           <div class="contact-card p-4 p-md-4 h-100">
-            <form id="contactForm" novalidate>
-              <div class="row g-3 text-start">
+           <form id="contactForm" novalidate>
+  <!-- Progress -->
+  <div class="cf-progress mb-3" aria-label="Hapat e formularit">
+    <div class="cf-step is-active" data-step-dot="1">
+      <span class="cf-dot" aria-hidden="true"></span>
+      <span class="cf-step-label">Shërbimi</span>
+    </div>
+    <div class="cf-step" data-step-dot="2">
+      <span class="cf-dot" aria-hidden="true"></span>
+      <span class="cf-step-label">Detajet</span>
+    </div>
+    <div class="cf-step" data-step-dot="3">
+      <span class="cf-dot" aria-hidden="true"></span>
+      <span class="cf-step-label">Buxheti</span>
+    </div>
+    <div class="cf-step" data-step-dot="4">
+      <span class="cf-dot" aria-hidden="true"></span>
+      <span class="cf-step-label">Dërgo</span>
+    </div>
+  </div>
 
-                <div class="col-md-6">
-                  <label class="form-label" for="cName">Emri</label>
-                  <input id="cName" name="name" type="text" class="form-control" placeholder="Emri yt" required />
-                  <div class="invalid-feedback">Shkruaj emrin.</div>
-                </div>
+  <!-- STEPS -->
+  <div class="cf-steps">
 
-                <div class="col-md-6">
-                  <label class="form-label" for="cEmail">Email</label>
-                  <input id="cEmail" name="email" type="email" class="form-control" placeholder="email@shembull.com" required />
-                  <div class="invalid-feedback">Shkruaj një email të saktë.</div>
-                </div>
+    <!-- STEP 1 -->
+    <section class="cf-panel is-active" data-step="1">
+      <div class="row g-3 text-start">
 
-                <div class="col-md-6">
-                  <label class="form-label" for="cService">Shërbimi</label>
-                  <select id="cService" name="service" class="form-select" required>
-                    <option value="" selected disabled>Zgjidh shërbimin</option>
-                    <option value="Website">Website</option>
-                    <option value="E-commerce">E-commerce</option>
-                    <option value="UI/UX">UI/UX &amp; optimizim</option>
-                    <option value="Photography">Fotografi</option>
-                    <option value="Maintenance">Mirëmbajtje</option>
-                    <option value="Brand">Brand</option>
-                    <option value="Other">Tjetër</option>
-                  </select>
-                  <div class="invalid-feedback">Zgjidh një shërbim.</div>
-                </div>
+        <div class="col-md-6">
+          <label class="form-label" for="cName">Emri</label>
+          <input id="cName" name="name" type="text" class="form-control" placeholder="Emri yt" required />
+          <div class="invalid-feedback">Shkruaj emrin.</div>
+        </div>
 
-                <div class="col-md-6">
-                  <label class="form-label" for="cBudget">Buxhet (opsional)</label>
-                  <input id="cBudget" name="budget" type="text" class="form-control" placeholder="p.sh. 500–1000€" />
-                </div>
+        <div class="col-md-6">
+          <label class="form-label" for="cEmail">Email</label>
+          <input id="cEmail" name="email" type="email" class="form-control" placeholder="email@shembull.com" required />
+          <div class="invalid-feedback">Shkruaj një email të saktë.</div>
+        </div>
 
-                <div class="col-12">
-                  <label class="form-label" for="cMsg">Mesazhi</label>
-                  <textarea id="cMsg" name="message" class="form-control" rows="4" placeholder="2–3 fjali: çfarë biznesi, çfarë do, dhe afati." required></textarea>
-                  <div class="invalid-feedback">Shkruaj mesazhin.</div>
-                </div>
+        <div class="col-12">
+          <label class="form-label" for="cService">Zgjidh shërbimin</label>
+          <select id="cService" name="service" class="form-select" required>
+            <option value="" selected disabled>Zgjidh shërbimin</option>
+            <option value="website">Website</option>
+            <option value="ecom">E-commerce</option>
+            <option value="ux">UI/UX &amp; optimizim</option>
+            <option value="photo">Fotografi</option>
+            <option value="maint">Mirëmbajtje</option>
+            <option value="brand">Brand</option>
+            <option value="other">Tjetër</option>
+          </select>
+          <div class="invalid-feedback">Zgjidh një shërbim.</div>
+        </div>
 
-                <div class="col-12">
-                  <div class="contact-quick">
-                    <span class="contact-quick-label">Preferon më shpejt?</span>
-                    <div class="contact-quick-actions">
-                      <a class="btn btn-outline-secondary btn-sm" href="mailto:info@illyrianpixel.com">
-                        <i class="bi bi-envelope" aria-hidden="true"></i> Email
-                      </a>
-                      <a class="btn btn-outline-secondary btn-sm" href="https://wa.me/491234567890" target="_blank" rel="noopener">
-                        <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp
-                      </a>
-                    </div>
-                  </div>
-                </div>
+        <div class="col-12">
+          <div class="cf-nav">
+            <button type="button" class="btn btn-danger px-4 cf-next">Vazhdo</button>
+          </div>
+        </div>
 
-                <div class="col-12 d-flex flex-column flex-sm-row gap-2 align-items-sm-center">
-                  <button id="contactSubmit" type="submit" class="btn btn-danger px-4">Dërgo</button>
-                  <div class="contact-status ms-sm-2" aria-live="polite" role="status">
-                    <span id="contactStatus" class="small"></span>
-                  </div>
-                </div>
+        <div class="col-12">
+          <div class="contact-quick">
+            <span class="contact-quick-label">Preferon më shpejt?</span>
+            <div class="contact-quick-actions">
+              <a class="btn btn-outline-secondary btn-sm" href="mailto:info@illyrianpixel.com">
+                <i class="bi bi-envelope" aria-hidden="true"></i> Email
+              </a>
+              <a class="btn btn-outline-secondary btn-sm" href="https://wa.me/491234567890" target="_blank" rel="noopener">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
 
-                <div class="col-12">
-                  <div class="contact-note small">
-                    Duke e dërguar këtë formë, na lejon të të kontaktojmë vetëm për projektin. Pa spam.
-                  </div>
-                </div>
+      </div>
+    </section>
 
-              </div>
-            </form>
+    <!-- STEP 2: DETAILS (shfaqet sipas service) -->
+    <section class="cf-panel" data-step="2">
+      <div class="row g-3 text-start">
+
+        <!-- WEBSITE -->
+        <div class="cf-group" data-service="website" hidden>
+          <div class="col-12">
+            <div class="cf-title">Detaje për Website</div>
+            <div class="cf-sub">Na ndihmon të japim ofertë më të saktë.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="wType">Lloji i website</label>
+            <select id="wType" name="website_type" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="onepage">One-page</option>
+              <option value="multipage">Multi-page</option>
+              <option value="landing">Landing page</option>
+              <option value="portfolio">Portfolio</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh llojin e website.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="wPages">Sa faqe afërsisht?</label>
+            <select id="wPages" name="website_pages" class="form-select">
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="1-3">1–3</option>
+              <option value="4-6">4–6</option>
+              <option value="7-10">7–10</option>
+              <option value="10+">10+</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="wContent">A i keni tekstet/fotot?</label>
+            <select id="wContent" name="website_content" class="form-select">
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="yes">Po, i kam</option>
+              <option value="partial">Pjesërisht</option>
+              <option value="no">Jo, më duhen</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="wLang">Gjuhët</label>
+            <select id="wLang" name="website_lang" class="form-select">
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="1">1 gjuhë</option>
+              <option value="2">2 gjuhë</option>
+              <option value="3+">3+</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ECOM -->
+        <div class="cf-group" data-service="ecom" hidden>
+          <div class="col-12">
+            <div class="cf-title">Detaje për E-commerce</div>
+            <div class="cf-sub">Sa më shumë info, aq më saktë për checkout & setup.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="eProd">Sa produkte në fillim?</label>
+            <select id="eProd" name="ecom_products" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="1-20">1–20</option>
+              <option value="21-100">21–100</option>
+              <option value="100-500">100–500</option>
+              <option value="500+">500+</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh numrin e produkteve.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="ePay">Pagesa</label>
+            <select id="ePay" name="ecom_payments" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="stripe">Stripe</option>
+              <option value="paypal">PayPal</option>
+              <option value="cod">Cash on delivery</option>
+              <option value="mixed">Kombinim</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh pagesën.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="eShip">Dërgesa</label>
+            <select id="eShip" name="ecom_shipping" class="form-select">
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="local">Lokale</option>
+              <option value="eu">EU</option>
+              <option value="world">Worldwide</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="ePlatform">Platforma (nëse ke preferencë)</label>
+            <select id="ePlatform" name="ecom_platform" class="form-select">
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="shopify">Shopify</option>
+              <option value="woo">WooCommerce</option>
+              <option value="custom">Custom</option>
+              <option value="not_sure">S’jam i sigurt</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- UX -->
+        <div class="cf-group" data-service="ux" hidden>
+          <div class="col-12">
+            <div class="cf-title">Detaje për UI/UX & optimizim</div>
+            <div class="cf-sub">Kemi nevojë për objektivin kryesor.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="uSite">A ke website ekzistues?</label>
+            <select id="uSite" name="ux_existing" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="yes">Po</option>
+              <option value="no">Jo</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh një opsion.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="uGoal">Qëllimi</label>
+            <select id="uGoal" name="ux_goal" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="speed">Shpejtësia</option>
+              <option value="conversion">Konvertime/CTA</option>
+              <option value="seo">SEO bazë</option>
+              <option value="redesign">Rifreskim dizajni</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh qëllimin.</div>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="uUrl">Link i faqes (nëse ka)</label>
+            <input id="uUrl" name="ux_url" type="url" class="form-control" placeholder="https://..." />
+          </div>
+        </div>
+
+        <!-- PHOTO -->
+        <div class="cf-group" data-service="photo" hidden>
+          <div class="col-12">
+            <div class="cf-title">Detaje për Fotografi</div>
+            <div class="cf-sub">Për të kuptuar setin dhe delivery.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="pType">Lloji i fotos</label>
+            <select id="pType" name="photo_type" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="product">Produkt</option>
+              <option value="portrait">Portret</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="event">Event</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh llojin e fotos.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="pQty">Sa foto afërsisht?</label>
+            <select id="pQty" name="photo_qty" class="form-select">
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="5-15">5–15</option>
+              <option value="16-40">16–40</option>
+              <option value="40+">40+</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="pWhere">Lokacioni</label>
+            <input id="pWhere" name="photo_location" type="text" class="form-control" placeholder="Qyteti / studio / ambient" />
+          </div>
+        </div>
+
+        <!-- MAINT -->
+        <div class="cf-group" data-service="maint" hidden>
+          <div class="col-12">
+            <div class="cf-title">Detaje për Mirëmbajtje</div>
+            <div class="cf-sub">Çfarë të duhet çdo muaj?</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="mType">Lloji i faqes</label>
+            <select id="mType" name="maint_type" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="website">Website</option>
+              <option value="ecom">E-commerce</option>
+              <option value="other">Tjetër</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh llojin e faqes.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="mNeed">Çfarë përfshin?</label>
+            <select id="mNeed" name="maint_need" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="updates">Update & siguri</option>
+              <option value="content">Ndryshime content</option>
+              <option value="both">Të dyja</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh një opsion.</div>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="mUrl">Link i faqes</label>
+            <input id="mUrl" name="maint_url" type="url" class="form-control" placeholder="https://..." />
+          </div>
+        </div>
+
+        <!-- BRAND -->
+        <div class="cf-group" data-service="brand" hidden>
+          <div class="col-12">
+            <div class="cf-title">Detaje për Brand</div>
+            <div class="cf-sub">Nga zero apo rifreskim?</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="bStage">Ku je tani?</label>
+            <select id="bStage" name="brand_stage" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="new">Nga zero</option>
+              <option value="refresh">Rifreskim</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh një opsion.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="bNeed">Çfarë të duhet?</label>
+            <select id="bNeed" name="brand_need" class="form-select" data-required>
+              <option value="" selected disabled>Zgjidh</option>
+              <option value="logo">Logo</option>
+              <option value="logo+colors">Logo + ngjyra</option>
+              <option value="full">Mini brand guide + templates</option>
+            </select>
+            <div class="invalid-feedback">Zgjidh çfarë të duhet.</div>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="bName">Emri i brandit</label>
+            <input id="bName" name="brand_name" type="text" class="form-control" placeholder="Emri i brandit" />
+          </div>
+        </div>
+
+        <!-- OTHER -->
+        <div class="cf-group" data-service="other" hidden>
+          <div class="col-12">
+            <div class="cf-title">Tjetër</div>
+            <div class="cf-sub">Shkruaje shkurt çfarë të duhet.</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label" for="oWhat">Çfarë shërbimi?</label>
+            <input id="oWhat" name="other_what" type="text" class="form-control" placeholder="p.sh. landing, redesign, setup..." data-required />
+            <div class="invalid-feedback">Shkruaj çfarë të duhet.</div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="cf-nav">
+            <button type="button" class="btn btn-outline-secondary cf-back">Kthehu</button>
+            <button type="button" class="btn btn-danger px-4 cf-next">Vazhdo</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="cf-panel" data-step="3">
+      <div class="row g-3 text-start">
+        <div class="col-md-6">
+          <label class="form-label" for="cBudget">Buxheti (opsional, por ndihmon)</label>
+          <select id="cBudget" name="budget" class="form-select">
+            <option value="" selected disabled>Zgjidh</option>
+            <option value="lt-500">Nën 500€</option>
+            <option value="500-1000">500–1000€</option>
+            <option value="1000-2500">1000–2500€</option>
+            <option value="2500+">2500€+</option>
+            <option value="not-sure">S’jam i sigurt</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="cTimeline">Afati</label>
+          <select id="cTimeline" name="timeline" class="form-select" required>
+            <option value="" selected disabled>Zgjidh</option>
+            <option value="asap">Sa më shpejt</option>
+            <option value="2-4w">2–4 javë</option>
+            <option value="1-2m">1–2 muaj</option>
+            <option value="flex">Fleksibël</option>
+          </select>
+          <div class="invalid-feedback">Zgjidh afatin.</div>
+        </div>
+
+        <div class="col-12">
+          <div class="cf-nav">
+            <button type="button" class="btn btn-outline-secondary cf-back">Kthehu</button>
+            <button type="button" class="btn btn-danger px-4 cf-next">Vazhdo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="cf-panel" data-step="4">
+      <div class="row g-3 text-start">
+        <div class="col-12">
+          <label class="form-label" for="cMsg">Mesazhi</label>
+          <textarea id="cMsg" name="message" class="form-control" rows="4"
+            placeholder="2–3 fjali: çfarë biznesi, çfarë do, dhe çdo detaj që s’u përfshi më lart."
+            required></textarea>
+          <div class="invalid-feedback">Shkruaj mesazhin.</div>
+        </div>
+
+        <div class="col-12 d-flex flex-column flex-sm-row gap-2 align-items-sm-center">
+          <button id="contactSubmit" type="submit" class="btn btn-danger px-4">Dërgo</button>
+          <div class="contact-status ms-sm-2" aria-live="polite" role="status">
+            <span id="contactStatus" class="small"></span>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="cf-nav">
+            <button type="button" class="btn btn-outline-secondary cf-back">Kthehu</button>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="contact-note small">
+            Duke e dërguar këtë formë, na lejon të të kontaktojmë vetëm për projektin. Pa spam.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</form>
+
           </div>
         </div>
 
