@@ -1906,91 +1906,97 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer" id="footer">
-    <div class="container">
+<!-- FOOTER -->
+<footer class="footer ip-footer" id="footer">
+  <div class="container">
 
-      <div class="row gy-4 align-items-start text-center text-md-start">
+    <div class="row gy-4 align-items-start text-center text-md-start">
 
-        <div class="col-12 col-md-4">
-          <a class="footer-brand d-inline-flex align-items-center gap-2 mb-3" href="#top">
-            <img class="footer-logo" src="./assets/img/logo-light.png" alt="Illyrian Pixel logo" />
-            <span class="footer-brand-text">Illyrian Pixel</span>
+      <!-- Brand -->
+      <div class="col-12 col-md-4">
+        <a class="footer-brand d-inline-flex align-items-center gap-2 mb-3" href="#top">
+  <img class="footer-logo" src="./assets/img/logo-light.png" alt="Illyrian Pixel logo" />
+  <span class="footer-brand-text">Illyrian Pixel</span>
+</a>
+
+
+        <p class="footer-text small mb-3">
+          Web, e-commerce &amp; photography studio. <br> Projekte të pastra, të shpejta dhe të menduara për rezultat.
+        </p>
+
+        <div class="footer-social d-flex justify-content-center justify-content-md-start gap-2" aria-label="Social links">
+          <a class="footer-social-btn" href="https://instagram.com/NDERRRO_KETU" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="bi bi-instagram" aria-hidden="true"></i>
           </a>
-
-          <p class="footer-text small mb-3">
-            Web, e-commerce &amp; photography studio. Projekte të pastra, të shpejta dhe të menduara për rezultat.
-          </p>
-
-          <div class="footer-social d-flex justify-content-center justify-content-md-start gap-2">
-            <a class="footer-social-btn" href="#" target="_blank" rel="noopener" aria-label="Instagram">
-              <i class="bi bi-instagram" aria-hidden="true"></i>
-            </a>
-            <a class="footer-social-btn" href="#" target="_blank" rel="noopener" aria-label="TikTok">
-              <i class="bi bi-tiktok" aria-hidden="true"></i>
-            </a>
-            <a class="footer-social-btn" href="mailto:info@illyrianpixel.com" aria-label="Email">
-              <i class="bi bi-envelope" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-2">
-          <h6 class="footer-title">Menu</h6>
-          <ul class="footer-links list-unstyled mb-0">
-            <li><a class="footer-link" href="#services">Shërbimet</a></li>
-            <li><a class="footer-link" href="#work">Punët</a></li>
-            <li><a class="footer-link" href="#pricing">Çmimet</a></li>
-            <li><a class="footer-link" href="#faq">FAQ</a></li>
-            <li><a class="footer-link" href="#contact">Kontakt</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-md-3">
-          <h6 class="footer-title">Shërbime</h6>
-          <ul class="footer-links list-unstyled mb-0">
-            <li><a class="footer-link" href="#services">Website prezantues</a></li>
-            <li><a class="footer-link" href="#services">E-commerce</a></li>
-            <li><a class="footer-link" href="#services">UI/UX &amp; optimizim</a></li>
-            <li><a class="footer-link" href="#services">Fotografi</a></li>
-            <li><a class="footer-link" href="#services">Mirëmbajtje</a></li>
-          </ul>
-        </div>
-
-        <div class="col-12 col-md-3">
-          <h6 class="footer-title">Kontakt</h6>
-
-          <ul class="footer-links list-unstyled mb-3">
-            <li>
-              <span class="footer-muted">Email</span><br />
-              <a class="footer-link" href="mailto:info@illyrianpixel.com">info@illyrianpixel.com</a>
-            </li>
-            <li class="mt-2">
-              <span class="footer-muted">Location</span><br />
-              <span class="footer-text small">Weiden i.d. OPf · Gjermani</span>
-            </li>
-          </ul>
-
-          <a class="btn btn-danger btn-sm w-100 footer-cta" href="#contact">
-            Na shkruaj
+          <a class="footer-social-btn" href="https://tiktok.com/@NDERRRO_KETU" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="bi bi-tiktok" aria-hidden="true"></i>
+          </a>
+          <a class="footer-social-btn" href="mailto:info@illyrianpixel.com" aria-label="Email">
+            <i class="bi bi-envelope" aria-hidden="true"></i>
           </a>
         </div>
-
       </div>
 
-      <div class="footer-divider my-4"></div>
+      <!-- Menu -->
+      <div class="col-6 col-md-2">
+        <h6 class="footer-title">Menu</h6>
+        <ul class="footer-links list-unstyled mb-0">
+          <li><a class="footer-link" href="#services">Shërbimet</a></li>
+          <li><a class="footer-link" href="#work">Punët</a></li>
+          <li><a class="footer-link" href="#pricing">Çmimet</a></li>
+          <li><a class="footer-link" href="#faq">FAQ</a></li>
+          <li><a class="footer-link" href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
 
-      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center text-md-start">
-        <div class="small footer-copy">
-          © <span id="year"></span> Illyrian Pixel. All rights reserved.
-        </div>
-        <div class="small footer-copy">
-          Operated by <strong>Xhuljan Sadiku</strong>
-        </div>
+      <!-- Services (deep-link me filter) -->
+      <div class="col-6 col-md-3">
+        <h6 class="footer-title">Shërbime</h6>
+        <ul class="footer-links list-unstyled mb-0">
+          <li><a class="footer-link" href="#services" data-service="website">Website prezantues</a></li>
+          <li><a class="footer-link" href="#services" data-service="ecom">E-commerce</a></li>
+          <li><a class="footer-link" href="#services" data-service="ux">UI/UX &amp; optimizim</a></li>
+          <li><a class="footer-link" href="#services" data-service="photo">Fotografi</a></li>
+          <li><a class="footer-link" href="#services" data-service="maint">Mirëmbajtje</a></li>
+          <li><a class="footer-link" href="#services" data-service="brand">Brand</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-12 col-md-3">
+        <h6 class="footer-title">Kontakt</h6>
+
+        <ul class="footer-links list-unstyled mb-3">
+          <li>
+            <span class="footer-muted">Email</span><br />
+            <a class="footer-link" href="mailto:info@illyrianpixel.com">info@illyrianpixel.com</a>
+          </li>
+          <li class="mt-2">
+            <span class="footer-muted">Location</span><br />
+            <span class="footer-text small">Weiden i.d. OPf · Gjermani</span>
+          </li>
+        </ul>
+
+        <a class="btn btn-danger btn-sm w-100 footer-cta" href="#contact">
+          Na shkruaj
+        </a>
       </div>
 
     </div>
-  </footer>
+
+    <div class="footer-divider my-4"></div>
+
+    <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center text-md-start">
+      <div class="small footer-copy">
+        © <span id="year"></span> Illyrian Pixel. All rights reserved.
+      </div>
+      <div class="small footer-copy">
+        Operated by <strong>Xhuljan Sadiku</strong>
+      </div>
+    </div>
+
+  </div>
+</footer>
 
   <!-- Back to top -->
   <button class="back-to-top" id="backToTop" type="button" aria-label="Kthehu lart">

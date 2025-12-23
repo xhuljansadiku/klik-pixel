@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })();
 
-  /* Navbar shrink */
+  /* Navbar shrink ------------------------------------------------------------------------------------------------------------------*/
   (() => {
     const bar = qs(".ip-navbar");
     if (!bar) return;
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pairs.forEach(x => obs.observe(x.sec));
   })();
 
-  /* Mobile nav close: link click + outside + ESC */
+  /* Mobile nav close: link click + outside + ESC -----------------------------------------------------------------------------------------*/
   (() => {
     const nav = qs("#ipNav");
     if (!nav || !hasBootstrap()) return;
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })();
 
-  /* Mega menu hover (desktop) – requires #megaMenu id in HTML */
+  /* Mega menu hover (desktop) – requires #megaMenu id in HTML ----------------------------------------------------------------------*/
   (() => {
     if (!hasBootstrap()) return;
 
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mq.addEventListener("change", (e) => (e.matches ? bind() : unbind()));
   })();
 
-  /* Back to top */
+  /* Back to top ------------------------------------------------------------------------------------------------------------------*/
   (() => {
     const backToTop = qs("#backToTop");
     if (!backToTop) return;
@@ -202,63 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })();
 
-  /* Pricing filter (ONE TIME ONLY) */
-  (() => {
-    const wrap = qs("#pricing");
-    if (!wrap) return;
 
-    const buttons = qsa(".pf-btn", wrap);
-    const items = qsa(".pricing-item", wrap);
-    const grid = qs("#pricingGrid", wrap);
-    const KEY = "ip_pricing_filter";
-
-    if (!buttons.length || !items.length) return;
-
-    const setActive = (btn) => {
-      buttons.forEach(b => {
-        b.classList.remove("is-active");
-        b.setAttribute("aria-selected", "false");
-      });
-      btn.classList.add("is-active");
-      btn.setAttribute("aria-selected", "true");
-    };
-
-    const apply = (cat) => {
-      items.forEach(item => {
-        const itemCat = item.getAttribute("data-cat");
-        const show = (cat === "all" || itemCat === cat);
-        item.classList.toggle("is-hidden", !show);
-      });
-    };
-
-    const scrollToGrid = () => {
-      if (!grid) return;
-      const nav = qs(".ip-navbar.sticky-top, .navbar.sticky-top");
-      const navH = nav ? Math.ceil(nav.getBoundingClientRect().height) : 0;
-      const y = grid.getBoundingClientRect().top + window.pageYOffset - (navH + 14);
-      window.scrollTo({ top: y, behavior: "smooth" });
-    };
-
-    const save = (cat) => { try { localStorage.setItem(KEY, cat); } catch (e) {} };
-    const load = () => { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
-
-    const setFilter = (cat, doScroll) => {
-      const btn = buttons.find(b => b.dataset.filter === cat) || buttons[0];
-      const finalCat = btn.dataset.filter || "all";
-      setActive(btn);
-      apply(finalCat);
-      save(finalCat);
-      if (doScroll) scrollToGrid();
-    };
-
-    buttons.forEach(btn => btn.addEventListener("click", () => setFilter(btn.dataset.filter, true)));
-
-    const saved = load();
-    if (saved && buttons.some(b => b.dataset.filter === saved)) setFilter(saved, false);
-    else setFilter("all", false);
-  })();
-
-  /* Testimonials tabs */
+  /* Testimonials tabs --------------------------------------------------------------------------------------------------------------*/
   (() => {
     const section = qs("#testimonials");
     if (!section || !hasBootstrap()) return;
@@ -325,296 +270,227 @@ document.addEventListener("DOMContentLoaded", () => {
     start();
   })();
 
-  /* FAQ */
-  (() => {
-    const section = qs("#faq");
-    if (!section) return;
+  /* Contact wizard + submit (front-end only) -----------------------------------------------------------------------------------------*/
+(() => {
+  const form = qs("#contactForm");
+  if (!form) return;
 
-    const chips = qsa(".faq-chip", section);
-    const search = qs("#faqSearch", section);
-    const items = qsa(".faq-item", section);
-    const empty = qs("#faqEmpty", section);
-    const acc = qs("#faqAcc", section);
+  const panels = qsa(".cf-panel", form);
+  const stepsUI = qsa(".cf-step", form);
+  const btnNext = qsa(".cf-next", form);
+  const btnBack = qsa(".cf-back", form);
 
-    if (!chips.length || !items.length) return;
+  const serviceSelect = qs("#cService", form);
+  const status = qs("#contactStatus", form);
+  const submitBtn = qs("#contactSubmit", form);
 
-    const KEY_FILTER = "ip_faq_filter";
-    const KEY_SEARCH = "ip_faq_search";
+  let step = 1;
 
-    const setActiveChip = (cat) => {
-      chips.forEach(c => c.classList.toggle("is-active", c.dataset.filter === cat));
-    };
+  const setStatus = (msg, type = "muted") => {
+    if (!status) return;
+    status.textContent = msg || "";
+    status.className = `small ${type === "ok" ? "text-success" : type === "err" ? "text-danger" : "text-muted"}`;
+  };
 
-    const closeAll = () => {
-      if (!acc || !window.bootstrap) return;
-      acc.querySelectorAll(".accordion-collapse.show").forEach(c => {
-        window.bootstrap.Collapse.getOrCreateInstance(c, { toggle: false }).hide();
-      });
-    };
+  const setLoading = (loading) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = loading;
+    submitBtn.innerHTML = loading
+      ? `<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Duke dërguar...`
+      : `Dërgo`;
+  };
 
-    const apply = (cat, q) => {
-      const query = (q || "").trim().toLowerCase();
-      let visible = 0;
+  const isValidEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || "").trim());
 
-      items.forEach(item => {
-        const itemCat = item.dataset.cat || "all";
-        const matchesCat = (cat === "all" || itemCat === cat);
-        const text = (item.innerText || item.textContent || "").toLowerCase();
-        const matchesText = (!query || text.includes(query));
+  const mark = (el, invalid) => {
+    if (!el) return;
+    el.classList.toggle("is-invalid", !!invalid);
+    el.classList.toggle("is-valid", !invalid);
+  };
 
-        const show = matchesCat && matchesText;
-        item.classList.toggle("is-hidden", !show);
-        if (show) visible++;
-      });
-
-      if (empty) empty.hidden = visible !== 0;
-      closeAll();
-    };
-
-    const save = (cat, q) => {
-      try {
-        localStorage.setItem(KEY_FILTER, cat);
-        localStorage.setItem(KEY_SEARCH, q || "");
-      } catch (e) {}
-    };
-
-    const load = () => {
-      try {
-        return {
-          cat: localStorage.getItem(KEY_FILTER) || "all",
-          q: localStorage.getItem(KEY_SEARCH) || ""
-        };
-      } catch (e) {
-        return { cat: "all", q: "" };
-      }
-    };
-
-    chips.forEach(chip => {
-      chip.addEventListener("click", () => {
-        const cat = chip.dataset.filter || "all";
-        const q = search ? search.value : "";
-        setActiveChip(cat);
-        apply(cat, q);
-        save(cat, q);
-      });
-    });
-
-    if (search) {
-      let t = null;
-      search.addEventListener("input", () => {
-        clearTimeout(t);
-        t = setTimeout(() => {
-          const active = qs(".faq-chip.is-active", section)?.dataset.filter || "all";
-          apply(active, search.value);
-          save(active, search.value);
-        }, 120);
-      });
+  const scrollToContactTop = () => {
+    // hiq fokusin nga butoni që e klikoje (që mos e mbajë viewport-in poshtë)
+    if (document.activeElement && typeof document.activeElement.blur === "function") {
+      document.activeElement.blur();
     }
 
-    section.addEventListener("click", (e) => {
-      const badge = e.target.closest(".faq-badge");
-      if (!badge) return;
+    const topEl = document.querySelector("#contact .section-title") || document.querySelector("#contact");
+    if (!topEl) return;
 
-      e.preventDefault();
-      e.stopPropagation();
+    const nav = document.querySelector(".ip-navbar.sticky-top, .navbar.sticky-top");
+    const navH = nav ? Math.ceil(nav.getBoundingClientRect().height) : 0;
+    const y = topEl.getBoundingClientRect().top + window.pageYOffset - (navH + 16);
 
-      const cat = badge.getAttribute("data-badge") || "all";
-      if (search) search.value = "";
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
-      setActiveChip(cat);
-      apply(cat, "");
-      save(cat, "");
+  const showPanel = (n, doScroll = true) => {
+    step = n;
+
+    panels.forEach(p => p.classList.toggle("is-active", Number(p.dataset.step) === n));
+
+    stepsUI.forEach((s, i) => {
+      const idx = i + 1;
+      s.classList.toggle("is-active", idx === n);
+      s.classList.toggle("is-done", idx < n);
     });
 
-    const state = load();
-    if (search) search.value = state.q;
+    setStatus("");
 
-    const valid = chips.some(c => c.dataset.filter === state.cat);
-    const cat = valid ? state.cat : "all";
-
-    setActiveChip(cat);
-    apply(cat, state.q);
-  })();
-
-  /* Contact wizard + submit (front-end only) */
-  (() => {
-    const form = qs("#contactForm");
-    if (!form) return;
-
-    const panels = qsa(".cf-panel", form);
-    const stepsUI = qsa(".cf-step", form);
-    const btnNext = qsa(".cf-next", form);
-    const btnBack = qsa(".cf-back", form);
-
-    const serviceSelect = qs("#cService", form);
-    const status = qs("#contactStatus", form);
-    const submitBtn = qs("#contactSubmit", form);
-
-    let step = 1;
-
-    const setStatus = (msg, type = "muted") => {
-      if (!status) return;
-      status.textContent = msg || "";
-      status.className = `small ${type === "ok" ? "text-success" : type === "err" ? "text-danger" : "text-muted"}`;
-    };
-
-    const setLoading = (loading) => {
-      if (!submitBtn) return;
-      submitBtn.disabled = loading;
-      submitBtn.innerHTML = loading
-        ? `<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Duke dërguar...`
-        : `Dërgo`;
-    };
-
-    const isValidEmail = (email) =>
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || "").trim());
-
-    const mark = (el, invalid) => {
-      if (!el) return;
-      el.classList.toggle("is-invalid", !!invalid);
-      el.classList.toggle("is-valid", !invalid);
-    };
-
-    const showPanel = (n) => {
-      step = n;
-
-      panels.forEach(p => p.classList.toggle("is-active", Number(p.dataset.step) === n));
-
-      stepsUI.forEach((s, i) => {
-        const idx = i + 1;
-        s.classList.toggle("is-active", idx === n);
-        s.classList.toggle("is-done", idx < n);
-      });
-
-      const active = panels.find(p => Number(p.dataset.step) === n);
-      if (active) active.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      setStatus("");
-    };
-
-    const activeService = () => (serviceSelect?.value || "").trim();
-
-    // supports cf-group in ANY step: only show groups inside ACTIVE panel
-    const showServiceGroup = () => {
-      const sv = activeService();
-      const panel = panels.find(p => p.classList.contains("is-active"));
-      if (!panel) return;
-
-      const groups = qsa(".cf-group", panel);
-      if (!groups.length) return;
-
-      groups.forEach(g => {
-        const on = g.dataset.service === sv;
-        g.hidden = !on;
-
-        qsa("[data-required]", g).forEach(el => {
-          el.required = on;
-          if (!on) el.classList.remove("is-invalid", "is-valid");
-        });
-      });
-    };
-
-    const validateStep = (n) => {
-      let ok = true;
-
-      const panel = panels.find(p => Number(p.dataset.step) === n);
-      if (!panel) return true;
-
-      const fields = qsa("input, select, textarea", panel);
-
-      fields.forEach(el => {
-        if (el.disabled || el.type === "hidden") return;
-
-        if (!el.required) {
-          el.classList.remove("is-invalid");
-          return;
-        }
-
-        let bad = false;
-
-        if (el.tagName === "SELECT") bad = !el.value;
-        else if (el.type === "email") bad = !el.value.trim() || !isValidEmail(el.value);
-        else bad = !String(el.value || "").trim();
-
-        mark(el, bad);
-        if (bad) ok = false;
-      });
-
-      return ok;
-    };
-
-    // init
-    showPanel(1);
+    // shfaq grupet në panelin aktiv
     showServiceGroup();
 
-    serviceSelect?.addEventListener("change", () => {
-      showServiceGroup();
-    });
+    if (doScroll) scrollToContactTop();
+  };
 
-    btnNext.forEach(b => b.addEventListener("click", () => {
-      if (!validateStep(step)) {
-        setStatus("Kontrollo fushat e shënuara.", "err");
+  const activeService = () => (serviceSelect?.value || "").trim();
+
+  // cf-group mund të jetë në çdo step => shfaq vetëm grupet brenda panelit aktiv
+  const showServiceGroup = () => {
+    const sv = activeService();
+    const panel = panels.find(p => p.classList.contains("is-active"));
+    if (!panel) return;
+
+    const groups = qsa(".cf-group", panel);
+
+    // nëse ky panel s’ka grupe, mos bëj gjë
+    if (!groups.length) return;
+
+    groups.forEach(g => {
+      const on = g.dataset.service === sv;
+      g.hidden = !on;
+
+      qsa("[data-required]", g).forEach(el => {
+        el.required = on;
+        if (!on) el.classList.remove("is-invalid", "is-valid");
+      });
+    });
+  };
+
+  const validateStep = (n) => {
+    let ok = true;
+
+    const panel = panels.find(p => Number(p.dataset.step) === n);
+    if (!panel) return true;
+
+    const fields = qsa("input, select, textarea", panel);
+
+    fields.forEach(el => {
+      if (el.disabled || el.type === "hidden") return;
+
+      if (!el.required) {
+        el.classList.remove("is-invalid");
         return;
       }
 
-      if (step < 4) {
-        showPanel(step + 1);
-        showServiceGroup();
-      }
-    }));
+      let bad = false;
+      if (el.tagName === "SELECT") bad = !el.value;
+      else if (el.type === "email") bad = !el.value.trim() || !isValidEmail(el.value);
+      else bad = !String(el.value || "").trim();
 
-    btnBack.forEach(b => b.addEventListener("click", () => {
-      if (step > 1) {
-        showPanel(step - 1);
-        showServiceGroup();
-      }
-    }));
-
-    form.addEventListener("input", (e) => {
-      const el = e.target;
-      if (!el) return;
-
-      if (el.name === "email") {
-        if (el.classList.contains("is-invalid")) mark(el, !isValidEmail(el.value));
-        return;
-      }
-
-      if (el.classList.contains("is-invalid") && el.required) {
-        const bad = !String(el.value || "").trim();
-        mark(el, bad);
-      }
+      mark(el, bad);
+      if (bad) ok = false;
     });
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      setStatus("");
+    return ok;
+  };
 
-      // validate step 4 (and required fields there)
-      if (!validateStep(4)) {
-        setStatus("Kontrollo fushat e shënuara.", "err");
-        return;
-      }
+  // init
+  showPanel(1, false);
 
-      try {
-        setLoading(true);
-        setStatus("Po e dërgojmë...", "muted");
+  serviceSelect?.addEventListener("change", () => {
+    // nëse je në një panel që ka grupe, rifreskoje
+    showServiceGroup();
+  });
 
-        // SIMULIM (zëvendëso me fetch real kur ta lidhësh backend)
-        await new Promise(r => setTimeout(r, 900));
+  btnNext.forEach(b => b.addEventListener("click", () => {
+    if (!validateStep(step)) {
+      setStatus("Kontrollo fushat e shënuara.", "err");
+      return;
+    }
+    if (step < 4) showPanel(step + 1, true);
+  }));
 
-        setStatus("U dërgua. Do të kthej përgjigje sa më shpejt.", "ok");
-        form.reset();
+  btnBack.forEach(b => b.addEventListener("click", () => {
+    if (step > 1) showPanel(step - 1, true);
+  }));
 
-        // reset UI
-        panels.forEach(p => qsa(".is-valid,.is-invalid", p).forEach(x => x.classList.remove("is-valid", "is-invalid")));
-        showPanel(1);
-        showServiceGroup();
-      } catch (err) {
-        setStatus("S’funksionoi. Provo përsëri ose më shkruaj në email.", "err");
-      } finally {
-        setLoading(false);
-      }
-    });
-  })();
+  form.addEventListener("input", (e) => {
+    const el = e.target;
+    if (!el) return;
 
+    if (el.name === "email") {
+      if (el.classList.contains("is-invalid")) mark(el, !isValidEmail(el.value));
+      return;
+    }
+
+    if (el.classList.contains("is-invalid") && el.required) {
+      const bad = !String(el.value || "").trim();
+      mark(el, bad);
+    }
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    setStatus("");
+
+    if (!validateStep(4)) {
+      setStatus("Kontrollo fushat e shënuara.", "err");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setStatus("Po e dërgojmë...", "muted");
+
+      await new Promise(r => setTimeout(r, 900));
+
+      setStatus("U dërgua. Do të kthej përgjigje sa më shpejt.", "ok");
+      form.reset();
+
+      panels.forEach(p => qsa(".is-valid,.is-invalid", p).forEach(x => x.classList.remove("is-valid", "is-invalid")));
+      showPanel(1, true);
+    } catch (err) {
+      setStatus("S’funksionoi. Provo përsëri ose më shkruaj në email.", "err");
+    } finally {
+      setLoading(false);
+    }
+  });
+})();
 });
+
+
+/* Footer: smooth scroll + deep-link service */
+(() => {
+  const footer = qs("#footer");
+  if (!footer) return;
+
+  const scrollToId = (id) => {
+    const target = qs(id);
+    if (!target) return;
+
+    const nav = qs(".navbar.sticky-top, .ip-navbar.sticky-top");
+    const navH = nav ? Math.ceil(nav.getBoundingClientRect().height) : 0;
+    const y = target.getBoundingClientRect().top + window.pageYOffset - (navH + 12);
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
+  footer.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+
+    const href = a.getAttribute("href");
+    if (!href || href === "#") return; // ✅ mos e prish JS
+
+    e.preventDefault();
+
+    // optional: ruaj service choice kur klikohen linket te “Shërbime”
+    const sv = a.getAttribute("data-service");
+    if (sv) {
+      try { localStorage.setItem("ip_services_focus", sv); } catch (err) {}
+    }
+
+    scrollToId(href);
+  });
+})();

@@ -2353,7 +2353,7 @@ body{
 
 
 
-/* =========================
+/* =========================----------------------------------------------------------------------------------------
    CONTACT
    ========================= */
 .contact-card,
@@ -2677,104 +2677,302 @@ body{
   #contact .cf-step{ flex: 1 1 48%; }
 }
 
+/* =========================
+   CONTACT WIZARD (steps)
+   ========================= */
+
+#contact .cf-steps{ position: relative; }
+
+/* Default: hide all panels */
+#contact .cf-panel{
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Only active panel is shown */
+#contact .cf-panel.is-active{
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: cfIn .18s ease;
+}
+
+@keyframes cfIn{
+  from{ opacity:0; transform: translateY(10px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+/* Optional: spacing + nav */
+#contact .cf-nav{
+  display:flex;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-top: .25rem;
+}
+#contact .cf-nav .cf-next{ margin-left:auto; }
+
+/* CONTACT – placeholder + input text (light/dark) */
+#contact .form-control,
+#contact .form-select{
+  color: var(--text);
+  caret-color: var(--text);
+}
+
+/* Placeholder (light) */
+#contact .form-control::placeholder,
+#contact textarea::placeholder{
+  color: rgba(11,15,25,.55);
+  opacity: 1; /* mos e le me opacity default */
+}
+
+/* Placeholder (dark) */
+[data-theme="dark"] #contact .form-control::placeholder,
+[data-theme="dark"] #contact textarea::placeholder{
+  color: rgba(255,255,255,.55);
+  opacity: 1;
+}
+
+/* Opsionale: background + border pak më të qarta në dark */
+[data-theme="dark"] #contact .form-control,
+[data-theme="dark"] #contact .form-select{
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+}
+
+/* Fix për autofill (Chrome) që mos i “zbardh”/“nxij” gabim */
+[data-theme="dark"] #contact input:-webkit-autofill,
+[data-theme="dark"] #contact textarea:-webkit-autofill,
+[data-theme="dark"] #contact select:-webkit-autofill{
+  -webkit-text-fill-color: rgba(255,255,255,.92);
+  transition: background-color 9999s ease-in-out 0s;
+  box-shadow: 0 0 0 1000px rgba(255,255,255,.04) inset;
+}
+
+/* ===== Select dropdown look (best-effort) ===== */
+#contact select.form-select{
+  accent-color: var(--primary);
+}
+
+/* Chrome/Edge/Firefox: ngjyra e listës (jo perfekte kudo) */
+[data-theme="dark"] #contact select.form-select{
+  color-scheme: dark;           /* i thotë browser-it: përdor dark UI */
+}
+
+/* Përpiqu të heqësh “blu selection” në option (nuk garanton në çdo OS/browser) */
+#contact select.form-select option:checked,
+#contact select.form-select option:hover{
+  background: rgba(214,31,42,.35);
+  color: #fff;
+}
+
+/* Disa browser-a respektojnë këtë */
+#contact select.form-select:focus{
+  outline: none;
+  border-color: rgba(214,31,42,.55);
+  box-shadow: 0 0 0 .2rem rgba(214,31,42,.15);
+}
+
+/* Mos e pre dropdown-in e select-it */
+#contact .contact-card,
+#contact .cf-steps,
+#contact .cf-panel{
+  overflow: visible !important;
+}
+
+/* Placeholder look për SELECT (kur është ende te option disabled) */
+#contact .form-select:invalid{
+  color: rgba(11,15,25,.55);
+}
+[data-theme="dark"] #contact .form-select:invalid{
+  color: rgba(255,255,255,.55);
+}
+
+/* Opsionet në listë (funksionon në disa browsera) */
+#contact .form-select option{
+  color: #0b0f19;
+  background: #ffffff;
+}
+[data-theme="dark"] #contact .form-select option{
+  color: #ffffff;
+  background: #0b0f19;
+}
+
+/* Kur selektohet një option (funksionon në disa browsera, jo në të gjitha) */
+#contact .form-select option:checked{
+  background: rgba(214,31,42,.20) !important;
+  color: #ffffff !important;
+}
+
+
+/* INPUT/TEXTAREA tekst + caret */
+#contact .form-control,
+#contact textarea{
+  color: var(--text);
+  caret-color: var(--text);
+}
+
+/* Placeholder light */
+#contact .form-control::placeholder,
+#contact textarea::placeholder{
+  color: rgba(11,15,25,.55);
+  opacity: 1;
+}
+
+/* Placeholder dark */
+[data-theme="dark"] #contact .form-control::placeholder,
+[data-theme="dark"] #contact textarea::placeholder{
+  color: rgba(255,255,255,.55);
+  opacity: 1;
+}
+
+/* Dark input background + border pak më të qarta */
+[data-theme="dark"] #contact .form-control,
+[data-theme="dark"] #contact .form-select,
+[data-theme="dark"] #contact textarea{
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+}
 
 /* =========================
-   FOOTER
+   FOOTER (upgrade)
    ========================= */
-.footer{
-  background:linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.96));
-  color:var(--footer-text);
-  padding:4rem 0 2rem;
-  border-top:1px solid rgba(148,163,184,.14);
+.ip-footer{
+  padding: 3rem 0 2rem;
+  border-top: 1px solid var(--border);
+  background: rgba(255,255,255,.02);
 }
 
-.footer-brand{
-  text-decoration:none;
-  color:var(--hero-text);
-  font-weight:800;
-  letter-spacing:.06em;
+[data-theme="dark"] .ip-footer{
+  background: rgba(255,255,255,.03);
+  border-top-color: rgba(255,255,255,.12);
 }
 
-.footer-logo{
-  height:38px;
-  width:auto;
-  filter:invert(1) brightness(1.1);
+.ip-footer .footer-logo{
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
-.footer-text{
-  max-width:320px;
-  color:var(--footer-text);
-  line-height:1.6;
+.ip-footer .footer-brand-text{
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
-.footer-title{
-  font-weight:800;
-  font-size:.85rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin-bottom:.75rem;
-  color:var(--hero-text);
+.ip-footer .footer-title{
+  font-weight: 950;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: .75rem;
 }
 
-.footer-links{
-  list-style:none;
-  padding:0;
-  margin:0;
+.ip-footer .footer-text{
+  color: var(--muted);
 }
 
-.footer-links li{
-  margin-bottom:.45rem;
-  font-size:.9rem;
+.ip-footer .footer-muted{
+  color: var(--muted);
+  font-weight: 800;
+  font-size: .85rem;
 }
 
-.footer-links a{
-  color:var(--footer-text);
-  text-decoration:none;
-}
-.footer-links a:hover{
-  color:var(--hero-text);
-  text-decoration:underline;
+.ip-footer .footer-links li{ margin-bottom: .45rem; }
+
+.ip-footer .footer-link{
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 800;
+  transition: color .16s ease, transform .16s ease;
 }
 
-.footer-social{
-  display:flex;
-  gap:.6rem;
-}
-.footer-social a{
-  width:36px;
-  height:36px;
-  border-radius:999px;
-  border:1px solid rgba(148,163,184,.25);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  font-size:.75rem;
-  color:var(--hero-text);
-  text-decoration:none;
-  transition:all .2s ease;
-}
-.footer-social a:hover{
-  background:rgba(214,31,42,.15);
-  border-color:rgba(214,31,42,.45);
+.ip-footer .footer-link:hover{
+  color: var(--text);
+  transform: translateY(-1px);
 }
 
-.footer-bottom{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.5rem;
-  justify-content:space-between;
-  align-items:center;
-  border-top:1px solid rgba(148,163,184,.14);
-  color:var(--footer-text);
+.ip-footer .footer-link:focus-visible,
+.ip-footer .footer-social-btn:focus-visible,
+.ip-footer .footer-cta:focus-visible{
+  outline: 3px solid rgba(214,31,42,.35);
+  outline-offset: 3px;
+  border-radius: 12px;
 }
 
-@media (max-width:767.98px){
-  .footer-bottom{
-    flex-direction:column;
-    text-align:center;
-  }
+.ip-footer .footer-social-btn{
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.02);
+  color: var(--text);
+  transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
 }
+
+[data-theme="dark"] .ip-footer .footer-social-btn{
+  background: rgba(255,255,255,.03);
+  border-color: rgba(255,255,255,.12);
+}
+
+.ip-footer .footer-social-btn:hover{
+  transform: translateY(-2px);
+  border-color: rgba(214,31,42,.35);
+  background: rgba(214,31,42,.08);
+  color: var(--text);
+}
+
+.ip-footer .footer-divider{
+  height: 1px;
+  background: var(--border);
+  opacity: .9;
+}
+
+[data-theme="dark"] .ip-footer .footer-divider{
+  background: rgba(255,255,255,.12);
+}
+
+.ip-footer .footer-copy{
+  color: var(--muted);
+}
+
+.ip-footer .footer-cta{
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+
+.footer-brand {
+  text-decoration: none; /* heq underline blu */
+}
+
+.footer-brand-text {
+  position: relative;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.footer-brand-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: var(--primary); /* e kuqe */
+  border-radius: 2px;
+}
+
+[data-theme="dark"] .footer-logo {
+  filter: brightness(0) invert(1);
+}
+
+
+
 
 /* =========================
    BACK TO TOP
