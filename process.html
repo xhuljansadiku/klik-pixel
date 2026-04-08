@@ -19,12 +19,10 @@
 <!-- ========== NAVBAR (premium — vetëm struktura + mega menu; ngjyrat nga :root) ========== -->
 <!-- ========== NAVBAR (premium — vetëm struktura + mega menu; ngjyrat nga :root) ========== -->
 <!-- ========== NAVBAR (luxury dark glass) ========== -->
-<nav class="navbar navbar-expand-lg navbar-dark ip-navbar ip-navbar--luxe" id="ipNavbar" aria-label="Navigacion kryesor">
+<nav class="ip-navbar ip-navbar--rebuilt" id="ipNavbar" aria-label="Navigacion kryesor">
   <div class="ip-navbar__glow" aria-hidden="true"></div>
-  <div class="container ip-nav-wrap position-lg-relative">
-
-    <!-- Brand (majtas) -->
-    <a class="navbar-brand ip-brand ip-navbar__brand d-flex align-items-center gap-3 z-lg-1" href="index.html" aria-label="Illyrian Pixel – Kryefaqja">
+  <div class="container ip-nav-wrap">
+    <a class="ip-brand ip-navbar__brand d-flex align-items-center gap-3" href="index.html" aria-label="Illyrian Pixel – Kryefaqja">
       <img class="brand-logo" src="./assets/img/logo.png" alt="" width="804" height="720" />
       <span class="brand-text">
         <span class="brand-text-illyrian">Illyrian</span>
@@ -34,132 +32,53 @@
       </span>
     </a>
 
-    <!-- Hamburger (mobile) -->
-    <div class="ip-actions d-flex align-items-center ms-auto ms-lg-0 z-lg-1">
-      <button
-        class="navbar-toggler ip-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#ipNav"
-        aria-controls="ipNav"
-        aria-expanded="false"
-        aria-label="Hap menynë"
-      >
-        <span class="navbar-toggler-icon" aria-hidden="true"></span>
-      </button>
-    </div>
+    <button class="ip-nav-toggle-btn d-lg-none" type="button" aria-controls="ipNav" aria-expanded="false" aria-label="Hap menynë">
+      <span class="ip-nav-toggle-box" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
 
-    <!-- Links + mega + CTA -->
-    <div class="collapse navbar-collapse ip-collapse" id="ipNav">
-      <div class="ip-nav-mobile-shell">
-        <button
-          type="button"
-          class="ip-nav-backdrop d-lg-none"
-          data-bs-toggle="collapse"
-          data-bs-target="#ipNav"
-          aria-controls="ipNav"
-          tabindex="-1"
-          aria-label="Mbyll menynë"
-        ></button>
-        <div class="ip-mobile-panel">
+    <div class="ip-nav-panel" id="ipNav">
+      <button type="button" class="ip-nav-overlay d-lg-none" aria-label="Mbyll menynë"></button>
 
-        <div class="ip-mobile-head d-lg-none">
-          <span class="ip-mobile-title">Menyja</span>
-          <button
-            type="button"
-            class="ip-close"
-            data-bs-toggle="collapse"
-            data-bs-target="#ipNav"
-            aria-controls="ipNav"
-            aria-label="Mbyll menynë"
-          >✕</button>
+      <div class="ip-nav-drawer">
+        <div class="ip-nav-mobile-head d-lg-none">
+          <span class="ip-nav-mobile-title">Menyja</span>
+          <button type="button" class="ip-nav-dismiss" aria-label="Mbyll menynë">✕</button>
         </div>
 
-        <div class="ip-mobile-status d-lg-none" role="status">
-          <span class="ip-nav-status ip-nav-status--mobile" aria-label="Status: Online">
-            <span class="ip-nav-status-dot" aria-hidden="true"></span>
-            <span class="ip-nav-status-label">Status: Online</span>
-          </span>
-        </div>
-
-        <!-- Nav qendror (desktop: absolute center) -->
-        <ul class="navbar-nav ip-navlist align-items-lg-center">
-          <!-- Mega: Shërbimet -->
-          <li class="nav-item dropdown ip-mega position-static d-none d-lg-block">
+        <ul class="ip-navlist">
+          <li class="ip-nav-item ip-mega d-none d-lg-flex">
             <button
               type="button"
-              class="nav-link ip-nav-link dropdown-toggle border-0 bg-transparent w-100 w-lg-auto text-start text-lg-center"
+              class="ip-nav-link ip-nav-link--btn"
               id="megaServices"
-              data-bs-toggle="dropdown"
-              data-bs-display="static"
-              data-bs-auto-close="outside"
               aria-expanded="false"
               aria-haspopup="true"
               aria-controls="megaMenu"
               data-nav-section="#services"
             >
               Shërbimet
+              <i class="bi bi-chevron-down ip-nav-dd-caret" aria-hidden="true"></i>
             </button>
-            <div class="dropdown-menu ip-mega-menu border-0" id="megaMenu" aria-labelledby="megaServices" role="region" aria-label="Shërbimet">
+            <div class="ip-mega-menu" id="megaMenu" aria-labelledby="megaServices" role="region" aria-label="Shërbimet">
               <div class="ip-mega-inner">
                 <div class="row g-4 g-lg-4">
                   <div class="col-md-4">
                     <p class="ip-mega-group-title">Zhvillim</p>
-                    <a class="ip-mega-link" href="website.html">
-                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-layout-text-window-reverse"></i></span>
-                      <span class="ip-mega-link-body">
-                        <span class="ip-mega-link-title">Zhvillim Website</span>
-                        <span class="ip-mega-link-desc">Website i shpejtë dhe i optimizuar për biznesin tuaj</span>
-                      </span>
-                    </a>
-                    <a class="ip-mega-link" href="ecommerce.html">
-                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-bag-check"></i></span>
-                      <span class="ip-mega-link-body">
-                        <span class="ip-mega-link-title">Zhvillim E-commerce</span>
-                        <span class="ip-mega-link-desc">Dyqan online i ndërtuar për shitje dhe rritje</span>
-                      </span>
-                    </a>
+                    <a class="ip-mega-link" href="website.html"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-layout-text-window-reverse"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Zhvillim Website</span><span class="ip-mega-link-desc">Website i shpejtë dhe i optimizuar për biznesin tuaj</span></span></a>
+                    <a class="ip-mega-link" href="ecommerce.html"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-bag-check"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Zhvillim E-commerce</span><span class="ip-mega-link-desc">Dyqan online i ndërtuar për shitje dhe rritje</span></span></a>
                   </div>
                   <div class="col-md-4">
                     <p class="ip-mega-group-title">Rritje</p>
-                    <a class="ip-mega-link" href="marketing.html">
-                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-graph-up-arrow"></i></span>
-                      <span class="ip-mega-link-body">
-                        <span class="ip-mega-link-title">Optimizim SEO</span>
-                        <span class="ip-mega-link-desc">Rritje e dukshmërisë dhe trafikut organik</span>
-                      </span>
-                    </a>
-                    <a class="ip-mega-link" href="marketing.html">
-                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-badge-ad"></i></span>
-                      <span class="ip-mega-link-body">
-                        <span class="ip-mega-link-title">Google Ads</span>
-                        <span class="ip-mega-link-desc">Fushata të targetuara për konvertime</span>
-                      </span>
-                    </a>
-                    <a class="ip-mega-link" href="marketing.html">
-                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-share"></i></span>
-                      <span class="ip-mega-link-body">
-                        <span class="ip-mega-link-title">Menaxhim Social Media</span>
-                        <span class="ip-mega-link-desc">Përmbajtje dhe prezencë e qëndrueshme</span>
-                      </span>
-                    </a>
+                    <a class="ip-mega-link" href="marketing.html"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-graph-up-arrow"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Optimizim SEO</span><span class="ip-mega-link-desc">Rritje e dukshmërisë dhe trafikut organik</span></span></a>
+                    <a class="ip-mega-link" href="marketing.html"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-badge-ad"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Google Ads</span><span class="ip-mega-link-desc">Fushata të targetuara për konvertime</span></span></a>
+                    <a class="ip-mega-link" href="marketing.html"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-share"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Menaxhim Social Media</span><span class="ip-mega-link-desc">Përmbajtje dhe prezencë e qëndrueshme</span></span></a>
                   </div>
                   <div class="col-md-4">
                     <p class="ip-mega-group-title">Kreativitet</p>
-                    <a class="ip-mega-link" href="photography.html">
-                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-camera"></i></span>
-                      <span class="ip-mega-link-body">
-                        <span class="ip-mega-link-title">Fotografi</span>
-                        <span class="ip-mega-link-desc">Vizuale premium për brandin tuaj</span>
-                      </span>
-                    </a>
-                    <a class="ip-mega-link" href="marketing.html">
-                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-megaphone"></i></span>
-                      <span class="ip-mega-link-body">
-                        <span class="ip-mega-link-title">Marketing Dixhital</span>
-                        <span class="ip-mega-link-desc">Strategji për rritje në kanale online</span>
-                      </span>
-                    </a>
+                    <a class="ip-mega-link" href="photography.html"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-camera"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Fotografi</span><span class="ip-mega-link-desc">Vizuale premium për brandin tuaj</span></span></a>
+                    <a class="ip-mega-link" href="marketing.html"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-megaphone"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Marketing Dixhital</span><span class="ip-mega-link-desc">Strategji për rritje në kanale online</span></span></a>
                   </div>
                 </div>
                 <div class="ip-mega-footer d-none d-lg-block">
@@ -169,20 +88,12 @@
             </div>
           </li>
 
-          <!-- Mobile: Shërbimet accordion -->
-          <li class="nav-item d-lg-none">
-            <button
-              type="button"
-              class="ip-mobile-dd"
-              data-bs-toggle="collapse"
-              data-bs-target="#ipMobileServices"
-              aria-expanded="false"
-              aria-controls="ipMobileServices"
-            >
+          <li class="ip-nav-item d-lg-none">
+            <button type="button" class="ip-mobile-dd" aria-expanded="false" aria-controls="ipMobileServices">
               Shërbimet
               <i class="bi bi-chevron-down ip-mobile-dd-icon" aria-hidden="true"></i>
             </button>
-            <div class="collapse ip-mobile-services" id="ipMobileServices">
+            <div class="ip-mobile-services" id="ipMobileServices" hidden>
               <div class="ip-submenu" role="list">
                 <a class="ip-sub-link" href="website.html" role="listitem"><span class="ip-sub-ic"><i class="bi bi-layout-text-window-reverse"></i></span> Zhvillim Website</a>
                 <a class="ip-sub-link" href="ecommerce.html" role="listitem"><span class="ip-sub-ic"><i class="bi bi-bag-check"></i></span> Zhvillim E-commerce</a>
@@ -195,29 +106,15 @@
             </div>
           </li>
 
-          <li class="nav-item"><a class="nav-link ip-nav-link" href="work.html">Punët</a></li>
-          <li class="nav-item"><a class="nav-link ip-nav-link" href="process.html">Procesi</a></li>
-          <li class="nav-item"><a class="nav-link ip-nav-link" href="pricing.html">Çmimet</a></li>
-          <li class="nav-item"><a class="nav-link ip-nav-link" href="faq.html">FAQ</a></li>
-          <li class="nav-item">
-            <a class="nav-link ip-nav-link" href="contact.html">Kontakt</a>
-          </li>
-
-          <!-- CTA — mobile -->
-          <li class="nav-item d-lg-none mt-3 px-1">
-            <a class="ip-navbar__cta ip-navbar__cta--block w-100 text-center" href="contact.html">Kërko ofertë <span aria-hidden="true">→</span></a>
-          </li>
+          <li class="ip-nav-item"><a class="ip-nav-link" href="work.html">Punët</a></li>
+          <li class="ip-nav-item"><a class="ip-nav-link" href="process.html">Procesi</a></li>
+          <li class="ip-nav-item"><a class="ip-nav-link" href="pricing.html">Çmimet</a></li>
+          <li class="ip-nav-item"><a class="ip-nav-link" href="faq.html">FAQ</a></li>
+          <li class="ip-nav-item"><a class="ip-nav-link" href="contact.html">Kontakt</a></li>
         </ul>
 
-        <!-- Status + CTA desktop (djathtas) -->
-        <div class="ip-nav-cta d-none d-lg-flex align-items-center gap-3 flex-shrink-0">
-          <span class="ip-nav-status" role="status" aria-label="Status: Online">
-            <span class="ip-nav-status-dot" aria-hidden="true"></span>
-            <span class="ip-nav-status-label">Status: Online</span>
-          </span>
+        <div class="ip-nav-cta">
           <a class="ip-navbar__cta" href="contact.html">Kërko ofertë <span aria-hidden="true">→</span></a>
-        </div>
-
         </div>
       </div>
     </div>
@@ -229,7 +126,100 @@
 <!-- ========== /NAVBAR ========== -->
 <main>
   <section class="ip-page-hero"><div class="container"><div class="row align-items-center g-4"><div class="col-lg-7"><div class="ip-breadcrumb"><a href="index.html">Kryefaqja</a><span>/</span><span>Procesi</span></div><p class="ip-page-kicker">Si punojmë</p><h1 class="ip-page-title">Proces i qartë, pa konfuzion dhe pa hapa të paqartë.</h1><p class="ip-page-copy">Mënyra jonë e punës është menduar që klienti ta dijë gjithmonë ku ndodhet projekti, çfarë po punohet dhe çfarë vjen më pas. Qartësia krijon ritëm, dhe ritmi sjell dorëzim më të mirë.</p></div><div class="col-lg-5"><div class="ip-page-media"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="Ekip duke planifikuar procesin e projektit" /><div class="ip-page-media-badge"><i class="bi bi-diagram-3"></i> 4 hapa të qartë deri në dorëzim</div></div></div></div></div></section>
-  <section id="process" class="py-5"><div class="container"><div class="row mt-2 g-3 g-lg-4 justify-content-center process-grid"><div class="col-md-6 col-lg-3"><article class="ip-bento-card step-card h-100 text-center text-lg-start"><div class="step-card-top"><div class="step-num mx-auto mx-lg-0">01</div><div class="ip-bento-icons step-icons justify-content-center justify-content-lg-start"><span class="ip-bento-ic"><i class="bi bi-chat-square-text"></i></span></div></div><h3 class="ip-bento-title mb-2">Konsultim</h3><p class="ip-bento-desc mb-0">Qëllimet, audienca dhe strategjia e projektit.</p></article></div><div class="col-md-6 col-lg-3"><article class="ip-bento-card step-card h-100 text-center text-lg-start"><div class="step-card-top"><div class="step-num mx-auto mx-lg-0">02</div><div class="ip-bento-icons step-icons justify-content-center justify-content-lg-start"><span class="ip-bento-ic"><i class="bi bi-bezier2"></i></span></div></div><h3 class="ip-bento-title mb-2">Strukturë &amp; Dizajn</h3><p class="ip-bento-desc mb-0">Strukturë fillestare, UI/UX dhe komente të shpejta.</p></article></div><div class="col-md-6 col-lg-3"><article class="ip-bento-card step-card h-100 text-center text-lg-start"><div class="step-card-top"><div class="step-num mx-auto mx-lg-0">03</div><div class="ip-bento-icons step-icons justify-content-center justify-content-lg-start"><span class="ip-bento-ic"><i class="bi bi-code-slash"></i></span></div></div><h3 class="ip-bento-title mb-2">Zhvillim</h3><p class="ip-bento-desc mb-0">Kod i pastër, performancë dhe optimizim.</p></article></div><div class="col-md-6 col-lg-3"><article class="ip-bento-card step-card h-100 text-center text-lg-start"><div class="step-card-top"><div class="step-num mx-auto mx-lg-0">04</div><div class="ip-bento-icons step-icons justify-content-center justify-content-lg-start"><span class="ip-bento-ic"><i class="bi bi-rocket-takeoff"></i></span></div></div><h3 class="ip-bento-title mb-2">Lansim</h3><p class="ip-bento-desc mb-0">Publikim live dhe dorëzim i plotë.</p></article></div></div></div></section>
+  <section id="process" class="py-5 ip-proc-luxe" data-ip-proc aria-labelledby="process-heading">
+    <div class="ip-proc-luxe__bg" aria-hidden="true"></div>
+    <div class="container position-relative">
+
+      <header class="text-center ip-proc-luxe__head">
+        <h2 id="process-heading" class="section-title ip-proc-luxe__title">Si punojmë</h2>
+        <p class="section-subtitle mx-auto ip-proc-luxe__lead">
+          Proces i qartë, pa konfuzion. Çdo hap është i strukturuar për rezultat.
+        </p>
+      </header>
+
+      <div class="ip-proc-stage">
+        <div class="ip-proc-track d-none d-lg-block" aria-hidden="true">
+          <div class="ip-proc-track__glow"></div>
+          <div class="ip-proc-track__rail">
+            <span class="ip-proc-track__bg"></span>
+            <span class="ip-proc-track__fill"></span>
+          </div>
+          <div class="ip-proc-track__nodes">
+            <span class="ip-proc-node"></span>
+            <span class="ip-proc-node"></span>
+            <span class="ip-proc-node"></span>
+            <span class="ip-proc-node"></span>
+          </div>
+        </div>
+
+        <ol class="ip-proc-list list-unstyled mb-0">
+          <li class="ip-proc-step" style="--ip-proc-i:0">
+            <div class="ip-proc-rail-m d-lg-none" aria-hidden="true">
+              <span class="ip-proc-rail-m__dot"></span>
+              <span class="ip-proc-rail-m__line"></span>
+            </div>
+            <article class="ip-proc-card">
+              <div class="ip-proc-card__top">
+                <span class="ip-proc-num">01</span>
+                <span class="ip-proc-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                </span>
+              </div>
+              <h3 class="ip-proc-card__title">Konsultim</h3>
+              <p class="ip-proc-card__desc">Analizojmë qëllimet, audiencën dhe strategjinë.</p>
+            </article>
+          </li>
+          <li class="ip-proc-step" style="--ip-proc-i:1">
+            <div class="ip-proc-rail-m d-lg-none" aria-hidden="true">
+              <span class="ip-proc-rail-m__dot"></span>
+              <span class="ip-proc-rail-m__line"></span>
+            </div>
+            <article class="ip-proc-card">
+              <div class="ip-proc-card__top">
+                <span class="ip-proc-num">02</span>
+                <span class="ip-proc-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+                </span>
+              </div>
+              <h3 class="ip-proc-card__title">Strukturë &amp; Dizajn</h3>
+              <p class="ip-proc-card__desc">Krijojmë strukturën dhe përvojën vizuale (UI/UX).</p>
+            </article>
+          </li>
+          <li class="ip-proc-step" style="--ip-proc-i:2">
+            <div class="ip-proc-rail-m d-lg-none" aria-hidden="true">
+              <span class="ip-proc-rail-m__dot"></span>
+              <span class="ip-proc-rail-m__line"></span>
+            </div>
+            <article class="ip-proc-card">
+              <div class="ip-proc-card__top">
+                <span class="ip-proc-num">03</span>
+                <span class="ip-proc-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                </span>
+              </div>
+              <h3 class="ip-proc-card__title">Zhvillim</h3>
+              <p class="ip-proc-card__desc">Kod i pastër, performancë dhe optimizim.</p>
+            </article>
+          </li>
+          <li class="ip-proc-step" style="--ip-proc-i:3">
+            <div class="ip-proc-rail-m d-lg-none" aria-hidden="true">
+              <span class="ip-proc-rail-m__dot"></span>
+            </div>
+            <article class="ip-proc-card">
+              <div class="ip-proc-card__top">
+                <span class="ip-proc-num">04</span>
+                <span class="ip-proc-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                </span>
+              </div>
+              <h3 class="ip-proc-card__title">Lansim</h3>
+              <p class="ip-proc-card__desc">Publikim live dhe dorëzim i plotë.</p>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
 </main>
 <!-- FOOTER -->
 <footer class="footer ip-footer ip-footer-luxe" id="footer" aria-label="Fund faqe">

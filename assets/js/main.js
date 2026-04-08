@@ -1314,6 +1314,40 @@ document.addEventListener("DOMContentLoaded", () => {
   io.observe(stage);
 })();
 
+/* Pricing agency: scroll reveal + billing toggle */
+(() => {
+  const root = qs("[data-ip-pricing-agency]");
+  if (!root) return;
+
+  const billingBtns = root.querySelectorAll(".ip-pricing-agency__billing-btn");
+  billingBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const mode = btn.getAttribute("data-billing") || "onetime";
+      root.setAttribute("data-billing-mode", mode);
+      billingBtns.forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    });
+  });
+
+  if (typeof IntersectionObserver === "undefined") {
+    root.classList.add("ip-pricing-agency--inview");
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) root.classList.add("ip-pricing-agency--inview");
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
+  );
+  io.observe(root);
+})();
+
 /* Process: scroll-in steps + line fill */
 (() => {
   const root = qs("[data-ip-proc]");
@@ -1497,9 +1531,17 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay?.addEventListener("click", closeNav);
     dismiss?.addEventListener("click", closeNav);
 
+    document.addEventListener("click", (e) => {
+      if (!isMobile() || !isOpen()) return;
+      const insideDrawer = e.target instanceof Element && e.target.closest(".ip-nav-drawer");
+      const clickedToggler = e.target instanceof Element && e.target.closest(".ip-nav-toggle-btn");
+      if (!insideDrawer && !clickedToggler) closeNav();
+    });
+
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
         if (isMobile()) closeNav();
+        else closeMega();
       });
     });
 
@@ -1525,16 +1567,26 @@ document.addEventListener("DOMContentLoaded", () => {
     megaBtn?.addEventListener("click", (e) => {
       if (!desktopMq.matches) return;
       e.preventDefault();
+      e.stopPropagation();
       mega?.classList.contains("is-open") ? closeMega() : openMega();
     });
 
-    mega?.addEventListener("mouseenter", openMega);
-    mega?.addEventListener("mouseleave", closeMega);
-
-    document.addEventListener("click", (e) => {
-      if (!desktopMq.matches || !mega) return;
-      if (!mega.contains(e.target)) closeMega();
+    /* Desktop: vetëm klik hap/mban dropdown; mbyll kur miu del nga zona .ip-mega (buton + urë + panel) */
+    mega?.addEventListener("mouseleave", () => {
+      if (!desktopMq.matches) return;
+      closeMega();
     });
+
+    document.addEventListener(
+      "click",
+      (e) => {
+        if (!desktopMq.matches || !mega) return;
+        const t = e.target;
+        if (!(t instanceof Element)) return;
+        if (!mega.contains(t)) closeMega();
+      },
+      true,
+    );
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -1550,6 +1602,8 @@ document.addEventListener("DOMContentLoaded", () => {
           mobileServicesBtn.setAttribute("aria-expanded", "false");
           mobileServices.hidden = true;
         }
+      } else {
+        closeMega();
       }
     }, { passive: true });
 

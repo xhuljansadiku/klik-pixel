@@ -7,7 +7,7 @@ const ROOT = path.join(__dirname, "..");
 const idx = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 
 const navRe =
-  /<!-- ========== NAVBAR[\s\S]*?<\/nav>\s*\n<!-- ========== \/NAVBAR ========== -->/;
+  /<nav[\s\S]*?id="ipNavbar"[\s\S]*?<\/nav>/;
 const footRe = /<!-- FOOTER -->[\s\S]*?<\/footer>/;
 
 const NAV_INDEX = idx.match(navRe)?.[0];
@@ -20,7 +20,7 @@ const NAV_INNER = NAV_INDEX.replace(
 const FOOTER = `${idx.match(footRe)?.[0] ?? ""}\n`;
 if (!FOOTER.trim()) throw new Error("footer block not found");
 
-const navPat = /<nav class="navbar[\s\S]*?<\/nav>\s*/;
+const navPat = /<nav[\s\S]*?id="ipNavbar"[\s\S]*?<\/nav>\s*/;
 const footPat =
   /(?:<!-- FOOTER -->\s*)?<footer class="footer ip-footer[^"]*"[\s\S]*?<\/footer>\s*/;
 
