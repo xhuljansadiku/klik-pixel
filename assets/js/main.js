@@ -242,6 +242,124 @@ document.addEventListener("DOMContentLoaded", () => {
     sync();
   })();
 
+  /* Scroll progress, reveals, spotlight kartash, magnetic CTA (pa librari) */
+  (() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const fine = window.matchMedia("(pointer: fine)");
+
+    (() => {
+      if (reduce.matches) return;
+      const doc = document.documentElement;
+      if (doc.scrollHeight <= window.innerHeight * 1.12) return;
+
+      const root = document.createElement("div");
+      root.className = "ip-scroll-progress";
+      root.setAttribute("aria-hidden", "true");
+      const fill = document.createElement("span");
+      fill.className = "ip-scroll-progress__fill";
+      root.appendChild(fill);
+      document.body.appendChild(root);
+
+      const sync = () => {
+        const max = Math.max(doc.scrollHeight - window.innerHeight, 1);
+        const sc = window.scrollY || doc.scrollTop || 0;
+        const p = Math.min(1, Math.max(0, sc / max));
+        fill.style.transform = `scaleX(${p})`;
+      };
+      window.addEventListener("scroll", sync, { passive: true });
+      window.addEventListener("resize", sync, { passive: true });
+      sync();
+    })();
+
+    (() => {
+      const els = qsa(".ip-reveal");
+      if (!els.length) return;
+
+      const reveal = (el) => {
+        el.classList.add("is-inview");
+      };
+
+      if (reduce.matches || typeof IntersectionObserver === "undefined") {
+        els.forEach(reveal);
+        return;
+      }
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              reveal(en.target);
+              io.unobserve(en.target);
+            }
+          });
+        },
+        { root: null, rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
+      );
+
+      els.forEach((el) => {
+        io.observe(el);
+        requestAnimationFrame(() => {
+          const r = el.getBoundingClientRect();
+          const vh = window.innerHeight || 0;
+          if (r.top < vh * 0.94 && r.bottom > 8) {
+            reveal(el);
+            io.unobserve(el);
+          }
+        });
+      });
+    })();
+
+    (() => {
+      if (reduce.matches || !fine.matches) return;
+      const cards = qsa(".ip-spotlight-card");
+      if (!cards.length) return;
+
+      cards.forEach((card) => {
+        const onMove = (e) => {
+          if (!(e instanceof PointerEvent)) return;
+          const r = card.getBoundingClientRect();
+          if (r.width < 1) return;
+          card.style.setProperty("--spot-x", `${e.clientX - r.left}px`);
+          card.style.setProperty("--spot-y", `${e.clientY - r.top}px`);
+        };
+        const onLeave = () => {
+          card.style.removeProperty("--spot-x");
+          card.style.removeProperty("--spot-y");
+        };
+        card.addEventListener("pointermove", onMove, { passive: true });
+        card.addEventListener("pointerleave", onLeave, { passive: true });
+      });
+    })();
+
+    (() => {
+      if (reduce.matches || !fine.matches) return;
+      const btns = qsa(".ip-magnetic");
+      if (!btns.length) return;
+
+      const strength = 0.13;
+      const maxPx = 10;
+
+      btns.forEach((btn) => {
+        const move = (e) => {
+          const r = btn.getBoundingClientRect();
+          const dx = (e.clientX - (r.left + r.width / 2)) * strength;
+          const dy = (e.clientY - (r.top + r.height / 2)) * strength;
+          const mx = Math.max(-maxPx, Math.min(maxPx, dx));
+          const my = Math.max(-maxPx, Math.min(maxPx, dy));
+          btn.style.setProperty("--mag-x", `${mx}px`);
+          btn.style.setProperty("--mag-y", `${my}px`);
+        };
+        const reset = () => {
+          btn.style.setProperty("--mag-x", "0px");
+          btn.style.setProperty("--mag-y", "0px");
+        };
+        btn.addEventListener("pointermove", move, { passive: true });
+        btn.addEventListener("pointerleave", reset, { passive: true });
+        btn.addEventListener("blur", reset);
+      });
+    })();
+  })();
+
   /* Lartësi navbar (fixed) → --ip-nav-offset për body padding; pa ndryshim pamjeje në scroll */
   (() => {
     const bar = qs(".ip-navbar");
@@ -535,6 +653,26 @@ document.addEventListener("DOMContentLoaded", () => {
         match: ["mirembajt", "mirëmbajt", "support", "backup", "update"],
         tag: "Mirëmbajtje",
         answer: "Mirëmbajtja përfshin update, backup, monitorim performance, rregullime të vogla dhe suport të vazhdueshëm që faqja të mbetet stabile dhe e sigurt."
+      },
+      {
+        match: ["zotëron", "zoteron", "pronësi", "pronesi", "kod", "dizajn", "copyright"],
+        tag: "Kontratë",
+        answer: "Pas pagesës dhe dorëzimit të projektit sipas ofertës, ju zotëroni punën e paguar (kod/dizajn/përmbajtje që keni paguar). Për komponentë me licencë palë të tretë zbatohen kushtet e tyre. Detajet fiksohen në kontratë para fillimit."
+      },
+      {
+        match: ["pagesë", "pagese", "avans", "fatur", "invoice", "pagesa"],
+        tag: "Pagesë",
+        answer: "Zakonisht avans për nisje dhe pjesa tjetër në dorëzim ose sipas fazave në ofertë. Nuk fillon punë intensive pa miratim me shkrim të scope-it dhe kushteve."
+      },
+      {
+        match: ["hosting", "domen", "domain", "server"],
+        tag: "Hosting",
+        answer: "Hosting dhe domeni janë shpesh kosto e veçantë në emrin tuaj. Ne ju ndihmojmë me konfigurim dhe zgjedhje; çmimet varen nga ofruesi. Nuk i fshehim këto kosto në ofertë."
+      },
+      {
+        match: ["pas lansim", "pas dorëzim", "pas dorezim", "mbështetje pas", "mbeshtetje pas"],
+        tag: "Pas lansimit",
+        answer: "Pas lansimit ju merrni akses dhe udhëzim bazë. Ofrojmë paketa mirëmbajtjeje me përditësime, backup dhe suport — të ndara nga ndërtimi fillestar, përveç nëse është rënë dakord ndryshe."
       }
     ];
 
@@ -1300,6 +1438,12 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     setStatus("");
 
+    const hp = qs("#cfWebsiteHp", form);
+    if (hp && hp.value.trim()) {
+      setStatus("Dërgesa nuk u krye. Nëse je njeri, na shkruaj te info@illyrianpixel.com.", "err");
+      return;
+    }
+
     if (msgHidden && projectDesc) msgHidden.value = projectDesc.value.trim();
 
     if (!validateStep(4)) {
@@ -1314,6 +1458,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hasFormSubmit) {
         setStatus("Duke dërguar kërkesën...", "muted");
         const payload = new FormData(form);
+        payload.delete("website_url_hp");
 
         const selectedServiceLabels = selectedServices()
           .map((v) => {
@@ -1385,6 +1530,94 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 })();
+
+  /* Cookie consent + optional Google Analytics (vendos ID në data-ip-ga-id në <html>) */
+  (() => {
+    const LS = "ip_cookie_consent";
+    const root = document.documentElement;
+
+    const loadGa = () => {
+      const id =
+        (root.getAttribute("data-ip-ga-id") || "").trim() ||
+        (document.querySelector('meta[name="ip-ga-measurement-id"]')?.getAttribute("content") || "").trim();
+      if (!id || window.__ipGaLoaded) return;
+      window.__ipGaLoaded = true;
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", id, { anonymize_ip: true });
+    };
+
+    const apply = (mode) => {
+      if (mode === "analytics") loadGa();
+    };
+
+    const existing = localStorage.getItem(LS);
+    if (existing === "analytics" || existing === "essential") {
+      apply(existing);
+      return;
+    }
+
+    const bar = document.createElement("div");
+    bar.className = "ip-cookie-bar";
+    bar.setAttribute("role", "dialog");
+    bar.setAttribute("aria-modal", "false");
+    bar.setAttribute("aria-live", "polite");
+    bar.setAttribute("aria-labelledby", "ipCookieTitle");
+    bar.setAttribute("aria-label", "Njoftim për përdorimin e cookies");
+    bar.innerHTML = `
+      <div class="ip-cookie-bar__panel" role="document">
+        <div class="ip-cookie-bar__accent" aria-hidden="true"></div>
+        <div class="ip-cookie-bar__container">
+          <div class="ip-cookie-bar__row">
+            <div class="ip-cookie-bar__text-block">
+              <div class="ip-cookie-bar__head">
+                <span class="ip-cookie-bar__cookie-ic" aria-hidden="true"><i class="bi bi-cookie"></i></span>
+                <h2 id="ipCookieTitle" class="ip-cookie-bar__title">Përdorimi i cookies</h2>
+              </div>
+              <p class="ip-cookie-bar__copy">
+                Përdorim cookies teknike për funksionimin e sigurt të sajtit. Me pëlqimin tuaj lejohet edhe analitikë e përmbledhur e vizitave;
+                pa të, aktivizohen vetëm cookies e domosdoshme.
+              </p>
+              <p class="ip-cookie-bar__more">
+                Më shumë: <a href="privacy.html">Politika e privatësisë</a>.
+              </p>
+            </div>
+            <div class="ip-cookie-bar__actions">
+              <button type="button" class="ip-cookie-bar__btn ip-cookie-bar__btn--secondary" data-ip-cookie="essential" aria-label="Refuzo statistikat, vetëm cookies të nevojshme">
+                Refuzo
+              </button>
+              <button type="button" class="ip-cookie-bar__btn ip-cookie-bar__btn--primary" data-ip-cookie="analytics" aria-label="Prano cookies dhe statistika">
+                Prano
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    document.body.appendChild(bar);
+    requestAnimationFrame(() => bar.classList.add("is-visible"));
+
+    const close = () => {
+      bar.classList.remove("is-visible");
+      window.setTimeout(() => bar.remove(), 320);
+    };
+
+    bar.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-ip-cookie]");
+      if (!btn) return;
+      const mode = btn.getAttribute("data-ip-cookie") || "essential";
+      localStorage.setItem(LS, mode);
+      apply(mode);
+      close();
+    });
+  })();
 });
 
 /* Pricing: activate particles on view */
