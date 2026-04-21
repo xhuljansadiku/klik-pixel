@@ -1,5 +1,5 @@
 /* ==============================
-   Illyrian Pixel – main.js (clean)
+   Illyrian Pixel  main.js (clean)
    Requires: Bootstrap JS (bundle) loaded before this file
    ============================== */
 
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   })();
 
-  /* Hero helmet — parallax + liquid vars (respekt për reduced-motion) */
+  /* Hero helmet  parallax + liquid vars (respekt për reduced-motion) */
   (() => {
     const stage = qs("#heroHelmetStage");
     if (!stage) return;
@@ -242,8 +242,8 @@ document.addEventListener("DOMContentLoaded", () => {
     sync();
   })();
 
-  /* Scroll progress, reveals, spotlight kartash, magnetic CTA (pa librari) */
-  (() => {
+/* Module: reveal */
+  const initRevealModule = () => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     const fine = window.matchMedia("(pointer: fine)");
 
@@ -358,9 +358,10 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("blur", reset);
       });
     })();
-  })();
+  };
+  initRevealModule();
 
-  /* Lartësi navbar (fixed) → --ip-nav-offset për body padding; pa ndryshim pamjeje në scroll */
+  /* Lartësi navbar (fixed)   --ip-nav-offset për body padding; pa ndryshim pamjeje në scroll */
   (() => {
     const bar = qs(".ip-navbar");
     if (!bar) return;
@@ -438,82 +439,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.12, 0.25, 0.5] });
 
     pairs.forEach((x) => obs.observe(x.sec));
-  })();
-
-  /* Mobile nav: custom drawer state (stable on mobile) ----------------------------------------------------------------------------------*/
-  (() => {
-    const bar = qs("#ipNavbar");
-    const nav = qs("#ipNav");
-    if (!bar || !nav) return;
-
-    const toggler = qs(".ip-toggler", bar);
-    const backdrop = qs(".ip-nav-backdrop", nav);
-    const closeBtn = qs(".ip-close", nav);
-
-    const isMobile = () => window.matchMedia("(max-width: 991.98px)").matches;
-    const isOpen = () => bar.classList.contains("ip-nav-open");
-    const syncAria = () => toggler?.setAttribute("aria-expanded", isOpen() ? "true" : "false");
-    const open = () => {
-      bar.classList.add("ip-nav-open");
-      document.body.classList.add("ip-nav-open");
-      syncAria();
-    };
-    const close = () => {
-      bar.classList.remove("ip-nav-open");
-      document.body.classList.remove("ip-nav-open");
-      syncAria();
-    };
-    const toggle = () => (isOpen() ? close() : open());
-
-    window.ipOpenNav = open;
-    window.ipCloseNav = close;
-    window.ipToggleNav = toggle;
-
-    toggler?.addEventListener("click", (e) => {
-      if (!isMobile()) return;
-      e.preventDefault();
-      e.stopPropagation();
-      if (typeof e.stopImmediatePropagation === "function") e.stopImmediatePropagation();
-      toggle();
-    }, true);
-
-    nav.addEventListener("click", (e) => {
-      const a = e.target.closest("a");
-      if (!a) return;
-
-      const isDropdownToggle =
-        a.classList.contains("dropdown-toggle") ||
-        a.getAttribute("data-bs-toggle") === "dropdown";
-
-      if (isDropdownToggle) return;
-      if (!isMobile() || !isOpen()) return;
-
-      close();
-    });
-
-    backdrop?.addEventListener("click", (e) => {
-      if (!isMobile() || !isOpen()) return;
-      e.preventDefault();
-      e.stopPropagation();
-      close();
-    });
-
-    closeBtn?.addEventListener("click", (e) => {
-      if (!isMobile() || !isOpen()) return;
-      e.preventDefault();
-      e.stopPropagation();
-      close();
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && isMobile() && isOpen()) close();
-    });
-
-    window.addEventListener("resize", () => {
-      if (!isMobile()) close();
-    }, { passive: true });
-
-    syncAria();
   })();
 
   /* Back to top ------------------------------------------------------------------------------------------------------------------*/
@@ -615,8 +540,8 @@ document.addEventListener("DOMContentLoaded", () => {
     start();
   })();
 
-  /* FAQ chat ------------------------------------------------------------------------------------------------------------*/
-  (() => {
+/* Module: faq */
+  const initFaqModule = () => {
     const section = qs("#faq");
     if (!section) return;
 
@@ -636,7 +561,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         match: ["kohe", "kohë", "zgjas", "afat"],
         tag: "Afat",
-        answer: "Website standard zakonisht mbyllet brenda 3–7 ditësh, ndërsa projektet më të plota planifikohen sipas strukturës, materialeve dhe feedback-ut."
+        answer: "Website standard zakonisht mbyllet brenda 37 ditësh, ndërsa projektet më të plota planifikohen sipas strukturës, materialeve dhe feedback-ut."
       },
       {
         match: ["seo", "google", "ads"],
@@ -646,7 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         match: ["e-commerce", "dyqan", "shop", "checkout", "pagesa"],
         tag: "E-commerce",
-        answer: "Po ndërtojmë dyqane online me katalog, kategori, checkout dhe integrime pagesash. Çmimi zakonisht lëviz nga €900 deri në €1500 sipas kompleksitetit."
+        answer: "Po ndërtojmë dyqane online me katalog, kategori, checkout dhe integrime pagesash. !mimi zakonisht lëviz nga €900 deri në €1500 sipas kompleksitetit."
       },
       {
         match: ["foto", "fotografi", "produkte", "product"],
@@ -676,7 +601,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         match: ["pas lansim", "pas dorëzim", "pas dorezim", "mbështetje pas", "mbeshtetje pas"],
         tag: "Pas lansimit",
-        answer: "Pas lansimit ju merrni akses dhe udhëzim bazë. Ofrojmë paketa mirëmbajtjeje me përditësime, backup dhe suport — të ndara nga ndërtimi fillestar, përveç nëse është rënë dakord ndryshe."
+        answer: "Pas lansimit ju merrni akses dhe udhëzim bazë. Ofrojmë paketa mirëmbajtjeje me përditësime, backup dhe suport  të ndara nga ndërtimi fillestar, përveç nëse është rënë dakord ndryshe."
       }
     ];
 
@@ -790,10 +715,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     scrollToBottom();
-  })();
+  };
+  initFaqModule();
 
-  /* Contact wizard + submit (front-end only) -----------------------------------------------------------------------------------------*/
-(() => {
+/* Module: contact */
+const initContactModule = () => {
+  window.dataLayer = window.dataLayer || [];
+  const track = (eventName, payload = {}) => {
+    try {
+      window.dataLayer.push({ event: eventName, ...payload });
+    } catch (err) {}
+  };
+
   const form = qs("#contactForm");
   if (!form) return;
 
@@ -971,7 +904,7 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = loading;
     submitBtn.innerHTML = loading
       ? `<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Po hapim email-in...`
-      : `Dërgo kërkesën <span aria-hidden="true">→</span>`;
+      : `Dërgo kërkesën <span aria-hidden="true"> →</span>`;
   };
 
   const isValidEmail = (email) =>
@@ -1075,20 +1008,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const opt = Array.from(serviceSelect.options).find((o) => o.value === v);
       return opt?.textContent?.trim() || v;
     });
-    cfSummaryServices.textContent = labels.length ? labels.join(", ") : "—";
+    cfSummaryServices.textContent = labels.length ? labels.join(", ") : "";
 
     const name = qs("#cName", form)?.value?.trim() || "";
     const email = qs("#cEmail", form)?.value?.trim() || "";
     const desc = String(projectDesc?.value || "").trim();
     if (cfSummaryDetails) {
-      const parts = [name || "—", email || "—"];
-      if (desc) parts.push(desc.length > 240 ? `${desc.slice(0, 240)}…` : desc);
+      const parts = [name || "", email || ""];
+      if (desc) parts.push(desc.length > 240 ? `${desc.slice(0, 240)}⬦` : desc);
       cfSummaryDetails.textContent = parts.join("\n");
     }
 
     const bud = form.querySelector('input[name="budget"]:checked');
     const budLabel = bud?.closest(".cf-budget-card")?.querySelector(".cf-budget-card__range")?.textContent?.trim();
-    if (cfSummaryBudget) cfSummaryBudget.textContent = budLabel || "—";
+    if (cfSummaryBudget) cfSummaryBudget.textContent = budLabel || "";
 
     const tl = form.querySelector('input[name="timeline"]:checked');
     const tlMap = { urgent: "Urgjent", normal: "Normal", flexible: "Fleksibël" };
@@ -1195,38 +1128,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const smartRules = {
     website: {
-      budgetText: "€300 – €800",
-      timeText: "3–7 ditë",
+      budgetText: "€300  €800",
+      timeText: "37 ditë",
       budgetValue: "300-800",
       explain: "Bazuar në përshkrimin tuaj, kjo duket si një website standard me strukturë të qartë dhe funksionalitete bazë."
     },
     ecom: {
-      budgetText: "€1500 – €3000",
-      timeText: "7–14 ditë",
+      budgetText: "€1500  €3000",
+      timeText: "714 ditë",
       budgetValue: "1500-3000",
       explain: "Ky projekt kërkon setup më të plotë për katalog, checkout dhe pagesa, ndaj hyn në një gamë e-commerce më serioze."
     },
     seo: {
-      budgetText: "€800 – €1500",
-      timeText: "2–4 javë",
+      budgetText: "€800  €1500",
+      timeText: "24 javë",
       budgetValue: "800-1500",
       explain: "Bazuar në fokusin te SEO ose marketingu, sugjerimi më i përshtatshëm është optimizim i strukturuar me buxhet të përshtatshëm."
     },
     photo: {
-      budgetText: "€800 – €1500",
-      timeText: "2–5 ditë",
+      budgetText: "€800  €1500",
+      timeText: "25 ditë",
       budgetValue: "800-1500",
       explain: "Kjo duket si një set fotografie me editim dhe delivery gati për web ose social, me buxhet të moderuar."
     },
     maint: {
-      budgetText: "€300 – €800",
+      budgetText: "€300  €800",
       timeText: "Mujor",
       budgetValue: "300-800",
       explain: "Për mirëmbajtje dhe suport të vazhdueshëm, forma më efikase është një plan mujor me update dhe monitorim."
     },
     brand: {
-      budgetText: "€800 – €1500",
-      timeText: "4–10 ditë",
+      budgetText: "€800  €1500",
+      timeText: "410 ditë",
       budgetValue: "800-1500",
       explain: "Për identitet vizual bazë ose rifreskim, ky interval mbulon logo, drejtim vizual dhe materiale fillestare."
     }
@@ -1489,9 +1422,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (!resp.ok) throw new Error("FormSubmit request failed");
+        track("ip_contact_submit_success", { method: "formsubmit" });
       } else {
         setStatus("FormSubmit nuk është konfiguruar ende. Po hapim email-in...", "muted");
         const mailtoLink = buildMailtoLink();
+        track("ip_contact_submit_mailto_fallback");
         window.location.href = mailtoLink;
       }
 
@@ -1528,12 +1463,14 @@ document.addEventListener("DOMContentLoaded", () => {
         showPanel(1, false);
       }, 2600);
     } catch (err) {
+      track("ip_contact_submit_error");
       setStatus("Nuk arritem ta hapim email-in. Na shkruaj direkt te info@illyrianpixel.com.", "err");
     } finally {
       setLoading(false);
     }
   });
-})();
+};
+initContactModule();
 
   /* Cookie consent + optional Google Analytics (vendos ID në data-ip-ga-id në <html>) */
   (() => {
@@ -1591,7 +1528,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pa të, aktivizohen vetëm cookies e domosdoshme.
               </p>
               <p class="ip-cookie-bar__more">
-                Më shumë: <a href="privacy.html">Politika e privatësisë</a>.
+                Më shumë: <a href="/legal/privacy/">Politika e privatësisë</a>.
               </p>
             </div>
             <div class="ip-cookie-bar__actions">
@@ -1622,10 +1559,45 @@ document.addEventListener("DOMContentLoaded", () => {
       close();
     });
   })();
+
+  /* Module: analytics hooks (non-blocking) */
+  (() => {
+    qsa("a[href='/contact/'], .ip-navbar__cta, .hero-btn--primary").forEach((el) => {
+      el.addEventListener("click", () => {
+        track("ip_cta_click", {
+          cta_text: (el.textContent || "").trim().slice(0, 80),
+          cta_href: el.getAttribute("href") || "",
+        });
+      });
+    });
+
+    const contactForm = qs("#contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", () => {
+        track("ip_contact_submit_attempt");
+      });
+    }
+
+    const pkgFilters = qsa("[data-pkg-filter]");
+    pkgFilters.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        track("ip_pricing_filter_click", {
+          filter: btn.getAttribute("data-pkg-filter") || "all",
+        });
+      });
+    });
+
+    const faqForm = qs("#faqChatForm");
+    if (faqForm) {
+      faqForm.addEventListener("submit", () => {
+        track("ip_faq_question_submit");
+      });
+    }
+  })();
 });
 
-/* Pricing: activate particles on view */
-(() => {
+/* Module: pricing-particles */
+const initPricingParticlesModule = () => {
   const stage = qs("[data-pricing-stage]");
   if (!stage || typeof IntersectionObserver === "undefined") return;
 
@@ -1638,10 +1610,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   io.observe(stage);
-})();
+};
+initPricingParticlesModule();
 
-/* Pricing agency: scroll reveal + billing toggle */
-(() => {
+/* Module: pricing-agency */
+const initPricingAgencyModule = () => {
   const root = qs("[data-ip-pricing-agency]");
   if (!root) return;
 
@@ -1672,10 +1645,11 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
   );
   io.observe(root);
-})();
+};
+initPricingAgencyModule();
 
-/* Pricing page: filterable tier groups (3 packages per category) */
-(() => {
+/* Module: pricing-packages */
+const initPricingPackagesModule = () => {
   const section = qs("#ipPricingPackages");
   if (!section) return;
 
@@ -1701,7 +1675,8 @@ document.addEventListener("DOMContentLoaded", () => {
       apply(btn.getAttribute("data-pkg-filter") || "all");
     });
   });
-})();
+};
+initPricingPackagesModule();
 
 /* Process: scroll-in steps + line fill */
 (() => {
@@ -1757,11 +1732,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!a) return;
 
     const href = a.getAttribute("href");
-    if (!href || href === "#") return; // ✅ mos e prish JS
+    if (!href || href === "#") return; // S& mos e prish JS
 
     e.preventDefault();
 
-    // optional: ruaj service choice kur klikohen linket te “Shërbime”
+    // optional: ruaj service choice kur klikohen linket te SShërbime⬝
     const sv = a.getAttribute("data-service");
     if (sv) {
       try { localStorage.setItem("ip_services_focus", sv); } catch (err) {}
@@ -1771,82 +1746,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 
-/* Stable mobile nav fallback */
-(() => {
-  const initStableMobileNav = () => {
-    if (window.__ipStableNavInit) return;
-
-    const bar = document.querySelector("#ipNavbar");
-    const nav = document.querySelector("#ipNav");
-    const toggler = bar?.querySelector(".ip-toggler");
-    const backdrop = nav?.querySelector(".ip-nav-backdrop");
-    const closeBtn = nav?.querySelector(".ip-close");
-
-    if (!bar || !nav || !toggler) return;
-    window.__ipStableNavInit = true;
-
-    const isMobile = () => window.matchMedia("(max-width: 991.98px)").matches;
-    const isOpen = () => bar.classList.contains("ip-nav-open");
-    const syncAria = () => toggler.setAttribute("aria-expanded", isOpen() ? "true" : "false");
-
-    const open = () => {
-      if (!isMobile()) return;
-      bar.classList.add("ip-nav-open");
-      document.body.classList.add("ip-nav-open");
-      syncAria();
-    };
-
-    const close = () => {
-      bar.classList.remove("ip-nav-open");
-      document.body.classList.remove("ip-nav-open");
-      syncAria();
-    };
-
-    const toggle = () => (isOpen() ? close() : open());
-
-    window.ipOpenNav = open;
-    window.ipCloseNav = close;
-    window.ipToggleNav = toggle;
-
-    toggler.addEventListener("click", (e) => {
-      if (!isMobile()) return;
-      e.preventDefault();
-      e.stopPropagation();
-      toggle();
-    });
-
-    backdrop?.addEventListener("click", (e) => {
-      e.preventDefault();
-      close();
-    });
-
-    closeBtn?.addEventListener("click", (e) => {
-      e.preventDefault();
-      close();
-    });
-
-    nav.addEventListener("click", (e) => {
-      const link = e.target.closest("a");
-      if (!link || !isMobile() || !isOpen()) return;
-      close();
-    });
-
-    window.addEventListener("resize", () => {
-      if (!isMobile()) close();
-    }, { passive: true });
-
-    syncAria();
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initStableMobileNav, { once: true });
-  } else {
-    initStableMobileNav();
-  }
-})();
-
-/* Rebuilt navbar */
-(() => {
+/* Module: nav */
+const initNavModule = () => {
   const initRebuiltNav = () => {
     const bar = document.querySelector("#ipNavbar.ip-navbar--rebuilt");
     if (!bar) return;
@@ -1859,7 +1760,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileServices = bar.querySelector("#ipMobileServices");
     const mega = bar.querySelector(".ip-mega");
     const megaBtn = bar.querySelector("#megaServices");
-    const megaMenu = bar.querySelector("#megaMenu");
     const desktopMq = window.matchMedia("(min-width: 992px)");
 
     const isMobile = () => !desktopMq.matches;
@@ -1966,4 +1866,5 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     initRebuiltNav();
   }
-})();
+};
+initNavModule();

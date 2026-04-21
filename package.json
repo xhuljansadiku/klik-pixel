@@ -1,0 +1,44 @@
+{
+  "name": "illyrianpixel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sync:partials": "node tools/sync-shared-partials.mjs",
+    "assets:prod": "node tools/switch-html-to-prod-assets.cjs",
+    "assets:dev": "node tools/switch-html-to-dev-assets.cjs",
+    "build:js": "node tools/build-js.mjs",
+    "build:css": "node tools/build-css.mjs",
+    "build:min": "npm run build:min:js && npm run build:min:css",
+    "build:min:js": "terser assets/js/main.js -c -m -o assets/js/main.min.js",
+    "build:min:css": "cleancss -o assets/css/style.min.css assets/css/style.css",
+    "check:js": "node --check assets/js/main.js",
+    "check:css": "sass --no-source-map assets/scss/main.scss assets/css/style.css --quiet",
+    "check:seo": "node tools/seo-guard.mjs",
+    "check:links": "node tools/link-audit.cjs",
+    "smoke:check": "node tools/smoke-check.mjs",
+    "build": "npm run build:js && npm run build:css",
+    "build:prod": "npm run sync:partials && npm run build && npm run build:min && npm run assets:prod",
+    "check": "npm run sync:partials && npm run build && npm run check:js && npm run check:css && npm run check:seo && npm run check:links && npm run smoke:check",
+    "predeploy": "npm run check",
+    "watch:js": "node --watch tools/build-js.mjs",
+    "watch:css": "sass --watch assets/scss/main.scss:assets/css/style.css --no-source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xhuljansadiku/illyrianpixel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/xhuljansadiku/illyrianpixel/issues"
+  },
+  "homepage": "https://github.com/xhuljansadiku/illyrianpixel#readme",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.44.0",
+    "sass": "^1.99.0"
+  }
+}
