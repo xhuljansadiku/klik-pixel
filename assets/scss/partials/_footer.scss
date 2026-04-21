@@ -3893,3 +3893,80 @@ body{
   box-shadow:0 0 0 3px color-mix(in srgb, var(--brand-illyrian) 28%, transparent);
 }
 
+/* Service pages: package cards (same visual language as pricing) */
+.ip-pkg-section[data-ip-service-packages]{
+  border-block:1px solid color-mix(in srgb, var(--border) 70%, transparent);
+}
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier{
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+}
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__inner{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  padding:1.35rem 1.25rem 1.25rem;
+  border-radius:1.15rem;
+  background:linear-gradient(165deg, #fffef9 0%, #faf6ee 100%);
+  border:1px solid color-mix(in srgb, var(--brand-illyrian) 18%, rgba(26,22,16,.08));
+  box-shadow:0 1px 0 color-mix(in srgb, #fff 88%, transparent) inset, 0 14px 36px color-mix(in srgb, var(--text) 4%, transparent);
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier:hover .ip-pkg-tier__inner{
+  transform:translateY(-4px);
+  border-color:color-mix(in srgb, var(--brand-illyrian) 34%, var(--border));
+}
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier--featured .ip-pkg-tier__inner{
+  border-color:color-mix(in srgb, var(--brand-illyrian) 38%, var(--border));
+  box-shadow:0 1px 0 color-mix(in srgb, #fff 88%, transparent) inset, 0 18px 44px color-mix(in srgb, var(--brand-illyrian) 14%, transparent);
+}
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__ribbon{
+  position:absolute;
+  top:.85rem;
+  right:-1.85rem;
+  z-index:2;
+  padding:.32rem 2.2rem;
+  font-size:.62rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#1a1408;
+  background:linear-gradient(90deg, #e8c96a, var(--brand-illyrian), #d4a82a);
+  border:1px solid color-mix(in srgb, #fff 42%, rgba(70,54,16,.28));
+  transform:rotate(28deg);
+  pointer-events:none;
+}
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__label{ margin:0 0 .2rem; font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:color-mix(in srgb, var(--brand-illyrian) 55%, var(--muted)); }
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__name{ margin:0 0 .35rem; font-family:var(--font-display, inherit); font-size:1.12rem; font-weight:600; letter-spacing:-.02em; color:#1a1610; }
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__tagline{ margin:0 0 1rem; font-size:.84rem; line-height:1.45; color:color-mix(in srgb, var(--text) 58%, var(--muted)); min-height:2.6rem; }
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__price-block{ margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid color-mix(in srgb, var(--text) 8%, transparent); }
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__price{ margin:0; font-family:var(--font-display, inherit); font-weight:600; font-size:1.65rem; letter-spacing:-.03em; color:#1a1610; line-height:1.1; }
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__from{ font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:color-mix(in srgb, var(--text) 48%, var(--muted)); margin-right:.15rem; }
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__eur{ font-size:.85em; opacity:.88; margin-right:.08rem; }
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__suffix{ font-size:.55em; font-weight:700; letter-spacing:.04em; color:color-mix(in srgb, var(--text) 50%, var(--muted)); margin-left:.12rem; }
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:auto;
+  width:100%;
+  padding:.62rem 1rem;
+  border-radius:999px;
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-decoration:none;
+  text-align:center;
+  border:1px solid color-mix(in srgb, var(--text) 14%, var(--border));
+  color:color-mix(in srgb, var(--text) 78%, #000);
+  background:color-mix(in srgb, #fff 70%, transparent);
+}
+.ip-pkg-section[data-ip-service-packages] .ip-pkg-tier__btn--primary{
+  color:#1a1408;
+  border-color:color-mix(in srgb, var(--brand-illyrian) 50%, #8a6a1f);
+  background:linear-gradient(118deg, color-mix(in srgb, var(--brand-illyrian) 88%, #fff), color-mix(in srgb, var(--accent, #c9a227) 82%, #fff));
+}
+
