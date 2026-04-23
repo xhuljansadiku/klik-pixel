@@ -8,10 +8,6 @@
    (light + dark)
    ========================= */
 
-#pricing .section-subtitle{
-  max-width:640px;
-}
-
 #pricing .pricing-item{
   display:flex;
 }
@@ -1645,6 +1641,7 @@
 }
 
 #testimonials.ip-testi-luxe .ip-testi-luxe__shell{
+  margin-top:var(--ip-home-section-gap);
   opacity:0;
   transform:translateY(22px);
   transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1);
@@ -1933,7 +1930,7 @@
 }
 
 #testimonials.ip-testi-luxe .t-slide.t-slide--link:hover .t-slide-cta{
-  color:var(--brand-illyrian);
+  color:#000;
   gap:.45rem;
 }
 
@@ -2002,6 +1999,245 @@
   }
   #testimonials.ip-testi-luxe .t-slide.t-slide--link:hover .t-slide-quote__inner{
     transform:none;
+  }
+}
+
+/* =========================
+   Homepage pricing — Floating Glass (elite agency)
+   ========================= */
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency__row{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+  margin-top:var(--ip-home-section-gap);
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card--featured .ip-pricing-agency-card__inner,
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card:hover .ip-pricing-agency-card__inner{
+  transform:none !important;
+}
+
+@media (min-width:992px){
+  [data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card--featured .ip-pricing-agency-card__inner{
+    transform:none !important;
+    padding-top:1.85rem !important;
+    padding-bottom:1.75rem !important;
+  }
+  [data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card--featured:hover .ip-pricing-agency-card__inner{
+    transform:none !important;
+  }
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__inner--glass{
+  position:relative;
+  border-radius:28px !important;
+  padding:1.85rem 1.55rem 1.75rem !important;
+  background:rgba(252,247,232,.8) !important;
+  border:1px solid color-mix(in srgb, #C09C57 55%, rgba(26,22,16,.12)) !important;
+  backdrop-filter:blur(20px) saturate(1.08) !important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.08) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.55) inset,
+    0 26px 60px rgba(24,20,10,.14) !important;
+  transition:none !important;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  align-items:center;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__inner--featured-gold{
+  background:linear-gradient(180deg, #F9F5F0 0%, #E6D5B8 100%) !important;
+  border-color:color-mix(in srgb, #C09C57 62%, rgba(26,22,16,.14)) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.62) inset,
+    0 28px 64px rgba(24,20,10,.16) !important;
+}
+
+@media (min-width:992px){
+  [data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__inner--glass{
+    min-height:560px;
+  }
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card:hover .ip-pricing-agency-card__inner--glass{
+  transform:none !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.55) inset,
+    0 26px 60px rgba(24,20,10,.14) !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__kicker{
+  margin:0 0 .85rem;
+  padding-top:0;
+  width:100%;
+  text-align:center;
+  font-family:"Plus Jakarta Sans","Inter",var(--font-ui),Arial,sans-serif;
+  font-size:.82rem;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:color-mix(in srgb, #C09C57 78%, #2f250f);
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__price-block{
+  margin:0 0 .85rem !important;
+  padding:0 !important;
+  border:0 !important;
+  text-align:center;
+  width:100%;
+  min-height:8.25rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__price--hero{
+  flex-direction:row !important;
+  align-items:baseline !important;
+  justify-content:center !important;
+  gap:0 !important;
+  line-height:1 !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__price-amount{
+  display:inline-flex;
+  align-items:baseline;
+  justify-content:center;
+  flex-wrap:nowrap;
+  gap:.12rem;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__price-num{
+  font-size:clamp(3.25rem, 5.2vw, 4.35rem) !important;
+  font-weight:800 !important;
+  letter-spacing:-0.03em !important;
+  color:transparent !important;
+  background:linear-gradient(180deg, #f3e3b8 0%, #d4a84a 42%, #9a6f1c 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  line-height:1 !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__price-currency{
+  font-size:.78em !important;
+  font-weight:800 !important;
+  color:transparent !important;
+  background:linear-gradient(180deg, #f3e3b8 0%, #d4a84a 42%, #9a6f1c 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  margin-right:.08em !important;
+  line-height:1 !important;
+  transform:translateY(.015em);
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__price-plus{
+  font-size:.55em !important;
+  font-weight:900 !important;
+  color:transparent !important;
+  background:linear-gradient(180deg, #f3e3b8 0%, #d4a84a 42%, #9a6f1c 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  margin-left:.06em !important;
+  transform:translateY(-.08em);
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__price-note{
+  margin:.55rem 0 0 !important;
+  font-family:"Plus Jakarta Sans","Inter",var(--font-ui),Arial,sans-serif !important;
+  font-size:.68rem !important;
+  font-weight:700 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+  color:color-mix(in srgb, var(--text) 45%, var(--muted)) !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__benefits{
+  margin:0 0 1.15rem !important;
+  padding:0 !important;
+  display:flex;
+  flex-direction:column;
+  gap:.55rem;
+  align-items:center;
+  text-align:left;
+  flex:1 1 auto;
+  width:100%;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__benefits li{
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  display:flex;
+  align-items:flex-start;
+  gap:.55rem;
+  width:min(32ch, 100%);
+  font-family:"Plus Jakarta Sans","Inter",var(--font-ui),Arial,sans-serif !important;
+  font-size:13px !important;
+  line-height:1.8 !important;
+  font-weight:500 !important;
+  color:color-mix(in srgb, var(--text) 78%, var(--muted)) !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__benefits li::before{
+  content:"";
+  flex:0 0 auto;
+  width:.28rem;
+  height:.28rem;
+  margin-top:.62em;
+  border-radius:999px;
+  background:color-mix(in srgb, #C09C57 78%, #2a2210);
+  box-shadow:0 0 0 3px color-mix(in srgb, #C09C57 16%, transparent);
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__cta{
+  padding-top:0 !important;
+  margin-top:auto !important;
+  width:100%;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__btn{
+  width:100% !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.45) inset, 0 6px 14px rgba(24,20,10,.12) !important;
+  transform:none !important;
+  transition:box-shadow .18s ease, border-color .18s ease, background .18s ease, color .18s ease !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__btn:hover{
+  transform:none !important;
+  filter:none !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__btn:not(.ip-pricing-agency-card__btn--primary){
+  background:rgba(255,252,240,.35) !important;
+  color:#171208 !important;
+  border:1px solid #C09C57 !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.45) inset, 0 6px 14px rgba(24,20,10,.12) !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__btn:not(.ip-pricing-agency-card__btn--primary):hover{
+  border-color:color-mix(in srgb, #C09C57 78%, #2a2210) !important;
+  box-shadow:0 1px 0 rgba(255,255,255,.45) inset, 0 8px 18px rgba(24,20,10,.16) !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__btn--primary{
+  border:1px solid color-mix(in srgb, #C09C57 70%, #2a2210) !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__btn::after{
+  content:none !important;
+  display:none !important;
+  margin:0 !important;
+}
+
+[data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__btn:hover::after{
+  transform:none !important;
+}
+
+@media (max-width:575.98px){
+  [data-ip-page="home"] #pricing.ip-pricing-agency .ip-pricing-agency-card__price-num{
+    font-size:clamp(2.85rem, 12vw, 3.35rem) !important;
   }
 }
 

@@ -37,47 +37,6 @@
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/assets/css/style.min.css" />
-  <style>
-    #services.ip-services--hero-cta .ip-svc-core-foot__actions{
-      gap:12px;
-      justify-content:center;
-    }
-    #services.ip-services--hero-cta .ip-svc-core-foot__actions .hero-btn.hero-btn--outline{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:52px;
-      min-width:260px;
-      max-width:none;
-      flex:0 1 auto;
-      padding:12px 32px;
-      box-sizing:border-box;
-      white-space:nowrap;
-      font-family:"Plus Jakarta Sans","Inter",var(--font-ui),Arial,sans-serif;
-      font-size:1rem;
-      font-weight:600;
-      letter-spacing:1px;
-      line-height:1;
-      transition:background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
-    }
-    #services.ip-services--hero-cta .ip-svc-core-foot__actions .hero-btn.hero-btn--outline .hero-btn__label{
-      line-height:1;
-      white-space:nowrap;
-      letter-spacing:inherit;
-      font-size:inherit;
-    }
-    #services.ip-services--hero-cta .ip-svc-core-foot__actions .hero-btn.hero-btn--outline .hero-btn__ic,
-    #services.ip-services--hero-cta .ip-svc-core-foot__actions .hero-btn.hero-btn--outline .hero-btn__ic--bi{
-      width:1rem;
-      height:1rem;
-      font-size:1rem;
-      line-height:1;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-    }
-  </style>
   <link rel="preload" as="image" href="/assets/img/hero-bg-3.png" fetchpriority="high" />
 
   <!-- Open Graph -->
@@ -134,19 +93,37 @@
             </button>
             <div class="ip-mega-menu" id="megaMenu" aria-labelledby="megaServices" role="region" aria-label="Shërbimet">
               <div class="ip-mega-inner">
-                <div class="row g-1">
+                <div class="row g-3">
                   <div class="col-12 col-lg-4">
-                    <a class="ip-mega-link" href="/services/website/"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-layout-text-window-reverse"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Website që konverton</span></span></a>
+                    <a class="ip-mega-link" href="/services/website/">
+                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-window-stack"></i></span>
+                      <span class="ip-mega-link-body">
+                        <span class="ip-mega-link-title">Website</span>
+                        <span class="ip-mega-link-desc">Website i shpejtë që kthen klikimet në klientë.</span>
+                      </span>
+                    </a>
                   </div>
                   <div class="col-12 col-lg-4">
-                    <a class="ip-mega-link" href="/services/google-ads/"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-badge-ad"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Google Ads</span></span></a>
+                    <a class="ip-mega-link" href="/services/google-ads/">
+                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-megaphone"></i></span>
+                      <span class="ip-mega-link-body">
+                        <span class="ip-mega-link-title">Google Ads</span>
+                        <span class="ip-mega-link-desc">Fokusuar në telefonata dhe lead-e me kosto të ulët.</span>
+                      </span>
+                    </a>
                   </div>
                   <div class="col-12 col-lg-4">
-                    <a class="ip-mega-link" href="/services/maintenance/"><span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-wrench-adjustable"></i></span><span class="ip-mega-link-body"><span class="ip-mega-link-title">Mirëmbajtje &amp; rritje</span></span></a>
+                    <a class="ip-mega-link" href="/services/maintenance/">
+                      <span class="ip-mega-ic" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
+                      <span class="ip-mega-link-body">
+                        <span class="ip-mega-link-title">Mirëmbajtje</span>
+                        <span class="ip-mega-link-desc">Optimizo dhe suporto faqen që të performojë çdo ditë.</span>
+                      </span>
+                    </a>
                   </div>
                 </div>
                 <div class="ip-mega-footer d-none d-lg-block">
-                  <a class="ip-mega-all" href="/services/">Të gjitha shërbimet <span aria-hidden="true">→</span></a>
+                  <a class="ip-mega-all" href="/services/">TË GJITHA SHËRBIMET <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
@@ -176,7 +153,7 @@
         </ul>
 
         <div class="ip-nav-cta">
-          <a class="ip-navbar__cta ip-magnetic" href="/contact/">Merr ofertë <svg class="ip-navbar__cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="ip-navbar__cta ip-magnetic" href="/contact/">Kërko ofertë <svg class="ip-navbar__cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
@@ -280,9 +257,9 @@
 
     <div class="row justify-content-center text-center">
       <div class="col-12 col-lg-9 col-xl-8">
-        <h2 class="ip-services-hero-title mt-2 ip-reveal">Shërbimet</h2>
-        <p class="section-subtitle ip-services-section__subtitle mx-auto mt-3 ip-reveal ip-reveal--d1">
-          Nga ideja fillestare, te zbatimi përfundimtar.
+        <h2 class="ip-services-hero-title mt-2">Shërbimet</h2>
+        <p class="section-subtitle ip-services-section__subtitle mx-auto mt-3">
+          Nga ideja fillestare te zbatimi i plotë, me fokus në rezultat.
         </p>
       </div>
     </div>
@@ -292,52 +269,53 @@
         <article class="ip-svc-luxe ip-spotlight-card w-100">
           <span class="ip-card-spotlight" aria-hidden="true"></span>
           <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-          <span class="ip-svc-luxe__num" aria-hidden="true">01</span>
           <div class="ip-svc-luxe__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4M2 8h20"/></svg>
           </div>
-          <h3 class="ip-svc-luxe__title">Website që konverton</h3>
-          <p class="ip-svc-luxe__desc">Website i shpejtë dhe i optimizuar për të sjellë më shumë klientë për biznesin tuaj.</p>
-          <a class="ip-svc-luxe__cta" href="/contact/">Merr ofertë <span aria-hidden="true">→</span></a>
+          <h3 class="ip-svc-luxe__title">Website</h3>
+          <p class="ip-svc-luxe__desc">Ndërtojmë imazhin që meriton biznesi juaj. Website të shpejtë, modernë dhe të optimizuar për shitje.</p>
+          <a class="ip-svc-luxe__cta" href="/services/website/"><span class="ip-svc-luxe__cta-text">Mëso më shumë</span> <span aria-hidden="true">→</span></a>
         </article>
       </div>
       <div class="col-12 col-md-6 col-lg-4 d-flex">
         <article class="ip-svc-luxe ip-spotlight-card w-100">
           <span class="ip-card-spotlight" aria-hidden="true"></span>
           <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-          <span class="ip-svc-luxe__num" aria-hidden="true">02</span>
           <div class="ip-svc-luxe__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v3a2 2 0 0 0 2 2h2l4 3V6L7 9H5a2 2 0 0 0-2 2z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></svg>
           </div>
-          <h3 class="ip-svc-luxe__title">Reklama që sjellin klientë</h3>
-          <p class="ip-svc-luxe__desc">Google Ads të fokusuara në telefonata, kërkesa dhe rezultate reale.</p>
-          <a class="ip-svc-luxe__cta" href="/services/google-ads/">Mëso si funksionon <span aria-hidden="true">→</span></a>
+          <h3 class="ip-svc-luxe__title">Marketing</h3>
+          <p class="ip-svc-luxe__desc">Reklamat nuk janë kosto, janë motori i shitjeve. Targetojmë audiencën e duhur për të sjellë fitim maksimal.</p>
+          <a class="ip-svc-luxe__cta" href="/services/marketing/"><span class="ip-svc-luxe__cta-text">Mëso më shumë</span> <span aria-hidden="true">→</span></a>
         </article>
       </div>
       <div class="col-12 col-md-6 col-lg-4 d-flex">
         <article class="ip-svc-luxe ip-spotlight-card w-100">
           <span class="ip-card-spotlight" aria-hidden="true"></span>
           <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-          <span class="ip-svc-luxe__num" aria-hidden="true">03</span>
           <div class="ip-svc-luxe__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 6-7"/></svg>
           </div>
-          <h3 class="ip-svc-luxe__title">Mirëmbajtje &amp; rritje</h3>
-          <p class="ip-svc-luxe__desc">Përditësime, optimizim dhe suport i vazhdueshëm për website-in tuaj.</p>
-          <a class="ip-svc-luxe__cta" href="/services/maintenance/">Shiko paketat <span aria-hidden="true">→</span></a>
+          <h3 class="ip-svc-luxe__title">Mirëmbajtje</h3>
+          <p class="ip-svc-luxe__desc">Teknologjia ecën shpejt. Ne kujdesemi që sistemi juaj të jetë gjithmonë i sigurt, i shpejtë dhe një hap para konkurrencës.</p>
+          <a class="ip-svc-luxe__cta" href="/services/maintenance/"><span class="ip-svc-luxe__cta-text">Mëso më shumë</span> <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
 
-    <div class="ip-svc-core-foot text-center mx-auto ip-reveal ip-reveal--d2">
-      <p class="ip-svc-core-foot__note">Keni nevojë edhe për SEO, social, brand apo dyqan online? I kemi të dokumentuar — por këtu i theksojmë vetëm gjërat që na përsëriten klientët si “prioritet #1”.</p>
+    <div class="ip-svc-core-foot text-center mx-auto">
+      <p class="ip-svc-core-foot__note">
+        <span class="ip-svc-core-foot__note-pill">
+          <span class="ip-svc-core-foot__note-text">Keni nevojë edhe për SEO, Social Media, Branding ose E-commerce? <br> I mbulojmë të gjitha; këtu po theksojmë vetëm shërbimet që klientët tanë i vendosin më shpesh si prioritet.</span>
+        </span>
+      </p>
       <div class="ip-svc-core-foot__actions hero-actions hero-actions--boutique mx-auto">
         <a class="hero-btn hero-btn--primary hero-btn--hero-primary hero-btn--outline ip-magnetic" href="/contact/">
-          <span class="hero-btn__label">Merr ofertë</span>
+          <span class="hero-btn__label">MERR OFERTË</span>
           <i class="bi bi-rocket-takeoff hero-btn__ic hero-btn__ic--bi" aria-hidden="true"></i>
         </a>
         <a class="hero-btn hero-btn--ghost hero-btn--hero-ghost hero-btn--outline hero-btn--services-all" href="/services/">
-          <span class="hero-btn__label">Të gjitha shërbimet</span>
+          <span class="hero-btn__label">TË GJITHA SHËRBIMET</span>
           <i class="bi bi-grid-3x3-gap hero-btn__ic hero-btn__ic--bi" aria-hidden="true"></i>
         </a>
       </div>
@@ -347,53 +325,39 @@
 </section>
 
 <!-- PRICING -->
-<section id="pricing" class="ip-pricing-agency py-5 position-relative" data-ip-pricing-agency data-billing-mode="onetime">
+<section id="pricing" class="ip-pricing-agency py-5 position-relative" data-ip-pricing-agency>
   <div class="ip-pricing-agency__ambient" aria-hidden="true"></div>
   <div class="container position-relative ip-pricing-agency__container">
-    <header class="row justify-content-center text-center mb-0 mb-lg-1">
-      <div class="col-12 col-lg-10 col-xl-9 px-lg-2">
-        <p class="ip-pricing-agency__eyebrow ip-reveal">Paketa &amp; Çmime</p>
-        <h2 class="ip-pricing-agency__heading ip-reveal ip-reveal--d1">Investim i qartë.<br class="d-none d-sm-inline" /> Rezultat i matshëm.</h2>
-        <p class="ip-pricing-agency__lede mx-auto ip-reveal ip-reveal--d2">Çmime orientuese për projekte të fokusuara në performancë dhe konvertim. <br> Ofertë e personalizuar dhe e detajuar sipas objektivave tuaja.</p>
-        <div class="ip-pricing-agency__billing" role="group" aria-label="Model pagesash">
-          <button type="button" class="ip-pricing-agency__billing-btn is-active" data-billing="onetime" aria-pressed="true">Njëherëshe</button>
-          <button type="button" class="ip-pricing-agency__billing-btn" data-billing="monthly" aria-pressed="false">Mujor</button>
-        </div>
+    <div class="row justify-content-center text-center">
+      <div class="col-12 col-lg-9 col-xl-8">
+        <h2 class="ip-services-hero-title mt-2 ip-reveal ip-reveal--d1">Paketa &amp; çmime</h2>
+        <p class="section-subtitle ip-services-section__subtitle mx-auto mt-3 ip-reveal ip-reveal--d2">Investim i qartë për rritje të matshme. <br> Ofertë e personalizuar sipas nevojave tuaja.</p>
       </div>
-    </header>
+    </div>
 
-    <div class="row g-4 g-xl-4 mt-2 mt-lg-4 align-items-stretch justify-content-center ip-pricing-agency__row">
+    <div class="row g-4 g-xl-5 align-items-stretch justify-content-center ip-pricing-agency__row">
       <div class="col-12 col-md-6 col-xl-4 d-flex" data-pricing-tier="onetime">
         <article class="ip-pricing-agency-card ip-pricing-agency-card--featured w-100">
-          <span class="ip-pricing-agency-card__ribbon">Më i kërkuari</span>
-          <div class="ip-pricing-agency-card__inner ip-spotlight-card">
-            <span class="ip-card-spotlight" aria-hidden="true"></span>
-            <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-            <div class="ip-pricing-agency-card__badge" aria-hidden="true">
-              <span class="ip-pricing-agency-card__icon"><i class="bi bi-window-stack"></i></span>
-            </div>
-            <h3 class="ip-pricing-agency-card__title">Website</h3>
-            <p class="ip-pricing-agency-card__desc">Website profesional i optimizuar për shpejtësi, qartësi dhe konvertime.</p>
+          <div class="ip-pricing-agency-card__inner ip-pricing-agency-card__inner--glass ip-pricing-agency-card__inner--featured-gold">
+            <p class="ip-pricing-agency-card__kicker">Website</p>
             <div class="ip-pricing-agency-card__price-block">
-              <p class="ip-pricing-agency-card__price">
-                <span class="ip-pricing-agency-card__price-from">Nga</span>
-                <span class="ip-pricing-agency-card__price-eur" aria-hidden="true">€</span><span class="ip-pricing-agency-card__price-num">300</span>
+              <p class="ip-pricing-agency-card__price ip-pricing-agency-card__price--hero">
+                <span class="ip-pricing-agency-card__price-amount">
+                  <span class="ip-pricing-agency-card__price-currency">€</span><span class="ip-pricing-agency-card__price-num">500</span>
+                </span>
               </p>
-              <p class="ip-pricing-agency-card__price-note">Pagesë njëherëshe</p>
+              <p class="ip-pricing-agency-card__price-note">PAGESË NJËHERËSHE</p>
             </div>
-            <div class="ip-pricing-agency-card__maint">
-              <span class="ip-pricing-agency-card__maint-label">Mirëmbajtje</span>
-              <span class="ip-pricing-agency-card__maint-val">€100 / muaj</span>
-            </div>
-            <ul class="ip-pricing-agency-card__list list-unstyled">
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Dizajn modern dhe responsive</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>SEO bazë</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Formë kontakti</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Integrim WhatsApp</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Performancë e optimizuar</li>
+            <ul class="ip-pricing-agency-card__benefits list-unstyled">
+              <li>Dizajn unik &amp; premium</li>
+              <li>SEO i nivelit bazë</li>
+              <li>Integrim WhatsApp &amp; Kontakt</li>
+              <li>Hostim falas për 1 vit</li>
+              <li>Domaine falas për 1 vit</li>
+              <li>Suport teknik i dedikuar</li>
             </ul>
             <div class="ip-pricing-agency-card__cta">
-              <a class="ip-pricing-agency-card__btn ip-pricing-agency-card__btn--primary" href="#contact">Merr ofertë</a>
+              <a class="ip-pricing-agency-card__btn ip-pricing-agency-card__btn--primary" href="#contact">MERR OFERTË</a>
             </div>
           </div>
         </article>
@@ -401,37 +365,26 @@
 
       <div class="col-12 col-md-6 col-xl-4 d-flex" data-pricing-tier="both">
         <article class="ip-pricing-agency-card w-100">
-          <div class="ip-pricing-agency-card__inner ip-spotlight-card">
-            <span class="ip-card-spotlight" aria-hidden="true"></span>
-            <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-            <div class="ip-pricing-agency-card__badge" aria-hidden="true">
-              <span class="ip-pricing-agency-card__icon"><i class="bi bi-bag-check"></i></span>
-            </div>
-            <h3 class="ip-pricing-agency-card__title">E-commerce</h3>
-            <p class="ip-pricing-agency-card__desc">Dyqan online i ndërtuar për shitje, menaxhim dhe rritje.</p>
+          <div class="ip-pricing-agency-card__inner ip-pricing-agency-card__inner--glass">
+            <p class="ip-pricing-agency-card__kicker">E-commerce</p>
             <div class="ip-pricing-agency-card__price-block">
-              <p class="ip-pricing-agency-card__price ip-pricing-agency-card__price--range">
-                <span class="ip-pricing-agency-card__price-from">Nga</span>
-                <span class="ip-pricing-agency-card__price-eur" aria-hidden="true">€</span><span class="ip-pricing-agency-card__price-num">900</span>
-                <span class="ip-pricing-agency-card__price-sep">–</span>
-                <span class="ip-pricing-agency-card__price-eur" aria-hidden="true">€</span><span class="ip-pricing-agency-card__price-num">1500</span>
+              <p class="ip-pricing-agency-card__price ip-pricing-agency-card__price--hero">
+                <span class="ip-pricing-agency-card__price-amount">
+                  <span class="ip-pricing-agency-card__price-currency">€</span><span class="ip-pricing-agency-card__price-num">950</span><span class="ip-pricing-agency-card__price-plus" aria-hidden="true">+</span>
+                </span>
               </p>
-              <p class="ip-pricing-agency-card__price-note">Sipas kompleksitetit dhe funksionaliteteve</p>
+              <p class="ip-pricing-agency-card__price-note">PAGESË NJËHERËSHE</p>
             </div>
-            <div class="ip-pricing-agency-card__maint">
-              <span class="ip-pricing-agency-card__maint-label">Mirëmbajtje</span>
-              <span class="ip-pricing-agency-card__maint-val">€150–200 / muaj</span>
-            </div>
-            <ul class="ip-pricing-agency-card__list list-unstyled">
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Katalog dhe kategori</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Checkout dhe pagesa</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Integrim pagesash</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>SEO bazë</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Automatizime me email</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Panel menaxhimi</li>
+            <ul class="ip-pricing-agency-card__benefits list-unstyled">
+              <li>Katalog i pakufizuar</li>
+              <li>Sisteme pagesash (Stripe/PayPal)</li>
+              <li>Panel kontrolli i thjeshtë</li>
+              <li>Automatizime me email</li>
+              <li>Sistem kuponash &amp; ofertash</li>
+              <li>Trajnim për menaxhimin</li>
             </ul>
             <div class="ip-pricing-agency-card__cta">
-              <a class="ip-pricing-agency-card__btn" href="#contact">Merr ofertë</a>
+              <a class="ip-pricing-agency-card__btn" href="#contact">MERR OFERTË</a>
             </div>
           </div>
         </article>
@@ -439,38 +392,37 @@
 
       <div class="col-12 col-md-6 col-xl-4 d-flex" data-pricing-tier="monthly">
         <article class="ip-pricing-agency-card w-100">
-          <div class="ip-pricing-agency-card__inner ip-spotlight-card">
-            <span class="ip-card-spotlight" aria-hidden="true"></span>
-            <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-            <div class="ip-pricing-agency-card__badge" aria-hidden="true">
-              <span class="ip-pricing-agency-card__icon"><i class="bi bi-graph-up-arrow"></i></span>
-            </div>
-            <h3 class="ip-pricing-agency-card__title">Marketing &amp; Rritje</h3>
-            <p class="ip-pricing-agency-card__desc">Strategji dhe ekzekutim për rritje të qëndrueshme të biznesit.</p>
+          <div class="ip-pricing-agency-card__inner ip-pricing-agency-card__inner--glass">
+            <p class="ip-pricing-agency-card__kicker">Marketing</p>
             <div class="ip-pricing-agency-card__price-block">
-              <p class="ip-pricing-agency-card__price">
-                <span class="ip-pricing-agency-card__price-from">Nga</span>
-                <span class="ip-pricing-agency-card__price-eur" aria-hidden="true">€</span><span class="ip-pricing-agency-card__price-num">250</span><span class="ip-pricing-agency-card__price-suffix">/ muaj</span>
+              <p class="ip-pricing-agency-card__price ip-pricing-agency-card__price--hero">
+                <span class="ip-pricing-agency-card__price-amount">
+                  <span class="ip-pricing-agency-card__price-currency">€</span><span class="ip-pricing-agency-card__price-num">300</span>
+                </span>
               </p>
-              <p class="ip-pricing-agency-card__price-note">Model mujor për optimizim të vazhdueshëm</p>
+              <p class="ip-pricing-agency-card__price-note">TARIFË MUJORE</p>
             </div>
-            <div class="ip-pricing-agency-card__maint ip-pricing-agency-card__maint--accent">
-              <span class="ip-pricing-agency-card__maint-label">Përfshirë</span>
-              <span class="ip-pricing-agency-card__maint-val">Strategji &amp; raport mujor</span>
-            </div>
-            <ul class="ip-pricing-agency-card__list list-unstyled">
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Menaxhim social media</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Google Ads</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Strategji marketingu</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Analizë dhe raportim</li>
-              <li><span class="ip-pricing-agency-card__check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Optimizim i vazhdueshëm</li>
+            <ul class="ip-pricing-agency-card__benefits list-unstyled">
+              <li>Google Ads &amp; Social Ads</li>
+              <li>Strategji &amp; Raportim mujor</li>
+              <li>Dizajn i kreativëve (Ads)</li>
+              <li>Menaxhim i buxhetit</li>
+              <li>Analizë e konkurrencës</li>
+              <li>Konsultë strategjike përfshirë</li>
             </ul>
             <div class="ip-pricing-agency-card__cta">
-              <a class="ip-pricing-agency-card__btn" href="#contact">Merr ofertë</a>
+              <a class="ip-pricing-agency-card__btn" href="#contact">MERR OFERTË</a>
             </div>
           </div>
         </article>
       </div>
+    </div>
+
+    <div class="text-center mt-4 mt-lg-5">
+      <a class="ip-work-luxe__all" href="http://127.0.0.1:5501/pricing/">
+        Të gjitha paketat
+        <span class="ip-work-luxe__all-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
 
     <p class="ip-pricing-agency__footnote text-center mb-0 mt-4 mt-lg-5">Për konfigurime të personalizuara, përgatisim ofertë të qartë brenda 24 orëve.</p>
@@ -721,25 +673,78 @@
     </div>
   </section>
 
-  <section class="py-5 bg-soft">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <article class="ip-bento-card ip-split-card">
-            <h2 class="section-title h3 mb-3">Case studies nga tregu shqiptar</h2>
-            <ul class="ip-check-list">
-              <li><a href="/work/case-study-website-tirane/">Website në Tiranë: +34% më shumë kërkesa</a></li>
-              <li><a href="/work/case-study-ecommerce-shqiperi/">E-commerce në Shqipëri: +22% porosi të përfunduara</a></li>
-            </ul>
+  <section id="proof-knowledge" class="py-5 ip-proof-luxe" aria-labelledby="proof-knowledge-heading">
+    <div class="ip-proof-luxe__ambient" aria-hidden="true"></div>
+    <div class="container position-relative">
+      <div class="row justify-content-center text-center">
+        <div class="col-12 col-lg-9 col-xl-8">
+          <h2 id="proof-knowledge-heading" class="ip-services-hero-title mt-2">Standardi i ri</h2>
+          <p class="section-subtitle ip-services-section__subtitle mx-auto mt-3">Aty ku trendet globale takojnë nevojat e tregut shqiptar. Insights strategjikë, blog dhe informacione për vizionarët e biznesit.</p>
+        </div>
+      </div>
+
+      <div class="row g-4 g-lg-5 justify-content-center align-items-stretch ip-proof-luxe__grid">
+        <div class="col-12 col-lg-6 d-flex">
+          <article class="ip-proof-luxe__card ip-proof-luxe__card--results w-100">
+            <div class="ip-proof-luxe__header">
+              <p class="ip-proof-luxe__eyebrow">REZULTATE</p>
+              <h3 class="ip-proof-luxe__title">Case studies që tregojnë ndikim real</h3>
+            </div>
+
+            <div class="ip-proof-luxe__stack">
+              <article class="ip-proof-luxe__item">
+                <div class="ip-proof-luxe__chips">
+                  <span class="ip-proof-luxe__chip">Website</span>
+                  <span class="ip-proof-luxe__chip">Londër, Mbretëri e Bashkuar</span>
+                </div>
+                <h4 class="ip-proof-luxe__item-title">Website në Londër</h4>
+                <p class="ip-proof-luxe__metric">+34%</p>
+                <p class="ip-proof-luxe__item-note">më shumë kërkesa në 90 ditë</p>
+                <a class="ip-proof-luxe__link" href="/work/case-study-website-tirane/">Shiko projektin <span aria-hidden="true">→</span></a>
+              </article>
+
+              <article class="ip-proof-luxe__item">
+                <div class="ip-proof-luxe__chips">
+                  <span class="ip-proof-luxe__chip">E-commerce</span>
+                  <span class="ip-proof-luxe__chip">Itali</span>
+                </div>
+                <h4 class="ip-proof-luxe__item-title">E-commerce në Itali</h4>
+                <p class="ip-proof-luxe__metric">+22%</p>
+                <p class="ip-proof-luxe__item-note">rritje e porosive të përfunduara</p>
+                <a class="ip-proof-luxe__link" href="/work/case-study-ecommerce-shqiperi/">Shiko projektin <span aria-hidden="true">→</span></a>
+              </article>
+            </div>
           </article>
         </div>
-        <div class="col-lg-6">
-          <article class="ip-bento-card ip-split-card h-100">
-            <h2 class="section-title h3 mb-3">Udhëzues lokal</h2>
-            <ul class="ip-check-list mb-0">
-              <li><a href="/blog/seo-kosto-website-shqiperi-2026/">Sa kushton SEO dhe website në Shqipëri (2026)</a></li>
-              <li><a href="/faq/">Pyetje të shpeshta për website, e-commerce dhe SEO</a></li>
-            </ul>
+
+        <div class="col-12 col-lg-6 d-flex">
+          <article class="ip-proof-luxe__card ip-proof-luxe__card--resources w-100">
+            <div class="ip-proof-luxe__header">
+              <p class="ip-proof-luxe__eyebrow">BLOG</p>
+              <h3 class="ip-proof-luxe__title">Udhëzues strategjikë për vendime më të zgjuara</h3>
+            </div>
+
+            <div class="ip-proof-luxe__stack">
+              <article class="ip-proof-luxe__item">
+                <div class="ip-proof-luxe__chips">
+                  <span class="ip-proof-luxe__chip">SEO</span>
+                  <span class="ip-proof-luxe__chip">2026</span>
+                </div>
+                <h4 class="ip-proof-luxe__item-title">Sa kushton SEO dhe website në Shqipëri</h4>
+                <p class="ip-proof-luxe__item-note">Një udhëzues i qartë për buxhetin, pritshmëritë dhe kthimin e investimit.</p>
+                <a class="ip-proof-luxe__link" href="/blog/seo-kosto-website-shqiperi-2026/">Shiko projektin <span aria-hidden="true">→</span></a>
+              </article>
+
+              <article class="ip-proof-luxe__item">
+                <div class="ip-proof-luxe__chips">
+                  <span class="ip-proof-luxe__chip">FAQ</span>
+                  <span class="ip-proof-luxe__chip">Praktike</span>
+                </div>
+                <h4 class="ip-proof-luxe__item-title">Pyetje të shpeshta për website, e-commerce dhe SEO</h4>
+                <p class="ip-proof-luxe__item-note">Përgjigje të shkurtra dhe strategjike për pyetjet që bëhen më shpesh para një projekti.</p>
+                <a class="ip-proof-luxe__link" href="/faq/">Shiko projektin <span aria-hidden="true">→</span></a>
+              </article>
+            </div>
           </article>
         </div>
       </div>
@@ -754,7 +759,7 @@
         <header class="text-center ip-proc-luxe__head">
           <h2 id="process-heading" class="section-title ip-proc-luxe__title">Si punojmë</h2>
           <p class="section-subtitle mx-auto ip-proc-luxe__lead">
-            Proces i qartë, pa konfuzion. <br> Çdo hap është i strukturuar për rezultat.
+            Proces i qartë, pa konfuzion.
           </p>
         </header>
 
@@ -850,9 +855,9 @@
       <header class="text-center ip-testi-luxe__head">
         <h2 id="testimonials-heading" class="section-title ip-testi-luxe__title">Çfarë thonë klientët</h2>
         <p class="section-subtitle mx-auto ip-testi-luxe__lead">
-          Rezultate reale nga bashkëpunime reale. Lexoni edhe <a href="/blog/">Blog &amp; udhëzues</a> dhe <a href="/work/case-study-website-tirane/">case study nga Tirana</a>.
+          Rezultate reale nga bashkëpunime reale. <br> Lexoni edhe <a href="/blog/">Blog &amp; udhëzues</a> dhe <a href="/work/case-study-website-tirane/">case study nga Tirana</a>.
         </p>
-        <p class="small text-muted mb-0">Shifrat janë nga projekte përfaqësuese dhe ndryshojnë sipas industrisë, ofertës dhe ekzekutimit.</p>
+
       </header>
 
       <div class="t-slider-shell ip-testi-luxe__shell mt-4">
@@ -1532,10 +1537,10 @@
         </a>
 
         <p class="ip-footer-luxe__tagline mb-2">
-          Studio për web, e-commerce dhe fotografi. Projekte të pastra, të shpejta dhe të menduara për rezultat.
+          Studio për web, e-commerce dhe fotografi. Ndërtojmë prezencë që duket premium dhe kthen vizitorët në klientë.
         </p>
         <p class="ip-footer-luxe__trust mb-4">
-          Punojmë me biznese në Europë dhe më gjerë.
+          Punojmë me biznese në Shqipëri, Kosovë dhe Diasporë.
         </p>
 
         <div class="footer-social ip-footer-luxe__social d-flex justify-content-center justify-content-lg-start gap-2 flex-wrap" aria-label="Rrjetet sociale">
@@ -1602,7 +1607,7 @@
           </li>
           <li class="ip-footer-luxe__contact-row">
             <span class="ip-footer-luxe__contact-label">Vendndodhja</span>
-            <span class="ip-footer-luxe__contact-value">Tirana - Shqiperi</span>
+            <span class="ip-footer-luxe__contact-value">Tiranë, Shqipëri</span>
           </li>
           <li class="ip-footer-luxe__contact-row">
             <span class="ip-footer-luxe__contact-label">Orari</span>
@@ -1610,7 +1615,7 @@
           </li>
         </ul>
 
-        <a class="ip-footer-luxe__cta w-100 text-center" href="/contact/">Merr ofertë <span aria-hidden="true">→</span></a>
+        <a class="ip-footer-luxe__cta w-100 text-center" href="/contact/">Kërko ofertë <span aria-hidden="true">→</span></a>
       </div>
 
     </div>
