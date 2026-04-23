@@ -599,6 +599,7 @@
   transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
   z-index:10900;
   overflow:visible;
+  animation:waPulse 2.8s ease-in-out infinite;
 }
 
 .floating-whatsapp::before{
@@ -638,6 +639,20 @@
   box-shadow:
     0 12px 32px rgba(26,24,16,.1),
     0 14px 32px rgba(37,211,102,.32);
+}
+
+@keyframes waPulse{
+  0%,100%{
+    box-shadow:
+      0 10px 28px rgba(26,24,16,.1),
+      0 10px 26px rgba(37,211,102,.26);
+  }
+  50%{
+    box-shadow:
+      0 12px 30px rgba(26,24,16,.12),
+      0 0 0 8px rgba(37,211,102,.11),
+      0 12px 28px rgba(37,211,102,.28);
+  }
 }
 
 .floating-whatsapp:active{
@@ -3342,6 +3357,8 @@ body{
 .ip-reveal--d3{ transition-delay:.18s; }
 .ip-reveal--d4{ transition-delay:.24s; }
 .ip-reveal--d5{ transition-delay:.3s; }
+.ip-reveal--d6{ transition-delay:.36s; }
+.ip-reveal--d7{ transition-delay:.42s; }
 
 /* Kartat: spotlight + shimmer (shtresa DOM) */
 .ip-spotlight-card{
@@ -3424,7 +3441,7 @@ body{
   --mag-x:0px;
   --mag-y:0px;
 }
-.hero-btn--primary.ip-magnetic:hover{
+.hero-btn--primary.ip-magnetic:hover:not(.hero-btn--outline){
   transform:translate3d(var(--mag-x), var(--mag-y), 0) translateY(-2px);
 }
 .ip-navbar.ip-navbar--rebuilt .ip-navbar__cta.ip-magnetic{
@@ -3468,7 +3485,9 @@ body{
   .ip-reveal.ip-reveal--d2,
   .ip-reveal.ip-reveal--d3,
   .ip-reveal.ip-reveal--d4,
-  .ip-reveal.ip-reveal--d5{
+  .ip-reveal.ip-reveal--d5,
+  .ip-reveal.ip-reveal--d6,
+  .ip-reveal.ip-reveal--d7{
     opacity:1;
     transform:none;
     transition:none;

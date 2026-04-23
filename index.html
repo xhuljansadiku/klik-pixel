@@ -29,7 +29,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,1&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Pixelify+Sans:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&family=Pixelify+Sans:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <!-- Vendor CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -37,6 +37,47 @@
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/assets/css/style.min.css" />
+  <style>
+    #services.ip-services--hero-cta .ip-svc-core-foot__actions{
+      gap:12px;
+      justify-content:center;
+    }
+    #services.ip-services--hero-cta .ip-svc-core-foot__actions .hero-btn.hero-btn--outline{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      min-width:260px;
+      max-width:none;
+      flex:0 1 auto;
+      padding:12px 32px;
+      box-sizing:border-box;
+      white-space:nowrap;
+      font-family:"Plus Jakarta Sans","Inter",var(--font-ui),Arial,sans-serif;
+      font-size:1rem;
+      font-weight:600;
+      letter-spacing:1px;
+      line-height:1;
+      transition:background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    #services.ip-services--hero-cta .ip-svc-core-foot__actions .hero-btn.hero-btn--outline .hero-btn__label{
+      line-height:1;
+      white-space:nowrap;
+      letter-spacing:inherit;
+      font-size:inherit;
+    }
+    #services.ip-services--hero-cta .ip-svc-core-foot__actions .hero-btn.hero-btn--outline .hero-btn__ic,
+    #services.ip-services--hero-cta .ip-svc-core-foot__actions .hero-btn.hero-btn--outline .hero-btn__ic--bi{
+      width:1rem;
+      height:1rem;
+      font-size:1rem;
+      line-height:1;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+  </style>
   <link rel="preload" as="image" href="/assets/img/hero-bg-3.png" fetchpriority="high" />
 
   <!-- Open Graph -->
@@ -53,7 +94,7 @@
   <div class="ip-navbar__glow" aria-hidden="true"></div>
   <div class="container ip-nav-wrap">
     <a class="ip-brand ip-navbar__brand d-flex align-items-center gap-3" href="#top" aria-label="Illyrian Pixel – Kryefaqja">
-      <img class="brand-logo" src="/assets/img/logo.png" alt="Illyrian Pixel logo" width="804" height="720" / loading="lazy" decoding="async">
+      <img class="brand-logo" src="/assets/img/logo.png" alt="Illyrian Pixel logo" width="804" height="720" loading="lazy" decoding="async">
       <span class="brand-text">
         <span class="brand-text-illyrian">Illyrian</span>
         <span class="brand-text-pixel" aria-label="Pixel">
@@ -143,209 +184,118 @@
 </nav>
 <!-- ========== /NAVBAR ========== -->
 
-<!-- HERO — hierarchy: brand lockup → H1 → lead → CTA; nav mbetet sipër për UX (brief-i “pa navbar” ishte kompozim vizual). -->
-<header id="top" class="hero">
+<!-- HERO — boutique 60/40: tekst majtas, helmet flotues djathtas (navbar mban markën). -->
+<header id="top" class="hero hero--boutique">
   <div class="hero-atmosphere" aria-hidden="true"></div>
-  <div class="container py-5 hero-container">
-    <div class="row align-items-center gy-5 gx-lg-5">
+  <div class="container py-5 hero-container hero-container--boutique">
 
-      <div class="col-12 col-lg-6 hero-copy">
-        <div class="hero-brand-lockup ip-reveal ip-reveal--d1" aria-label="Illyrian Pixel">
-          <span class="hero-title-illyrian">Illyrian</span>
-          <span class="hero-title-pixel" aria-hidden="true">
-            <span class="brand-pixel-char">P</span><span class="brand-pixel-char">I</span><span class="brand-pixel-char">X</span><span class="brand-pixel-char">E</span><span class="brand-pixel-char">L</span>
-          </span>
-        </div>
+    <div class="hero-boutique">
+      <div class="hero-boutique__copy">
+        <h1 class="hero-headline hero-headline--boutique ip-reveal ip-reveal--d1"><span class="hero-headline__line">Ktheni biznesin tuaj në një brand,</span><span class="hero-headline__line hero-headline__gold">me një partner të vetëm.</span></h1>
 
-        <h1 class="hero-headline ip-reveal ip-reveal--d2">Ndërtojmë Prezencë që Kthehet në Fitim, Jo Thjesht Kode.</h1>
+        <p class="hero-lead hero-lead--boutique ip-reveal ip-reveal--d2"><span class="hero-lead__row">Estetikë elitare dhe teknologji e avancuar.</span><span class="hero-lead__row hero-lead__row--muted">Ne ndërtojmë imazhin që të tjerët e admirojnë.</span></p>
 
-        <p class="hero-lead ip-reveal ip-reveal--d3">Ndaloni humbjen e klientëve me website të ngadaltë. Ne krijojmë platforma që konvertojnë vizitorët në blerës brenda sekondave.</p>
-
-        <div class="hero-actions">
-          <a class="hero-btn hero-btn--primary hero-btn--hero-primary ip-magnetic ip-reveal ip-reveal--d4" href="/contact/">Merr ofertë brenda 24h</a>
-          <a class="hero-btn hero-btn--ghost hero-btn--hero-ghost ip-reveal ip-reveal--d5" href="/work/">Eksploro portofolin</a>
-        </div>
-
-        <p class="hero-social-proof ip-reveal ip-reveal--d6" role="status">
-          <span class="hero-social-proof__stars" aria-hidden="true">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-          </span>
-          <span class="hero-social-proof__text">Mbi 120+ biznese në Shqipëri dhe në Europë (Itali, Gjermani, Angli) na zgjedhin për web dhe rritje dixhitale; po zgjerojmë prezencën edhe drejt tregut të USA.</span>
-        </p>
+        <div class="hero-boutique__spacer" aria-hidden="true"></div>
       </div>
 
-      <div class="col-12 col-lg-6 hero-visual d-flex justify-content-center justify-content-lg-end align-items-center">
-        <div class="hero-visual-shell hero-helmet-stage" id="heroHelmetStage">
-          <div class="hero-helmet-parallax">
-            <img
-              src="/assets/img/hero-bg-3.png"
-              class="hero-logo-big hero-helmet-img"
-              alt="Vizual hero i Illyrian Pixel"
-              width="1536"
-              height="1024"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
+      <div class="hero-boutique__rail">
+        <div class="hero-boutique__helmet" id="heroHelmetStage">
+          <img
+            src="/assets/img/hero-bg-3.png"
+            class="hero-boutique__helmet-img hero-helmet-img"
+            alt="Helmet dixhital Illyrian Pixel"
+            width="900"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      <div class="hero-boutique__meta-row">
+        <div class="hero-boutique__meta-row-main">
+          <div class="hero-actions hero-actions--boutique">
+            <a class="hero-btn hero-btn--primary hero-btn--hero-primary hero-btn--outline ip-reveal ip-reveal--d3" href="/contact/">
+              <span class="hero-btn__label">NIS SOT</span>
+              <i class="bi bi-rocket-takeoff hero-btn__ic hero-btn__ic--bi" aria-hidden="true"></i>
+            </a>
+            <a class="hero-btn hero-btn--ghost hero-btn--hero-ghost hero-btn--outline ip-reveal ip-reveal--d4" href="/work/">
+              <span class="hero-btn__label">PORTFOLIO</span>
+              <i class="bi bi-camera hero-btn__ic hero-btn__ic--bi" aria-hidden="true"></i>
+            </a>
           </div>
-          <div class="hero-helmet-liquid" aria-hidden="true"></div>
-          <div class="hero-helmet-shine" aria-hidden="true"></div>
-          <div class="hero-helmet-ripple" aria-hidden="true"></div>
         </div>
+        <p class="hero-services-strip hero-services-strip--boutique ip-reveal ip-reveal--d5" aria-label="Shërbime">WEB <span class="hero-services-strip__dot" aria-hidden="true">•</span> E-COMMERCE <span class="hero-services-strip__dot" aria-hidden="true">•</span> MARKETING <span class="hero-services-strip__dot" aria-hidden="true">•</span> FOTOGRAFI <span class="hero-services-strip__dot" aria-hidden="true">•</span> BRAND</p>
       </div>
-
     </div>
+
+    <p class="hero-social-proof hero-social-proof--boutique ip-reveal ip-reveal--d6" role="status">
+      <span class="hero-social-proof__stars" aria-hidden="true">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </span>
+      <span class="hero-social-proof__text">Besuar nga <strong>120+</strong> biznese në Shqipëri, Kosovë &amp; Diasporë që nga viti 2020.</span>
+    </p>
   </div>
 </header>
 
-<!-- STATS -->
-<section class="stats-section">
+<!-- STATS (minimal — pa karta, një rresht) -->
+<section class="stats-section stats-section--minimal" aria-label="Statistika">
   <div class="container">
-    <div class="row g-3 g-lg-4">
-
-      <div class="col-6 col-lg-3">
-        <div class="stat-card h-100 ip-reveal ip-reveal--d1">
-          <div class="stat-icon" aria-hidden="true">
-            <!-- Projekte: dosje + linja blueprint -->
-            <svg class="stat-icon__svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false">
-              <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <path opacity=".35" d="M6 10h8M6 10v8M9 13h3M9 16h3"/>
-                <path opacity=".45" d="M22 12l-4 4v14h20V16l-4-4h-8l-2-2h-6z"/>
-                <path d="M18 14h8l2 2h10v16H18V14z"/>
-                <path opacity=".55" d="M26 10l-2 2h-8l-2-2"/>
-                <path d="M12 22h6M12 26h10M12 30h8"/>
-              </g>
-            </svg>
+    <div class="stats-section__band">
+      <div class="row stats-row g-4 g-lg-0 align-items-start justify-content-lg-between text-center">
+        <div class="col-6 col-lg-3">
+          <div class="stat-item ip-reveal ip-reveal--d1">
+            <div class="stat-value">120+</div>
+            <div class="stat-label">Projekte</div>
           </div>
-          <div class="stat-value">120+</div>
-          <div class="stat-label">Projekte</div>
         </div>
-      </div>
-
-      <div class="col-6 col-lg-3">
-        <div class="stat-card h-100 ip-reveal ip-reveal--d2">
-          <div class="stat-icon" aria-hidden="true">
-            <!-- Klientë: duar / unazë bashkëpunimi + mburojë -->
-            <svg class="stat-icon__svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false">
-              <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <path opacity=".5" d="M10 30c0-6 5-11 11-11 3 0 5.5 1.2 7 3.2"/>
-                <path d="M38 30c0-6-5-11-11-11-3 0-5.5 1.2-7 3.2"/>
-                <path d="M12 22c2.5-5 6.5-8 12-8s9.5 3 12 8"/>
-                <path opacity=".4" d="M24 12v6"/>
-                <path fill="currentColor" fill-opacity=".14" stroke-width="1" d="M24 19.5l2.4 3.5h-4.8l2.4-3.5z"/>
-              </g>
-            </svg>
+        <div class="col-6 col-lg-3">
+          <div class="stat-item ip-reveal ip-reveal--d2">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Brand-e</div>
           </div>
-          <div class="stat-value">50+</div>
-          <div class="stat-label">Klientë të kënaqur</div>
         </div>
-      </div>
-
-      <div class="col-6 col-lg-3">
-        <div class="stat-card h-100 ip-reveal ip-reveal--d3">
-          <div class="stat-icon" aria-hidden="true">
-            <!-- Përvojë: yll me faceta -->
-            <svg class="stat-icon__svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false">
-              <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <path fill="currentColor" fill-opacity=".1" d="M24 8l4.4 13.5h14.2L30.8 30l4.5 13.8L24 36.2 12.7 43.8 17.2 30 9.4 21.5h14.2L24 8z"/>
-                <path d="M24 8l4.4 13.5h14.2L30.8 30l4.5 13.8L24 36.2 12.7 43.8 17.2 30 9.4 21.5h14.2L24 8z"/>
-                <path opacity=".42" d="M24 8v10.5M13.5 22.5l10.5 7.5M34.5 22.5l-10.5 7.5M17.2 35.2l6.8-4.9M30.8 35.2l-6.8-4.9"/>
-              </g>
-            </svg>
+        <div class="col-6 col-lg-3">
+          <div class="stat-item ip-reveal ip-reveal--d3">
+            <div class="stat-value" id="statYearsActive" data-start-year="2020">5+</div>
+            <div class="stat-label">Vite</div>
           </div>
-          <div class="stat-value">5+</div>
-          <div class="stat-label">Vite përvoje</div>
         </div>
-      </div>
-
-      <div class="col-6 col-lg-3">
-        <div class="stat-card h-100 ip-reveal ip-reveal--d4">
-          <div class="stat-icon" aria-hidden="true">
-            <!-- Mbështetje: telefon + valë të dhënash -->
-            <svg class="stat-icon__svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false">
-              <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 10c-2 0-3 1.8-3 4v20c0 2.2 1 4 3 4h8c2 0 3-1.8 3-4V14c0-2.2-1-4-3-4h-8z"/>
-                <path d="M11 16h14M11 32h14"/>
-                <path d="M18 36h4" opacity=".5"/>
-                <path opacity=".55" d="M28 18h2v2h-2zm4 3h2v4h-2zm4-2h2v6h-2zm4 1h2v3h-2"/>
-                <path d="M28 26c2 2 4 3 8 3 1 0 2-.2 3-.5" opacity=".75"/>
-                <circle cx="39" cy="28" r="1.2" fill="currentColor" fill-opacity=".35" stroke="none"/>
-              </g>
-            </svg>
+        <div class="col-6 col-lg-3">
+          <div class="stat-item ip-reveal ip-reveal--d4">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Asistencë</div>
           </div>
-          <div class="stat-value">24/7</div>
-          <div class="stat-label">Mbështetje</div>
         </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- BESIM: oferta 24h + prova + lidhje -->
-<section class="py-5 ip-trust-suite bg-soft" aria-labelledby="ip-trust-heading">
-  <div class="container">
-    <div class="row justify-content-center text-center mb-4 mb-lg-5">
-      <div class="col-lg-10 col-xl-9">
-        <p class="ip-page-kicker mb-2">Transparencë</p>
-        <h2 id="ip-trust-heading" class="section-title">Pse na besojnë klientët</h2>
-        <p class="section-subtitle mx-auto mb-0">Ofertë e dokumentuar, proces i qartë dhe përgjigje njerëzore — jo vetëm “na shkruani”.</p>
-      </div>
-    </div>
-    <div class="row g-4 g-lg-4 align-items-stretch">
-      <div class="col-lg-6">
-        <article class="ip-bento-card h-100 text-start">
-          <h3 class="h5 mb-3">Çfarë merrni brenda 24 orëve</h3>
-          <ol class="mb-0 ps-3" style="font-size:clamp(0.9rem,0.45vw + 0.82rem,1rem);line-height:1.7;color:color-mix(in srgb,var(--text) 85%,var(--muted));">
-            <li class="mb-2"><strong>Përmbledhje e kërkesës</strong> kuptojmë objektivin dhe publikun.</li>
-            <li class="mb-2"><strong>Propozim strukture</strong> faqe kryesore, seksione kryesore, CTA.</li>
-            <li class="mb-2"><strong>Buxhet orientues</strong> gamë ose paketë, pa fshehurja.</li>
-            <li class="mb-2"><strong>Afat realist</strong> hap pas hapi deri në lansim.</li>
-            <li><strong>Hapi i radhës</strong> çfarë na duhet nga ju (materiale, akses, miratime).</li>
-          </ol>
-        </article>
-      </div>
-      <div class="col-lg-6">
-        <article class="ip-bento-card h-100 text-start">
-          <h3 class="h5 mb-3">Prova &amp; procese</h3>
-          <p class="mb-3" style="font-size:clamp(0.9rem,0.45vw + 0.82rem,1rem);line-height:1.72;color:color-mix(in srgb,var(--text) 88%,var(--muted));">Lexoni <a href="/work/case-study-website-tirane/">case study: website në Tiranë</a> dhe <a href="/work/case-study-ecommerce-shqiperi/">case study: e-commerce në Shqipëri</a> problem, çfarë ndryshuam, rezultat me numra.</p>
-          <p class="mb-3 small text-muted mb-lg-4">Shqyrtime nga klientët: kërkoni <strong>Illyrian Pixel</strong> në Google për të parë përvojat e fundit (Business Profile).</p>
-          <div class="d-flex flex-wrap gap-2">
-            <a class="hero-btn hero-btn--ghost btn-sm px-3 py-2" href="/process/">Procesi ynë</a>
-            <a class="hero-btn hero-btn--ghost btn-sm px-3 py-2" href="/pricing/">Çmime &amp; përfshirje</a>
-            <a class="hero-btn hero-btn--ghost btn-sm px-3 py-2" href="/legal/privacy/">Privatësia</a>
-          </div>
-        </article>
       </div>
     </div>
   </div>
 </section>
 
+ 
 <!-- SERVICES — 3 core offers (conversion-focused) -->
-<section id="services" class="py-5 ip-services-section">
+<section id="services" class="py-5 ip-services-section ip-services--hero-cta">
   <div class="container position-relative">
 
     <div class="row justify-content-center text-center">
       <div class="col-12 col-lg-9 col-xl-8">
-        <h2 class="ip-services-hero-title mt-2 ip-reveal">Shërbimet kryesore</h2>
-        <p class="section-subtitle mx-auto mt-3 ip-reveal ip-reveal--d1">
-          Tre oferta të qarta: faqe që kthen vizitorë në kërkesa, reklama që blihen me qëllim dhe kujdes i vazhdueshëm pas lançimit. Pjesa tjetër e shërbimeve mbetet në faqen e shërbimeve — këtu fokusohemi te gjërat që zakonisht sjellin rezultat më shpejt.
+        <h2 class="ip-services-hero-title mt-2 ip-reveal">Shërbimet</h2>
+        <p class="section-subtitle ip-services-section__subtitle mx-auto mt-3 ip-reveal ip-reveal--d1">
+          Nga ideja fillestare, te zbatimi përfundimtar.
         </p>
       </div>
     </div>
 
-    <div class="row g-4 g-xl-5 justify-content-center ip-svc-trio ip-svc-core-trio mt-5 pt-lg-2">
+    <div class="row g-4 g-xl-5 justify-content-center ip-svc-trio ip-svc-core-trio">
       <div class="col-12 col-md-6 col-lg-4 d-flex">
         <article class="ip-svc-luxe ip-spotlight-card w-100">
           <span class="ip-card-spotlight" aria-hidden="true"></span>
           <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-          <div class="ip-svc-luxe__icons" aria-hidden="true">
-            <span class="ip-svc-luxe__ic">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg>
-            </span>
-            <span class="ip-svc-luxe__ic"><i class="bi bi-telephone-outbound" aria-hidden="true"></i></span>
+          <span class="ip-svc-luxe__num" aria-hidden="true">01</span>
+          <div class="ip-svc-luxe__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4M2 8h20"/></svg>
           </div>
-          <p class="ip-svc-luxe__label">01.</p>
           <h3 class="ip-svc-luxe__title">Website që konverton</h3>
           <p class="ip-svc-luxe__desc">Website i shpejtë dhe i optimizuar për të sjellë më shumë klientë për biznesin tuaj.</p>
           <a class="ip-svc-luxe__cta" href="/contact/">Merr ofertë <span aria-hidden="true">→</span></a>
@@ -355,11 +305,10 @@
         <article class="ip-svc-luxe ip-spotlight-card w-100">
           <span class="ip-card-spotlight" aria-hidden="true"></span>
           <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-          <div class="ip-svc-luxe__icons" aria-hidden="true">
-            <span class="ip-svc-luxe__ic"><i class="bi bi-badge-ad" aria-hidden="true"></i></span>
-            <span class="ip-svc-luxe__ic"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></span>
+          <span class="ip-svc-luxe__num" aria-hidden="true">02</span>
+          <div class="ip-svc-luxe__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v3a2 2 0 0 0 2 2h2l4 3V6L7 9H5a2 2 0 0 0-2 2z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></svg>
           </div>
-          <p class="ip-svc-luxe__label">02.</p>
           <h3 class="ip-svc-luxe__title">Reklama që sjellin klientë</h3>
           <p class="ip-svc-luxe__desc">Google Ads të fokusuara në telefonata, kërkesa dhe rezultate reale.</p>
           <a class="ip-svc-luxe__cta" href="/services/google-ads/">Mëso si funksionon <span aria-hidden="true">→</span></a>
@@ -369,15 +318,10 @@
         <article class="ip-svc-luxe ip-spotlight-card w-100">
           <span class="ip-card-spotlight" aria-hidden="true"></span>
           <span class="ip-card-shimmer" aria-hidden="true"><span class="ip-card-shimmer__spin" aria-hidden="true"></span></span>
-          <div class="ip-svc-luxe__icons" aria-hidden="true">
-            <span class="ip-svc-luxe__ic">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 1 0 1.4l-4.2 4.2a1 1 0 0 1-1.4 0l-2-2a1 1 0 0 1 0-1.4l4.2-4.2a1 1 0 0 1 1.4 0z"/><path d="M3 3l5.5 5.5"/><path d="M15.5 15.5L21 21"/></svg>
-            </span>
-            <span class="ip-svc-luxe__ic">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 6-7"/></svg>
-            </span>
+          <span class="ip-svc-luxe__num" aria-hidden="true">03</span>
+          <div class="ip-svc-luxe__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 6-7"/></svg>
           </div>
-          <p class="ip-svc-luxe__label">03.</p>
           <h3 class="ip-svc-luxe__title">Mirëmbajtje &amp; rritje</h3>
           <p class="ip-svc-luxe__desc">Përditësime, optimizim dhe suport i vazhdueshëm për website-in tuaj.</p>
           <a class="ip-svc-luxe__cta" href="/services/maintenance/">Shiko paketat <span aria-hidden="true">→</span></a>
@@ -386,10 +330,16 @@
     </div>
 
     <div class="ip-svc-core-foot text-center mx-auto ip-reveal ip-reveal--d2">
-      <p class="small text-muted mb-3 mb-lg-4">Keni nevojë edhe për SEO, social, brand apo dyqan online? I kemi të dokumentuar — por këtu i theksojmë vetëm gjërat që na përsëriten klientët si “prioritet #1”.</p>
-      <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-2 gap-sm-3">
-        <a class="hero-btn hero-btn--ghost btn-sm px-4 py-2" href="/services/">Të gjitha shërbimet <span aria-hidden="true">→</span></a>
-        <a class="hero-btn hero-btn--primary btn-sm px-4 py-2 ip-magnetic" href="/contact/">Merr ofertë të personalizuar</a>
+      <p class="ip-svc-core-foot__note">Keni nevojë edhe për SEO, social, brand apo dyqan online? I kemi të dokumentuar — por këtu i theksojmë vetëm gjërat që na përsëriten klientët si “prioritet #1”.</p>
+      <div class="ip-svc-core-foot__actions hero-actions hero-actions--boutique mx-auto">
+        <a class="hero-btn hero-btn--primary hero-btn--hero-primary hero-btn--outline ip-magnetic" href="/contact/">
+          <span class="hero-btn__label">Merr ofertë</span>
+          <i class="bi bi-rocket-takeoff hero-btn__ic hero-btn__ic--bi" aria-hidden="true"></i>
+        </a>
+        <a class="hero-btn hero-btn--ghost hero-btn--hero-ghost hero-btn--outline hero-btn--services-all" href="/services/">
+          <span class="hero-btn__label">Të gjitha shërbimet</span>
+          <i class="bi bi-grid-3x3-gap hero-btn__ic hero-btn__ic--bi" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
 
@@ -1572,7 +1522,7 @@
       <div class="col-12 col-lg-6 col-xl-4 ip-footer-luxe__col ip-footer-luxe__col--brand">
         <div class="ip-footer-luxe__logo-glow" aria-hidden="true"></div>
         <a class="footer-brand ip-footer-luxe__brand d-inline-flex align-items-center gap-2 mb-3" href="/" aria-label="Illyrian Pixel – Home">
-          <img class="footer-logo" src="/assets/img/logo.png" alt="Illyrian Pixel logo" width="804" height="720" / loading="lazy" decoding="async">
+          <img class="footer-logo" src="/assets/img/logo.png" alt="Illyrian Pixel logo" width="804" height="720" loading="lazy" decoding="async">
           <span class="footer-brand-text">
             <span class="brand-text-illyrian">Illyrian</span>
             <span class="brand-text-pixel" aria-label="Pixel">

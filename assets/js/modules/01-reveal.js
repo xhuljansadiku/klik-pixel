@@ -96,6 +96,7 @@
       const maxPx = 10;
 
       btns.forEach((btn) => {
+        if (btn.classList.contains("hero-btn--outline")) return;
         const move = (e) => {
           const r = btn.getBoundingClientRect();
           const dx = (e.clientX - (r.left + r.width / 2)) * strength;

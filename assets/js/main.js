@@ -141,61 +141,32 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   })();
 
-  /* Hero helmet  parallax + liquid vars (respekt për reduced-motion) */
+  /* Hero helmet static (pa parallax/lëvizje) */
   (() => {
     const stage = qs("#heroHelmetStage");
     if (!stage) return;
     const img = qs(".hero-helmet-img", stage);
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduce.matches) return;
-
-    let ticking = false;
-    let activeT = 0;
-    const kickLiquid = () => {
-      stage.classList.add("hero-helmet-stage--active");
-      window.clearTimeout(activeT);
-      activeT = window.setTimeout(() => {
-        stage.classList.remove("hero-helmet-stage--active");
-      }, 240);
-    };
-
-    const paint = (clientX, clientY) => {
-      const r = stage.getBoundingClientRect();
-      if (r.width < 1 || r.height < 1) return;
-      const x = Math.max(8, Math.min(92, ((clientX - r.left) / r.width) * 100));
-      const y = Math.max(8, Math.min(92, ((clientY - r.top) / r.height) * 100));
-      stage.style.setProperty("--hx", `${x}%`);
-      stage.style.setProperty("--hy", `${y}%`);
-      if (img) {
-        const px = ((clientX - r.left) / r.width - 0.5) * 14;
-        const py = ((clientY - r.top) / r.height - 0.5) * 12;
-        img.style.transform = `translate3d(${px}px, ${py}px, 0)`;
-      }
-    };
-
-    stage.addEventListener("mousemove", (e) => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        paint(e.clientX, e.clientY);
-        kickLiquid();
-        ticking = false;
-      });
-    }, { passive: true });
-
-    stage.addEventListener("mouseleave", () => {
-      window.clearTimeout(activeT);
-      stage.classList.remove("hero-helmet-stage--active");
-      stage.style.setProperty("--hx", "50%");
-      stage.style.setProperty("--hy", "42%");
-      if (img) img.style.transform = "";
-    });
+    stage.classList.remove("hero-helmet-stage--active");
+    stage.style.setProperty("--hx", "50%");
+    stage.style.setProperty("--hy", "42%");
+    if (img) img.style.transform = "none";
   })();
 
   /* Footer year */
   (() => {
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+  })();
+
+  /* Stats: vite aktivitet (nga viti start — përditësohet çdo vit) */
+  (() => {
+    const el = document.getElementById("statYearsActive");
+    if (!el) return;
+    const start = parseInt(el.getAttribute("data-start-year") || "2020", 10);
+    if (!Number.isFinite(start)) return;
+    const currentYear = new Date().getFullYear();
+    const years = Math.max(1, currentYear - start);
+    el.textContent = `${years}+`;
   })();
 
   /* Footer luxe: scroll reveal + subtle parallax */
@@ -340,6 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const maxPx = 10;
 
       btns.forEach((btn) => {
+        if (btn.classList.contains("hero-btn--outline")) return;
         const move = (e) => {
           const r = btn.getBoundingClientRect();
           const dx = (e.clientX - (r.left + r.width / 2)) * strength;
