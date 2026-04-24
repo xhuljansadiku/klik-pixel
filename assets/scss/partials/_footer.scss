@@ -1654,8 +1654,8 @@ html[data-ip-page="guide-pricing"] .ip-page-hero ~ section .section-title.h3{
   background:color-mix(in srgb, #fff 90%, var(--brand-illyrian) 10%);
   color:var(--text);
   font-size:var(--ip-fs-ui);
-  font-weight:700;
-  letter-spacing:.06em;
+  font-weight:500;
+  letter-spacing:.05em;
   text-transform:uppercase;
   padding:.45rem .75rem;
   border-radius:999px;
@@ -1780,6 +1780,14 @@ html[data-ip-page="guide-pricing"] .ip-page-hero ~ section .section-title.h3{
   border-color:color-mix(in srgb, #c45 40%, var(--border));
 }
 
+#contact.ip-contact-luxe .cf-ms-feedback{
+  font-size:.78rem;
+  font-style:italic;
+  line-height:1.45;
+  color:color-mix(in srgb, #9c3a3a 72%, var(--muted));
+  margin-top:.42rem;
+}
+
 /* =========================
    MODULE: CONTACT (ip-contact-luxe)
    ========================= */
@@ -1807,7 +1815,10 @@ html[data-ip-page="guide-pricing"] .ip-page-hero ~ section .section-title.h3{
 
 #contact.ip-contact-luxe .ip-contact-luxe__title{
   font-size:clamp(1.38rem, 2.35vw, 1.78rem) !important;
-  font-weight:650 !important;
+  font-weight:700 !important;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:#000;
   margin-bottom:.35rem !important;
 }
 
@@ -1815,6 +1826,10 @@ html[data-ip-page="guide-pricing"] .ip-page-hero ~ section .section-title.h3{
   max-width:40rem;
   font-size:.98rem !important;
   line-height:1.68 !important;
+}
+
+#contact.ip-contact-luxe .cf-progress-wrap{
+  margin-bottom:2rem !important;
 }
 
 #contact.ip-contact-luxe .row.mt-4.mt-lg-5{
@@ -2274,13 +2289,14 @@ html[data-ip-page="guide-pricing"] .ip-page-hero ~ section .section-title.h3{
 }
 
 #contact.ip-contact-luxe .ip-contact-luxe__info-card{
-  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  transition:background .28s ease, box-shadow .28s ease, border-color .28s ease, transform .28s ease;
 }
 
 #contact.ip-contact-luxe .ip-contact-luxe__info-card:hover{
-  transform:translateY(-3px);
-  border-color:color-mix(in srgb, var(--brand-illyrian) 35%, var(--border));
-  box-shadow:0 14px 34px color-mix(in srgb, var(--brand-illyrian) 14%, transparent);
+  transform:translateY(-1px);
+  background:color-mix(in srgb, #fff 84%, rgba(200,155,46,.08));
+  border-color:color-mix(in srgb, var(--brand-illyrian) 30%, var(--border));
+  box-shadow:0 8px 18px color-mix(in srgb, var(--brand-illyrian) 10%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce){

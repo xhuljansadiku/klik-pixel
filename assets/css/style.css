@@ -3302,37 +3302,48 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
   box-shadow: 0 6px 18px color-mix(in srgb, var(--text) 6%, transparent);
 }
 
-.ip-ecom-upsell-band__title {
+.ip-ecom-upsell-band__title-main {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.45rem, 1.1vw + 1.2rem, 2rem);
-  letter-spacing: -0.03em;
+  font-size: clamp(1.32rem, 1.05vw + 1.05rem, 1.72rem);
+  letter-spacing: 0.1em;
   line-height: 1.18;
-  color: var(--text);
+  text-transform: uppercase;
+  color: #C5A059;
+  margin: 0 0 20px;
+}
+
+.ip-ecom-upsell-band__title-sub {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.08rem, 0.5vw + 0.98rem, 1.36rem);
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #C5A059 86%, #a68547);
   margin: 0;
 }
 
 .ip-ecom-upsell-band__lead {
   font-size: clamp(1.02rem, 0.35vw + 0.95rem, 1.15rem);
-  font-weight: 600;
-  line-height: 1.55;
-  color: color-mix(in srgb, var(--text) 88%, var(--muted));
-  max-width: 34rem;
-}
-
-.ip-ecom-upsell-band__desc {
-  font-size: var(--ip-fs-body);
-  line-height: 1.65;
-  color: color-mix(in srgb, var(--text) 72%, var(--muted));
-  max-width: 30rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #333333;
+  max-width: 650px;
+  margin-bottom: 0;
 }
 
 .ip-ecom-upsell-band__hint {
-  color: color-mix(in srgb, var(--text) 55%, var(--muted));
-  max-width: 26rem;
+  color: #333333;
+  font-style: italic;
+  max-width: 34rem;
 }
 
 .ip-ecom-upsell-band__cta {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #000000;
+  margin-top: 40px;
   box-shadow: 0 8px 22px color-mix(in srgb, var(--brand-illyrian) 22%, transparent);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
@@ -6837,6 +6848,10 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
   z-index: 1;
 }
 
+#testimonials.ip-testi-luxe {
+  padding-top: clamp(4.2rem, 8vw, 5.4rem) !important;
+}
+
 #testimonials.ip-testi-luxe .ip-testi-luxe__head {
   max-width: 40rem;
   margin-left: auto;
@@ -6844,12 +6859,14 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
 }
 
 #testimonials.ip-testi-luxe .ip-testi-luxe__title {
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.12;
 }
 
 #testimonials.ip-testi-luxe .ip-testi-luxe__lead {
   max-width: 32rem;
+  font-weight: 400;
   line-height: 1.7;
   color: color-mix(in srgb, var(--text) 70%, var(--muted));
 }
@@ -6872,11 +6889,11 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
 
 #testimonials.ip-testi-luxe .t-slider-head-label {
   font-family: var(--font-display);
-  font-size: var(--ip-fs-ui);
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--text) 45%, var(--brand-illyrian));
+  color: color-mix(in srgb, var(--text) 54%, var(--brand-illyrian));
 }
 
 #testimonials.ip-testi-luxe .t-slider-btn {
@@ -7012,13 +7029,25 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
 }
 
 #testimonials.ip-testi-luxe .t-slide-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   margin-bottom: 0.85rem;
 }
 
 #testimonials.ip-testi-luxe .t-slide-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  max-width: 100%;
   font-size: var(--ip-fs-ui);
   font-weight: 700;
-  padding: 0.28rem 0.62rem;
+  padding: 0.32rem 0.74rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 248, 232, 0.34);
   backdrop-filter: blur(10px) saturate(1.04);
@@ -7026,6 +7055,8 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
 }
 
 #testimonials.ip-testi-luxe .t-stars {
+  flex: 0 0 auto;
+  white-space: nowrap;
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
@@ -7042,15 +7073,13 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
   line-height: 1.65;
   font-weight: 500;
   color: color-mix(in srgb, var(--text) 92%, var(--muted));
-  flex: 1 1 auto;
+  flex: 0 0 auto;
 }
 
 #testimonials.ip-testi-luxe .t-slide-quote__inner {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  overflow: hidden;
+  display: block;
+  overflow: visible;
+  min-height: 0;
   transition: transform 0.3s ease;
 }
 
@@ -7059,30 +7088,39 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
 }
 
 #testimonials.ip-testi-luxe .t-slide-meta {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 248, 232, 0.34);
-  align-items: center;
-}
-
-#testimonials.ip-testi-luxe .t-slide-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 248, 232, 0.4);
+  align-items: flex-start;
 }
 
 #testimonials.ip-testi-luxe .t-slide-meta__text {
+  display: grid;
+  gap: 0.22rem;
   min-width: 0;
+  width: 100%;
 }
 
 #testimonials.ip-testi-luxe .t-slide-name {
-  font-size: 1rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+#testimonials.ip-testi-luxe .t-slide-person {
+  font-size: var(--ip-fs-ui);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--text) 78%, var(--brand-illyrian));
+  line-height: 1.45;
+  margin-bottom: 0.08rem;
 }
 
 #testimonials.ip-testi-luxe .t-slide-role {
   font-size: var(--ip-fs-ui);
   color: color-mix(in srgb, var(--muted) 88%, var(--text));
+  line-height: 1.55;
+  padding-top: 0.14rem;
 }
 
 @keyframes testiCardShine {
@@ -7106,7 +7144,8 @@ a.hero-btn.hero-btn--hero-ghost:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-top: 1rem;
+  margin-top: auto;
+  padding-top: 0.95rem;
   font-size: var(--ip-fs-ui);
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -10724,8 +10763,8 @@ html[data-ip-page=guide-pricing] .ip-page-hero ~ section .section-title.h3 {
   background: color-mix(in srgb, #fff 90%, var(--brand-illyrian) 10%);
   color: var(--text);
   font-size: var(--ip-fs-ui);
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.45rem 0.75rem;
   border-radius: 999px;
@@ -10887,6 +10926,14 @@ html[data-ip-page=guide-pricing] .ip-page-hero ~ section .section-title.h3 {
   border-color: color-mix(in srgb, #c45 40%, var(--border));
 }
 
+#contact.ip-contact-luxe .cf-ms-feedback {
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: color-mix(in srgb, #9c3a3a 72%, var(--muted));
+  margin-top: 0.42rem;
+}
+
 /* =========================
    MODULE: CONTACT (ip-contact-luxe)
    ========================= */
@@ -10912,7 +10959,10 @@ html[data-ip-page=guide-pricing] .ip-page-hero ~ section .section-title.h3 {
 
 #contact.ip-contact-luxe .ip-contact-luxe__title {
   font-size: clamp(1.38rem, 2.35vw, 1.78rem) !important;
-  font-weight: 650 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #000;
   margin-bottom: 0.35rem !important;
 }
 
@@ -10920,6 +10970,10 @@ html[data-ip-page=guide-pricing] .ip-page-hero ~ section .section-title.h3 {
   max-width: 40rem;
   font-size: 0.98rem !important;
   line-height: 1.68 !important;
+}
+
+#contact.ip-contact-luxe .cf-progress-wrap {
+  margin-bottom: 2rem !important;
 }
 
 #contact.ip-contact-luxe .row.mt-4.mt-lg-5 {
@@ -11379,13 +11433,14 @@ html[data-ip-page=guide-pricing] .ip-page-hero ~ section .section-title.h3 {
   }
 }
 #contact.ip-contact-luxe .ip-contact-luxe__info-card {
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  transition: background 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, transform 0.28s ease;
 }
 
 #contact.ip-contact-luxe .ip-contact-luxe__info-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--brand-illyrian) 35%, var(--border));
-  box-shadow: 0 14px 34px color-mix(in srgb, var(--brand-illyrian) 14%, transparent);
+  transform: translateY(-1px);
+  background: color-mix(in srgb, #fff 84%, rgba(200, 155, 46, 0.08));
+  border-color: color-mix(in srgb, var(--brand-illyrian) 30%, var(--border));
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--brand-illyrian) 10%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
