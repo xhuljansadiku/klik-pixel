@@ -101,8 +101,8 @@ export default function ContactPageClient() {
               </form>
             )}
             <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-white/66">
-              <a href="mailto:hello@illyrianpixel.com" className="hover:text-accent">
-                hello@illyrianpixel.com
+              <a href="mailto:info@illyrianpixel.com" className="hover:text-accent">
+                info@illyrianpixel.com
               </a>
               <a href={process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` : "https://wa.me/355000000000"} className="hover:text-accent">
                 WhatsApp

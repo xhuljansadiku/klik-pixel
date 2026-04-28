@@ -144,7 +144,7 @@ export default function Footer() {
               Rezervo thirrjen <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
             <div className="mt-8 space-y-2 text-sm text-white/68">
-              <a href="mailto:hello@illyrianpixel.com" className="footer-link block">hello@illyrianpixel.com</a>
+              <a href="mailto:info@illyrianpixel.com" className="footer-link block">info@illyrianpixel.com</a>
               <p>Paris — Londër — Online</p>
             </div>
             <div className="mt-5 grid grid-cols-4 gap-2" aria-label="Rrjetet sociale">
