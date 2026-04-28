@@ -46,8 +46,6 @@ export default function Hero() {
     let onCtaLeave: (() => void) | null = null;
     let onHeadlineEnter: (() => void) | null = null;
     let onHeadlineLeave: (() => void) | null = null;
-    let onHelmetEnter: (() => void) | null = null;
-    let onHelmetLeave: (() => void) | null = null;
     let onVisualMove: ((event: PointerEvent) => void) | null = null;
     let onVisualLeave: (() => void) | null = null;
     const ctx = gsap.context(() => {
@@ -140,36 +138,31 @@ export default function Hero() {
         }
 
         if (visualRef.current) {
-          onHelmetEnter = () => sectionEl?.classList.add("helmet-hover-boost");
-          onHelmetLeave = () => sectionEl?.classList.remove("helmet-hover-boost");
-          visualRef.current.addEventListener("mouseenter", onHelmetEnter);
-          visualRef.current.addEventListener("mouseleave", onHelmetLeave);
-
           if (!isMobile) {
-            const xHelmet = gsap.quickTo(helmetRef.current, "x", { duration: 0.35, ease: "power3.out" });
-            const yHelmet = gsap.quickTo(helmetRef.current, "y", { duration: 0.35, ease: "power3.out" });
-            const xParticles = gsap.quickTo(particlesRef.current, "x", { duration: 0.4, ease: "power3.out" });
-            const yParticles = gsap.quickTo(particlesRef.current, "y", { duration: 0.4, ease: "power3.out" });
-            const xGlow = gsap.quickTo(depthGlowRef.current, "x", { duration: 0.4, ease: "power3.out" });
-            const yGlow = gsap.quickTo(depthGlowRef.current, "y", { duration: 0.4, ease: "power3.out" });
+            const setParallaxX = gsap.quickTo(visualRef.current, "--helmet-parallax-x", {
+              duration: 0.85,
+              ease: "power2.out"
+            });
+            const setParallaxY = gsap.quickTo(visualRef.current, "--helmet-parallax-y", {
+              duration: 0.85,
+              ease: "power2.out"
+            });
+            const xGlow = gsap.quickTo(depthGlowRef.current, "x", { duration: 0.85, ease: "power2.out" });
+            const yGlow = gsap.quickTo(depthGlowRef.current, "y", { duration: 0.85, ease: "power2.out" });
 
             onVisualMove = (event: PointerEvent) => {
               const rect = visualRef.current!.getBoundingClientRect();
               const px = (event.clientX - rect.left) / rect.width - 0.5;
               const py = (event.clientY - rect.top) / rect.height - 0.5;
-              xHelmet(px * 8);
-              yHelmet(py * -6);
-              xParticles(px * 16);
-              yParticles(py * -12);
-              xGlow(px * 18);
-              yGlow(py * -14);
+              setParallaxX(px * 8);
+              setParallaxY(py * -6);
+              xGlow(px * 8);
+              yGlow(py * -7);
             };
 
             onVisualLeave = () => {
-              xHelmet(0);
-              yHelmet(0);
-              xParticles(0);
-              yParticles(0);
+              setParallaxX(0);
+              setParallaxY(0);
               xGlow(0);
               yGlow(0);
             };
@@ -244,14 +237,6 @@ export default function Hero() {
           ease: "sine.inOut"
         });
 
-        gsap.to(helmetRef.current, {
-          y: isMobile ? -2 : -6,
-          rotate: isMobile ? -0.5 : -1.4,
-          duration: 5.8,
-          yoyo: true,
-          repeat: -1,
-          ease: "sine.inOut"
-        });
       }
     }, sectionRef);
 
@@ -260,8 +245,6 @@ export default function Hero() {
       if (ctaEl && onCtaLeave) ctaEl.removeEventListener("pointerleave", onCtaLeave);
       if (headlineRef.current && onHeadlineEnter) headlineRef.current.removeEventListener("mouseenter", onHeadlineEnter);
       if (headlineRef.current && onHeadlineLeave) headlineRef.current.removeEventListener("mouseleave", onHeadlineLeave);
-      if (visualRef.current && onHelmetEnter) visualRef.current.removeEventListener("mouseenter", onHelmetEnter);
-      if (visualRef.current && onHelmetLeave) visualRef.current.removeEventListener("mouseleave", onHelmetLeave);
       if (visualRef.current && onVisualMove) visualRef.current.removeEventListener("pointermove", onVisualMove);
       if (visualRef.current && onVisualLeave) visualRef.current.removeEventListener("pointerleave", onVisualLeave);
       ctx.revert();
@@ -333,7 +316,7 @@ export default function Hero() {
           className="helmet-flow-scene hero-visual-shell relative h-[320px] overflow-visible md:h-[460px] lg:ml-[-10px]"
         >
           <div ref={depthGlowRef} className="absolute right-[12%] top-[8%] h-56 w-56 rounded-full bg-accent/20 blur-[90px] md:h-72 md:w-72" />
-          <div ref={particlesRef} className="pointer-events-none absolute -left-[76%] top-[7%] z-20 h-[84%] w-[130%] md:-left-[72%] md:top-[4%] md:h-[90%] md:w-[124%]">
+          <div ref={particlesRef} className="helmet-particles pointer-events-none absolute -left-[76%] top-[7%] z-20 h-[84%] w-[130%] md:-left-[72%] md:top-[4%] md:h-[90%] md:w-[124%]">
             <div className="absolute inset-0">
               {voxelTrail.map((particle, index) => (
                 <span
@@ -352,13 +335,15 @@ export default function Hero() {
           </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_44%,rgba(200,155,46,0.22),transparent_46%),radial-gradient(circle_at_24%_58%,rgba(255,255,255,0.04),transparent_34%)]" />
           <div ref={helmetRef} className="absolute right-0 top-[2%] z-30 h-[88%] w-[88%] md:h-[92%] md:w-[92%]">
-            <Image
-              src="/images/hero-helmet.png"
-              alt="Vizual i helmetës së artë spartane"
-              fill
-              priority
-              className="object-contain object-right opacity-[0.96] [filter:contrast(1.12)_saturate(1.08)_brightness(0.98)]"
-            />
+            <div className="helmet relative h-full w-full">
+              <Image
+                src="/images/hero-helmet.png"
+                alt="Vizual i helmetës së artë spartane"
+                fill
+                priority
+                className="object-contain object-right opacity-[0.96] [filter:contrast(1.12)_saturate(1.08)_brightness(0.98)]"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -6,22 +6,32 @@ import SectionMark from "@/components/SectionMark";
 
 const quotes = [
   {
-    quote: "Nga një website i bukur kaluam në një sistem që shet. Ritmi, qartësia dhe detajet ishin në nivel studioje.",
-    name: "Ardian K.",
-    company: "Atelier Prime",
-    result: "+42% lead-e të kualifikuara"
+    quote:
+      "Na ndihmoi shumë mënyra si u organizua përmbajtja e faqes. Klientët e kuptojnë më shpejt çfarë bëjmë dhe bisedat që vijnë janë më konkrete.",
+    name: "Mariglent S.",
+    company: "ESM Group",
+    result: "Costa Volpino, Itali"
   },
   {
-    quote: "Komunikimi i markës sonë u bë shumë më i qartë. Klientët e kuptojnë vlerën tonë brenda sekondave të para.",
-    name: "Elira V.",
-    company: "Maison Verre",
-    result: "2.3x kohë në faqe"
+    quote:
+      "Procesi ishte i qartë nga fillimi në fund. Prezantimi i paketave dhe mesazhi i brandit personal tani duken më profesionalë dhe më të besueshëm.",
+    name: "Bardhi U.",
+    company: "Bardhi Wellness",
+    result: "Prishtinë, Kosovë · Koln, Gjermani"
   },
   {
-    quote: "Për herë të parë ndjemë që dizajni dhe performanca po punojnë bashkë për të njëjtin rezultat biznesi.",
-    name: "Nocturne Team",
-    company: "Nocturne Hotel",
-    result: "+31% rezervime direkte"
+    quote:
+      "Na pëlqeu që faqja u bë e thjeshtë për t'u kuptuar. Vizitorët gjejnë shpejt shërbimin që u duhet dhe kërkesat vijnë më të sakta.",
+    name: "Amir S.",
+    company: "Hauswerk Niederbayern",
+    result: "Straubing, Gjermani"
+  },
+  {
+    quote:
+      "Që nga përditësimi i faqes, klientët na kontaktojnë me pritshmëri më të qarta. Projeket dhe vlerësimet e klientëve japin besim që në kontaktin e parë.",
+    name: "Vehbi P.",
+    company: "Palushi Brothers",
+    result: "London, Mbretëri e Bashkuar"
   }
 ];
 

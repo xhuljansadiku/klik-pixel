@@ -8,7 +8,6 @@ import CustomCursor from "@/components/CustomCursor";
 import EasterEggOverlay from "@/components/EasterEggOverlay";
 import FAQ from "@/components/FAQ";
 import FeaturedWork from "@/components/FeaturedWork";
-import FloatingCTA from "@/components/FloatingCTA";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LeadMagnet from "@/components/LeadMagnet";
@@ -18,7 +17,6 @@ import PageTransitionOverlay from "@/components/PageTransitionOverlay";
 import Preloader from "@/components/Preloader";
 import Process from "@/components/Process";
 import SectionAura from "@/components/SectionAura";
-import SectionDots from "@/components/SectionDots";
 import ScrollProgress from "@/components/ScrollProgress";
 import Services from "@/components/Services";
 import SocialProofToasts from "@/components/SocialProofToasts";
@@ -34,7 +32,6 @@ export default function HomePage() {
       <PageTransitionOverlay />
       <Navbar />
       <ScrollProgress />
-      <SectionDots />
       <div className="site-grade" />
       <div className="ambient-noise" />
       <div className="site-vignette" />
@@ -44,7 +41,6 @@ export default function HomePage() {
       <CursorSpotlight />
       <CursorTrail />
       <EasterEggOverlay />
-      <FloatingCTA />
       <SocialProofToasts />
       <WhatsAppButton />
       <BackToTop />

@@ -113,15 +113,6 @@ export default function Navbar() {
   }, [activeFromPath]);
 
   const navigate = (item: (typeof navItems)[number]) => {
-    if (pathname === "/" && item.sectionId) {
-      const el = document.getElementById(item.sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-        setActive(item.id);
-        setMobileOpen(false);
-        return;
-      }
-    }
     router.push(item.href);
     setActive(item.id);
     setMobileOpen(false);
@@ -172,31 +163,45 @@ export default function Navbar() {
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
                   >
-                    <button
-                      ref={servicesBtnRef}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setServicesOpen((prev) => !prev);
-                      }}
-                      onFocus={() => setServicesOpen(true)}
-                      onKeyDown={(e) => {
-                        if (e.key === "ArrowDown") {
+                    <div className="inline-flex items-center gap-1">
+                      <Link
+                        href={item.href}
+                        onClick={(e) => {
                           e.preventDefault();
-                          setServicesOpen(true);
-                          setFocusedServiceIdx(0);
-                          window.setTimeout(() => serviceLinkRefs.current[0]?.focus(), 0);
-                        }
-                      }}
-                      className={`inline-flex items-center gap-1 text-sm tracking-[0.08em] transition-colors duration-300 ${
-                        active === item.id ? "text-accent" : "text-white/64 hover:text-white/88"
-                      }`}
-                      aria-expanded={servicesOpen}
-                      aria-haspopup="menu"
-                      aria-controls="services-menu"
-                    >
-                      {item.label}
-                      <span className={`text-[10px] transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}>▾</span>
-                    </button>
+                          navigate(item);
+                        }}
+                        className={`text-sm tracking-[0.08em] transition-colors duration-300 ${
+                          active === item.id ? "text-accent" : "text-white/64 hover:text-white/88"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        ref={servicesBtnRef}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setServicesOpen((prev) => !prev);
+                        }}
+                        onFocus={() => setServicesOpen(true)}
+                        onKeyDown={(e) => {
+                          if (e.key === "ArrowDown") {
+                            e.preventDefault();
+                            setServicesOpen(true);
+                            setFocusedServiceIdx(0);
+                            window.setTimeout(() => serviceLinkRefs.current[0]?.focus(), 0);
+                          }
+                        }}
+                        className={`inline-flex items-center text-[10px] transition-all duration-200 ${
+                          active === item.id ? "text-accent" : "text-white/64 hover:text-white/88"
+                        } ${servicesOpen ? "rotate-180" : ""}`}
+                        aria-label="Hap listën e shërbimeve"
+                        aria-expanded={servicesOpen}
+                        aria-haspopup="menu"
+                        aria-controls="services-menu"
+                      >
+                        ▾
+                      </button>
+                    </div>
 
                     <div
                       id="services-menu"

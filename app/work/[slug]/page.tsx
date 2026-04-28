@@ -69,6 +69,14 @@ export default function CaseStudyPage({ params }: Props) {
         </article>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href={caseStudy.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="luxury-link"
+          >
+            Shiko live projektin <span aria-hidden>→</span>
+          </a>
           <Link href="/work" className="luxury-link">
             Kthehu te punët <span aria-hidden>→</span>
           </Link>

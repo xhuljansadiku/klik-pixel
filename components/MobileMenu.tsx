@@ -62,17 +62,28 @@ export default function MobileMenu({ isOpen, navItems, serviceItems, active, onC
 
             return (
               <div key={item.id} className="w-full">
-                <button
-                  className="flex w-full items-center justify-between text-left font-display text-[clamp(1.8rem,7.6vw,2.25rem)] leading-[0.95] text-white/86"
-                  onClick={() => setServicesExpanded((prev) => !prev)}
-                  aria-expanded={servicesExpanded}
-                  aria-controls="mobile-services-panel"
-                >
-                  <span>Shërbimet</span>
-                  <span className={`text-base transition-transform duration-300 ${servicesExpanded ? "rotate-180 text-accent" : "text-white/54"}`}>
-                    ▾
-                  </span>
-                </button>
+                <div className="flex w-full items-center justify-between">
+                  <Link
+                    href={item.href}
+                    onClick={() => onNavigate(item)}
+                    className={`text-left font-display text-[clamp(1.8rem,7.6vw,2.25rem)] leading-[0.95] ${
+                      active === item.id ? "text-accent" : "text-white/86"
+                    }`}
+                  >
+                    Shërbimet
+                  </Link>
+                  <button
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/12"
+                    onClick={() => setServicesExpanded((prev) => !prev)}
+                    aria-expanded={servicesExpanded}
+                    aria-controls="mobile-services-panel"
+                    aria-label="Hap listën e shërbimeve"
+                  >
+                    <span className={`text-base transition-transform duration-300 ${servicesExpanded ? "rotate-180 text-accent" : "text-white/54"}`}>
+                      ▾
+                    </span>
+                  </button>
+                </div>
 
                 <div
                   id="mobile-services-panel"

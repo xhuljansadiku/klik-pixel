@@ -1,5 +1,5 @@
 export type ServiceItem = {
-  slug: "websites" | "ecommerce" | "marketing" | "seo" | "branding" | "photography";
+  slug: "websites" | "ecommerce" | "marketing" | "seo" | "branding" | "photography" | "mirembajtje" | "social-media";
   title: string;
   short: string;
   problem: string;
@@ -67,6 +67,32 @@ export const servicesData: ServiceItem[] = [
       { q: "A përfshihet dhe content plan?", a: "Po, me tema që mbështesin pages me intent të lartë." }
     ],
     image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07"
+  },
+  {
+    slug: "mirembajtje",
+    title: "Mirëmbajtje",
+    short: "Website i mbrojtur, i përditësuar dhe i shpejtë gjatë gjithë kohës.",
+    problem: "Website që degradohet me kohën krijon risk sigurie, ngadalësim dhe humbje besimi.",
+    solution: "Monitorim periodik, përditësime të kontrolluara dhe optimizim i vazhdueshëm i performancës.",
+    deliverables: ["Security checks", "Version updates", "Speed tune-up", "Backup & restore plan"],
+    faq: [
+      { q: "A përfshihet monitorimi i uptime?", a: "Po, me kontroll periodik dhe reagim të shpejtë në rast incidenti." },
+      { q: "A mund të shtohen përditësime mujore?", a: "Po, planifikohet kalendar mirëmbajtjeje sipas nevojës së biznesit." }
+    ],
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+  },
+  {
+    slug: "social-media",
+    title: "Social Media",
+    short: "Përmbajtje dhe ritëm publikimi që rrit vëmendjen cilësore.",
+    problem: "Postime pa sistem dhe pa drejtim të qartë nuk krijojnë brand as kërkesa.",
+    solution: "Strukturë editoriale, content themes dhe kreative që lidhen me objektivat e biznesit.",
+    deliverables: ["Content strategy", "Creative concepts", "Publishing cadence", "Performance review"],
+    faq: [
+      { q: "A përfshihet dhe plan mujor i postimeve?", a: "Po, me tematika dhe formate të dizajnuara për platformën." },
+      { q: "A lidhet social media me reklamat?", a: "Po, kreative ndërtohen që të funksionojnë edhe organikisht edhe në ads." }
+    ],
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d"
   },
   {
     slug: "branding",

@@ -8,73 +8,119 @@ export type CaseStudy = {
   solution: string;
   result: string;
   metrics: string[];
+  tags: string[];
   heroImage: string;
+  liveUrl: string;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "atelier-prime",
-    title: "Atelier Prime",
-    category: "Ribrandim E-commerce",
+    slug: "esm-group",
+    title: "ESM Group",
+    category: "Website Korporativ Industrial",
     year: "2026",
     intro:
-      "Një transformim i plotë i eksperiencës së blerjes për një brand me target premium dhe cikël të shkurtër vendimmarrjeje.",
+      "Rifreskim i prezencës digjitale për një kompani që operon në Itali dhe Europë, me fokus te qartësia e shërbimeve dhe kërkesat serioze B2B.",
     problem:
-      "Brandi kishte trafik cilësor, por rrjedha e faqes nuk transmetonte besim dhe produktet premium humbnin vlerën në prezantim.",
+      "Oferta dhe eksperienca e kompanisë nuk pasqyroheshin qartë online, duke krijuar paqartësi në llojin e projekteve dhe ritmin e kontakteve hyrëse.",
     solution:
-      "Ristrukturuam arkitekturën e përmbajtjes, dizajnuam një sistem editorial për produktet dhe optimizuam checkout-in për vendime më të shpejta.",
+      "Ndërtuam strukturë të pastër me seksione service-first, proof konkret dhe flow navigimi që e çon përdoruesin drejt kërkesës pa friction.",
     result:
-      "Eksperienca u bë më e qartë, më e qetë dhe më bindëse, duke përmirësuar ndjeshëm cilësinë e kërkesave dhe vlerën e porosive.",
-    metrics: ["+42% lead-e të kualifikuara", "AOV më i lartë në 8 javë", "-27% drop-off në checkout"],
-    heroImage: "/images/work-01.svg"
+      "Mesazhi i kompanisë u bë më i qartë për klientët industrialë, me kërkesa më të sakta dhe prezencë më autoritare në tregjet ku operon.",
+    metrics: ["Mesazh më i qartë B2B", "Navigim më i strukturuar", "Kërkesa më të kualifikuara"],
+    tags: ["Industrial", "Corporate", "B2B"],
+    heroImage: "/images/projects/esm-group.png",
+    liveUrl: "https://esm-group.eu/"
   },
   {
-    slug: "maison-verre",
-    title: "Maison Verre",
-    category: "Website për Fushatë Luksi",
+    slug: "bardhi-wellness",
+    title: "Bardhi Wellness",
+    category: "Brand Personal & Oferta Online",
     year: "2026",
     intro:
-      "Një microsite editorial për lançimin e koleksionit, i ndërtuar për të rritur kohëzgjatjen e sesionit dhe intentin e blerjes.",
+      "Ristrukturim i prezantimit të paketave, ofertës dhe tonit të markës për të rritur besueshmërinë dhe vendimmarrjen e shpejtë të klientit.",
     problem:
-      "Fushata kishte vizual të fortë, por landing-u nuk mbante ritëm narrativ dhe përdoruesit dilnin para seksionit kyç të ofertës.",
+      "Informacioni ekzistonte, por hierarkia e përmbajtjes dhe narrativa e ofertës nuk e mbështesnin plotësisht perceptimin profesional të brandit.",
     solution:
-      "Krijuam scroll narrative me progres të kontrolluar, tipografi të fortë dhe CTA të vendosura sipas sjelljes së përdoruesit.",
+      "Organizuam përmbajtjen sipas intentit të përdoruesit, qartësuam paketat dhe forcuam seksionet që ndërtojnë besim para kontaktit.",
     result:
-      "Përdoruesit qëndruan më gjatë, panë më shumë seksione dhe kaluan në kërkesë me frekuencë më të lartë.",
-    metrics: ["2.3x kohë në faqe", "-34% bounce rate", "+19% CTR në CTA kryesore"],
-    heroImage: "/images/work-02.svg"
+      "Faqja komunikon më qartë vlerën e shërbimit dhe ndihmon vizitorët të kuptojnë më shpejt cilën paketë duhet të zgjedhin.",
+    metrics: ["Oferta më e kuptueshme", "Brand më i besueshëm", "Vendime më të shpejta nga vizitorët"],
+    tags: ["Fitness", "Branding", "Conversion UX"],
+    heroImage: "/images/projects/bardhi-wellness.png",
+    liveUrl: "https://www.bardhiwellness.com/"
   },
   {
-    slug: "nocturne-hotel",
-    title: "Nocturne Hotel",
-    category: "Eksperiencë Rezervimi Imersive",
-    year: "2025",
+    slug: "hauswerk-niederbayern",
+    title: "Hauswerk Niederbayern",
+    category: "Local Services Website",
+    year: "2026",
     intro:
-      "Redizajnim i funnel-it të rezervimeve për të ulur varësinë nga OTA dhe rritur rezervimet direkte me marzh më të lartë.",
+      "Pozicionim i qartë i shërbimeve për tregun lokal gjerman, me fokus te thjeshtësia, shpejtësia e gjetjes së ofertës dhe kërkesat e sakta.",
     problem:
-      "Përdoruesit fillonin rezervimin por e ndërprisnin në hapat e fundit për shkak të paqartësisë në paketat dhe diferencimit.",
+      "Vizitorët nuk arrinin gjithmonë të kuptonin menjëherë shërbimin përkatës dhe hapin e duhur për të dërguar kërkesë.",
     solution:
-      "Ndërtuam një rrjedhë rezervimi me hierarki të fortë vizuale, krahasim të qartë të paketave dhe mikro-ndërveprime konfirmuese.",
+      "Krijuam hierarchy të fortë në homepage, ndarje të qarta të shërbimeve dhe CTA të drejtpërdrejta për kontakt të menjëhershëm.",
     result:
-      "Procesi u bë më i kuptueshëm dhe më i shpejtë, duke rritur konvertimin e kanalit direkt.",
-    metrics: ["+31% rezervime direkte", "-22% braktisje në hapin final", "+14% vlerë mesatare rezervimi"],
-    heroImage: "/images/work-03.svg"
+      "Eksperienca u bë më intuitive dhe më orientuese, duke rritur cilësinë e kërkesave dhe qartësinë e pritshmërive.",
+    metrics: ["Shërbime më të lexueshme", "Flow më i drejtpërdrejtë", "Kërkesa më të sakta"],
+    tags: ["Local Service", "Lead Flow", "Clarity"],
+    heroImage: "/images/projects/hauswerk-niederbayern.png",
+    liveUrl: "https://hauswerk-niederbayern.de/"
   },
   {
-    slug: "linea-capital",
-    title: "Linea Capital",
-    category: "Platformë Korporative Editoriale",
-    year: "2025",
+    slug: "palushi-brothers",
+    title: "Palushi Brothers",
+    category: "Construction Lead Generation",
+    year: "2026",
     intro:
-      "Platformë për një firmë financiare që kishte nevojë për prezencë më të qartë, autoritare dhe më bindëse për lead-et enterprise.",
+      "Përmirësim i prezencës për një kompani ndërtimi në Londër, me fokus te besimi i menjëhershëm, proof social dhe qartësia e shërbimeve.",
     problem:
-      "Mesazhi ishte i shpërndarë dhe përdoruesit nuk arrinin të kuptonin shpejt ofertën kryesore të kompanisë.",
+      "Vizitorët vinin me pritshmëri të ndryshme dhe pa një kuadër të qartë të shërbimeve, gjë që e bënte më të vështirë filtrimin e kërkesave.",
     solution:
-      "Zhvilluam një strukturë editoriale me hierarki të qartë, seksione proof-driven dhe CTA me kontekst sipas fazës së leximit.",
+      "Riorganizuam seksionet e ofertës, proof-it dhe kontaktit për të vendosur një rrjedhë më bindëse nga interesi te kërkesa.",
     result:
-      "Faqja komunikon qartë vlerën e biznesit dhe përshpejton kalimin nga interesi në kërkesë konkrete bashkëpunimi.",
-    metrics: ["+58% përfundim kërkesash", "+33% kohë në seksionet kyçe", "+21% klikime në CTA kryesore"],
-    heroImage: "/images/work-04.svg"
+      "Kontakti i parë me klientët bëhet më i qartë dhe me më shumë besim, duke përmirësuar cilësinë e bisedave hyrëse.",
+    metrics: ["Pritshmëri më të qarta", "Më shumë besim në kontaktin e parë", "Lead-e më relevante"],
+    tags: ["Construction", "Trust Signals", "Lead Gen"],
+    heroImage: "/images/projects/palushi-brothers.png",
+    liveUrl: "https://www.palushibrothers.co.uk/"
+  },
+  {
+    slug: "ilirjana-shehu-photography",
+    title: "Ilirjana Shehu Photography",
+    category: "Portfolio Website",
+    year: "2026",
+    intro:
+      "Prezencë vizuale e pastër për portofol fotografie, me fokus te impakti i imazhit dhe rrjedha e qartë e prezantimit.",
+    problem:
+      "Punët fotografike nuk kishin një kornizë editoriale të qartë online, duke humbur ritmin dhe efektin në prezantim.",
+    solution:
+      "Ndërtuam strukturë minimaliste, hierarchy të pastër dhe fokus të fortë te punimet për të rritur cilësinë e perceptimit.",
+    result:
+      "Portofoli komunikon më qartë stilin dhe cilësinë e punës, me eksperiencë më të qetë dhe premium për vizitorin.",
+    metrics: ["Prezantim më editorial", "Ritëm më i qartë i përmbajtjes", "Perceptim premium i brandit"],
+    tags: ["Photography", "Portfolio", "Editorial"],
+    heroImage: "/images/projects/ilirjana-shehu-photography.png",
+    liveUrl: "#"
+  },
+  {
+    slug: "suli-group-trockenbau",
+    title: "Suli Group Trockenbau",
+    category: "Corporate Services Website",
+    year: "2026",
+    intro:
+      "Website korporativ për shërbime ndërtimi me fokus te qartësia e ofertës dhe autoriteti vizual në treg.",
+    problem:
+      "Mesazhi i shërbimeve ishte i shpërndarë dhe nuk theksonte mjaftueshëm pikat kyçe të diferencimit të kompanisë.",
+    solution:
+      "Riorganizuam përmbajtjen me seksione të qarta, CTA të fokusuara dhe estetikë të kontrolluar dark-luxury.",
+    result:
+      "Faqja komunikon më bindshëm ofertën e kompanisë dhe orienton më mirë vizitorin drejt kontaktit.",
+    metrics: ["Mesazh më i strukturuar", "Lexueshmëri më e lartë", "Rrugë më e qartë drejt kontaktit"],
+    tags: ["Construction", "Corporate", "Lead Gen"],
+    heroImage: "/images/projects/suli-group-trockenbau.png",
+    liveUrl: "#"
   }
 ];
 
