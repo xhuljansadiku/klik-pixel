@@ -11,7 +11,8 @@ export type ServiceItem = {
     | "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d"
     | "https://images.unsplash.com/photo-1460925895917-afdab827c52f"
     | "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07"
-    | "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40";
+    | "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+    | "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4";
 };
 
 export const servicesData: ServiceItem[] = [

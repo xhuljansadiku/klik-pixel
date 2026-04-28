@@ -16,7 +16,10 @@ const navItems = [
   { id: "contact", label: "Kontakt", href: "/contact", sectionId: "cta" }
 ];
 
-const serviceDropdownItems = [
+type ServiceGroup = "PRIMARY" | "SECONDARY" | "OTHER";
+type NavbarServiceItem = { id: string; label: string; href: string; group: ServiceGroup };
+
+const serviceDropdownItems: NavbarServiceItem[] = [
   { id: "services-website", label: "Website", href: "/services/website", group: "PRIMARY" },
   { id: "services-ecommerce", label: "E-commerce", href: "/services/ecommerce", group: "PRIMARY" },
   { id: "services-marketing", label: "Marketing", href: "/services/marketing", group: "SECONDARY" },
