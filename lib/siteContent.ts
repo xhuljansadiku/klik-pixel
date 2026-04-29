@@ -19,13 +19,27 @@ export const servicesData: ServiceItem[] = [
   {
     slug: "websites",
     title: "Websites",
-    short: "Website korporativ premium me qartësi, ritëm dhe konvertim.",
-    problem: "Faqe që duken mirë por nuk komunikojnë vlerën dhe nuk konvertojnë.",
-    solution: "Arkitekturë përmbajtjeje, dizajn editorial dhe performancë e kontrolluar.",
-    deliverables: ["UX/UI sistem", "Zbatim Next.js", "Core SEO setup", "QA multi-device"],
+    short: "Ndërtojmë website të shpejtë, të qartë dhe të optimizuar — që vizitorët të kuptojnë menjëherë çfarë ofroni dhe të veprojnë.",
+    problem:
+      "Mesazhi nuk është i qartë, vizitori nuk di çfarë të bëjë dhe largohet pa kontaktuar.",
+    solution:
+      "Ndërtojmë çdo seksion me qëllim — klienti e kupton ofertën tuaj dhe di saktësisht si t'ju kontaktojë.",
+    deliverables: [
+      "Strategji dhe strukturë të faqes — para se të fillojmë dizajnin",
+      "Dizajn profesional me hierarki të qartë vizuale",
+      "Zhvillim i shpejtë në Next.js — i shpejtë edhe në internet të dobët",
+      "SEO bazë i instaluar — Google ju gjen nga dita e parë",
+      "Testim i plotë — telefon, tablet dhe kompjuter"
+    ],
     faq: [
-      { q: "Sa zgjat një website premium?", a: "Mesatarisht 3-6 javë sipas volumit dhe feedback-ut." },
-      { q: "A është i optimizuar për mobile?", a: "Po. Çdo ekran testohet dhe rregullohet sipas breakpoints reale." }
+      {
+        q: "Sa zgjat ndërtimi?",
+        a: "Zakonisht 3–6 javë, varësisht numrit të faqeve dhe shpejtësisë së feedback-ut tuaj."
+      },
+      {
+        q: "A funksionon mirë në telefon?",
+        a: "Po — ndërtojmë mobile-first dhe testojmë në pajisje reale para çdo publikimi."
+      }
     ],
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
   },
