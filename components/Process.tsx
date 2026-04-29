@@ -64,7 +64,7 @@ export default function Process() {
   const lineDotRef = useRef<HTMLSpanElement | null>(null);
   const lineGlowRef = useRef<HTMLSpanElement | null>(null);
   const bgShiftRef = useRef<HTMLDivElement | null>(null);
-  const ctaRef = useRef<HTMLAnchorElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
   const reducedMotion = useReducedMotion();
 
   useIsomorphicLayoutEffect(() => {

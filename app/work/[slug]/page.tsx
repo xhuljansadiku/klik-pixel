@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies, caseStudyBySlug } from "@/lib/caseStudies";
@@ -44,12 +45,15 @@ export default function CaseStudyPage({ params }: Props) {
         <p className="mt-3 inline-flex items-center gap-2 text-sm text-white/68">
           <span className="inline-flex items-center gap-1 rounded-md bg-white/10 px-1.5 py-0.5" aria-hidden>
             {caseStudy.flagCodes.map((code) => (
-              <img
+              <Image
                 key={code}
                 src={`https://flagcdn.com/w20/${code}.png`}
                 alt=""
+                width={20}
+                height={14}
                 className="h-3.5 w-5 rounded-[2px] object-cover"
                 loading="lazy"
+                unoptimized
               />
             ))}
           </span>

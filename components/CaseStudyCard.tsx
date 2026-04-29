@@ -54,12 +54,15 @@ export default function CaseStudyCard({ item }: { item: CaseStudy }) {
         <p className="mt-2 inline-flex items-center gap-2 text-xs text-white/62">
           <span className="inline-flex items-center gap-1 rounded-md bg-white/10 px-1.5 py-0.5" aria-hidden>
             {item.flagCodes.map((code) => (
-              <img
+              <Image
                 key={code}
                 src={`https://flagcdn.com/w20/${code}.png`}
                 alt=""
+                width={20}
+                height={14}
                 className="h-3.5 w-5 rounded-[2px] object-cover"
                 loading="lazy"
+                unoptimized
               />
             ))}
           </span>
