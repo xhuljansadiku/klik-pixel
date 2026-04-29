@@ -8,7 +8,7 @@ export default function Preloader() {
   const [visible, setVisible] = useState(false);
   const [shouldRun, setShouldRun] = useState(false);
   const brand = "ILLYRIAN PIXEL";
-  const progressRef = useRef<HTMLSpanElement | null>(null);
+  const progressRef = useRef<HTMLParagraphElement | null>(null);
 
   useIsomorphicLayoutEffect(() => {
     const hasSeen = localStorage.getItem("ip_preloader_seen");
