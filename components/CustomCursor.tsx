@@ -25,9 +25,11 @@ export default function CustomCursor() {
     const onOver = (e: Event) => {
       const target = e.target as HTMLElement | null;
       const interactive = target?.closest("a,button,[data-cursor='active']");
+      const headline = target?.closest("[data-cursor='headline'], .section-title, .hero-headline-trigger, .cadence-title");
       gsap.to(aura, {
-        scale: interactive ? 1.35 : 1,
-        backgroundColor: interactive ? "rgba(200,155,46,0.18)" : "rgba(245,245,240,0.08)",
+        scale: headline ? 2.35 : interactive ? 1.35 : 1,
+        backgroundColor: headline ? "rgba(245,245,240,0.92)" : interactive ? "rgba(200,155,46,0.18)" : "rgba(245,245,240,0.08)",
+        mixBlendMode: headline ? "difference" : "normal",
         duration: 0.25
       });
     };

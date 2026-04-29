@@ -60,12 +60,13 @@ export default function FeaturedWorkGrid() {
         if (imageWrap) {
           gsap.fromTo(
             imageWrap,
-            { opacity: 0.7, scale: 0.96 },
+            { opacity: 0.75, scale: 0.98, clipPath: "inset(0 100% 0 0 round 1.25rem)" },
             {
               opacity: 1,
               scale: 1,
-              duration: 0.72,
-              ease: "power3.out",
+              clipPath: "inset(0 0% 0 0 round 1.25rem)",
+              duration: 1.05,
+              ease: "power4.out",
               scrollTrigger: {
                 trigger: chapter,
                 start: "top 72%"
@@ -112,8 +113,12 @@ export default function FeaturedWorkGrid() {
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.025] [background-image:repeating-radial-gradient(circle_at_0_0,rgba(255,255,255,0.4)_0_1px,transparent_1px_4px)]" />
 
       <div className="section-wrap featured-chapters-intro">
-        <SectionMark label="PUNË TË PËRZGJEDHURA" />
-        <h2 className="section-title mt-3 max-w-4xl">Projekte që flasin.</h2>
+        <SectionMark label="PROJEKTET" />
+        <h2 className="section-title mt-3 max-w-4xl">
+          Faqe që punojnë.
+          <br />
+          Biznese që <span className="text-accent">rriten</span>.
+        </h2>
       </div>
 
       <div className="mt-8">
@@ -129,6 +134,20 @@ export default function FeaturedWorkGrid() {
               <div className={`chapter-copy transition-opacity duration-500 ${activeIdx === idx ? "opacity-100" : "opacity-90"}`}>
                 <p className="text-[11px] tracking-[0.2em] text-accent/85">{project.category}</p>
                 <h3 className="mt-3 font-display text-[clamp(2rem,5vw,4rem)] leading-[0.92] text-white">{project.title}</h3>
+                <p className="mt-2 inline-flex items-center gap-2 text-xs text-white/66">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-white/10 px-1.5 py-0.5" aria-hidden>
+                    {project.flagCodes.map((code) => (
+                      <img
+                        key={code}
+                        src={`https://flagcdn.com/w20/${code}.png`}
+                        alt=""
+                        className="h-3.5 w-5 rounded-[2px] object-cover"
+                        loading="lazy"
+                      />
+                    ))}
+                  </span>
+                  {project.location}
+                </p>
                 <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-white/72 md:text-base">{project.intro}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {project.metrics.slice(0, 2).map((metric) => (
@@ -137,14 +156,18 @@ export default function FeaturedWorkGrid() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="featured-grid-cta mt-7 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]"
-                >
-                  Shiko projektin live <span aria-hidden className="transition-transform duration-300 hover:translate-x-1">→</span>
-                </a>
+                {project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="featured-grid-cta mt-7 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]"
+                  >
+                    Shiko projektin live <span aria-hidden className="transition-transform duration-300 hover:translate-x-1">→</span>
+                  </a>
+                ) : (
+                  <span className="featured-grid-cta mt-7 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]">Së shpejti</span>
+                )}
               </div>
 
               <div

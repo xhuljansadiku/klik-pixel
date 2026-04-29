@@ -1,74 +1,94 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
 import { ensureGSAP, useIsomorphicLayoutEffect } from "@/lib/gsap";
 import SectionMark from "@/components/SectionMark";
 
 export default function LeadMagnet() {
-  const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
   const [done, setDone] = useState(false);
-  const valid = useMemo(() => /\S+@\S+\.\S+/.test(email), [email]);
 
   useIsomorphicLayoutEffect(() => {
-    if (!open) return;
     const { gsap } = ensureGSAP();
-    gsap.fromTo(".lead-magnet-modal", { opacity: 0, y: 16, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "power2.out" });
-  }, [open]);
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".lead-reveal",
+        { opacity: 0, y: 22, filter: "blur(4px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: "#lead-magnet", start: "top 82%" }
+        }
+      );
+    });
+    return () => ctx.revert();
+  }, []);
+
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    if (!/\S+@\S+\.\S+/.test(email) || !website.trim()) return;
+    setDone(true);
+  };
 
   return (
-    <>
-      <section id="lead-magnet" className="cinematic-section border-t border-white/[0.08] !min-h-0 py-0 md:!min-h-0">
-        <div className="section-wrap py-20 md:py-24">
-          <SectionMark label="ANALIZË FALAS" />
-          <h2 className="section-title mt-3 max-w-4xl">Merr një vlerësim falas për faqen tënde.</h2>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/62">
-            Lini email-in tuaj dhe ne ju dërgojmë një listë të qartë me hapat që duhet të ndërhyni menjëherë.
-          </p>
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            className="mt-7 inline-flex rounded-full border border-white/18 bg-white/[0.03] px-6 py-3 text-[11px] tracking-[0.16em] text-white/85 transition hover:border-accent/45"
-          >
-            MERR ANALIZËN FALAS
-          </button>
-        </div>
-      </section>
-      {open ? (
-        <div className="fixed inset-0 z-[106] grid place-items-center bg-black/65 px-4 backdrop-blur-sm" onClick={() => setOpen(false)}>
-          <div className="lead-magnet-modal w-full max-w-md rounded-[1rem] border border-white/12 bg-[#111111] p-6" onClick={(event) => event.stopPropagation()}>
-            <div className="mb-4 flex items-center justify-between">
-              <p className="text-[11px] tracking-[0.16em] text-accent/90">ANALIZË FALAS</p>
-              <button type="button" onClick={() => setOpen(false)} className="text-lg text-white/65" aria-label="Mbyll">
-                ×
-              </button>
+    <section id="lead-magnet" className="cinematic-section section-tone-about border-t border-white/[0.08] !min-h-0 py-0 md:!min-h-0">
+      <div className="section-wrap py-20 md:py-24">
+        <div className="relative overflow-hidden rounded-[1.1rem] border border-white/10 bg-black/30 px-6 py-10 shadow-[0_24px_80px_rgba(0,0,0,0.35)] md:px-10 md:py-12">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(200,155,46,0.16),transparent_38%),radial-gradient(circle_at_84%_80%,rgba(255,255,255,0.06),transparent_44%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0)_46%,rgba(200,155,46,0.08)_100%)]" />
+          <div className="pointer-events-none absolute -left-10 top-1/2 h-24 w-24 -translate-y-1/2 rounded-full bg-accent/20 blur-2xl" />
+          <div className="pointer-events-none absolute -right-8 top-6 h-16 w-16 rounded-full bg-white/10 blur-xl" />
+          <div className="relative mx-auto max-w-[460px]">
+            <div className="lead-reveal">
+              <SectionMark label="ANALIZË FALAS" />
             </div>
+            <h2 className="lead-reveal mt-3 text-[clamp(1.9rem,4.4vw,2.7rem)] leading-[1.1] text-white">
+              Merr një vlerësim falas për faqen tënde.
+            </h2>
+            <p className="lead-reveal mt-4 text-sm leading-relaxed text-white/62 md:text-base">
+              Lini email-in tuaj dhe ne ju dërgojmë një listë të qartë me hapat që duhet të ndërhyni menjëherë.
+            </p>
             {done ? (
-              <p className="rounded-lg border border-accent/35 bg-accent/10 px-4 py-3 text-sm text-accent/95">
-                Faleminderit. Checklist po vjen në email-in tënd.
+              <p className="lead-reveal mt-6 rounded-[0.8rem] border border-accent/35 bg-accent/10 px-4 py-3 text-sm text-accent/95">
+                U dërgua! Do t&apos;ju kontaktojmë së shpejti.
               </p>
             ) : (
-              <>
-                <p className="text-sm leading-relaxed text-white/62">Shkruaj email-in dhe do ta dërgojmë brenda pak minutash.</p>
+              <form className="lead-reveal mt-6" onSubmit={onSubmit}>
                 <input
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="Email-i yt"
-                  className="mt-4 h-11 w-full rounded-full border border-white/14 bg-black/35 px-4 text-sm text-white placeholder:text-white/35 outline-none transition focus:border-accent/55"
+                  type="url"
+                  value={website}
+                  onChange={(event) => setWebsite(event.target.value)}
+                  placeholder="https://faqja-juaj.com"
+                  className="mb-3 h-[48px] w-full rounded-[0.8rem] border border-white/15 bg-black/35 px-4 py-2 text-sm text-white placeholder:text-white/35 outline-none transition duration-300 focus:border-accent/55 focus:shadow-[0_0_0_3px_rgba(200,155,46,0.14)]"
+                  required
                 />
-                <button
-                  type="button"
-                  disabled={!valid}
-                  onClick={() => setDone(true)}
-                  className="mt-4 inline-flex rounded-full border border-accent/70 bg-accent px-5 py-2 text-[11px] tracking-[0.16em] text-black transition hover:bg-[#d5ad4f] disabled:opacity-35"
-                >
-                  DËRGO
-                </button>
-              </>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    placeholder="email@juaj.com"
+                    className="h-[48px] w-full rounded-[0.8rem] border border-white/15 bg-black/35 px-4 py-2 text-sm text-white placeholder:text-white/35 outline-none transition duration-300 focus:border-accent/55 focus:shadow-[0_0_0_3px_rgba(200,155,46,0.14)]"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="inline-flex h-[48px] w-full shrink-0 items-center justify-center rounded-[0.8rem] border border-accent/70 bg-accent px-6 text-[13px] font-medium text-black shadow-[0_10px_26px_rgba(200,155,46,0.24)] transition-all duration-300 hover:-translate-y-[1px] hover:brightness-110 sm:w-auto"
+                  >
+                    Merr analizën →
+                  </button>
+                </div>
+              </form>
             )}
+            <p className="lead-reveal mt-3 text-[11px] tracking-[0.06em] text-white/40">Pa kosto. Pa detyrime. Vetëm vlerë.</p>
           </div>
         </div>
-      ) : null}
-    </>
+      </div>
+    </section>
   );
 }

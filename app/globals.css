@@ -193,7 +193,15 @@ body {
 
 .eyebrow {
   font-size: var(--type-caption);
-  @apply uppercase tracking-[0.22em] text-accent/80;
+  @apply uppercase tracking-[0.2em] text-accent/80;
+}
+
+.interactive-spotlight {
+  --gx: 50vw;
+  --gy: 50vh;
+  background: radial-gradient(420px circle at var(--gx) var(--gy), rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02) 28%, transparent 62%);
+  mix-blend-mode: screen;
+  opacity: 0.42;
 }
 
 .luxury-link {
@@ -506,6 +514,11 @@ body {
     border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-bento-card {
+  border-color: rgba(212, 175, 55, 0.2);
+  background: linear-gradient(165deg, rgba(20, 20, 20, 0.94), rgba(15, 15, 15, 0.95));
 }
 
 .services-luxe-card:hover {
@@ -1534,21 +1547,6 @@ html[data-aura="about"] body {
 
 html[data-aura="cta"] body {
   background-position: 50% 20%, 50% 95%;
-}
-
-@media (prefers-reduced-motion: no-preference) and (min-width: 1280px) {
-  html {
-    scroll-snap-type: y proximity;
-  }
-
-  #hero,
-  #services,
-  #scroll-story,
-  #why-not-working,
-  #cta {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-  }
 }
 
 .services-preview-micro {

@@ -6,44 +6,52 @@ import SectionMark from "@/components/SectionMark";
 
 const processSteps = [
   {
-    label: "FAZA 01 | Plani",
+    label: "FAZA 01",
+    duration: "3–5 ditë",
     title: "Plani",
     points: [
       "Analizojmë qëllimet e biznesit tuaj.",
       "Identifikojmë klientët që synoni të arrini.",
       "Studiojmë konkurrencën për t'u dalluar në treg.",
       "Hartojmë strukturën dhe hapat e projektit."
-    ]
+    ],
+    result: "Në fund keni: një plan të qartë dhe një strukturë gati për ekzekutim."
   },
   {
-    label: "FAZA 02 | Dizajni",
+    label: "FAZA 02",
+    duration: "5–7 ditë",
     title: "Dizajni",
     points: [
-      "Krijojmë stilin vizual (ngjyrat, shkronjat, fotot).",
+      "Krijojmë stilin vizual — ngjyrat, shkronjat, fotot.",
       "Ndërtojmë skicat e para për të parë si funksionon.",
-      "Sigurojmë që mesazhi juaj të jetë i qartë.",
+      "Sigurojmë që mesazhi juaj të jetë i qartë dhe i fortë.",
       "Përshtatim dizajnin që të jetë modern dhe profesional."
-    ]
+    ],
+    result: "Në fund keni: dizajn të aprovuar, gati për t'u koduar."
   },
   {
-    label: "FAZA 03 | Kodimi",
+    label: "FAZA 03",
+    duration: "7–14 ditë",
     title: "Kodimi",
     points: [
-      "Shndërrojmë dizajnin në një faqe funksionale (kod).",
-      "Optimizojmë faqen që të hapet shumë shpejt.",
-      "Sigurojmë që çdo buton dhe link të punojë saktë.",
+      "Shndërrojmë dizajnin në një faqe të plotë funksionale.",
+      "Optimizojmë shpejtësinë — hapet shpejt, edhe me internet të dobët.",
+      "Testojmë çdo buton dhe link që të punojë saktë.",
       "Përshtasim faqen për telefon, tablet dhe kompjuter."
-    ]
+    ],
+    result: "Në fund keni: faqe funksionale, të testuar dhe gati për publikim."
   },
   {
-    label: "FAZA 04 | Publikimi",
+    label: "FAZA 04",
+    duration: "1–2 ditë",
     title: "Publikimi",
     points: [
-      "Bëjmë kontrollet e fundit për çdo gabim teknik.",
+      "Bëjmë kontrollet e fundit — asnjë gabim teknik.",
       "Testojmë sigurinë dhe mbrojtjen e të dhënave.",
-      "Lidhim faqen me emrin tuaj (Domain) dhe serverin.",
-      "E publikojmë faqen live dhe gati për të pritur klientë."
-    ]
+      "Lidhim faqen me domenin dhe serverin tuaj.",
+      "E publikojmë live — gati për të pritur klientë."
+    ],
+    result: "Në fund keni: faqen tuaj live, të sigurt dhe gati për biznes."
   }
 ];
 
@@ -236,7 +244,9 @@ export default function Process() {
       <div className="section-wrap">
         <SectionMark label="PROCESI" />
         <h2 ref={headingRef} className="section-title mt-3 mb-14 max-w-5xl">
-          Një rrugë e qartë nga biseda e parë deri në përfundim të projektit.
+          E dini çfarë ndodh,
+          <br />
+          para se të ndodhë.
         </h2>
         <div ref={timelineRef} className="process-timeline relative pb-2">
           <span className="process-line-track absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-white/14 md:block" />
@@ -262,28 +272,48 @@ export default function Process() {
                 className={`process-step relative md:w-[46%] ${idx % 2 === 0 ? "process-step-left md:mr-auto md:pr-10" : "process-step-right md:ml-auto md:pl-10"}`}
               >
                 <span className="process-node absolute left-[-0.55rem] top-[1.15rem] h-[9px] w-[9px] rounded-full border border-accent/70 bg-[#0b0b0b] md:left-auto md:top-[1.1rem] md:h-[10px] md:w-[10px] md:border-accent/80 md:bg-[#0b0b0b] md:shadow-none" />
-                <p className="text-[11px] tracking-[0.18em] text-accent/85">{step.label}</p>
+                <p className="text-[11px] tracking-[0.18em] text-accent/85">
+                  {step.label} <span className="text-white/45">· {step.duration}</span>
+                </p>
                 <h3 className="mt-2 font-display text-[2rem] leading-[0.96] text-white md:text-[2.55rem]">{step.title}</h3>
                 <ul className="mt-3 max-w-[42ch] space-y-2 text-sm leading-relaxed text-white/72 md:text-base">
-                  {step.points.map((point) => (
+                  {step.points.map((point, pointIdx) => (
                     <li key={point} className="flex items-start gap-2">
-                      <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent/85" />
+                      <span className="inline-block min-w-[1.9rem] pt-[1px] text-[11px] tracking-[0.14em] text-accent/88">
+                        {String(pointIdx + 1).padStart(2, "0")}{"."}
+                      </span>
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
+                <p className="mt-5 max-w-[42ch] border-t border-white/10 pt-3 text-xs italic leading-relaxed text-white/52 md:text-[13px]">
+                  {step.result}
+                </p>
               </div>
             ))}
           </div>
         </div>
-        <div className="mt-14 border-t border-white/10 pt-9 md:mt-16">
-          <a
+        <div className="mt-14 md:mt-16">
+          <div
             ref={ctaRef}
-            href="#cta"
-            className="process-end-cta inline-flex items-center gap-3 font-display text-[clamp(1.75rem,4.4vw,3.25rem)] leading-[0.95] text-white"
+            className="relative flex flex-wrap items-center justify-between gap-8 overflow-hidden rounded-[1.1rem] border border-white/10 bg-[linear-gradient(135deg,rgba(10,10,10,0.98)_0%,rgba(16,16,16,0.98)_52%,rgba(200,155,46,0.16)_100%)] px-[28px] py-[40px] shadow-[0_24px_70px_rgba(0,0,0,0.38)] md:px-[48px] md:py-[56px]"
           >
-            Nise projektin tënd <span aria-hidden className="text-accent">→</span>
-          </a>
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_24%,rgba(255,255,255,0.07),transparent_38%),radial-gradient(circle_at_84%_78%,rgba(200,155,46,0.16),transparent_44%)]" />
+            <div className="pointer-events-none absolute -left-14 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-accent/20 blur-2xl" />
+            <div className="pointer-events-none absolute right-8 top-8 h-14 w-14 rounded-full bg-white/10 blur-xl" />
+            <div className="max-w-[720px]">
+              <p className="mb-[14px] text-[11px] uppercase tracking-[0.24em] text-white/35">Hapi tjetër</p>
+              <p className="mb-[10px] font-display text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.08] text-white">Gati të fillojmë?</p>
+              <p className="max-w-[58ch] text-[14px] leading-[1.65] text-white/52 md:text-[15px]">Biseda e parë është falas — na tregoni çfarë keni nevojë.</p>
+            </div>
+            <a
+              href="/#cta"
+              className="process-end-cta group relative inline-flex w-full shrink-0 items-center justify-center overflow-hidden rounded-[10px] border border-accent/70 bg-accent px-[28px] py-[14px] text-[13px] font-medium text-black no-underline shadow-[0_12px_28px_rgba(200,155,46,0.24)] transition-all duration-300 hover:-translate-y-[1px] hover:brightness-110 sm:w-auto"
+            >
+              <span className="pointer-events-none absolute inset-y-0 -left-[40%] w-[35%] -skew-x-12 bg-[linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.35),rgba(255,255,255,0))] opacity-0 transition-all duration-700 group-hover:left-[115%] group-hover:opacity-100" />
+              <span className="relative">Nisim projektin →</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

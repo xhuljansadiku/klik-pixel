@@ -7,50 +7,50 @@ import SectionMark from "@/components/SectionMark";
 const serviceItems = [
   {
     title: "Website",
-    short: "Landing page • Multipage • Web App",
-    desc: "Ndërtojmë imazhin që meriton biznesi juaj: website të shpejtë, modernë dhe të optimizuar për shitje.",
+    short: "Landing page · Multipage · Web App",
+    desc: "Faqja juaj është shitësi juaj i parë. Bëjmë website që njerëzit i kuptojnë menjëherë — dhe veprojnë.",
     href: "/services/website",
-    metrics: ["UX më i qartë", "Shpejtësi më e lartë", "Lead flow i pastër"],
+    metrics: ["E thjeshtë për vizitorin", "Hapet shpejt në çdo pajisje", "Lead flow i pastër"],
     cta: "Nis website-in"
   },
   {
     title: "E-commerce",
-    short: "Shopify • WooCommerce • Custom Checkout",
-    desc: "Dyqan online i optimizuar për konvertime dhe shitje të qëndrueshme.",
+    short: "Shopify · WooCommerce · Custom Checkout",
+    desc: "Dyqan online që nuk humbet klientë në checkout — i ndërtuar për të shitur çdo ditë, jo vetëm në nisje.",
     href: "/services/ecommerce/",
-    metrics: ["Checkout më i shpejtë", "AOV më i lartë", "Konvertime më të qëndrueshme"],
+    metrics: ["Checkout pa fërkime", "Vlerë më e lartë për porosi", "Konvertime më të qëndrueshme"],
     cta: "Shiko zgjidhjen e-commerce"
   },
   {
     title: "Marketing",
-    short: "Meta Ads • Google Ads • Funnel",
-    desc: "Reklamat nuk janë kosto, janë motori i shitjeve. Targetojmë audiencën e duhur për të sjellë fitim maksimal.",
+    short: "Meta Ads · Google Ads · Funnel",
+    desc: "Çdo euro që investoni, e dimë ku shkon. Reklamat tuaja arrijnë njerëzit e duhur — në momentin e duhur.",
     href: "/services/marketing",
-    metrics: ["ROAS i kontrolluar", "Audience më e saktë", "Mesazh më i fortë"],
+    metrics: ["Buxhet i kontrolluar", "Audiencë e saktë, jo e rastësishme", "Mesazh më i fortë"],
     cta: "Rrit performancën"
   },
   {
     title: "Mirëmbajtje",
-    short: "Përditësime • Siguri • Monitorim",
-    desc: "Kujdesemi që sistemi juaj të jetë gjithmonë i sigurt, i shpejtë dhe një hap para konkurrencës.",
+    short: "Përditësime · Siguri · Monitorim",
+    desc: "Ne e mbajmë gjallë — ju mbani fokus tek biznesi. Sistemi juaj punon 24/7, pa surpriza.",
     href: "/services/mirembajtje",
-    metrics: ["Uptime më i lartë", "Risk më i ulët", "Shpejtësi e qëndrueshme"],
+    metrics: ["Gjithmonë online", "Pa rrezik sigurie", "Shpejtësi e qëndrueshme"],
     cta: "Siguro faqen tënde"
   },
   {
     title: "SEO",
-    short: "SEO teknike • On-page • Përmbajtje",
-    desc: "Rritje organike dhe pozicionim më i fortë në Google.",
+    short: "SEO teknike · On-page · Përmbajtje",
+    desc: "Klientët ju gjejnë pa paguar për çdo klikim. Pozicionohemi aty ku kërkojnë ata, jo ku mendojmë ne.",
     href: "/services/seo/",
-    metrics: ["Pozicionim më i mirë", "Intent më cilësor", "Rritje organike"],
+    metrics: ["Trafik pa kosto reklamash", "Vizitorë që janë gati të blejnë", "Rritje organike"],
     cta: "Forco SEO-n"
   },
   {
     title: "Social Media",
-    short: "Plan përmbajtjeje • Creative • Reels",
-    desc: "Përmbajtje dhe strategji që sjellin vëmendje cilësore.",
+    short: "Plan përmbajtjeje · Creative · Reels",
+    desc: "Nuk postojmë për të postuar — krijojmë përmbajtje që njerëzit ndalen ta shohin dhe duan ta ndajnë.",
     href: "/services/social-media/",
-    metrics: ["Reach më i pastër", "Creative consistency", "Engagement më i lartë"],
+    metrics: ["Pamje e qëndrueshme e brandit", "Reach real, jo artificial", "Engagement më i lartë"],
     cta: "Rrit prezencën sociale"
   }
 ];
@@ -106,13 +106,16 @@ export default function Services() {
       <div className="services-grain pointer-events-none absolute inset-0 opacity-30" />
       <div className="section-wrap">
         <div className="cadence-label services-intro-item">
-          <SectionMark label="SHËRBIMET" />
+          <SectionMark label="SHËRBIMET TONA" />
         </div>
-        <h2 className="services-intro-item cadence-title section-title mt-3 max-w-4xl">Nga ideja te rezultati.</h2>
+        <h2 className="services-intro-item cadence-title section-title mt-3 max-w-4xl">
+          Ne <span className="text-accent">punojmë</span>.
+          <br />
+          Biznesi juaj <span className="text-accent">rritet</span>.
+        </h2>
         <div className="services-intro-item mt-4 max-w-2xl">
           <p className="cadence-body muted text-sm md:text-base">
-            Krijojmë një rrugë të qartë për klientët tuaj.
-            <br className="hidden md:block" /> Bashkëpunojmë me biznese që kërkojnë rritje të vërtetë, jo thjesht një adresë online.
+            Bashkëpunojmë me biznese që duan më shumë se sa një faqe interneti.
           </p>
         </div>
 
@@ -126,9 +129,9 @@ export default function Services() {
               href={service.href}
               onMouseEnter={() => setHoveredCard(idx)}
               onMouseLeave={() => setHoveredCard(null)}
-              className={`group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[1.15rem] border bg-white/[0.02] p-5 backdrop-blur-[2px] [perspective:1000px] [transform-style:preserve-3d] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] ${
+              className={`service-bento-card group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[24px] border p-5 backdrop-blur-[2px] [perspective:1000px] [transform-style:preserve-3d] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] ${
                 idx === 0
-                  ? "scale-[1.04] border-accent/45 shadow-[0_25px_80px_rgba(200,155,46,0.25)] hover:[transform:translateY(-8px)_scale(1.06)_rotateX(2deg)_rotateY(2deg)]"
+                  ? "border-accent/45 shadow-[0_25px_80px_rgba(200,155,46,0.25)] hover:[transform:translateY(-8px)_scale(1.03)_rotateX(2deg)_rotateY(2deg)]"
                   : "border-white/10 opacity-95 hover:[transform:translateY(-8px)_scale(1.03)_rotateX(2deg)_rotateY(2deg)] hover:border-accent/45 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(200,155,46,0.15)]"
               } ${hoveredCard !== null && hoveredCard !== idx ? "opacity-70 scale-[0.99]" : ""}`}
             >

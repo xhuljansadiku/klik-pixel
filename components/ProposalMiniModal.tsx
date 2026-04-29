@@ -70,7 +70,7 @@ export default function ProposalMiniModal() {
           </button>
         </div>
         <p className="text-[11px] tracking-[0.18em] text-white/45">
-          HAPI {step + 1} / 3 — pa backend, vetëm orientim.
+          HAPI {step + 1} / 3, pa backend, vetëm orientim.
         </p>
 
         {step === 0 && (

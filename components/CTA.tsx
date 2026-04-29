@@ -98,14 +98,6 @@ export default function CTA() {
           }
         });
 
-        gsap.to(".cta-light-sweep", {
-          xPercent: 92,
-          duration: 9,
-          repeat: -1,
-          repeatDelay: 2.8,
-          ease: "sine.inOut"
-        });
-
         gsap.to(buttonRef.current, {
           scale: 1.02,
           duration: 1.9,
@@ -145,46 +137,42 @@ export default function CTA() {
       <div className="section-wrap">
         <div
           ref={panelRef}
-          className="cta-shell relative overflow-hidden p-8 md:p-14"
+          className="cta-shell relative overflow-hidden border border-white/10 p-7 shadow-[0_20px_70px_rgba(0,0,0,0.36)] md:px-12 md:py-12 lg:px-14 lg:py-14"
           style={{ borderRadius: "var(--radius-xl)" }}
         >
           <div
             ref={bgRef}
             className="pointer-events-none absolute inset-0 cta-cinematic-bg"
           />
-          <div className="cta-light-sweep pointer-events-none absolute inset-y-0 left-[-35%] w-[30%]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_84%_72%,rgba(200,155,46,0.14),transparent_42%)]" />
           <div className="pointer-events-none absolute inset-0 cta-cinematic-vignette" />
-          <div ref={contentRef} className="grid items-end gap-10 lg:grid-cols-[1.06fr_0.94fr]">
-            <div className="max-w-3xl">
+          <div ref={contentRef} className="grid items-center gap-8 md:gap-10 lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="max-w-[40rem]">
               <div className="cta-body-step cadence-step">
                 <SectionMark label="LE TË KRIJOJMË" />
               </div>
               <h2
                 ref={headingRef}
-                className="cadence-title font-display text-[3.2rem] leading-[0.86] tracking-[-0.01em] md:text-[5.4rem]"
+                className="cadence-title font-display text-[2.45rem] leading-[1.02] tracking-[-0.013em] md:text-[5.2rem] lg:text-[5.6rem]"
               >
-                <span className="cta-headline-line block overflow-hidden">
-                  <span className="cta-headline-line-inner block">Transformoni faqen tuaj</span>
+                <span className="cta-headline-line block pb-[0.08em]">
+                  <span className="cta-headline-line-inner block whitespace-normal md:whitespace-nowrap">Koha që faqja juaj</span>
                 </span>
-                <span className="cta-headline-line block overflow-hidden text-accent">
-                  <span className="cta-headline-line-inner block">në një aset fitimi.</span>
+                <span className="cta-headline-line block pb-[0.08em] text-accent [text-shadow:0_0_28px_rgba(200,155,46,0.26)]">
+                  <span className="cta-headline-line-inner block whitespace-normal md:whitespace-nowrap">të punojë për ju.</span>
                 </span>
               </h2>
             </div>
-            <div className="space-y-5 lg:max-w-md lg:justify-self-end">
-              <p className="cta-body-step cadence-body text-sm leading-relaxed text-white/74 md:text-base">
-                Nëse faqja juaj nuk po ju sjell kërkesa çdo ditë, ajo është thjesht një shpenzim.
-                Ne e kthejmë atë në investimin tuaj më fitimprurës.
-              </p>
+            <div className="relative flex items-center justify-center p-2 md:p-4 lg:max-w-md lg:justify-self-end">
               <button
                 ref={buttonRef}
                 onMouseMove={onMove}
                 onMouseLeave={onLeave}
                 onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
                 data-magnetic="true"
-                className="cta-body-step cadence-cta cta-button cta-premium interactive-button rounded-full border border-accent/70 bg-accent px-8 py-4 text-sm tracking-[0.18em] text-black transition-all duration-300 hover:bg-[#d5ad4f] hover:shadow-[0_10px_40px_rgba(200,155,46,0.35)]"
+                className="cta-body-step cadence-cta cta-button cta-premium interactive-button relative inline-flex w-full items-center justify-center overflow-hidden rounded-[0.85rem] border border-accent/75 bg-accent px-8 py-4 text-sm tracking-[0.14em] text-black transition-all duration-300 hover:-translate-y-[1px] hover:brightness-110 hover:shadow-[0_12px_34px_rgba(200,155,46,0.3)] sm:w-auto sm:min-w-[240px] sm:px-10"
               >
-                <span className="cta-premium-label">MERRNI ANALIZËN FALAS</span>
+                <span className="cta-premium-label relative">Merrni analizën tuaj</span>
               </button>
             </div>
           </div>

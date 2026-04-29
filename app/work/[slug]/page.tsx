@@ -41,6 +41,20 @@ export default function CaseStudyPage({ params }: Props) {
           {caseStudy.category} • {caseStudy.year}
         </p>
         <h1 className="mt-4 font-display text-[clamp(2.5rem,7vw,5.6rem)] leading-[0.92]">{caseStudy.title}</h1>
+        <p className="mt-3 inline-flex items-center gap-2 text-sm text-white/68">
+          <span className="inline-flex items-center gap-1 rounded-md bg-white/10 px-1.5 py-0.5" aria-hidden>
+            {caseStudy.flagCodes.map((code) => (
+              <img
+                key={code}
+                src={`https://flagcdn.com/w20/${code}.png`}
+                alt=""
+                className="h-3.5 w-5 rounded-[2px] object-cover"
+                loading="lazy"
+              />
+            ))}
+          </span>
+          {caseStudy.location}
+        </p>
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/74">{caseStudy.intro}</p>
         </section>
 

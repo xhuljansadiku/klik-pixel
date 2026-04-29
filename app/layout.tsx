@@ -3,6 +3,10 @@ import { Inter, Cormorant_Garamond, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { localBusinessSchema, organizationSchema, seo } from "@/lib/seo";
 import InquiryModal from "@/components/InquiryModal";
+import SmoothScroll from "@/components/SmoothScroll";
+import MagneticButtons from "@/components/MagneticButtons";
+import GlobalReveals from "@/components/GlobalReveals";
+import InteractiveGlow from "@/components/InteractiveGlow";
 
 const body = Inter({
   subsets: ["latin"],
@@ -59,7 +63,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        {children}
+        <SmoothScroll>
+          <InteractiveGlow />
+          <MagneticButtons />
+          <GlobalReveals />
+          {children}
+        </SmoothScroll>
         <InquiryModal />
       </body>
     </html>

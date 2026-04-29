@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import BackToTop from "@/components/BackToTop";
 import BrandSignature from "@/components/BrandSignature";
 import BlogPreview from "@/components/BlogPreview";
@@ -11,7 +12,6 @@ import FeaturedWork from "@/components/FeaturedWork";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LeadMagnet from "@/components/LeadMagnet";
-import MagneticButtons from "@/components/MagneticButtons";
 import Navbar from "@/components/Navbar";
 import PageTransitionOverlay from "@/components/PageTransitionOverlay";
 import Preloader from "@/components/Preloader";
@@ -20,13 +20,18 @@ import SectionAura from "@/components/SectionAura";
 import ScrollProgress from "@/components/ScrollProgress";
 import Services from "@/components/Services";
 import SocialProofToasts from "@/components/SocialProofToasts";
-import SmoothScroll from "@/components/SmoothScroll";
 import Testimonials from "@/components/Testimonials";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
+export const metadata: Metadata = {
+  title: "Illyrian Pixel — Agjensi Dixhitale për Biznese Shqiptare",
+  description:
+    "Website profesionale, marketing dixhital dhe branding për biznese shqiptare në Shqipëri, Kosovë dhe diasporë. Analizë falas — kontaktoni sot."
+};
+
 export default function HomePage() {
   return (
-    <SmoothScroll>
+    <>
       <SectionAura />
       <Preloader />
       <PageTransitionOverlay />
@@ -36,7 +41,6 @@ export default function HomePage() {
       <div className="ambient-noise" />
       <div className="site-vignette" />
       <BrandSignature />
-      <MagneticButtons />
       <CustomCursor />
       <CursorSpotlight />
       <CursorTrail />
@@ -56,6 +60,6 @@ export default function HomePage() {
         <CTA />
         <Footer />
       </main>
-    </SmoothScroll>
+    </>
   );
 }

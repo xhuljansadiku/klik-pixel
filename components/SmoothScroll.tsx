@@ -6,7 +6,6 @@ import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/g
 
 export default function SmoothScroll({ children }: PropsWithChildren) {
   const lenisRef = useRef<Lenis | null>(null);
-  const rafRef = useRef<number | null>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useIsomorphicLayoutEffect(() => {
@@ -14,32 +13,27 @@ export default function SmoothScroll({ children }: PropsWithChildren) {
       return;
     }
 
-    const { ScrollTrigger } = ensureGSAP();
+    const { gsap, ScrollTrigger } = ensureGSAP();
     const lenis = new Lenis({
-      duration: 1.12,
+      duration: 1.2,
       smoothWheel: true,
-      wheelMultiplier: 0.92,
-      touchMultiplier: 1.05,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1,
       infinite: false
     });
     lenisRef.current = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
-
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafRef.current = requestAnimationFrame(raf);
+    gsap.ticker.lagSmoothing(0);
+    const tick = (time: number) => {
+      lenis.raf(time * 1000);
     };
-
-    rafRef.current = requestAnimationFrame(raf);
+    gsap.ticker.add(tick);
 
     return () => {
-      if (rafRef.current !== null) {
-        cancelAnimationFrame(rafRef.current);
-      }
+      gsap.ticker.remove(tick);
       lenis.destroy();
       lenisRef.current = null;
-      rafRef.current = null;
     };
   }, [prefersReducedMotion]);
 

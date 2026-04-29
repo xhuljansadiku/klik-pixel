@@ -41,16 +41,12 @@ export default function Hero() {
     if (!sectionRef.current) return;
     const { gsap } = ensureGSAP();
     const isMobile = getIsMobile();
-    let ctaEl: HTMLAnchorElement | null = null;
-    let onCtaMove: ((event: PointerEvent) => void) | null = null;
-    let onCtaLeave: (() => void) | null = null;
     let onHeadlineEnter: (() => void) | null = null;
     let onHeadlineLeave: (() => void) | null = null;
     let onVisualMove: ((event: PointerEvent) => void) | null = null;
     let onVisualLeave: (() => void) | null = null;
     const ctx = gsap.context(() => {
       const headlineWords = headlineRef.current?.querySelectorAll(".headline-word");
-      ctaEl = ctaRef.current;
       const sectionEl = sectionRef.current;
 
       if (headlineWords?.length) {
@@ -104,31 +100,6 @@ export default function Hero() {
       );
 
       if (!reducedMotion) {
-        if (ctaEl) {
-          const cta = ctaEl;
-          const maxDistance = isMobile ? 5 : 11;
-          const xTo = gsap.quickTo(cta, "x", { duration: 0.28, ease: "power3.out" });
-          const yTo = gsap.quickTo(cta, "y", { duration: 0.28, ease: "power3.out" });
-
-          onCtaMove = (event: PointerEvent) => {
-            const rect = cta.getBoundingClientRect();
-            const dx = event.clientX - (rect.left + rect.width / 2);
-            const dy = event.clientY - (rect.top + rect.height / 2);
-            xTo(Math.max(-maxDistance, Math.min(maxDistance, dx * 0.14)));
-            yTo(Math.max(-maxDistance, Math.min(maxDistance, dy * 0.14)));
-          };
-
-          onCtaLeave = () => {
-            xTo(0);
-            yTo(0);
-          };
-
-          cta.addEventListener("pointermove", onCtaMove);
-          cta.addEventListener("pointerleave", onCtaLeave);
-
-          gsap.set(cta, { willChange: "transform" });
-        }
-
         if (sectionEl) {
           onHeadlineEnter = () => sectionEl.classList.add("headline-trail-boost");
           onHeadlineLeave = () => sectionEl.classList.remove("headline-trail-boost");
@@ -241,8 +212,6 @@ export default function Hero() {
     }, sectionRef);
 
     return () => {
-      if (ctaEl && onCtaMove) ctaEl.removeEventListener("pointermove", onCtaMove);
-      if (ctaEl && onCtaLeave) ctaEl.removeEventListener("pointerleave", onCtaLeave);
       if (headlineRef.current && onHeadlineEnter) headlineRef.current.removeEventListener("mouseenter", onHeadlineEnter);
       if (headlineRef.current && onHeadlineLeave) headlineRef.current.removeEventListener("mouseleave", onHeadlineLeave);
       if (visualRef.current && onVisualMove) visualRef.current.removeEventListener("pointermove", onVisualMove);
@@ -257,6 +226,9 @@ export default function Hero() {
       ref={sectionRef}
       className="cinematic-section section-tone-hero relative min-h-screen overflow-hidden"
     >
+      <h1 className="sr-only">
+        Agjensi Dixhitale për Biznese Shqiptare — Website, Marketing dhe Branding
+      </h1>
       <div
         ref={gradientRef}
         className="pointer-events-none absolute inset-0 hero-grid opacity-80 [filter:blur(0px)]"
@@ -273,7 +245,7 @@ export default function Hero() {
             <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
             ILLYRIAN PIXEL
           </div>
-          <h1
+          <h2
             ref={headlineRef}
             className="hero-headline-trigger cadence-title font-display relative max-w-[12ch] text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.95] tracking-[0.01em]"
           >
@@ -281,17 +253,17 @@ export default function Hero() {
               <span className="headline-word block">
                 Ktheje biznesin në{" "}
                 <span className="hero-brand-word">
-                  <span className="text-accent">brand</span>
+                  <span className="text-accent">brand.</span>
                 </span>
               </span>
             </span>
             <span aria-hidden className="hero-brand-trail" />
-          </h1>
+          </h2>
           <p
             ref={paragraphRef}
             className="cadence-body mx-auto max-w-2xl text-[1.2rem] font-medium leading-[1.5] tracking-[0.01em] text-white/78 md:mx-0 md:text-[1.34rem] md:leading-[1.45]"
           >
-            Nga klikimi te klienti <span aria-hidden>🚀</span>
+            Nga klikimi te klienti — pa kompromis.
           </p>
           <div className="hero-cta cadence-cta flex flex-wrap items-center justify-center gap-4 md:gap-5 lg:justify-start">
             <a

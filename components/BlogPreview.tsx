@@ -8,7 +8,10 @@ export default function BlogPreview() {
       <div className="section-wrap py-24 md:py-30">
         <SectionMark label="BLOG & INSIGHTS" />
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 className="section-title mt-3 max-w-4xl">Ide, lajme & udhëzime.</h2>
+          <div>
+            <h2 className="section-title mt-3 max-w-4xl">Ide, lajme & udhëzime.</h2>
+            <p className="mt-3 text-sm text-white/62 md:text-base">Gjëra që ia vlen t&apos;i dini.</p>
+          </div>
           <Link href="/blog" className="luxury-link">
             Shiko të gjitha <span aria-hidden>→</span>
           </Link>

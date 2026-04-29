@@ -64,7 +64,7 @@ export default function Testimonials() {
         <div className="testimonial-reveal">
           <SectionMark label="ZËRI I KLIENTËVE" />
         </div>
-        <h2 className="testimonial-reveal section-title mt-3 max-w-4xl">Testimonials</h2>
+        <h2 className="testimonial-reveal section-title mt-3 max-w-4xl">Fjalët e tyre.</h2>
         <div className="mt-10 space-y-8">
           {quotes.map((item) => (
             <article key={item.name} className="testimonial-reveal relative border-t border-white/10 pt-7">

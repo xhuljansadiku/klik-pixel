@@ -180,37 +180,37 @@ export default function Footer() {
         }}
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_22%,rgba(200,155,46,0.08),transparent_52%)]" />
-      <div className="pointer-events-none absolute left-1/2 top-[56%] -translate-x-1/2 -translate-y-1/2 opacity-[0.06]">
+      <div className="pointer-events-none absolute left-1/2 top-[56%] -translate-x-1/2 -translate-y-1/2 opacity-[0.045]">
         <Image src="/images/illyrian-pixel-logo.png" alt="" width={460} height={460} className="h-auto w-[240px] md:w-[360px]" />
       </div>
 
       <div className="section-wrap relative py-20 md:py-[120px]">
-        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:gap-[60px]">
+        <div className="grid items-start gap-10 md:grid-cols-[1.2fr_0.8fr] md:gap-[60px]">
           <div>
             <p className="footer-reveal footer-label text-[11px] uppercase tracking-[0.18em] text-accent/60">
               ILLYRIAN PIXEL
             </p>
-            <h3 className="footer-reveal hero-headline-trigger cadence-title font-display relative mt-4 max-w-[12ch] text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.95] tracking-[0.01em] text-white">
-              Ktheje biznesin në <span className="text-accent">brand</span>
+            <h3 className="footer-reveal hero-headline-trigger cadence-title font-display relative mt-4 max-w-[12ch] text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.99] tracking-[0.01em] text-white">
+              Ktheje biznesin në <span className="text-accent">brand.</span>
             </h3>
             <p className="footer-reveal cadence-body mt-5 max-w-2xl text-[1.2rem] font-medium leading-[1.5] tracking-[0.01em] text-white/78 md:text-[1.34rem] md:leading-[1.45]">
               Nga klikimi te klienti 🚀
             </p>
           </div>
 
-          <div className="footer-reveal md:justify-self-end">
+          <div className="footer-reveal md:justify-self-end md:pt-1">
             <a
               href="/contact"
               data-magnetic="true"
-              className="footer-main-cta group inline-flex items-center gap-2 rounded-full border border-accent/70 bg-[linear-gradient(90deg,#d4af37,#f5d97a)] px-7 py-3.5 text-[13px] tracking-[0.08em] text-black transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_10px_30px_rgba(212,175,55,0.25)]"
+              className="footer-main-cta group inline-flex items-center gap-2 rounded-full border border-accent/70 bg-[linear-gradient(90deg,#d4af37,#f5d97a)] px-7 py-3.5 text-[13px] font-semibold tracking-[0.11em] text-black transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_12px_28px_rgba(212,175,55,0.28)]"
             >
               Rezervo thirrjen <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
-            <div className="mt-8 space-y-2 text-sm text-white/68">
+            <div className="mt-8 space-y-2 text-sm tracking-[0.05em] text-white/70">
               <a href="mailto:info@illyrianpixel.com" className="footer-link block">info@illyrianpixel.com</a>
-              <p>Shqipëri • Gjermani • Online</p>
+              <p className="text-white/80">Shqipëri • Gjermani • Online</p>
             </div>
-            <div className="mt-5 grid grid-cols-4 gap-2" aria-label="Rrjetet sociale">
+            <div className="mt-5 grid grid-cols-4 gap-2 md:justify-items-end" aria-label="Rrjetet sociale">
               {socials.map((item, idx) => (
                 <a
                   key={item.label}
@@ -221,7 +221,7 @@ export default function Footer() {
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={item.label}
-                  className={`group inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-transparent text-white/80 opacity-90 will-change-transform transition-[color,border-color,box-shadow,opacity,background-color] duration-300 ${
+                  className={`group inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-transparent text-white/85 will-change-transform transition-[color,border-color,box-shadow,opacity,background-color] duration-300 ${
                     item.icon === "instagram"
                       ? "hover:opacity-100 hover:border-[#E1306C] hover:text-[#E1306C] hover:bg-[rgba(225,48,108,0.08)] hover:shadow-[0_0_16px_rgba(225,48,108,0.32)]"
                       : item.icon === "facebook"
@@ -244,7 +244,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer-reveal footer-bottom mt-16 flex items-center justify-between border-t border-white/10 pt-5 text-[12px] text-white/50 md:mt-20">
+        <div className="footer-reveal footer-bottom mt-16 flex items-center justify-between border-t border-white/10 pt-5 text-[11px] uppercase tracking-[0.12em] text-white/50 md:mt-20">
           <p>© 2026 Illyrian Pixel</p>
           <a href="/" className="footer-link group inline-flex items-center gap-2">
             Kthehu sipër <span aria-hidden className="transition-transform duration-300 group-hover:-translate-y-[2px]">↑</span>
