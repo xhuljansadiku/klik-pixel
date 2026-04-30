@@ -166,7 +166,7 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
         <section className="relative z-[1]">
           <div className="section-wrap py-14 md:py-20">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {projects.map((cs, i) => (
+              {projects.map((cs) => (
                 <article
                   key={cs.slug}
                   className="wk-project group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-white/10 bg-[#111111]/80 px-5 pb-5 pt-8 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-accent/35"
