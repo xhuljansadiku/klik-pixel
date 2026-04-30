@@ -38,6 +38,17 @@ body {
     radial-gradient(circle at 85% 120%, rgba(255, 255, 255, 0.06), transparent 42%);
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: repeating-radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.55) 0 1px, transparent 1px 4px);
+  mix-blend-mode: soft-light;
+}
+
 ::selection {
   background: rgba(200, 155, 46, 0.28);
   color: #f5f5f0;

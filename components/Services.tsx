@@ -6,52 +6,28 @@ import SectionMark from "@/components/SectionMark";
 
 const serviceItems = [
   {
-    title: "Website",
-    short: "Landing page · Multipage · Web App",
-    desc: "Faqja juaj është shitësi juaj i parë. Bëjmë website që njerëzit i kuptojnë menjëherë — dhe veprojnë.",
-    href: "/services/website",
-    metrics: ["E thjeshtë për vizitorin", "Hapet shpejt në çdo pajisje", "Lead flow i pastër"],
-    cta: "Nis website-in"
+    title: "Web & E-Commerce",
+    short: "Website Development · E-commerce · Maintenance",
+    desc: "Ndërtojmë website dhe dyqane online që duken premium, ngarkohen shpejt dhe kthejnë vizitorët në klientë.",
+    href: "/sherbimet/web-ecommerce",
+    metrics: ["Website Development", "UX/UI", "Performance optimization"],
+    cta: "Zbulo më shumë"
   },
   {
-    title: "E-commerce",
-    short: "Shopify · WooCommerce · Custom Checkout",
-    desc: "Dyqan online që nuk humbet klientë në checkout — i ndërtuar për të shitur çdo ditë, jo vetëm në nisje.",
-    href: "/services/ecommerce/",
-    metrics: ["Checkout pa fërkime", "Vlerë më e lartë për porosi", "Konvertime më të qëndrueshme"],
-    cta: "Shiko zgjidhjen e-commerce"
+    title: "Marketing & Growth",
+    short: "SEO · Google Ads · Meta Ads",
+    desc: "Rrisim biznesin tuaj me SEO, reklama dhe strategji digjitale që sjellin trafik cilësor dhe kërkesa reale.",
+    href: "/sherbimet/marketing-growth",
+    metrics: ["SEO", "Google Ads", "Conversion optimization"],
+    cta: "Zbulo më shumë"
   },
   {
-    title: "Marketing",
-    short: "Meta Ads · Google Ads · Funnel",
-    desc: "Çdo euro që investoni, e dimë ku shkon. Reklamat tuaja arrijnë njerëzit e duhur — në momentin e duhur.",
-    href: "/services/marketing",
-    metrics: ["Buxhet i kontrolluar", "Audiencë e saktë, jo e rastësishme", "Mesazh më i fortë"],
-    cta: "Rrit performancën"
-  },
-  {
-    title: "Mirëmbajtje",
-    short: "Përditësime · Siguri · Monitorim",
-    desc: "Ne e mbajmë gjallë — ju mbani fokus tek biznesi. Sistemi juaj punon 24/7, pa surpriza.",
-    href: "/services/mirembajtje",
-    metrics: ["Gjithmonë online", "Pa rrezik sigurie", "Shpejtësi e qëndrueshme"],
-    cta: "Siguro faqen tënde"
-  },
-  {
-    title: "SEO",
-    short: "SEO teknike · On-page · Përmbajtje",
-    desc: "Klientët ju gjejnë pa paguar për çdo klikim. Pozicionohemi aty ku kërkojnë ata, jo ku mendojmë ne.",
-    href: "/services/seo/",
-    metrics: ["Trafik pa kosto reklamash", "Vizitorë që janë gati të blejnë", "Rritje organike"],
-    cta: "Forco SEO-n"
-  },
-  {
-    title: "Social Media",
-    short: "Plan përmbajtjeje · Creative · Reels",
-    desc: "Nuk postojmë për të postuar — krijojmë përmbajtje që njerëzit ndalen ta shohin dhe duan ta ndajnë.",
-    href: "/services/social-media/",
-    metrics: ["Pamje e qëndrueshme e brandit", "Reach real, jo artificial", "Engagement më i lartë"],
-    cta: "Rrit prezencën sociale"
+    title: "Branding & Content",
+    short: "Branding · Photography · Content creation",
+    desc: "Krijojmë identitet vizual, fotografi dhe përmbajtje që e bëjnë brandin tuaj të duket profesional dhe i besueshëm.",
+    href: "/sherbimet/branding-content",
+    metrics: ["Visual identity", "Photography", "Social media visuals"],
+    cta: "Zbulo më shumë"
   }
 ];
 
@@ -144,7 +120,7 @@ export default function Services() {
                 {service.desc}
               </p>
               <div className="relative z-[3] mt-4 flex flex-wrap gap-2">
-                {service.metrics.slice(0, 2).map((metric, metricIdx) => (
+                {service.metrics.map((metric, metricIdx) => (
                   <span
                     key={metric}
                     style={{ transitionDelay: `${metricIdx * 40}ms` }}
@@ -156,7 +132,7 @@ export default function Services() {
               </div>
               <p className="relative z-[3] mt-auto inline-flex items-center gap-2 pt-5 text-[11px] tracking-[0.16em] text-white/76 transition-colors duration-300 group-hover:text-accent">
                 <span className="relative inline-block pb-[2px] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:opacity-80 after:transition-all after:duration-300 after:ease-out group-hover:after:scale-x-100 group-hover:after:opacity-100">
-                  Lexo më shumë
+                  {service.cta}
                 </span>
                 <span aria-hidden className="transition-transform duration-300 ease-out group-hover:translate-x-[6px]">→</span>
               </p>
@@ -165,7 +141,7 @@ export default function Services() {
         </div>
         <div className="mt-10 border-t border-white/10 pt-8">
           <a
-            href="/services"
+            href="/sherbimet"
             className="inline-flex items-center gap-3 font-display text-[clamp(1.45rem,3.2vw,2.4rem)] leading-[0.95] !text-[#f5f5f0] opacity-100 drop-shadow-[0_0_8px_rgba(255,255,255,0.16)] transition-transform duration-300 hover:translate-x-[6px]"
           >
             Të gjitha shërbimet <span aria-hidden className="text-accent">→</span>

@@ -22,7 +22,7 @@ export default function GlobalCTA({
     <section className="cinematic-section border-t border-white/[0.08] !min-h-0 py-0 md:!min-h-0">
       <div className="section-wrap py-20 md:py-24">
         <SectionMark label={label} />
-        <h2 className="section-title mt-3 max-w-4xl">{title}</h2>
+        <h2 className="section-title mt-3 max-w-4xl" suppressHydrationWarning>{title}</h2>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/64">{body}</p>
         <div className="mt-7 flex flex-wrap items-center gap-3">
           {primaryActionHref ? (
@@ -43,7 +43,10 @@ export default function GlobalCTA({
               {primaryActionText}
             </button>
           )}
-          <Link href="/contact" className="rounded-full border border-white/18 px-6 py-3 text-[11px] tracking-[0.16em] text-white/78 transition hover:border-accent/45">
+          <Link
+            href="/contact"
+            className="rounded-full border border-white/18 px-6 py-3 text-xs uppercase tracking-[0.2em] text-white/78 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-accent/45"
+          >
             SHKO TE KONTAKTI
           </Link>
         </div>

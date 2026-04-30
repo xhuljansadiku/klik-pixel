@@ -14,6 +14,9 @@ export default function FeaturedWorkGrid() {
   const progressRef = useRef<HTMLSpanElement | null>(null);
   const reducedMotion = useReducedMotion();
   const [activeIdx, setActiveIdx] = useState(0);
+  const featuredProjects = caseStudies.filter((project) =>
+    ["ESM Group", "Bardhi Wellness", "Palushi Brothers"].includes(project.title)
+  );
 
   useIsomorphicLayoutEffect(() => {
     if (!sectionRef.current || reducedMotion) return;
@@ -102,9 +105,9 @@ export default function FeaturedWorkGrid() {
   useIsomorphicLayoutEffect(() => {
     if (!progressRef.current) return;
     const { gsap } = ensureGSAP();
-    const progress = caseStudies.length > 1 ? activeIdx / (caseStudies.length - 1) : 0;
+    const progress = featuredProjects.length > 1 ? activeIdx / (featuredProjects.length - 1) : 0;
     gsap.to(progressRef.current, { scaleY: Math.max(0.05, progress), duration: 0.4, ease: "power2.out" });
-  }, [activeIdx]);
+  }, [activeIdx, featuredProjects.length]);
 
   return (
     <section id="featured-work" ref={sectionRef} className="cinematic-section section-tone-work relative overflow-hidden">
@@ -122,7 +125,7 @@ export default function FeaturedWorkGrid() {
       </div>
 
       <div className="mt-8">
-        {caseStudies.map((project, idx) => (
+        {featuredProjects.map((project, idx) => (
           <article
             key={project.slug}
             ref={(node) => {

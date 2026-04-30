@@ -6,12 +6,10 @@ import { seo } from "@/lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
-    "/services",
-    "/services/websites",
-    "/services/ecommerce",
-    "/services/marketing",
-    "/services/seo",
-    "/services/branding",
+    "/sherbimet",
+    "/sherbimet/web-ecommerce",
+    "/sherbimet/marketing-growth",
+    "/sherbimet/branding-content",
     "/work",
     "/process",
     "/about",

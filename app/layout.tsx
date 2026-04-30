@@ -51,8 +51,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="sq">
-      <body className={`${body.variable} ${display.variable} ${pixel.variable} bg-bg font-body text-text`}>
+    <html lang="sq" suppressHydrationWarning>
+      <body suppressHydrationWarning className={`${body.variable} ${display.variable} ${pixel.variable} bg-bg font-body text-text`}>
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger

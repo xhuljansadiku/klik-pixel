@@ -1,11 +1,5 @@
-import { buildMetadata } from "@/lib/seo";
-import { servicesData } from "@/lib/siteContent";
-import ServiceDetailPage from "@/components/ServiceDetailPage";
-
-const service = servicesData.find((item) => item.slug === "branding")!;
-
-export const metadata = buildMetadata("Branding", service.short);
+import { redirect } from "next/navigation";
 
 export default function BrandingServicePage() {
-  return <ServiceDetailPage service={service} />;
+  redirect("/sherbimet/branding-content");
 }

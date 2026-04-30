@@ -1,13 +1,5 @@
-import { servicesData } from "@/lib/siteContent";
-import ServiceDetailPage from "@/components/ServiceDetailPage";
-
-const service = servicesData.find((item) => item.slug === "mirembajtje")!;
-
-export const metadata = {
-  title: "Mirëmbajtje | Illyrian Pixel",
-  description: service.short
-};
+import { redirect } from "next/navigation";
 
 export default function MaintenanceServicePage() {
-  return <ServiceDetailPage service={service} />;
+  redirect("/sherbimet/web-ecommerce");
 }

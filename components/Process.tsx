@@ -80,23 +80,8 @@ export default function Process() {
         });
       };
 
-      gsap.fromTo(
-        headingRef.current,
-        { opacity: 0, y: 26, filter: "blur(5px)" },
-        {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          duration: 0.95,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%"
-          }
-        }
-      );
-
       if (isMobile) {
+        gsap.set(headingRef.current, { opacity: 1, y: 0, filter: "blur(0px)" });
         gsap.fromTo(
           stepRefs.current,
           { opacity: 0, y: 24 },
@@ -129,6 +114,22 @@ export default function Process() {
         );
         return;
       }
+
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: 26, filter: "blur(5px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.95,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%"
+          }
+        }
+      );
 
       gsap.fromTo(
         lineProgressRef.current,

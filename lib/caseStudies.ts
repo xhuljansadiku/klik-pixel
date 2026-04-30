@@ -29,8 +29,8 @@ export const caseStudies: CaseStudy[] = [
       "Oferta dhe eksperienca e kompanisë nuk pasqyroheshin qartë online, duke krijuar paqartësi në llojin e projekteve dhe ritmin e kontakteve hyrëse.",
     solution:
       "Ndërtuam strukturë të pastër me seksione service-first, proof konkret dhe flow navigimi që e çon përdoruesin drejt kërkesës pa friction.",
-    result: "Kërkesa më të sakta industriale",
-    metrics: ["Mesazh B2B", "Navigim i strukturuar", "Kërkesa më të sakta industriale"],
+    result: "Mesazh industrial i qartë — kontakte me pritshmëri reale.",
+    metrics: ["Mesazh B2B i strukturuar", "Navigim pa friction", "Kërkesa industriale cilësore"],
     tags: ["Industrial", "Corporate", "B2B"],
     heroImage: "/images/projects/esm-group.png",
     liveUrl: "https://esm-group.eu/"
@@ -38,7 +38,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "bardhi-wellness",
     title: "Bardhi Wellness",
-    category: "Brand Personal & Oferta Online",
+    category: "Brand Personal",
     location: "Prishtinë, Kosovë & Köln, Gjermani",
     flagCodes: ["xk", "de"],
     year: "2026",
@@ -48,8 +48,8 @@ export const caseStudies: CaseStudy[] = [
       "Informacioni ekzistonte, por hierarkia e përmbajtjes dhe narrativa e ofertës nuk e mbështesnin plotësisht perceptimin profesional të brandit.",
     solution:
       "Organizuam përmbajtjen sipas intentit të përdoruesit, qartësuam paketat dhe forcuam seksionet që ndërtojnë besim para kontaktit.",
-    result: "Vendimmarrje më e shpejtë",
-    metrics: ["Ofertë e kuptueshme", "Brand i besueshëm", "Vendimmarrje më e shpejtë"],
+    result: "Vizitorët kuptojnë, vendosin dhe kontaktojnë më shpejt.",
+    metrics: ["Ofertë e qartë dhe e strukturuar", "Brand me autoritet personal", "Vendimmarrje pa hezitim"],
     tags: ["Fitness", "Branding", "Conversion UX"],
     heroImage: "/images/projects/bardhi-wellness.png",
     liveUrl: "https://www.bardhiwellness.com/"
@@ -67,15 +67,15 @@ export const caseStudies: CaseStudy[] = [
       "Vizitorët nuk arrinin gjithmonë të kuptonin menjëherë shërbimin përkatës dhe hapin e duhur për të dërguar kërkesë.",
     solution:
       "Krijuam hierarchy të fortë në homepage, ndarje të qarta të shërbimeve dhe CTA të drejtpërdrejta për kontakt të menjëhershëm.",
-    result: "Kërkesa më cilësore",
-    metrics: ["Shërbime të lexueshme", "Flow i drejtpërdrejtë", "Kërkesa më cilësore"],
+    result: "Klientët lokalë gjejnë shërbimin dhe nisin kontaktin direkt.",
+    metrics: ["Shërbime të dalluara qartë", "CTA i drejtpërdrejtë", "Kërkesa me pritshmëri të sakta"],
     tags: ["Local Service", "Lead Flow", "Clarity"],
     heroImage: "/images/projects/hauswerk-niederbayern.png",
     liveUrl: "https://hauswerk-niederbayern.de/"
   },
   {
     slug: "palushi-brothers",
-    title: "Palushi Brothers",
+    title: "Palushi Brothers Construction",
     category: "Construction Lead Generation",
     location: "Londër, Mbretëria e Bashkuar",
     flagCodes: ["gb"],
@@ -86,8 +86,8 @@ export const caseStudies: CaseStudy[] = [
       "Vizitorët vinin me pritshmëri të ndryshme dhe pa një kuadër të qartë të shërbimeve, gjë që e bënte më të vështirë filtrimin e kërkesave.",
     solution:
       "Riorganizuam seksionet e ofertës, proof-it dhe kontaktit për të vendosur një rrjedhë më bindëse nga interesi te kërkesa.",
-    result: "Biseda hyrëse më cilësore",
-    metrics: ["Pritshmëri të qarta", "Besim i menjëhershëm", "Biseda hyrëse më cilësore"],
+    result: "Vizitorët besojnë dhe nisin bisedë serioze, jo hezitim.",
+    metrics: ["Proof social i dukshëm", "Shërbime të kuptueshme", "Biseda hyrëse cilësore"],
     tags: ["Construction", "Trust Signals", "Lead Gen"],
     heroImage: "/images/projects/palushi-brothers.png",
     liveUrl: "https://www.palushibrothers.co.uk/"
@@ -105,8 +105,8 @@ export const caseStudies: CaseStudy[] = [
       "Punët fotografike nuk kishin një kornizë editoriale të qartë online, duke humbur ritmin dhe efektin në prezantim.",
     solution:
       "Ndërtuam strukturë minimaliste, hierarchy të pastër dhe fokus të fortë te punimet për të rritur cilësinë e perceptimit.",
-    result: "Eksperiencë premium",
-    metrics: ["Prezantim editorial", "Ritëm i qartë", "Eksperiencë premium"],
+    result: "Portofoli flet vetë — pa zhurmë, me ritëm dhe impakt.",
+    metrics: ["Galeri me ritëm editorial", "Navigim i qetë dhe i fokusuar", "Cilësia e punës në plan të parë"],
     tags: ["Photography", "Portfolio", "Editorial"],
     heroImage: "/images/projects/ilirjana-shehu-photography.png",
     liveUrl: ""
@@ -124,8 +124,8 @@ export const caseStudies: CaseStudy[] = [
       "Mesazhi i shërbimeve ishte i shpërndarë dhe nuk theksonte mjaftueshëm pikat kyçe të diferencimit të kompanisë.",
     solution:
       "Riorganizuam përmbajtjen me seksione të qarta, CTA të fokusuara dhe estetikë të kontrolluar dark-luxury.",
-    result: "Kontakt më i drejtpërdrejtë",
-    metrics: ["Mesazh i strukturuar", "Lexueshmëri e lartë", "Kontakt më i drejtpërdrejtë"],
+    result: "Oferta komunikon me autoritet — vizitori orientohet drejt kontaktit.",
+    metrics: ["Estetikë dark-luxury e kontrolluar", "Seksione shërbimesh të qarta", "Kontakt pa hezitim"],
     tags: ["Construction", "Corporate", "Lead Gen"],
     heroImage: "/images/projects/suli-group-trockenbau.png",
     liveUrl: ""
