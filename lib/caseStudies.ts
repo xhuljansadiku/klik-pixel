@@ -102,7 +102,7 @@ export const caseStudies: CaseStudy[] = [
     intro:
       "Portofoli tregon stilin dhe cilësinë e punës pa zhurmë, imazhi flet, rrjedha është e qetë, impakti është i menjëhershëm.",
     problem:
-      "Punët fotografike nuk kishin një kornizë editoriale të qartë online, duke humbur ritmin dhe efektin në prezantim.",
+      "Projektet fotografike nuk kishin nje kornize editoriale te qarte online, duke humbur ritmin dhe efektin ne prezantim.",
     solution:
       "Ndërtuam strukturë minimaliste, hierarchy të pastër dhe fokus të fortë te punimet për të rritur cilësinë e perceptimit.",
     result: "Portofoli flet vetë, pa zhurmë, me ritëm dhe impakt.",
@@ -133,3 +133,9 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 export const caseStudyBySlug = (slug: string) => caseStudies.find((item) => item.slug === slug);
+
+
+
+
+
+

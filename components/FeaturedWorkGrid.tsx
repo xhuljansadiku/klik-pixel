@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from "react";
 import Image from "next/image";
@@ -131,7 +131,7 @@ export default function FeaturedWorkGrid() {
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.025] [background-image:repeating-radial-gradient(circle_at_0_0,rgba(255,255,255,0.4)_0_1px,transparent_1px_4px)]" />
 
       <div className="section-wrap featured-chapters-intro">
-        <SectionMark label="PROJEKTET" />
+        <SectionMark label="PROJEKTET E PËRZGJEDHURA" />
         <h2 className="section-title mt-3 max-w-4xl">
           Faqe që punojnë.
           <br />
@@ -211,7 +211,7 @@ export default function FeaturedWorkGrid() {
                     >
                       SHIKO PROJEKTIN LIVE
                       <motion.span aria-hidden variants={ctaArrowVariants} className="inline-block">
-                        →
+                        {"→"}
                       </motion.span>
                     </motion.a>
                   ) : (
@@ -251,16 +251,16 @@ export default function FeaturedWorkGrid() {
 
       <div className="section-wrap pb-2 pt-12">
         <MotionLink
-          href="/work"
+          href="/projektet"
           variants={ctaVariants}
           initial="rest"
           whileHover="hover"
           whileFocus="hover"
           className="featured-grid-cta inline-flex items-center gap-2 text-[13px] tracking-[0.18em]"
         >
-          Shiko të gjitha projektet
+          Eksploro të gjitha projektet
           <motion.span aria-hidden variants={ctaArrowVariants} className="inline-block">
-            →
+            {"→"}
           </motion.span>
         </MotionLink>
       </div>

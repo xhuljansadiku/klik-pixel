@@ -2,6 +2,7 @@
 
 import { Fragment, useRef, useState } from "react";
 import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
+import FitOneLineHeading from "@/components/FitOneLineHeading";
 import SectionMark from "@/components/SectionMark";
 
 const serviceItems = [
@@ -115,11 +116,12 @@ export default function Services() {
             >
               <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(200,155,46,0.065),transparent_62%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(200,155,46,0.14),transparent_64%)] group-hover:opacity-100" />
               <p className="relative z-[3] text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">{service.short}</p>
-              <h3 className="relative z-[3] mt-2 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-accent/85 translate-y-[10px] opacity-90 tracking-[0.002em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[0em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]">
-                {service.title.includes(" & ") ? (
-                  <>{service.title.split(" & ")[0]} &<br />{service.title.split(" & ")[1]}</>
-                ) : service.title}
-              </h3>
+              <FitOneLineHeading
+                as="h3"
+                className="relative z-[3] mt-2 block w-full min-w-0 font-display leading-[1.12] text-accent/85 translate-y-[10px] opacity-90 tracking-[-0.02em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[-0.02em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]"
+              >
+                {service.title}
+              </FitOneLineHeading>
               <p className="relative z-[3] mt-3 max-w-[58ch] text-sm leading-relaxed text-white/82 transition-opacity duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
                 {service.desc}
               </p>

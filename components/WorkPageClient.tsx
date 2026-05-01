@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import Image from "next/image";
@@ -43,7 +43,10 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
           meta,
           { opacity: 0, y: 10 },
           {
-            opacity: 1, y: 0, duration: 0.5, ease: "power2.out",
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out",
             scrollTrigger: { trigger: project, start: "top 88%", once: true }
           }
         );
@@ -52,7 +55,11 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
           title,
           { opacity: 0, y: 36, filter: "blur(6px)" },
           {
-            opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: "power3.out",
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.9,
+            ease: "power3.out",
             scrollTrigger: { trigger: project, start: "top 84%", once: true }
           }
         );
@@ -61,7 +68,9 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
           imgWrapper,
           { clipPath: "inset(100% 0 0 0 round 1.1rem)" },
           {
-            clipPath: "inset(0% 0 0 0 round 1.1rem)", duration: 1.2, ease: "power4.out",
+            clipPath: "inset(0% 0 0 0 round 1.1rem)",
+            duration: 1.2,
+            ease: "power4.out",
             scrollTrigger: { trigger: project, start: "top 78%", once: true }
           }
         );
@@ -70,7 +79,8 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
           imgInner,
           { y: 0 },
           {
-            y: -52, ease: "none",
+            y: -52,
+            ease: "none",
             scrollTrigger: { trigger: imgWrapper, start: "top bottom", end: "bottom top", scrub: 1.4 }
           }
         );
@@ -79,7 +89,10 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
           footer,
           { opacity: 0, y: 16 },
           {
-            opacity: 1, y: 0, duration: 0.65, ease: "power3.out",
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: "power3.out",
             scrollTrigger: { trigger: project, start: "top 72%", once: true }
           }
         );
@@ -97,7 +110,7 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
       <main ref={containerRef} className="relative overflow-hidden bg-bg pt-14 text-text md:pt-16">
         <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(200,155,46,0.09),transparent_30%)]" />
 
-        {/* ── Hero ── */}
+        {/* Hero */}
         <section ref={heroSectionRef} className="relative z-[1] border-b border-white/10">
           <div
             ref={heroTextureRef}
@@ -105,9 +118,7 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
           />
           <div className="section-wrap relative z-[1] py-20 md:py-28">
             <div className="sv-label mb-5 h-px w-[180px] bg-gradient-to-r from-accent/80 to-transparent" />
-            <p className="sv-label text-[10px] uppercase tracking-[0.3em] text-accent/80">
-              PUNËT TONA
-            </p>
+            <p className="sv-label text-[10px] uppercase tracking-[0.3em] text-accent/80">PROJEKTET TONA</p>
             <h1
               ref={heroTitleRef}
               data-cursor="headline"
@@ -124,7 +135,7 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
           </div>
         </section>
 
-        {/* ── Project cards grid (2x3) ── */}
+        {/* Project cards grid (2x3) */}
         <section className="relative z-[1]">
           <div className="section-wrap py-14 md:py-20">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -133,7 +144,6 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
                   key={cs.slug}
                   className="wk-project group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-white/10 bg-[#111111]/80 px-5 pb-5 pt-8 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-accent/35"
                 >
-                  {/* Title */}
                   <h2 className="wk-project-title min-h-[2.3em] line-clamp-2 text-center font-display text-[clamp(1.55rem,3.45vw,2.55rem)] font-medium tracking-[0.012em] leading-[0.95]">
                     {cs.title === "ESM Group" ? (
                       <>
@@ -152,7 +162,6 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
                     )}
                   </h2>
 
-                  {/* Image with parallax */}
                   <div className="wk-img-wrapper relative mt-5 h-[240px] overflow-hidden rounded-[0.95rem] md:h-[280px]">
                     <div className="wk-img-inner absolute -bottom-10 -top-10 left-0 right-0">
                       <Image
@@ -166,10 +175,9 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
                     </div>
                   </div>
 
-                  {/* Footer row */}
-                  <div className="wk-project-footer mt-auto pt-5 flex items-center justify-end gap-4">
+                  <div className="wk-project-footer mt-auto flex items-center justify-end gap-4 pt-5">
                     <Link
-                      href={`/work/${cs.slug}`}
+                      href={`/projektet/${cs.slug}`}
                       className="group flex shrink-0 items-center gap-2 text-sm text-white/50 transition-colors duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-accent"
                     >
                       Shiko projektin

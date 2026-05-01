@@ -78,10 +78,13 @@ export default function CaseStudyCard({ item }: { item: CaseStudy }) {
           {item.location}
         </p>
         <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/55">{item.intro}</p>
-        <Link href={`/work/${item.slug}`} className="luxury-link mt-5">
+        <Link href={`/projektet/${item.slug}`} className="luxury-link mt-5">
           Shiko case study <span aria-hidden>→</span>
         </Link>
       </div>
     </article>
   );
 }
+
+
+

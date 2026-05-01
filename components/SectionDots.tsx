@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import { ensureGSAP, getIsMobile, useIsomorphicLayoutEffect } from "@/lib/gsap";
@@ -7,7 +7,7 @@ const items = [
   { id: "hero", label: "Hero" },
   { id: "services", label: "Services" },
   { id: "scroll-story", label: "Story" },
-  { id: "featured-work", label: "Work" },
+  { id: "featured-work", label: "Projektet" },
   { id: "testimonials", label: "Testimonials" },
   { id: "faq", label: "FAQ" },
   { id: "process", label: "Process" },
@@ -56,3 +56,5 @@ export default function SectionDots() {
     </div>
   );
 }
+
+

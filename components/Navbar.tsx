@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
@@ -9,8 +9,8 @@ import MobileMenu from "@/components/MobileMenu";
 
 const navItems = [
   { id: "hero", label: "Home", href: "/", sectionId: "hero" },
-  { id: "services", label: "Shërbimet", href: "/sherbimet", sectionId: "services" },
-  { id: "featured-work", label: "Punët", href: "/work", sectionId: "featured-work" },
+  { id: "services", label: "Sherbimet", href: "/sherbimet", sectionId: "services" },
+  { id: "featured-work", label: "Projektet", href: "/projektet", sectionId: "featured-work" },
   { id: "blog", label: "Blog", href: "/blog" },
   { id: "contact", label: "Kontakt", href: "/contact", sectionId: "cta" }
 ];
@@ -21,7 +21,7 @@ export default function Navbar() {
   const activeFromPath = (() => {
     if (pathname === "/") return "hero";
     if (pathname.startsWith("/services") || pathname.startsWith("/sherbimet")) return "services";
-    if (pathname.startsWith("/work")) return "featured-work";
+    if (pathname.startsWith("/work") || pathname.startsWith("/projektet")) return "featured-work";
     if (pathname.startsWith("/blog")) return "blog";
     if (pathname.startsWith("/contact")) return "contact";
     return "hero";
@@ -150,3 +150,10 @@ export default function Navbar() {
     </>
   );
 }
+
+
+
+
+
+
+

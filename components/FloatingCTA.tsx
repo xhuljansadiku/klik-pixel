@@ -6,7 +6,7 @@ import { ensureGSAP, getIsMobile, useIsomorphicLayoutEffect, useReducedMotion } 
 const SECTIONS = [
   { id: "hero", sub: "Gati për projekt?", cta: "Nis projektin", href: "#hero" },
   { id: "services", sub: "Dëshiron sistem, jo patch-e?", cta: "Shiko si punojmë", href: "#process" },
-  { id: "featured-work", sub: "Portofoli i përzgjedhur.", cta: "Shiko projektin", href: "/work/atelier-prime" },
+  { id: "featured-work", sub: "Portofoli i përzgjedhur.", cta: "Shiko projektin", href: "/projektet/atelier-prime" },
   { id: "cta", sub: "Thjeshtojmë fillimin.", cta: "Rezervo call", href: "#cta" }
 ] as const;
 
@@ -156,3 +156,6 @@ export default function FloatingCTA() {
     </div>
   );
 }
+
+
+

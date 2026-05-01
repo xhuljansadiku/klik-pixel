@@ -1,12 +1,6 @@
-import { buildMetadata } from "@/lib/seo";
-import { caseStudies } from "@/lib/caseStudies";
-import WorkPageClient from "@/components/WorkPageClient";
+﻿import { redirect } from "next/navigation";
 
-export const metadata = buildMetadata(
-  "Work",
-  "Selected work: projekte reale me rezultate të matshme."
-);
-
-export default function WorkPage() {
-  return <WorkPageClient projects={caseStudies} />;
+export default function WorkRedirectPage() {
+  redirect("/projektet");
 }
+

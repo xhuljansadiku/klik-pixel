@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import FitOneLineHeading from "@/components/FitOneLineHeading";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlobalCTA from "@/components/GlobalCTA";
@@ -73,11 +74,12 @@ export default function SherbimetPageClient() {
                   <p className="relative z-[3] text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
                     {category.subServices.slice(0, 3).join(" · ")}
                   </p>
-                  <h2 className="relative z-[3] mt-2 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-accent/85 translate-y-[10px] opacity-90 tracking-[0.002em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[0em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]">
-                    {category.title.includes(" & ") ? (
-                      <>{category.title.split(" & ")[0]} &<br />{category.title.split(" & ")[1]}</>
-                    ) : category.title}
-                  </h2>
+                  <FitOneLineHeading
+                    as="h2"
+                    className="relative z-[3] mt-2 block w-full min-w-0 font-display leading-[1.12] text-accent/85 translate-y-[10px] opacity-90 tracking-[-0.02em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[-0.02em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]"
+                  >
+                    {category.title}
+                  </FitOneLineHeading>
                   <p className="relative z-[3] mt-3 max-w-[58ch] text-sm leading-relaxed text-white/82 transition-opacity duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
                     {category.description}
                   </p>
