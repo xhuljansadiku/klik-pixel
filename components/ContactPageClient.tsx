@@ -4,12 +4,17 @@ import { FormEvent, useMemo, useState } from "react";
 import PageHero from "@/components/PageHero";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { buildWhatsAppChatHref, DEFAULT_WHATSAPP_E164 } from "@/lib/whatsappPrefill";
 
 const services = ["Websites", "E-commerce", "Marketing", "SEO", "Branding"];
 const budgets = ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"];
 const timelines = ["ASAP", "2-4 javë", "1-2 muaj", "Fleksibël"];
 
 const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com";
+
+const whatsappContactHref = buildWhatsAppChatHref(
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || DEFAULT_WHATSAPP_E164
+);
 
 export default function ContactPageClient() {
   const [success, setSuccess] = useState(false);
@@ -46,15 +51,15 @@ export default function ContactPageClient() {
   return (
     <>
       <Navbar />
-      <main className="bg-bg text-text pt-14 md:pt-16">
+      <main className="relative overflow-hidden bg-bg pt-14 text-text md:pt-16">
+        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(200,155,46,0.09),transparent_30%)]" />
         <PageHero
-          label="CONTACT"
-          title="Rezervo call ose dërgo kërkesën e projektit."
-          description="Pas rezervimit, të kontaktojmë me një plan të qartë."
-          image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
+          label="KONTAKT"
+          title="Jemi gati të të dëgjojmë."
+          description="Një bisedë e shkurtër është hapi i parë drejt suksesit."
         />
 
-      <section className="cinematic-section !min-h-0 border-t border-white/10 py-0 md:!min-h-0">
+      <section className="relative z-[1] border-t border-white/10">
         <div className="section-wrap grid gap-8 py-16 md:py-20 lg:grid-cols-[1.04fr_0.96fr]">
           <article className="rounded-[1rem] border border-white/10 bg-[#151515] p-5 md:p-6">
             <p className="text-[11px] tracking-[0.16em] text-accent/88">BOOKING</p>
@@ -104,7 +109,7 @@ export default function ContactPageClient() {
               <a href="mailto:info@illyrianpixel.com" className="hover:text-accent">
                 info@illyrianpixel.com
               </a>
-              <a href={process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` : "https://wa.me/355000000000"} className="hover:text-accent">
+              <a href={whatsappContactHref} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
                 WhatsApp
               </a>
               <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="hover:text-accent">

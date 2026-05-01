@@ -47,8 +47,8 @@ export default function LeadMagnet() {
             <div className="lead-reveal">
               <SectionMark label="ANALIZË FALAS" />
             </div>
-            <h2 className="lead-reveal mt-3 text-[clamp(1.9rem,4.4vw,2.7rem)] leading-[1.1] text-white">
-              Merr një vlerësim falas për faqen tënde.
+            <h2 className="lead-reveal section-title mt-3 max-w-4xl text-white">
+              Merr një vlerësim falas.
             </h2>
             <p className="lead-reveal mt-4 text-sm leading-relaxed text-white/62 md:text-base">
               Lini email-in tuaj dhe ne ju dërgojmë një listë të qartë me hapat që duhet të ndërhyni menjëherë.

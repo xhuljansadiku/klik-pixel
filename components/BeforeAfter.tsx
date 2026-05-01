@@ -21,7 +21,7 @@ export default function BeforeAfter() {
       <div className="section-wrap">
         <SectionMark label="BEFORE / AFTER" />
         <h2 className="section-title mt-3 max-w-4xl">Transformimi i qartë i eksperiencës.</h2>
-        <p className="mt-3 max-w-xl text-sm text-white/55">Tërhiq dorezën ose përdor butonat — krahasim i butë.</p>
+        <p className="mt-3 max-w-xl text-sm text-white/55">Tërhiq dorezën ose përdor butonat, krahasim i butë.</p>
 
         <div className="mt-6 flex flex-wrap gap-2">
           <button

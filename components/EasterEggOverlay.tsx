@@ -2,7 +2,7 @@
 
 import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 
-/** Alt+click logo (Navbar): one-shot soft gold pulse — tasteful, optional. */
+/** Alt+click logo (Navbar): one-shot soft gold pulse, tasteful, optional. */
 export default function EasterEggOverlay() {
   const reduced = useReducedMotion();
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -23,8 +23,8 @@ export const MOTION = {
   }
 } as const;
 
-export const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+// Run animation setup after hydration to avoid SSR/client attribute mismatches.
+export const useIsomorphicLayoutEffect = useEffect;
 
 export const useReducedMotion = () => {
   const [reduced, setReduced] = useState(true);

@@ -67,7 +67,7 @@ export default function MiniWebsiteAudit() {
 
           {loading ? (
             <div className="mt-6 rounded-lg border border-white/10 bg-white/[0.02] p-4">
-              <p className="text-sm text-white/65">Duke analizuar…</p>
+              <p className="text-sm text-white/65">Duke analizuar</p>
               <div className="loading-shimmer mt-3 h-1.5 rounded-full bg-white/10" />
             </div>
           ) : null}

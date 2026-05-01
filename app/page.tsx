@@ -19,14 +19,15 @@ import Process from "@/components/Process";
 import SectionAura from "@/components/SectionAura";
 import ScrollProgress from "@/components/ScrollProgress";
 import Services from "@/components/Services";
+import SocialFollowSection from "@/components/SocialFollowSection";
 import SocialProofToasts from "@/components/SocialProofToasts";
 import Testimonials from "@/components/Testimonials";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Illyrian Pixel — Agjensi Dixhitale për Biznese Shqiptare",
+  title: "Illyrian Pixel, Agjensi Dixhitale për Biznese Shqiptare",
   description:
-    "Website profesionale, marketing dixhital dhe branding për biznese shqiptare në Shqipëri, Kosovë dhe diasporë. Analizë falas — kontaktoni sot."
+    "Website profesionale, marketing dixhital dhe branding për biznese shqiptare në Shqipëri, Kosovë dhe diasporë. Analizë falas, kontaktoni sot."
 };
 
 export default function HomePage() {
@@ -58,6 +59,7 @@ export default function HomePage() {
         <LeadMagnet />
         <FAQ />
         <CTA />
+        <SocialFollowSection />
         <Footer />
       </main>
     </>

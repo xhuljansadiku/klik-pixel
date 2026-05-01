@@ -130,7 +130,7 @@ export default function StrategyQuiz() {
           Çfarë të duhet në të vërtetë?
         </h2>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/62">
-          Katër pyetje. Një rekomandim i qartë — pa formularë të rëndë.
+          Katër pyetje. Një rekomandim i qartë, pa formularë të rëndë.
         </p>
 
         <div className="mt-8 max-w-xl">

@@ -24,12 +24,12 @@ export const caseStudies: CaseStudy[] = [
     flagCodes: ["it"],
     year: "2026",
     intro:
-      "Rifreshuam prezencën e një kompanie industriale — mesazh B2B më i qartë, strukturë më autoritare, kërkesa më konkrete nga klientët.",
+      "Rifreshuam prezencën e një kompanie industriale, mesazh B2B më i qartë, strukturë më autoritare, kërkesa më konkrete nga klientët.",
     problem:
       "Oferta dhe eksperienca e kompanisë nuk pasqyroheshin qartë online, duke krijuar paqartësi në llojin e projekteve dhe ritmin e kontakteve hyrëse.",
     solution:
       "Ndërtuam strukturë të pastër me seksione service-first, proof konkret dhe flow navigimi që e çon përdoruesin drejt kërkesës pa friction.",
-    result: "Mesazh industrial i qartë — kontakte me pritshmëri reale.",
+    result: "Mesazh industrial i qartë, kontakte me pritshmëri reale.",
     metrics: ["Mesazh B2B i strukturuar", "Navigim pa friction", "Kërkesa industriale cilësore"],
     tags: ["Industrial", "Corporate", "B2B"],
     heroImage: "/images/projects/esm-group.png",
@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
     flagCodes: ["xk", "de"],
     year: "2026",
     intro:
-      "Ristrukturuam paketat dhe tonin e brandit — vizitorët kuptojnë shpejt cilën paketë u përshtatet dhe vendosin më lehtë.",
+      "Ristrukturuam paketat dhe tonin e brandit, vizitorët kuptojnë shpejt cilën paketë u përshtatet dhe vendosin më lehtë.",
     problem:
       "Informacioni ekzistonte, por hierarkia e përmbajtjes dhe narrativa e ofertës nuk e mbështesnin plotësisht perceptimin profesional të brandit.",
     solution:
@@ -62,7 +62,7 @@ export const caseStudies: CaseStudy[] = [
     flagCodes: ["de"],
     year: "2026",
     intro:
-      "Pozicionuam shërbimet qartë për tregun lokal gjerman — klientët gjejnë ofertën shpejt dhe nisin kontaktin me pritshmëri të sakta.",
+      "Pozicionuam shërbimet qartë për tregun lokal gjerman, klientët gjejnë ofertën shpejt dhe nisin kontaktin me pritshmëri të sakta.",
     problem:
       "Vizitorët nuk arrinin gjithmonë të kuptonin menjëherë shërbimin përkatës dhe hapin e duhur për të dërguar kërkesë.",
     solution:
@@ -81,7 +81,7 @@ export const caseStudies: CaseStudy[] = [
     flagCodes: ["gb"],
     year: "2026",
     intro:
-      "Përmirësuam besueshmërinë e parë — proof social, shërbime të qarta dhe kontakt që nxit bisedë serioze, jo hezitim.",
+      "Përmirësuam besueshmërinë e parë, proof social, shërbime të qarta dhe kontakt që nxit bisedë serioze, jo hezitim.",
     problem:
       "Vizitorët vinin me pritshmëri të ndryshme dhe pa një kuadër të qartë të shërbimeve, gjë që e bënte më të vështirë filtrimin e kërkesave.",
     solution:
@@ -100,12 +100,12 @@ export const caseStudies: CaseStudy[] = [
     flagCodes: ["al"],
     year: "2026",
     intro:
-      "Portofoli tregon stilin dhe cilësinë e punës pa zhurmë — imazhi flet, rrjedha është e qetë, impakti është i menjëhershëm.",
+      "Portofoli tregon stilin dhe cilësinë e punës pa zhurmë, imazhi flet, rrjedha është e qetë, impakti është i menjëhershëm.",
     problem:
       "Punët fotografike nuk kishin një kornizë editoriale të qartë online, duke humbur ritmin dhe efektin në prezantim.",
     solution:
       "Ndërtuam strukturë minimaliste, hierarchy të pastër dhe fokus të fortë te punimet për të rritur cilësinë e perceptimit.",
-    result: "Portofoli flet vetë — pa zhurmë, me ritëm dhe impakt.",
+    result: "Portofoli flet vetë, pa zhurmë, me ritëm dhe impakt.",
     metrics: ["Galeri me ritëm editorial", "Navigim i qetë dhe i fokusuar", "Cilësia e punës në plan të parë"],
     tags: ["Photography", "Portfolio", "Editorial"],
     heroImage: "/images/projects/ilirjana-shehu-photography.png",
@@ -119,12 +119,12 @@ export const caseStudies: CaseStudy[] = [
     flagCodes: ["de"],
     year: "2026",
     intro:
-      "Website korporativ që komunikon ofertën e kompanisë me autoritet — vizitori orientohet drejt kontaktit pa hezitim.",
+      "Website korporativ që komunikon ofertën e kompanisë me autoritet, vizitori orientohet drejt kontaktit pa hezitim.",
     problem:
       "Mesazhi i shërbimeve ishte i shpërndarë dhe nuk theksonte mjaftueshëm pikat kyçe të diferencimit të kompanisë.",
     solution:
       "Riorganizuam përmbajtjen me seksione të qarta, CTA të fokusuara dhe estetikë të kontrolluar dark-luxury.",
-    result: "Oferta komunikon me autoritet — vizitori orientohet drejt kontaktit.",
+    result: "Oferta komunikon me autoritet, vizitori orientohet drejt kontaktit.",
     metrics: ["Estetikë dark-luxury e kontrolluar", "Seksione shërbimesh të qarta", "Kontakt pa hezitim"],
     tags: ["Construction", "Corporate", "Lead Gen"],
     heroImage: "/images/projects/suli-group-trockenbau.png",

@@ -1,54 +1,60 @@
- "use client";
+"use client";
 
-import { useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 
-const socials = [
-  { href: "https://www.instagram.com/illyrianpixel/", label: "Instagram", icon: "instagram" },
-  { href: "https://www.tiktok.com/@illyrianpixel", label: "TikTok", icon: "tiktok" },
-  { href: "https://www.facebook.com/illyrianpixel", label: "Facebook", icon: "facebook" },
-  { href: "https://www.threads.net/@illyrianpixel", label: "Threads", icon: "threads" },
-  { href: "https://www.linkedin.com/company/illyrian-pixel/", label: "LinkedIn", icon: "linkedin" },
-  {
-    href: "https://wa.me/355694726827?text=P%C3%ABrsh%C3%ABndetje%2C%20dua%20t%C3%AB%20flas%20p%C3%ABr%20nj%C3%AB%20projekt%20me%20Illyrian%20Pixel.",
-    label: "WhatsApp",
-    icon: "whatsapp"
-  },
-  { href: "https://www.youtube.com/@illyrianpixel", label: "YouTube", icon: "youtube" },
-  { href: "https://x.com/illyrianpixel", label: "X", icon: "x" }
-] as const;
+/** IANA zones for Albania civil time (CET/CEST). Some runtimes omit `Europe/Tirana`; Rome matches wall clock. */
+const ALBANIA_WALL_CLOCK_ZONES = ["Europe/Tirana", "Europe/Rome", "Europe/Berlin"] as const;
 
-function SocialIcon({ icon }: { icon: (typeof socials)[number]["icon"] }) {
-  if (icon === "instagram") {
-    return <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current stroke-[1.8]"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>;
+function resolveAlbaniaWallClockTimeZone(): string | undefined {
+  for (const timeZone of ALBANIA_WALL_CLOCK_ZONES) {
+    try {
+      new Intl.DateTimeFormat("en-US", { timeZone }).format(new Date());
+      return timeZone;
+    } catch {
+      /* invalid in this ICU build */
+    }
   }
-  if (icon === "tiktok") {
-    return <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M15 3h2.2c.5 2 1.8 3.4 3.8 3.8V9a7.2 7.2 0 0 1-4-1.2v6.9a5.7 5.7 0 1 1-5.7-5.7h.2v2.3h-.2a3.4 3.4 0 1 0 3.4 3.4V3z" /></svg>;
-  }
-  if (icon === "facebook") {
-    return <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M13.5 21v-8h2.8l.4-3.1h-3.2V7.8c0-.9.3-1.6 1.6-1.6h1.7V3.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.3v2.3H8V13h2.7v8h2.8z" /></svg>;
-  }
-  if (icon === "threads") {
-    return <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M12 2.2C6.6 2.2 3 5.8 3 11.2c0 5.8 3.7 10.6 9 10.6 4.7 0 8.2-2.6 8.2-6.6 0-3.2-2.4-5.1-5.8-5.1h-.6c-.1-.7-.5-1.3-1.8-1.3-1.1 0-1.8.5-2.4 1.3l-2-1.3c1-1.7 2.6-2.8 4.6-2.8 2.8 0 4.5 1.5 4.9 4.2 1.9.3 3.9 1.8 3.9 4.8 0 4.9-4.2 8.6-10 8.6-5.8 0-10-4.2-10-11.4C1 5 5.7 1 12 1c3.1 0 5.5.9 7.2 2.8l-1.8 1.7C16 3.9 14.2 3.2 12 3.2z" /></svg>;
-  }
-  if (icon === "linkedin") {
-    return <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M6 8.5A1.5 1.5 0 1 1 6 5.5a1.5 1.5 0 0 1 0 3zm-1.3 13V10.2h2.6v11.3H4.7zM10 10.2h2.5v1.5h.1c.5-.9 1.7-1.8 3.5-1.8 3 0 4 2 4 4.7v6.9h-2.6v-6.1c0-1.5 0-3.4-2-3.4s-2.4 1.6-2.4 3.3v6.2H10V10.2z" /></svg>;
-  }
-  if (icon === "whatsapp") {
-    return <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3zm4.7 12.6c-.2.5-1.2 1-1.7 1-.5.1-1.1.1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.7-4.3-.2-.3-1.1-1.4-1.1-2.6s.6-1.8.8-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4l.8 1.9c.1.2.1.4 0 .6l-.3.5c-.1.1-.2.3 0 .5.2.3.7 1.1 1.6 1.7 1 .9 1.8 1.2 2.1 1.4.2.1.4.1.5-.1l.8-.9c.1-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3 0 .2 0 .9-.2 1.4z" /></svg>;
-  }
-  if (icon === "youtube") {
-    return <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M21.6 8.3a2.8 2.8 0 0 0-2-2c-1.8-.5-7.6-.5-7.6-.5s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2C2 10.2 2 12 2 12s0 1.8.4 3.7a2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2c.4-1.9.4-3.7.4-3.7s0-1.8-.4-3.7zM10 15.2V8.8L15.5 12 10 15.2z" /></svg>;
-  }
-  return <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M4 4h3.3L12 10l4.6-6H20l-6.3 8.2L20.5 20h-3.4L12 13.3 6.9 20H3.5l6.9-8.8L4 4z" /></svg>;
+  return undefined;
 }
+
+function formatAlbaniaWallClock(now: Date): string {
+  const timeZone = resolveAlbaniaWallClockTimeZone();
+  const base = { hour: "numeric" as const, minute: "2-digit" as const, hour12: true };
+  if (timeZone) {
+    try {
+      return new Intl.DateTimeFormat("en-US", { ...base, timeZone }).format(now);
+    } catch {
+      try {
+        return now.toLocaleTimeString("en-US", { ...base, timeZone });
+      } catch {
+        /* last resort below */
+      }
+    }
+  }
+  try {
+    return now.toLocaleTimeString("en-US", base);
+  } catch {
+    return "";
+  }
+}
+
+const useIsomorphicLayoutEffectClock =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement | null>(null);
   const auraRef = useRef<HTMLDivElement | null>(null);
-  const socialRefs = useRef<Array<HTMLAnchorElement | null>>([]);
   const reducedMotion = useReducedMotion();
+  const [tiranaTime, setTiranaTime] = useState("");
+
+  useIsomorphicLayoutEffectClock(() => {
+    const update = () => setTiranaTime(formatAlbaniaWallClock(new Date()));
+    update();
+    const id = window.setInterval(update, 1000);
+    return () => window.clearInterval(id);
+  }, []);
 
   useIsomorphicLayoutEffect(() => {
     if (!footerRef.current) return;
@@ -87,70 +93,6 @@ export default function Footer() {
           yoyo: true,
           ease: "sine.inOut"
         });
-      }
-
-      if (!reducedMotion && typeof window !== "undefined" && window.matchMedia("(min-width: 769px)").matches) {
-        const cleanups: Array<() => void> = [];
-        socialRefs.current.forEach((icon) => {
-          if (!icon) return;
-          let rafId = 0;
-          let hovering = false;
-          let tx = 0;
-          let ty = 0;
-          let ts = 1;
-          let cx = 0;
-          let cy = 0;
-          let cs = 1;
-
-          const tick = () => {
-            cx += (tx - cx) * 0.16;
-            cy += (ty - cy) * 0.16;
-            cs += (ts - cs) * 0.16;
-            icon.style.transform = `translate3d(${cx}px, ${cy}px, 0) scale(${cs})`;
-            if (!hovering && Math.abs(cx) < 0.2 && Math.abs(cy) < 0.2 && Math.abs(cs - 1) < 0.01) {
-              icon.style.transform = "translate3d(0px, 0px, 0) scale(1)";
-              rafId = 0;
-              return;
-            }
-            rafId = window.requestAnimationFrame(tick);
-          };
-
-          const onEnter = () => {
-            hovering = true;
-            ts = 1.08;
-            if (!rafId) rafId = window.requestAnimationFrame(tick);
-          };
-
-          const onMove = (event: PointerEvent) => {
-            const rect = icon.getBoundingClientRect();
-            const px = (event.clientX - rect.left) / rect.width - 0.5;
-            const py = (event.clientY - rect.top) / rect.height - 0.5;
-            tx = Math.max(-8, Math.min(8, px * 14));
-            ty = Math.max(-8, Math.min(8, py * 14 - 3));
-            ts = 1.08;
-            if (!rafId) rafId = window.requestAnimationFrame(tick);
-          };
-
-          const onLeave = () => {
-            hovering = false;
-            tx = 0;
-            ty = 0;
-            ts = 1;
-            if (!rafId) rafId = window.requestAnimationFrame(tick);
-          };
-
-          icon.addEventListener("pointerenter", onEnter);
-          icon.addEventListener("pointermove", onMove);
-          icon.addEventListener("pointerleave", onLeave);
-          cleanups.push(() => {
-            icon.removeEventListener("pointerenter", onEnter);
-            icon.removeEventListener("pointermove", onMove);
-            icon.removeEventListener("pointerleave", onLeave);
-            if (rafId) window.cancelAnimationFrame(rafId);
-          });
-        });
-
-        return () => cleanups.forEach((dispose) => dispose());
       }
     }, footerRef);
     return () => ctx.revert();
@@ -198,48 +140,44 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="footer-reveal md:justify-self-end md:pt-1">
-            <a
-              href="/contact"
-              data-magnetic="true"
-              className="footer-main-cta group inline-flex items-center gap-2 rounded-full border border-accent/70 bg-[linear-gradient(90deg,#d4af37,#f5d97a)] px-7 py-3.5 text-[13px] font-semibold tracking-[0.11em] text-black transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_12px_28px_rgba(212,175,55,0.28)]"
-            >
-              Rezervo thirrjen <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </a>
-            <div className="mt-8 space-y-2 text-sm tracking-[0.05em] text-white/70">
-              <a href="mailto:info@illyrianpixel.com" className="footer-link block">info@illyrianpixel.com</a>
-              <p className="text-white/80">Shqipëri • Gjermani • Online</p>
+          <div className="flex w-full flex-col items-end text-right md:pt-1">
+            <div className="footer-reveal flex flex-col items-end">
+              <a
+                href="/contact"
+                className="footer-main-cta group inline-flex items-center gap-2 rounded-full border-2 border-accent bg-transparent px-7 py-3.5 text-[13px] font-semibold tracking-[0.11em] text-accent shadow-none transition-all duration-300 ease-out hover:scale-105 hover:border-accent hover:bg-accent/10 hover:shadow-[0_0_28px_rgba(212,175,55,0.18)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
+              >
+                Kontakto Tani <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </a>
+
+              <div className="mt-8 flex items-center justify-end gap-2.5 md:mt-9">
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span
+                    className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50"
+                    aria-hidden
+                  />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.65)]" />
+                </span>
+                <span className="text-[13px] font-medium tracking-[0.04em] text-white/58 md:text-sm">
+                  Të disponueshëm për projekte të reja
+                </span>
+              </div>
             </div>
-            <div className="mt-5 grid grid-cols-4 gap-2 md:justify-items-end" aria-label="Rrjetet sociale">
-              {socials.map((item, idx) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  ref={(node) => {
-                    socialRefs.current[idx] = node;
-                  }}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  aria-label={item.label}
-                  className={`group inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-transparent text-white/85 will-change-transform transition-[color,border-color,box-shadow,opacity,background-color] duration-300 ${
-                    item.icon === "instagram"
-                      ? "hover:opacity-100 hover:border-[#E1306C] hover:text-[#E1306C] hover:bg-[rgba(225,48,108,0.08)] hover:shadow-[0_0_16px_rgba(225,48,108,0.32)]"
-                      : item.icon === "facebook"
-                        ? "hover:opacity-100 hover:border-[#1877F2] hover:text-[#1877F2] hover:bg-[rgba(24,119,242,0.08)] hover:shadow-[0_0_16px_rgba(24,119,242,0.32)]"
-                        : item.icon === "tiktok"
-                          ? "hover:opacity-100 hover:border-white/90 hover:text-white hover:bg-white/[0.08] hover:shadow-[0_0_16px_rgba(255,255,255,0.22)]"
-                          : item.icon === "linkedin"
-                            ? "hover:opacity-100 hover:border-[#0A66C2] hover:text-[#0A66C2] hover:bg-[rgba(10,102,194,0.08)] hover:shadow-[0_0_16px_rgba(10,102,194,0.32)]"
-                            : item.icon === "youtube"
-                              ? "hover:opacity-100 hover:border-[#FF0000] hover:text-[#FF0000] hover:bg-[rgba(255,0,0,0.08)] hover:shadow-[0_0_16px_rgba(255,0,0,0.3)]"
-                              : item.icon === "whatsapp"
-                                ? "hover:opacity-100 hover:border-[#25D366] hover:text-[#25D366] hover:bg-[rgba(37,211,102,0.08)] hover:shadow-[0_0_16px_rgba(37,211,102,0.32)]"
-                                : "hover:opacity-100 hover:border-white/90 hover:text-white hover:bg-white/[0.08] hover:shadow-[0_0_16px_rgba(255,255,255,0.22)]"
-                  }`}
-                >
-                  <SocialIcon icon={item.icon} />
-                </a>
-              ))}
+
+            <p
+              className="mt-6 font-mono text-[12px] tabular-nums tracking-[0.06em] text-white/50 md:mt-7 md:text-[13px]"
+              suppressHydrationWarning
+            >
+              Tiranë, AL{tiranaTime ? ` ${tiranaTime}` : ""}
+            </p>
+
+            <div className="mt-10 flex max-w-full flex-wrap items-center justify-end gap-x-2.5 gap-y-1 text-[10px] leading-snug tracking-[0.08em] text-white/45 md:mt-12">
+              <a href="mailto:info@illyrianpixel.com" className="footer-link hover:text-white/70">
+                info@illyrianpixel.com
+              </a>
+              <span className="text-white/25" aria-hidden>
+                ·
+              </span>
+              <span>Shqipëri • Gjermani • Online</span>
             </div>
           </div>
         </div>

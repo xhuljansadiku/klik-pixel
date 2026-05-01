@@ -22,7 +22,7 @@ const processSteps = [
     duration: "5–7 ditë",
     title: "Dizajni",
     points: [
-      "Krijojmë stilin vizual — ngjyrat, shkronjat, fotot.",
+      "Krijojmë stilin vizual, ngjyrat, shkronjat, fotot.",
       "Ndërtojmë skicat e para për të parë si funksionon.",
       "Sigurojmë që mesazhi juaj të jetë i qartë dhe i fortë.",
       "Përshtatim dizajnin që të jetë modern dhe profesional."
@@ -35,7 +35,7 @@ const processSteps = [
     title: "Kodimi",
     points: [
       "Shndërrojmë dizajnin në një faqe të plotë funksionale.",
-      "Optimizojmë shpejtësinë — hapet shpejt, edhe me internet të dobët.",
+      "Optimizojmë shpejtësinë, hapet shpejt, edhe me internet të dobët.",
       "Testojmë çdo buton dhe link që të punojë saktë.",
       "Përshtasim faqen për telefon, tablet dhe kompjuter."
     ],
@@ -46,10 +46,10 @@ const processSteps = [
     duration: "1–2 ditë",
     title: "Publikimi",
     points: [
-      "Bëjmë kontrollet e fundit — asnjë gabim teknik.",
+      "Bëjmë kontrollet e fundit, asnjë gabim teknik.",
       "Testojmë sigurinë dhe mbrojtjen e të dhënave.",
       "Lidhim faqen me domenin dhe serverin tuaj.",
-      "E publikojmë live — gati për të pritur klientë."
+      "E publikojmë live, gati për të pritur klientë."
     ],
     result: "Në fund keni: faqen tuaj live, të sigurt dhe gati për biznes."
   }
@@ -305,7 +305,7 @@ export default function Process() {
             <div className="max-w-[720px]">
               <p className="mb-[14px] text-[11px] uppercase tracking-[0.24em] text-white/35">Hapi tjetër</p>
               <p className="mb-[10px] font-display text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.08] text-white">Gati të fillojmë?</p>
-              <p className="max-w-[58ch] text-[14px] leading-[1.65] text-white/52 md:text-[15px]">Biseda e parë është falas — na tregoni çfarë keni nevojë.</p>
+              <p className="max-w-[58ch] text-[14px] leading-[1.65] text-white/52 md:text-[15px]">Biseda e parë është falas, na tregoni çfarë keni nevojë.</p>
             </div>
             <a
               href="/#cta"

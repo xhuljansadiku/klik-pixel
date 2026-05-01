@@ -25,7 +25,7 @@ function buildSummary(goal: Goal, budget: Budget, time: Time): string {
       ? "Ritëm: sprint i kontrolluar me milestone të qarta."
       : time === "normal"
         ? "Ritëm: cikël standard me hapësirë për polish."
-        : "Ritëm: i qetë — më shumë kërkim para dizajnit.";
+        : "Ritëm: i qetë, më shumë kërkim para dizajnit.";
   return `${g} ${b} ${t} Propozimi ynë: thirrje 20 min për përputhje + brief i shkurtër, pastaj ofertë e strukturuar pa surpriza.`;
 }
 

@@ -26,7 +26,7 @@ export default function LiveResultsSimulator() {
         <h2 className="mt-3 max-w-xl font-display text-[clamp(1.75rem,3.8vw,2.6rem)] leading-[0.98] text-white">
           Nëse përmirësohet eksperienca, numrat ndjekin.
         </h2>
-        <p className="mt-3 max-w-lg text-sm text-white/58">Model i thjeshtuar — për orientim, jo premtim matematikor.</p>
+        <p className="mt-3 max-w-lg text-sm text-white/58">Model i thjeshtuar, për orientim, jo premtim matematikor.</p>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-8">

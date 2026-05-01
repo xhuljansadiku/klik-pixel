@@ -5,10 +5,10 @@ import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/g
 
 function replyFor(text: string): string {
   const t = text.toLowerCase();
-  if (/seo|google|organik/i.test(t)) return "SEO: fillojmë me kërkim intenti, strukturë faqesh dhe matje — jo “fjalë kyçe” pa kontekst.";
+  if (/seo|google|organik/i.test(t)) return "SEO: fillojmë me kërkim intenti, strukturë faqesh dhe matje, jo “fjalë kyçe” pa kontekst.";
   if (/shop|dyqan|e-?commerce|shitje online/i.test(t)) return "E-commerce: rrjedhë blerjeje, shpejtësi, dhe ofertë e qartë në çdo hap.";
   if (/ads|meta|tiktok|reklam/i.test(t)) return "Marketing: teste të vogla, kreativë premium, dhe optimizim drejt CPA-së që dëshiron.";
-  if (/website|faqe|web/i.test(t)) return "Website: hierarki, copy, dhe performancë që mbështet konvertimin — dizajn si pasojë e strategjisë.";
+  if (/website|faqe|web/i.test(t)) return "Website: hierarki, copy, dhe performancë që mbështet konvertimin, dizajn si pasojë e strategjisë.";
   if (/brand|identitet|logo/i.test(t)) return "Branding: sistem vizual + ton zanor që përputhet me çmimin dhe audiencën tuaj.";
   return "Fillojmë me një thirrje të shkurtër për të përputhur qëllimin me ofertën. Nëse më jep kontekst (treg, audiencë, KPI), të sugjeroj hapin më të pastër.";
 }
@@ -17,7 +17,7 @@ export default function MiniAssistant() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<{ role: "you" | "bot"; text: string }[]>([
-    { role: "bot", text: "Përshëndetje. Shkruaj një fjali — unë sugjeroj shërbimin më të përshtatshëm." }
+    { role: "bot", text: "Përshëndetje. Shkruaj një fjali, unë sugjeroj shërbimin më të përshtatshëm." }
   ]);
   const reduced = useReducedMotion();
   const panelRef = useRef<HTMLDivElement | null>(null);

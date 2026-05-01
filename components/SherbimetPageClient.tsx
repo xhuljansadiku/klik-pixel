@@ -1,94 +1,52 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlobalCTA from "@/components/GlobalCTA";
 import { serviceCategories } from "@/lib/serviceCategories";
-import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
+import { useReducedMotion } from "@/lib/gsap";
+import { usePinnedHeroScroll } from "@/lib/usePinnedHeroScroll";
 
 export default function SherbimetPageClient() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const heroSectionRef = useRef<HTMLElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
   const heroStatsRef = useRef<HTMLParagraphElement>(null);
   const heroTextureRef = useRef<HTMLDivElement>(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const reduced = useReducedMotion();
 
-  useIsomorphicLayoutEffect(() => {
-    if (reduced) return;
-    const { gsap, ScrollTrigger } = ensureGSAP();
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(".sv-label", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out", delay: 0.05 });
-      gsap.fromTo(
-        heroTitleRef.current,
-        { opacity: 0, y: 48, filter: "blur(10px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.05, ease: "power3.out", delay: 0.15 }
-      );
-      gsap.fromTo(
-        heroStatsRef.current,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.5 }
-      );
-
-      if (heroSectionRef.current && heroTitleRef.current && window.matchMedia("(min-width: 900px)").matches) {
-        gsap.to(heroTitleRef.current, {
-          scale: 0.88,
-          transformOrigin: "left top",
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroSectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1,
-            pin: heroSectionRef.current,
-            pinSpacing: true
-          }
-        });
-      }
-
-      gsap.to(heroTextureRef.current, {
-        backgroundPositionX: "68%",
-        backgroundPositionY: "44%",
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroSectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1
-        }
-      });
-
-      ScrollTrigger.refresh();
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [reduced]);
+  usePinnedHeroScroll({
+    enabled: !reduced,
+    heroSectionRef,
+    heroTitleRef,
+    heroStatsRef,
+    heroTextureRef
+  });
 
   return (
     <>
       <Navbar />
-      <main ref={containerRef} className="relative overflow-hidden bg-bg text-text pt-14 md:pt-16">
+      <main className="relative overflow-hidden bg-bg text-text pt-14 md:pt-16">
         <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(200,155,46,0.09),transparent_30%)]" />
 
         <section ref={heroSectionRef} className="relative z-[1] border-b border-white/10">
-          <div className="section-wrap py-20 md:py-28">
-            <div
-              ref={heroTextureRef}
-              className="pointer-events-none absolute inset-0 bg-[url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80')] bg-[length:180%] bg-[position:20%_50%] opacity-0"
-            />
+          <div
+            ref={heroTextureRef}
+            className="pointer-events-none absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80')] bg-[length:180%] bg-[position:20%_50%] opacity-0"
+          />
+          <div className="section-wrap relative z-[1] py-20 md:py-28">
             <div className="sv-label mb-5 h-px w-[180px] bg-gradient-to-r from-accent/80 to-transparent" />
             <p className="sv-label text-[10px] uppercase tracking-[0.3em] text-accent/80">SHËRBIMET</p>
             <h1
               ref={heroTitleRef}
               data-cursor="headline"
-              className="hero-headline-trigger cadence-title mt-4 max-w-4xl bg-[url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80')] bg-[length:170%] bg-[position:22%_48%] bg-clip-text font-display text-[clamp(2.2rem,6vw,4.8rem)] leading-[0.96] text-transparent"
+              className="hero-headline-trigger cadence-title mt-4 max-w-4xl bg-[url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80')] bg-[length:170%] bg-[position:22%_48%] bg-clip-text font-display text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.95] tracking-[0.01em] pb-[0.12em] text-transparent"
             >
-              3 kategori premium.
+              Tre shërbime,
               <br />
-              Të gjitha kapacitetet brenda.
+              çdo gjë që ju duhet.
             </h1>
             <p ref={heroStatsRef} className="mt-8 max-w-[56ch] text-base text-white/62">
               E thjeshtojmë vendimin: zgjidhni kategorinë që i përshtatet objektivit tuaj dhe ne bëjmë pjesën tjetër.
@@ -98,32 +56,63 @@ export default function SherbimetPageClient() {
 
         <section className="relative z-[1] border-b border-white/10">
           <div className="section-wrap py-14 md:py-20">
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {serviceCategories.map((category) => (
-                <article
+            <div className="mt-2 grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {serviceCategories.map((category, idx) => (
+                <Link
                   key={category.slug}
-                  className="group rounded-[1rem] border border-white/10 bg-[linear-gradient(155deg,rgba(18,18,18,0.95),rgba(11,11,11,0.92))] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[2px] hover:border-accent/45 hover:shadow-[0_18px_42px_rgba(0,0,0,0.32)]"
+                  href={`/services/${category.slug}`}
+                  onMouseEnter={() => setHoveredCard(idx)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  className={`service-bento-card group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.03)] p-5 backdrop-blur-[2px] [perspective:1000px] [transform-style:preserve-3d] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] hover:[animation-play-state:paused] ${
+                    idx === 0
+                      ? "border-accent/35 shadow-[0_25px_80px_rgba(200,155,46,0.25)]"
+                      : "opacity-95 hover:border-accent/35 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(200,155,46,0.15)]"
+                  } ${hoveredCard !== null && hoveredCard !== idx ? "opacity-70 scale-[0.99]" : ""}`}
                 >
-                  <p className="text-[12px] text-accent/90">{category.icon}</p>
-                  <h2 className="mt-3 font-display text-[clamp(1.7rem,3.6vw,2.3rem)] leading-[0.96] text-white">{category.title}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-white/66">{category.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {category.subServices.map((item) => (
-                      <span key={item} className="rounded-full border border-white/12 bg-white/[0.03] px-2.5 py-1 text-[9px] uppercase tracking-[0.12em] text-white/70">
+                  <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(200,155,46,0.065),transparent_62%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(200,155,46,0.14),transparent_64%)] group-hover:opacity-100" />
+                  <p className="relative z-[3] text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                    {category.subServices.slice(0, 3).join(" · ")}
+                  </p>
+                  <h2 className="relative z-[3] mt-2 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-accent/85 translate-y-[10px] opacity-90 tracking-[0.002em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[0em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]">
+                    {category.title.includes(" & ") ? (
+                      <>{category.title.split(" & ")[0]} &<br />{category.title.split(" & ")[1]}</>
+                    ) : category.title}
+                  </h2>
+                  <p className="relative z-[3] mt-3 max-w-[58ch] text-sm leading-relaxed text-white/82 transition-opacity duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
+                    {category.description}
+                  </p>
+                  <div className="relative z-[3] mt-4 flex min-h-[62px] flex-wrap content-start gap-2">
+                    {category.subServices.map((item, itemIdx) => (
+                      <span
+                        key={item}
+                        style={{ transitionDelay: `${itemIdx * 40}ms` }}
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 font-body text-[11px] tracking-[0.02em] text-white/76 scale-[0.98] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:shadow-[0_0_10px_rgba(200,155,46,0.2)]"
+                      >
                         {item}
                       </span>
                     ))}
                   </div>
-                  <Link href={`/sherbimet/${category.slug}`} className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-accent/92">
-                    Zbulo më shumë <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                  </Link>
-                </article>
+                  <p className="relative z-[3] mt-auto inline-flex items-center gap-2 pt-5 text-[11px] font-medium tracking-[0.16em] text-white/76 transition-colors duration-300 group-hover:text-white">
+                    <span className="relative inline-block pb-[2px] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:opacity-80 after:transition-all after:duration-300 after:ease-out group-hover:after:scale-x-100 group-hover:after:opacity-100">
+                      Lexo më shumë
+                    </span>
+                    <span
+                      aria-hidden
+                      className="transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1.2,0.36,1)] group-hover:translate-x-[4px]"
+                    >
+                      →
+                    </span>
+                  </p>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <GlobalCTA title="Nuk jeni të sigurt cilën kategori të zgjidhni?" />
+        <GlobalCTA
+          title="Nuk jeni të sigurt cilën kategori të zgjidhni?"
+          body="Flasim pak, pa kosto. Na thoni çfarë kërkoni, ne ju themi çfarë përshtatet."
+        />
       </main>
       <Footer />
     </>

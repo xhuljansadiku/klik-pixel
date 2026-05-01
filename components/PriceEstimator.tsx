@@ -64,7 +64,7 @@ export default function PriceEstimator() {
           Interval çmimi, në kohë reale.
         </h2>
         <p className="mt-3 max-w-lg text-sm text-white/60">
-          Jo ofertë zyrtare — një tregues për të përputhur pritshmëritë para brief-it.
+          Jo ofertë zyrtare, një tregues për të përputhur pritshmëritë para brief-it.
         </p>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-end">

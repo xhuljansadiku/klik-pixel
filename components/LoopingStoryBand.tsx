@@ -1,9 +1,9 @@
 const phrases = [
   "Strategji → strukturë → lëvizje e kontrolluar",
-  "Performancë si standard — jo si shtesë",
+  "Performancë si standard, jo si shtesë",
   "Konvertim si pasojë e qartësisë",
   "Premium është ritëm + detaje",
-  "Më pak zhurmë — më shumë vendime"
+  "Më pak zhurmë, më shumë vendime"
 ];
 
 export default function LoopingStoryBand() {

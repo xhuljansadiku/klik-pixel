@@ -83,7 +83,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceItem })
               Zgjidhni paketën e duhur.
             </h2>
             <p className="mt-3 max-w-[52ch] text-sm text-white/55">
-              Nuk jeni të sigurt cila? Na kontaktoni — ju ndihmojmë të zgjidhni pa presion.
+              Nuk jeni të sigurt cila? Na kontaktoni, ju ndihmojmë të zgjidhni pa presion.
             </p>
 
             <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -149,7 +149,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceItem })
               ))}
             </div>
             <div className="mt-8">
-              <Link href="/services" className="luxury-link">
+              <Link href="/sherbimet" className="luxury-link">
                 ← Kthehu te shërbimet
               </Link>
             </div>
@@ -159,7 +159,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceItem })
         <GlobalCTA
           label="HAPI TJETËR"
           title="Gati të fillojmë?"
-          body="Rezervoni një bisedë falas — ju tregojmë saktësisht çfarë duhet dhe si do duket rezultati."
+          body="Rezervoni një bisedë falas, ju tregojmë saktësisht çfarë duhet dhe si do duket rezultati."
           primaryActionText="Rezervo një call →"
           primaryActionHref="/contact"
         />

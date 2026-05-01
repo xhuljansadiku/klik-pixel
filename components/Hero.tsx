@@ -227,7 +227,7 @@ export default function Hero() {
       className="cinematic-section section-tone-hero relative min-h-screen overflow-hidden"
     >
       <h1 className="sr-only">
-        Agjensi Dixhitale për Biznese Shqiptare — Website, Marketing dhe Branding
+        Agjensi Dixhitale për Biznese Shqiptare, Website, Marketing dhe Branding
       </h1>
       <div
         ref={gradientRef}
@@ -263,7 +263,7 @@ export default function Hero() {
             ref={paragraphRef}
             className="cadence-body mx-auto max-w-2xl text-[1.2rem] font-medium leading-[1.5] tracking-[0.01em] text-white/78 md:mx-0 md:text-[1.34rem] md:leading-[1.45]"
           >
-            Nga klikimi te klienti — pa kompromis.
+            Nga klikimi te klienti pa kompromis.
           </p>
           <div className="hero-cta cadence-cta flex flex-wrap items-center justify-center gap-4 md:gap-5 lg:justify-start">
             <a

@@ -18,7 +18,7 @@ export default function PositioningFilter() {
           <div className="space-y-6 border-l border-accent/30 pl-6 md:pl-10">
             <p className="font-display text-xl text-white/92 md:text-2xl">We don’t do cheap / template work.</p>
             <p className="text-sm leading-relaxed text-white/62">
-              Built for serious businesses — kur kërkesa është rritje reale, matje, dhe prezencë që mbajnë çmimin.
+              Built for serious businesses, kur kërkesa është rritje reale, matje, dhe prezencë që mbajnë çmimin.
             </p>
             <p className="text-sm leading-relaxed text-white/55">
               Nëse kërkon “vetëm një faqe të shpejtë” pa strategji, ka shumë alternativa të shkëlqyera diku tjetër. Ne

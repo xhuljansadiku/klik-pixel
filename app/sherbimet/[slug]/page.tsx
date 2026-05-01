@@ -1,24 +1,28 @@
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { redirect, notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { serviceCategories, serviceCategoryBySlug } from "@/lib/serviceCategories";
-import ServiceCategoryDetailPage from "@/components/ServiceCategoryDetailPage";
 
-type Props = { params: { slug: string } };
+type RouteParams = { slug: string };
+
+type Props = { params: RouteParams | Promise<RouteParams> };
 
 export function generateStaticParams() {
   return serviceCategories.map((item) => ({ slug: item.slug }));
 }
 
-export function generateMetadata({ params }: Props) {
-  const category = serviceCategoryBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await Promise.resolve(params);
+  const category = serviceCategoryBySlug(slug);
   if (!category) {
     return buildMetadata("Shërbimet", "Kategori shërbimesh premium.");
   }
   return buildMetadata(category.title, category.short);
 }
 
-export default function SherbimetCategoryPage({ params }: Props) {
-  const category = serviceCategoryBySlug(params.slug);
+export default async function SherbimetCategoryPage({ params }: Props) {
+  const { slug } = await Promise.resolve(params);
+  const category = serviceCategoryBySlug(slug);
   if (!category) notFound();
-  return <ServiceCategoryDetailPage category={category} />;
+  redirect(`/services/${category.slug}`);
 }

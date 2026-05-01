@@ -1,33 +1,34 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 import SectionMark from "@/components/SectionMark";
 
 const serviceItems = [
   {
     title: "Web & E-Commerce",
-    short: "Website Development · E-commerce · Maintenance",
-    desc: "Ndërtojmë website dhe dyqane online që duken premium, ngarkohen shpejt dhe kthejnë vizitorët në klientë.",
-    href: "/sherbimet/web-ecommerce",
+    short: "Website · E-commerce · Maintenance",
+    desc: "Ndërtojmë website dhe dyqane online, që duken premium, ngarkohen shpejt dhe kthejnë vizitorët në klientë.",
+    href: "/services/web-ecommerce",
     metrics: ["Website Development", "UX/UI", "Performance optimization"],
-    cta: "Zbulo më shumë"
+    cta: "Lexo më shumë"
   },
   {
     title: "Marketing & Growth",
     short: "SEO · Google Ads · Meta Ads",
-    desc: "Rrisim biznesin tuaj me SEO, reklama dhe strategji digjitale që sjellin trafik cilësor dhe kërkesa reale.",
-    href: "/sherbimet/marketing-growth",
+    desc: "Rrisim biznesin tuaj me SEO, reklama dhe strategji digjitale të fokusuara që sjellin trafik cilësor dhe kërkesa reale.",
+    href: "/services/marketing-growth",
     metrics: ["SEO", "Google Ads", "Conversion optimization"],
-    cta: "Zbulo më shumë"
+    forcePillsRowBreak: true,
+    cta: "Lexo më shumë"
   },
   {
     title: "Branding & Content",
     short: "Branding · Photography · Content creation",
-    desc: "Krijojmë identitet vizual, fotografi dhe përmbajtje që e bëjnë brandin tuaj të duket profesional dhe i besueshëm.",
-    href: "/sherbimet/branding-content",
+    desc: "Krijojmë identitet vizual, fotografi dhe përmbajtje që e bëjnë brandin tuaj profesional dhe të besueshëm.",
+    href: "/services/branding-content",
     metrics: ["Visual identity", "Photography", "Social media visuals"],
-    cta: "Zbulo më shumë"
+    cta: "Lexo më shumë"
   }
 ];
 
@@ -60,6 +61,7 @@ export default function Services() {
         {
           opacity: 1,
           y: 0,
+          clearProps: "transform,opacity",
           stagger: 0.1,
           duration: 0.85,
           ease: "power3.out"
@@ -77,17 +79,17 @@ export default function Services() {
         <div className="absolute -left-20 top-8 h-72 w-72 rounded-full bg-accent/12 blur-[95px]" />
         <div className="absolute right-0 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-white/[0.03] blur-[120px]" />
       </div>
-      <div className="pointer-events-none absolute right-[18%] top-[46%] h-[380px] w-[380px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(200,155,46,0.06),transparent_70%)] animate-[servicesBreath_7s_ease-in-out_infinite]" />
-      <div className="pointer-events-none absolute right-[14%] top-[44%] h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-accent/10 blur-[140px] opacity-60" />
+      <div className="pointer-events-none absolute right-[18%] top-[46%] h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(200,155,46,0.045)_0%,rgba(200,155,46,0.022)_32%,transparent_74%)] blur-[16px] animate-[servicesBreath_7s_ease-in-out_infinite]" />
+      <div className="pointer-events-none absolute right-[14%] top-[44%] h-[470px] w-[470px] -translate-y-1/2 rounded-full bg-accent/[0.07] blur-[170px] opacity-55" />
       <div className="services-grain pointer-events-none absolute inset-0 opacity-30" />
       <div className="section-wrap">
         <div className="cadence-label services-intro-item">
           <SectionMark label="SHËRBIMET TONA" />
         </div>
-        <h2 className="services-intro-item cadence-title section-title mt-3 max-w-4xl">
-          Ne <span className="text-accent">punojmë</span>.
+        <h2 className="services-intro-item cadence-title section-title mt-3 max-w-4xl tracking-[-0.02em]">
+          Ne <span className="text-[#C89B2E]">punojmë</span>.
           <br />
-          Biznesi juaj <span className="text-accent">rritet</span>.
+          Biznesi juaj <span className="text-[#C89B2E]">rritet</span>.
         </h2>
         <div className="services-intro-item mt-4 max-w-2xl">
           <p className="cadence-body muted text-sm md:text-base">
@@ -105,36 +107,47 @@ export default function Services() {
               href={service.href}
               onMouseEnter={() => setHoveredCard(idx)}
               onMouseLeave={() => setHoveredCard(null)}
-              className={`service-bento-card group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[24px] border p-5 backdrop-blur-[2px] [perspective:1000px] [transform-style:preserve-3d] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] ${
+              className={`service-bento-card group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.03)] p-5 backdrop-blur-[2px] transition-[border-color,box-shadow,opacity] duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] hover:[animation-play-state:paused] ${
                 idx === 0
-                  ? "border-accent/45 shadow-[0_25px_80px_rgba(200,155,46,0.25)] hover:[transform:translateY(-8px)_scale(1.03)_rotateX(2deg)_rotateY(2deg)]"
-                  : "border-white/10 opacity-95 hover:[transform:translateY(-8px)_scale(1.03)_rotateX(2deg)_rotateY(2deg)] hover:border-accent/45 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(200,155,46,0.15)]"
-              } ${hoveredCard !== null && hoveredCard !== idx ? "opacity-70 scale-[0.99]" : ""}`}
+                  ? "border-accent/35 shadow-[0_25px_80px_rgba(200,155,46,0.25)] hover:shadow-[0_28px_88px_rgba(200,155,46,0.28)]"
+                  : "opacity-95 hover:border-accent/35 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(200,155,46,0.15)]"
+              } ${hoveredCard !== null && hoveredCard !== idx ? "opacity-70" : ""}`}
             >
-              <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(200,155,46,0.09),transparent_55%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(200,155,46,0.16),transparent_58%)] group-hover:opacity-100" />
-              <p className="relative z-[3] text-[11px] tracking-[0.14em] text-accent/82">{service.short}</p>
-              <h3 className="relative z-[3] mt-2 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[0.92] text-accent/85 translate-y-[10px] opacity-90 tracking-[0.002em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[0em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]">
-                {service.title}
+              <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(200,155,46,0.065),transparent_62%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(200,155,46,0.14),transparent_64%)] group-hover:opacity-100" />
+              <p className="relative z-[3] text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">{service.short}</p>
+              <h3 className="relative z-[3] mt-2 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-accent/85 translate-y-[10px] opacity-90 tracking-[0.002em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[0em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]">
+                {service.title.includes(" & ") ? (
+                  <>{service.title.split(" & ")[0]} &<br />{service.title.split(" & ")[1]}</>
+                ) : service.title}
               </h3>
-              <p className="relative z-[3] mt-3 text-sm leading-relaxed text-white/68 opacity-85 transition-opacity duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
+              <p className="relative z-[3] mt-3 max-w-[58ch] text-sm leading-relaxed text-white/82 transition-opacity duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
                 {service.desc}
               </p>
-              <div className="relative z-[3] mt-4 flex flex-wrap gap-2">
+              <div className="relative z-[3] mt-4 flex min-h-[62px] flex-wrap content-start gap-2">
                 {service.metrics.map((metric, metricIdx) => (
-                  <span
-                    key={metric}
-                    style={{ transitionDelay: `${metricIdx * 40}ms` }}
-                    className="rounded-full border border-white/12 bg-white/[0.03] px-2.5 py-1 text-[10px] tracking-[0.08em] text-white/76 scale-[0.98] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:shadow-[0_0_10px_rgba(200,155,46,0.2)]"
-                  >
-                    {metric}
-                  </span>
+                  <Fragment key={metric}>
+                    <span
+                      style={{ transitionDelay: `${metricIdx * 40}ms` }}
+                      className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 font-body text-[11px] tracking-[0.02em] text-white/76 scale-[0.98] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:shadow-[0_0_10px_rgba(200,155,46,0.2)]"
+                    >
+                      {metric}
+                    </span>
+                    {"forcePillsRowBreak" in service &&
+                    service.forcePillsRowBreak &&
+                    metricIdx === service.metrics.length - 2 ? (
+                      <span
+                        aria-hidden
+                        className="h-0 w-full shrink-0 basis-full"
+                      />
+                    ) : null}
+                  </Fragment>
                 ))}
               </div>
-              <p className="relative z-[3] mt-auto inline-flex items-center gap-2 pt-5 text-[11px] tracking-[0.16em] text-white/76 transition-colors duration-300 group-hover:text-accent">
+              <p className="relative z-[3] mt-auto inline-flex items-center gap-2 pt-5 text-[11px] font-medium tracking-[0.16em] text-white/76 transition-colors duration-300 group-hover:text-white">
                 <span className="relative inline-block pb-[2px] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:opacity-80 after:transition-all after:duration-300 after:ease-out group-hover:after:scale-x-100 group-hover:after:opacity-100">
                   {service.cta}
                 </span>
-                <span aria-hidden className="transition-transform duration-300 ease-out group-hover:translate-x-[6px]">→</span>
+                <span aria-hidden className="transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1.2,0.36,1)] group-hover:translate-x-[4px]">→</span>
               </p>
             </a>
           ))}
@@ -142,9 +155,12 @@ export default function Services() {
         <div className="mt-10 border-t border-white/10 pt-8">
           <a
             href="/sherbimet"
-            className="inline-flex items-center gap-3 font-display text-[clamp(1.45rem,3.2vw,2.4rem)] leading-[0.95] !text-[#f5f5f0] opacity-100 drop-shadow-[0_0_8px_rgba(255,255,255,0.16)] transition-transform duration-300 hover:translate-x-[6px]"
+            className="group inline-flex items-center gap-3 font-display text-[clamp(1.45rem,3.2vw,2.4rem)] leading-[0.95] !text-[#f5f5f0] opacity-100 drop-shadow-[0_0_8px_rgba(255,255,255,0.16)] transition-transform duration-300 hover:translate-x-[6px]"
           >
-            Të gjitha shërbimet <span aria-hidden className="text-accent">→</span>
+            <span className="relative inline-block pb-[2px] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100">
+              Të gjitha shërbimet
+            </span>
+            <span aria-hidden className="text-[1.08em] text-accent transition-transform duration-300 ease-out group-hover:translate-x-[4px]">→</span>
           </a>
         </div>
       </div>

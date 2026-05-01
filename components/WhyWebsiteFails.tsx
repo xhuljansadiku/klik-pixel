@@ -4,7 +4,7 @@ export default function WhyWebsiteFails() {
   const points = [
     { t: "I ngadalshëm", d: "Humbet vëmendja përpara se besimi të ndërtohet." },
     { t: "Pa strukturë", d: "Mesazhi premium zbehet kur hierarkia është e përzier." },
-    { t: "Pa SEO", d: "Trafiku i ftohtë — pa intent, pa kërkesë, pa rritje." },
+    { t: "Pa SEO", d: "Trafiku i ftohtë, pa intent, pa kërkesë, pa rritje." },
     { t: "Pa konvertim", d: "Dizajn i bukur pa ofertë të qartë është vetëm dekor." }
   ];
 
@@ -34,7 +34,7 @@ export default function WhyWebsiteFails() {
             <div>
               <p className="text-[11px] tracking-[0.2em] text-accent/90">ZGJIDHJA</p>
               <p className="mt-2 max-w-xl text-sm text-white/70">
-                Website, e-commerce, marketing dhe SEO — të lidhura në një sistem që duket luks dhe sillet si biznes.
+                Website, e-commerce, marketing dhe SEO, të lidhura në një sistem që duket luks dhe sillet si biznes.
               </p>
             </div>
             <a href="#services" className="luxury-link shrink-0 text-[11px] tracking-[0.16em]">

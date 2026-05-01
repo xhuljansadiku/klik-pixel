@@ -3,19 +3,41 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 import SectionMark from "@/components/SectionMark";
-import { caseStudies } from "@/lib/caseStudies";
+import { caseStudies, type CaseStudy } from "@/lib/caseStudies";
+
+const MotionLink = motion(Link);
+
+function resultPills(project: CaseStudy): string[] {
+  const fromTags = project.tags.slice(0, 3);
+  if (fromTags.length >= 3) return fromTags;
+  const extra = project.metrics.filter((m) => !fromTags.includes(m));
+  return [...fromTags, ...extra].slice(0, 3);
+}
+
+const ctaVariants = {
+  rest: {},
+  hover: {}
+} as const;
+
+const ctaArrowVariants = {
+  rest: { x: 0 },
+  hover: {
+    x: 5,
+    transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] as const }
+  }
+};
 
 export default function FeaturedWorkGrid() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const chapterRefs = useRef<Array<HTMLElement | null>>([]);
   const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const progressRef = useRef<HTMLSpanElement | null>(null);
   const reducedMotion = useReducedMotion();
   const [activeIdx, setActiveIdx] = useState(0);
   const featuredProjects = caseStudies.filter((project) =>
-    ["ESM Group", "Bardhi Wellness", "Palushi Brothers"].includes(project.title)
+    ["esm-group", "bardhi-wellness", "palushi-brothers"].includes(project.slug)
   );
 
   useIsomorphicLayoutEffect(() => {
@@ -102,13 +124,6 @@ export default function FeaturedWorkGrid() {
     return () => ctx.revert();
   }, [reducedMotion]);
 
-  useIsomorphicLayoutEffect(() => {
-    if (!progressRef.current) return;
-    const { gsap } = ensureGSAP();
-    const progress = featuredProjects.length > 1 ? activeIdx / (featuredProjects.length - 1) : 0;
-    gsap.to(progressRef.current, { scaleY: Math.max(0.05, progress), duration: 0.4, ease: "power2.out" });
-  }, [activeIdx, featuredProjects.length]);
-
   return (
     <section id="featured-work" ref={sectionRef} className="cinematic-section section-tone-work relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_22%,rgba(200,155,46,0.08),transparent_36%),radial-gradient(circle_at_84%_78%,rgba(200,155,46,0.05),transparent_42%)]" />
@@ -124,84 +139,130 @@ export default function FeaturedWorkGrid() {
         </h2>
       </div>
 
-      <div className="mt-8">
-        {featuredProjects.map((project, idx) => (
-          <article
-            key={project.slug}
-            ref={(node) => {
-              chapterRefs.current[idx] = node;
-            }}
-            className="relative flex min-h-[90svh] items-center py-12 md:py-16"
-          >
-            <div className="section-wrap grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
-              <div className={`chapter-copy transition-opacity duration-500 ${activeIdx === idx ? "opacity-100" : "opacity-90"}`}>
-                <p className="text-[11px] tracking-[0.2em] text-accent/85">{project.category}</p>
-                <h3 className="mt-3 font-display text-[clamp(2rem,5vw,4rem)] leading-[0.92] text-white">{project.title}</h3>
-                <p className="mt-2 inline-flex items-center gap-2 text-xs text-white/66">
-                  <span className="inline-flex items-center gap-1 rounded-md bg-white/10 px-1.5 py-0.5" aria-hidden>
-                    {project.flagCodes.map((code) => (
-                      <Image
-                        key={code}
-                        src={`https://flagcdn.com/w20/${code}.png`}
-                        alt=""
-                        width={20}
-                        height={14}
-                        className="h-3.5 w-5 rounded-[2px] object-cover"
-                        loading="lazy"
-                        unoptimized
-                      />
-                    ))}
-                  </span>
-                  {project.location}
-                </p>
-                <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-white/72 md:text-base">{project.intro}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.metrics.slice(0, 2).map((metric) => (
-                    <span key={metric} className="rounded-full border border-white/14 bg-white/[0.03] px-3 py-1.5 text-[10px] tracking-[0.12em] text-white/80">
-                      {metric}
-                    </span>
-                  ))}
-                </div>
-                {project.liveUrl ? (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="featured-grid-cta mt-7 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]"
-                  >
-                    Shiko projektin live <span aria-hidden className="transition-transform duration-300 hover:translate-x-1">→</span>
-                  </a>
-                ) : (
-                  <span className="featured-grid-cta mt-7 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]">Së shpejti</span>
-                )}
-              </div>
+      <div className="mt-10 md:mt-12">
+        {featuredProjects.map((project, idx) => {
+          const isTextLeft = idx % 2 === 0;
+          const copyOrder = isTextLeft ? "lg:order-1" : "lg:order-2";
+          const mediaOrder = isTextLeft ? "lg:order-2" : "lg:order-1";
 
-              <div
-                ref={(node) => {
-                  imageRefs.current[idx] = node;
-                }}
-                className={`relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#111]/90 shadow-[0_22px_66px_rgba(0,0,0,0.44)] transition-all duration-500 ${
-                  activeIdx === idx ? "scale-[1.01] border-accent/30" : "scale-[0.985]"
-                }`}
-              >
-                <div className="relative aspect-[16/10]">
-                  <Image src={project.heroImage} alt={`Pamje e projektit ${project.title}`} fill sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover object-top" />
-                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,9,0.06)_0%,rgba(9,9,9,0.28)_58%,rgba(9,9,9,0.86)_100%)]" />
+          return (
+            <article
+              key={project.slug}
+              ref={(node) => {
+                chapterRefs.current[idx] = node;
+              }}
+              className="relative flex min-h-0 items-center py-14 md:min-h-[85svh] md:py-20"
+            >
+              <div className="section-wrap grid w-full items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+                <div
+                  className={`chapter-copy order-2 flex flex-col transition-opacity duration-500 ${copyOrder} ${
+                    activeIdx === idx ? "opacity-100" : "opacity-[0.88]"
+                  }`}
+                >
+                  <p className="font-body text-[11px] font-medium uppercase tracking-[0.2em] text-accent/85">
+                    {project.category}
+                  </p>
+                  <h3 className="mt-3 font-display text-[clamp(2rem,5vw,4rem)] leading-[0.92] tracking-[0.01em] text-white">
+                    {project.title}
+                  </h3>
+                  <p className="mt-4 inline-flex flex-wrap items-center gap-2 font-display text-[clamp(1rem,2.1vw,1.2rem)] leading-snug tracking-[0.02em] text-white/88">
+                    <span className="inline-flex items-center gap-1 rounded-md border border-white/[0.07] bg-white/[0.06] px-2 py-1" aria-hidden>
+                      {project.flagCodes.map((code) => (
+                        <Image
+                          key={code}
+                          src={`https://flagcdn.com/w20/${code}.png`}
+                          alt=""
+                          width={20}
+                          height={14}
+                          className="h-3.5 w-5 rounded-[2px] object-cover"
+                          loading="lazy"
+                          unoptimized
+                        />
+                      ))}
+                    </span>
+                    <span>{project.location}</span>
+                  </p>
+                  <p className="mt-5 max-w-[52ch] font-body text-sm leading-relaxed text-white/72 md:text-base">
+                    {project.intro}
+                  </p>
+
+                  <div className="mt-6 flex min-h-[52px] flex-wrap content-start gap-2">
+                    {resultPills(project).map((pill, pillIdx) => (
+                      <span
+                        key={`${project.slug}-${pill}`}
+                        style={{ transitionDelay: `${pillIdx * 40}ms` }}
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 font-body text-[11px] tracking-[0.02em] text-white/76 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:border-white/18 hover:shadow-[0_0_12px_rgba(200,155,46,0.12)]"
+                      >
+                        {pill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {project.liveUrl ? (
+                    <motion.a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variants={ctaVariants}
+                      initial="rest"
+                      whileHover="hover"
+                      whileFocus="hover"
+                      className="featured-grid-cta mt-8 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]"
+                    >
+                      SHIKO PROJEKTIN LIVE
+                      <motion.span aria-hidden variants={ctaArrowVariants} className="inline-block">
+                        →
+                      </motion.span>
+                    </motion.a>
+                  ) : (
+                    <span className="featured-grid-cta mt-8 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]">
+                      SË SHPEJTI
+                    </span>
+                  )}
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-                  <p className="text-[11px] tracking-[0.16em] text-accent/85">CHAPTER {String(idx + 1).padStart(2, "0")}</p>
-                  <p className="mt-2 text-sm text-white/74 md:text-base">{project.result}</p>
+
+                <div
+                  ref={(node) => {
+                    imageRefs.current[idx] = node;
+                  }}
+                  className={`order-1 ${mediaOrder}`}
+                >
+                  <div
+                    className={`relative overflow-hidden rounded-[1.25rem] border border-[rgba(255,255,255,0.05)] bg-[#0d0d0c] shadow-[0_28px_90px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.04)_inset] transition-[box-shadow,border-color] duration-500 ${
+                      activeIdx === idx ? "border-accent/25 shadow-[0_32px_100px_rgba(0,0,0,0.58),0_0_40px_rgba(200,155,46,0.08)]" : ""
+                    }`}
+                  >
+                    <div className="group/img relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={project.heroImage}
+                        alt={`Pamje e projektit ${project.title}`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover object-top transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/img:scale-[1.03]"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
 
-      <div className="section-wrap pb-2">
-        <Link href="/work" className="featured-grid-cta group inline-flex items-center gap-2 text-[13px] tracking-[0.18em]">
-          Shiko të gjitha projektet <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-        </Link>
+      <div className="section-wrap pb-2 pt-12">
+        <MotionLink
+          href="/work"
+          variants={ctaVariants}
+          initial="rest"
+          whileHover="hover"
+          whileFocus="hover"
+          className="featured-grid-cta inline-flex items-center gap-2 text-[13px] tracking-[0.18em]"
+        >
+          Shiko të gjitha projektet
+          <motion.span aria-hidden variants={ctaArrowVariants} className="inline-block">
+            →
+          </motion.span>
+        </MotionLink>
       </div>
     </section>
   );

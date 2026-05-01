@@ -13,7 +13,7 @@ const chips = [
 const pillars = [
   { title: "Strukturë", body: "Hierarki dhe ritëm që udhëheqin vëmendjen." },
   { title: "Performancë", body: "Shpejtësi, matje, përmirësim i vazhdueshëm." },
-  { title: "Premium", body: "Detaje që mbeten të qeta — por ndihen." }
+  { title: "Premium", body: "Detaje që mbeten të qeta, por ndihen." }
 ];
 
 /**

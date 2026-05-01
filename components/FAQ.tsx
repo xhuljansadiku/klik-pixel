@@ -10,23 +10,23 @@ const faqs = [
   },
   {
     q: "A përfshihet SEO?",
-    a: "Po — çdo website që ndërtojmë vjen me SEO bazë të instaluar: strukturë e saktë, faqe të shpejta dhe meta të optimizuara. SEO i avancuar dhe strategjia e përmbajtjes është shërbim i veçantë."
+    a: "Po, çdo website që ndërtojmë vjen me SEO bazë të instaluar: strukturë e saktë, faqe të shpejta dhe meta të optimizuara. SEO i avancuar dhe strategjia e përmbajtjes është shërbim i veçantë."
   },
   {
     q: "A ofroni mirëmbajtje pas publikimit?",
-    a: "Po — ofrojmë paketa mirëmbajtjeje mujore që përfshijnë përditësime, monitorim sigurie dhe ndryshime të vogla. Nuk ju lëmë vetëm pas lansimit."
+    a: "Po, ofrojmë paketa mirëmbajtjeje mujore që përfshijnë përditësime, monitorim sigurie dhe ndryshime të vogla. Nuk ju lëmë vetëm pas lansimit."
   },
   {
     q: "A punoni me klientë ndërkombëtarë?",
-    a: "Po — kemi klientë në Itali, Gjermani, Angli dhe SHBA. Komunikojmë në shqip, anglisht dhe italisht. Takimet bëhen online, procesi është i njëjtë për të gjithë."
+    a: "Po, kemi klientë në Itali, Gjermani, Angli dhe SHBA. Komunikojmë në shqip, anglisht dhe italisht. Takimet bëhen online, procesi është i njëjtë për të gjithë."
   },
   {
     q: "Si funksionon pagesa?",
-    a: "Pagesa ndahet në dy pjesë — 50% para fillimit të projektit dhe 50% pas aprovimit final para lansimit. Pranojmë transfertë bankare dhe metoda të tjera sipas marrëveshjes."
+    a: "Pagesa ndahet në dy pjesë, 50% para fillimit të projektit dhe 50% pas aprovimit final para lansimit. Pranojmë transfertë bankare dhe metoda të tjera sipas marrëveshjes."
   },
   {
     q: "Çfarë kam nevojë të përgatis para fillimit?",
-    a: "Mjafton të na tregoni çfarë bën biznesi juaj, kë synoni të arrini dhe çfarë nuk ju pëlqen tek prezenca juaj aktuale. Për pjesën tjetër kujdesemi ne — struktura, tekstet dhe dizajni."
+    a: "Mjafton të na tregoni çfarë bën biznesi juaj, kë synoni të arrini dhe çfarë nuk ju pëlqen tek prezenca juaj aktuale. Për pjesën tjetër kujdesemi ne, struktura, tekstet dhe dizajni."
   }
 ];
 

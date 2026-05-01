@@ -11,7 +11,6 @@ const navItems = [
   { id: "hero", label: "Home", href: "/", sectionId: "hero" },
   { id: "services", label: "Shërbimet", href: "/sherbimet", sectionId: "services" },
   { id: "featured-work", label: "Punët", href: "/work", sectionId: "featured-work" },
-  { id: "process", label: "Procesi", href: "/process", sectionId: "process" },
   { id: "blog", label: "Blog", href: "/blog" },
   { id: "contact", label: "Kontakt", href: "/contact", sectionId: "cta" }
 ];
@@ -23,7 +22,6 @@ export default function Navbar() {
     if (pathname === "/") return "hero";
     if (pathname.startsWith("/services") || pathname.startsWith("/sherbimet")) return "services";
     if (pathname.startsWith("/work")) return "featured-work";
-    if (pathname.startsWith("/process")) return "process";
     if (pathname.startsWith("/blog")) return "blog";
     if (pathname.startsWith("/contact")) return "contact";
     return "hero";
