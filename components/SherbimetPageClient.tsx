@@ -76,6 +76,7 @@ export default function SherbimetPageClient() {
                   </p>
                   <FitOneLineHeading
                     as="h2"
+                    minRem={0.76}
                     className="relative z-[3] mt-2 block w-full min-w-0 font-display leading-[1.12] text-accent/85 translate-y-[10px] opacity-90 tracking-[-0.02em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[-0.02em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]"
                   >
                     {category.title}
