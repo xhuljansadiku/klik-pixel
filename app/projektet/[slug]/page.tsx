@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -36,7 +36,7 @@ export default function CaseStudyPage({ params }: Props) {
     <>
       <Navbar />
       <main className="relative overflow-hidden bg-bg pt-14 text-text md:pt-16">
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_10%_14%,rgba(200,155,46,0.08),transparent_35%),radial-gradient(circle_at_88%_82%,rgba(200,155,46,0.05),transparent_40%)]" />
+        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_10%_14%,rgba(171, 131, 57,0.08),transparent_35%),radial-gradient(circle_at_88%_82%,rgba(171, 131, 57,0.05),transparent_40%)]" />
 
         {/* Hero image */}
         <section className="relative z-[1] section-wrap max-w-5xl pt-10 md:pt-14">

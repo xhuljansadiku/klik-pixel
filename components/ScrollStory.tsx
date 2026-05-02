@@ -212,7 +212,7 @@ export default function ScrollStory() {
     <section id="scroll-story" ref={sectionRef} className="cinematic-section section-tone-story pt-0">
       <div
         ref={bgRef}
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_45%,rgba(200,155,46,0.18),transparent_42%),radial-gradient(circle_at_22%_36%,rgba(255,255,255,0.05),transparent_36%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_45%,rgba(171, 131, 57,0.18),transparent_42%),radial-gradient(circle_at_22%_36%,rgba(255,255,255,0.05),transparent_36%)]"
       />
       <div ref={panelRef} className="section-wrap grid min-h-[100vh] gap-8 lg:grid-cols-[1fr_1fr]">
         <div ref={textColRef} className="space-y-4">
@@ -251,7 +251,7 @@ export default function ScrollStory() {
           ref={visualWrapRef}
           className="story-visual relative grid min-h-[420px] place-items-center overflow-hidden rounded-[2rem] will-change-transform"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_30%,rgba(200,155,46,0.22),transparent_46%),radial-gradient(circle_at_32%_72%,rgba(255,255,255,0.08),transparent_38%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_30%,rgba(171, 131, 57,0.22),transparent_46%),radial-gradient(circle_at_32%_72%,rgba(255,255,255,0.08),transparent_38%)]" />
 
           <div
             ref={(el) => {

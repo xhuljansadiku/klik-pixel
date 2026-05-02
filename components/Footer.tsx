@@ -118,22 +118,28 @@ export default function Footer() {
         ref={auraRef}
         className="pointer-events-none absolute inset-0 opacity-65"
         style={{
-          background: "radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(212,175,55,0.16), transparent 38%)"
+          background: "radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(234, 206, 113,0.16), transparent 38%)"
         }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_22%,rgba(200,155,46,0.08),transparent_52%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_22%,rgba(171, 131, 57,0.08),transparent_52%)]" />
       <div className="pointer-events-none absolute left-1/2 top-[56%] -translate-x-1/2 -translate-y-1/2 opacity-[0.045]">
-        <Image src="/images/illyrian-pixel-logo.png" alt="" width={460} height={460} className="h-auto w-[240px] md:w-[360px]" />
+        <Image
+          src="/images/illyrianpixel_logo.png"
+          alt=""
+          width={800}
+          height={800}
+          className="h-auto w-[240px] md:w-[360px]"
+        />
       </div>
 
       <div className="section-wrap relative py-20 md:py-[120px]">
         <div className="grid items-start gap-10 md:grid-cols-[1.2fr_0.8fr] md:gap-[60px]">
           <div>
-            <p className="footer-reveal footer-label text-[11px] uppercase tracking-[0.18em] text-accent/60">
+            <p className="footer-reveal footer-label text-[11px] uppercase tracking-[0.18em] text-accent">
               ILLYRIAN PIXEL
             </p>
             <h3 className="footer-reveal hero-headline-trigger cadence-title font-display relative mt-4 max-w-[12ch] text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.99] tracking-[0.01em] text-white">
-              Ktheje biznesin në <span className="text-accent">brand.</span>
+              Ktheje biznesin në <span className="text-accent uppercase font-bold">brand.</span>
             </h3>
             <p className="footer-reveal cadence-body mt-5 max-w-2xl text-[1.2rem] font-medium leading-[1.5] tracking-[0.01em] text-white/78 md:text-[1.34rem] md:leading-[1.45]">
               Nga klikimi te klienti 🚀
@@ -152,10 +158,10 @@ export default function Footer() {
               <div className="mt-8 flex items-center justify-end gap-2.5 md:mt-9">
                 <span className="relative flex h-2 w-2 shrink-0">
                   <span
-                    className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50"
+                    className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-50"
                     aria-hidden
                   />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.65)]" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent shadow-[0_0_10px_rgba(171,131,57,0.65)]" />
                 </span>
                 <span className="text-[13px] font-medium tracking-[0.04em] text-white/58 md:text-sm">
                   Të disponueshëm për projekte të reja

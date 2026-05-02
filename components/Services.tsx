@@ -80,7 +80,7 @@ export default function Services() {
         <div className="absolute -left-20 top-8 h-72 w-72 rounded-full bg-accent/12 blur-[95px]" />
         <div className="absolute right-0 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-white/[0.03] blur-[120px]" />
       </div>
-      <div className="pointer-events-none absolute right-[18%] top-[46%] h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(200,155,46,0.045)_0%,rgba(200,155,46,0.022)_32%,transparent_74%)] blur-[16px] animate-[servicesBreath_7s_ease-in-out_infinite]" />
+      <div className="pointer-events-none absolute right-[18%] top-[46%] h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(171, 131, 57,0.045)_0%,rgba(171, 131, 57,0.022)_32%,transparent_74%)] blur-[16px] animate-[servicesBreath_7s_ease-in-out_infinite]" />
       <div className="pointer-events-none absolute right-[14%] top-[44%] h-[470px] w-[470px] -translate-y-1/2 rounded-full bg-accent/[0.07] blur-[170px] opacity-55" />
       <div className="services-grain pointer-events-none absolute inset-0 opacity-30" />
       <div className="section-wrap">
@@ -88,9 +88,9 @@ export default function Services() {
           <SectionMark label="SHËRBIMET TONA" eyebrowClassName="!tracking-[0.32em] md:!tracking-[0.4em]" />
         </div>
         <h2 className="services-intro-item cadence-title section-title mt-3 max-w-4xl tracking-[-0.02em]">
-          Ne <span className="text-[#C89B2E]">punojmë</span>.
+          Ne <span className="text-[#ab8339]">punojmë</span>.
           <br />
-          Biznesi juaj <span className="text-[#C89B2E]">rritet</span>.
+          Biznesi juaj <span className="text-[#ab8339]">rritet</span>.
         </h2>
         <div className="services-intro-item mt-4 max-w-2xl">
           <p className="cadence-body muted text-sm md:text-base">
@@ -108,18 +108,18 @@ export default function Services() {
               href={service.href}
               onMouseEnter={() => setHoveredCard(idx)}
               onMouseLeave={() => setHoveredCard(null)}
-              className={`service-bento-card services-home-card group relative flex h-full min-h-[320px] w-full flex-col overflow-hidden rounded-[24px] border border-white/[0.07] p-5 backdrop-blur-[2px] transition-[border-color,box-shadow,opacity,transform] duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] group-hover:-translate-y-2 group-hover:border-accent/55 group-hover:shadow-[0_22px_56px_rgba(0,0,0,0.42),0_0_0_1px_rgba(200,155,46,0.42),0_0_32px_rgba(200,155,46,0.14)] motion-reduce:group-hover:translate-y-0 animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] hover:[animation-play-state:paused] ${
+              className={`service-bento-card services-home-card group relative flex h-full min-h-[320px] w-full flex-col overflow-hidden rounded-[24px] border border-white/[0.07] p-5 backdrop-blur-[2px] transition-[border-color,box-shadow,opacity,transform] duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] group-hover:-translate-y-2 group-hover:border-accent/55 group-hover:shadow-[0_22px_56px_rgba(0,0,0,0.42),0_0_0_1px_rgba(171, 131, 57,0.42),0_0_32px_rgba(171, 131, 57,0.14)] motion-reduce:group-hover:translate-y-0 animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] hover:[animation-play-state:paused] ${
                 idx === 0
-                  ? "border-accent/28 shadow-[0_18px_56px_rgba(0,0,0,0.35),0_0_0_1px_rgba(200,155,46,0.22)]"
+                  ? "border-accent/28 shadow-[0_18px_56px_rgba(0,0,0,0.35),0_0_0_1px_rgba(171, 131, 57,0.22)]"
                   : "opacity-95 shadow-[0_16px_48px_rgba(0,0,0,0.32)]"
               } ${hoveredCard !== null && hoveredCard !== idx ? "opacity-70" : ""}`}
             >
-              <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(200,155,46,0.065),transparent_62%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(200,155,46,0.14),transparent_64%)] group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(171, 131, 57,0.065),transparent_62%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(171, 131, 57,0.14),transparent_64%)] group-hover:opacity-100" />
               <p className="relative z-[3] text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">{service.short}</p>
               <FitOneLineHeading
                 as="h3"
                 minRem={0.76}
-                className="relative z-[3] mt-2 block w-full min-w-0 font-display leading-[1.12] text-accent/85 translate-y-[10px] opacity-90 tracking-[-0.02em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[-0.02em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(200,155,46,0.22)]"
+                className="relative z-[3] mt-2 block w-full min-w-0 font-display leading-[1.12] text-accent/85 translate-y-[10px] opacity-90 tracking-[-0.02em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[-0.02em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(171, 131, 57,0.22)]"
               >
                 {service.title}
               </FitOneLineHeading>
@@ -131,7 +131,7 @@ export default function Services() {
                   <Fragment key={metric}>
                     <span
                       style={{ transitionDelay: `${metricIdx * 40}ms` }}
-                      className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 font-body text-[11px] tracking-[0.02em] text-white/76 scale-[0.98] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:shadow-[0_0_10px_rgba(200,155,46,0.2)]"
+                      className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 font-body text-[11px] tracking-[0.02em] text-white/76 scale-[0.98] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:shadow-[0_0_10px_rgba(171, 131, 57,0.2)]"
                     >
                       {metric}
                     </span>

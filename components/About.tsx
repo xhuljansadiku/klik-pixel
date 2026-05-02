@@ -319,7 +319,7 @@ export default function About() {
           </div>
 
           <div ref={proofWallRef} className="relative pl-8 md:pl-10 lg:pl-12">
-            <div ref={spotlightRef} className="pointer-events-none absolute -left-8 top-4 h-[86%] w-[112%] bg-[radial-gradient(circle_at_62%_34%,rgba(200,155,46,0.15),transparent_58%)]" />
+            <div ref={spotlightRef} className="pointer-events-none absolute -left-8 top-4 h-[86%] w-[112%] bg-[radial-gradient(circle_at_62%_34%,rgba(171, 131, 57,0.15),transparent_58%)]" />
             <span className="proof-line-track absolute left-1 top-2 h-[calc(100%-12px)] w-px bg-white/12" />
             <span ref={proofLineRef} className="proof-line-progress absolute left-1 top-2 h-[calc(100%-12px)] w-px bg-accent/85" />
             <span ref={proofLineDotRef} className="proof-line-dot absolute -left-[4px] top-2 h-[10px] w-[10px] rounded-full border border-accent/85 bg-[#0b0b0b]" />

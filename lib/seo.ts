@@ -41,7 +41,7 @@ export const organizationSchema = {
   "@type": "Organization",
   name: "Illyrian Pixel",
   url: siteUrl,
-  logo: `${siteUrl}/images/illyrian-pixel-logo.png`,
+  logo: `${siteUrl}/images/illyrianpixel_logo.png`,
   email: "info@illyrianpixel.com",
   areaServed: ["Albania", "Germany", "Europe"],
   serviceType: ["Website", "E-commerce", "Marketing", "SEO", "Branding", "Maintenance"]
@@ -52,7 +52,7 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: "Illyrian Pixel",
   url: siteUrl,
-  image: `${siteUrl}/images/illyrian-pixel-logo.png`,
+  image: `${siteUrl}/images/illyrianpixel_logo.png`,
   email: "info@illyrianpixel.com",
   areaServed: ["Albania", "Europe"],
   priceRange: "$$",

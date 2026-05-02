@@ -88,18 +88,21 @@ export default function Navbar() {
             className="inline-flex items-center"
             aria-label="Shko te fillimi (Alt+klik për surprizë të vogël)"
           >
-            <span className="inline-flex max-w-[240px] items-center gap-[10px] whitespace-nowrap transition-all duration-300 hover:-translate-y-[1px] hover:opacity-90">
+            <span className="inline-flex max-w-[min(400px,92vw)] items-center gap-[10px] whitespace-nowrap transition-all duration-300 hover:-translate-y-[1px] hover:opacity-90">
               <Image
-                src="/images/logo.png"
-                alt="Illyrian Pixel"
-                width={36}
-                height={36}
-                className="h-9 w-9 object-contain"
+                src="/images/illyrianpixel_logo.png"
+                alt=""
+                width={200}
+                height={72}
+                className="h-9 w-auto max-w-[104px] shrink-0 object-contain md:max-w-[118px]"
               />
-              <span className="inline-flex items-center whitespace-nowrap text-[18px] tracking-[0.12em] text-white">
-                <span className="mr-[6px] opacity-70">ILLYRIAN</span>
-                <span className="font-semibold">PIXEL</span>
-              </span>
+              <Image
+                src="/images/illyrianpixel_text.png"
+                alt="Illyrian Pixel"
+                width={360}
+                height={72}
+                className="h-9 w-auto max-w-[min(220px,46vw)] object-contain object-left md:max-w-[260px]"
+              />
             </span>
           </button>
           {/* end brand */}

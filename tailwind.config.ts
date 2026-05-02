@@ -11,11 +11,12 @@ const config: Config = {
       colors: {
         bg: "#0b0b0b",
         text: "#f5f5f0",
-        accent: "#C89B2E",
+        accent: "#ab8339",
+        accentLight: "#eace71",
         muted: "rgba(245,245,240,0.65)"
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(200,155,46,0.2), 0 12px 48px rgba(200,155,46,0.12)"
+        glow: "0 0 0 1px rgba(171, 131, 57, 0.2), 0 12px 48px rgba(171, 131, 57, 0.12)"
       },
       borderRadius: {
         xl2: "1.25rem"

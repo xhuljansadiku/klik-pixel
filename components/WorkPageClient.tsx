@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useRef } from "react";
 import Image from "next/image";
@@ -108,9 +108,8 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
     <>
       <Navbar />
       <main ref={containerRef} className="relative overflow-hidden bg-bg pt-14 text-text md:pt-16">
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(200,155,46,0.09),transparent_30%)]" />
+        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(171,131,57,0.09),transparent_30%)]" />
 
-        {/* Hero */}
         <section ref={heroSectionRef} className="relative z-[1] border-b border-white/10">
           <div
             ref={heroTextureRef}
@@ -124,18 +123,20 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
               data-cursor="headline"
               className="hero-headline-trigger cadence-title mt-4 max-w-4xl bg-[url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80')] bg-[length:170%] bg-[position:22%_48%] bg-clip-text font-display text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.95] tracking-[0.01em] pb-[0.12em] text-transparent"
             >
-              Çfarë kemi
+              {"\u00c7far\u00eb kemi"}
               <br />
-              <span className="text-white/35">ndërtuar.</span>
+              <span className="text-white/35">{"nd\u00ebrtuar."}</span>
             </h1>
             <div ref={heroStatsRef} className="wk-stats mt-8 max-w-[56ch] space-y-1 text-base leading-relaxed text-white/62">
-              <p>Klientë nga Italia, Gjermania, Kosova, Anglia dhe Shqipëria.</p>
-              <p>Punë ndërkombëtare me <span className="text-white/90">cilësi Gjermane</span>.</p>
+              <p>{"Klient\u00eb nga Italia, Gjermania, Kosova, Anglia dhe Shqip\u00ebria."}</p>
+              <p>
+                {"Pun\u00eb nd\u00ebrkomb\u00ebtare me "}
+                <span className="text-white/90">{"cil\u00ebsi Gjermane"}</span>.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Project cards grid (2x3) */}
         <section className="relative z-[1]">
           <div className="section-wrap py-14 md:py-20">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -177,7 +178,8 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
 
                   <div className="wk-project-footer mt-auto flex items-center justify-end gap-4 pt-5">
                     <Link href={`/projektet/${cs.slug}`} className="luxury-link">
-                      Shiko projektin <span aria-hidden>→</span>
+                      {"Shiko projektin "}
+                      <span aria-hidden>{"\u2192"}</span>
                     </Link>
                   </div>
                 </article>
@@ -187,8 +189,10 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
         </section>
 
         <GlobalCTA
-          title="Gati për të ndërtuar diçka të jashtëzakonshme?"
-          body="Rezervo një thirrje hyrëse për të transformuar vizionin tënd në një ekzekutim strategjik."
+          title={"Gati p\u00ebr t\u00eb nd\u00ebrtuar di\u00e7ka t\u00eb jasht\u00ebzakonshme?"}
+          body={
+            "Rezervo nj\u00eb thirrje hyr\u00ebse p\u00ebr t\u00eb transformuar vizionin t\u00ebnd n\u00eb nj\u00eb ekzekutim strategjik."
+          }
         />
         <Footer />
       </main>

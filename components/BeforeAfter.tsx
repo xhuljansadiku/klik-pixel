@@ -64,7 +64,7 @@ export default function BeforeAfter() {
             dragging.current = false;
           }}
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(200,155,46,0.22),transparent_52%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(171, 131, 57,0.22),transparent_52%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.01))]" />
           <div
             className="pointer-events-none absolute inset-y-0 left-0 overflow-hidden border-r border-white/10 bg-black/50 transition-[width] duration-200 ease-out"
@@ -85,7 +85,7 @@ export default function BeforeAfter() {
             className="before-after-handle absolute inset-y-0 z-20 w-px bg-accent/90 transition-[left] duration-200 ease-out"
             style={{ left: `${pct}%` }}
           >
-            <div className="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent/80 bg-[#0b0b0b] text-[10px] tracking-[0.12em] text-accent shadow-[0_0_24px_rgba(200,155,46,0.18)]">
+            <div className="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent/80 bg-[#0b0b0b] text-[10px] tracking-[0.12em] text-accent shadow-[0_0_24px_rgba(171, 131, 57,0.18)]">
               ↔
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function BeforeAfter() {
           max={92}
           value={pct}
           onChange={(event) => setPct(Number(event.target.value))}
-          className="mt-5 w-full max-w-md accent-[#c89b2e]"
+          className="mt-5 w-full max-w-md accent-[#ab8339]"
           aria-label="Pozicioni before / after"
         />
       </div>

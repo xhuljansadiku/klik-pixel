@@ -35,7 +35,7 @@ export default function LiveResultsSimulator() {
                 <span>TRAFIK MUJOR (SEANCA)</span>
                 <span className="tabular-nums transition-opacity duration-300">{traffic.toLocaleString("de-DE")}</span>
               </div>
-              <input type="range" min={800} max={12000} step={100} value={traffic} onChange={(e) => setTraffic(Number(e.target.value))} className="mt-3 w-full accent-[#c89b2e]" />
+              <input type="range" min={800} max={12000} step={100} value={traffic} onChange={(e) => setTraffic(Number(e.target.value))} className="mt-3 w-full accent-[#ab8339]" />
             </div>
             <div>
               <div className="flex justify-between text-[11px] tracking-[0.16em] text-white/45">
@@ -49,7 +49,7 @@ export default function LiveResultsSimulator() {
                 step={0.1}
                 value={conversion}
                 onChange={(e) => setConversion(Number(e.target.value))}
-                className="mt-3 w-full accent-[#c89b2e]"
+                className="mt-3 w-full accent-[#ab8339]"
               />
             </div>
             <div>
@@ -57,7 +57,7 @@ export default function LiveResultsSimulator() {
                 <span>THELLËSI (FAQE + RRJEDHË)</span>
                 <span className="tabular-nums">{pages}</span>
               </div>
-              <input type="range" min={3} max={18} value={pages} onChange={(e) => setPages(Number(e.target.value))} className="mt-3 w-full accent-[#c89b2e]" />
+              <input type="range" min={3} max={18} value={pages} onChange={(e) => setPages(Number(e.target.value))} className="mt-3 w-full accent-[#ab8339]" />
             </div>
           </div>
 

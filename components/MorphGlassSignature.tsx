@@ -23,12 +23,12 @@ export default function MorphGlassSignature() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        { borderRadius: "52%", scale: 0.86, rotate: -6, boxShadow: "0 0 0 rgba(200,155,46,0)" },
+        { borderRadius: "52%", scale: 0.86, rotate: -6, boxShadow: "0 0 0 rgba(171, 131, 57,0)" },
         {
           borderRadius: "1.05rem",
           scale: 1.05,
           rotate: 0,
-          boxShadow: "0 0 80px rgba(200,155,46,0.12)",
+          boxShadow: "0 0 80px rgba(171, 131, 57,0.12)",
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,

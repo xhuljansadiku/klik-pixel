@@ -17,7 +17,7 @@ function CheckIcon() {
     >
       <path
         d="M1.5 6.5L5 10L11.5 3"
-        stroke="#C89B2E"
+        stroke="#ab8339"
         strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -42,7 +42,7 @@ export default function ServiceCategoryDetailPage({
 
         {/* Ambient glows */}
         <div className="pointer-events-none absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_18%_0%,rgba(200,155,46,0.09),transparent_48%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_18%_0%,rgba(171, 131, 57,0.09),transparent_48%)]" />
           <div className="absolute right-[-10%] top-[30%] h-[700px] w-[700px] -translate-y-1/2 rounded-full bg-accent/[0.035] blur-[200px]" />
         </div>
 
@@ -104,7 +104,7 @@ export default function ServiceCategoryDetailPage({
               {category.problems.map((problem, i) => (
                 <div
                   key={i}
-                  className="group relative rounded-2xl border border-white/[0.07] bg-[linear-gradient(160deg,rgba(22,22,22,0.88),rgba(14,13,12,0.96))] p-6 transition-all duration-500 hover:border-accent/18 hover:bg-[linear-gradient(160deg,rgba(200,155,46,0.05),rgba(14,13,12,0.96))]"
+                  className="group relative rounded-2xl border border-white/[0.07] bg-[linear-gradient(160deg,rgba(22,22,22,0.88),rgba(14,13,12,0.96))] p-6 transition-all duration-500 hover:border-accent/18 hover:bg-[linear-gradient(160deg,rgba(171, 131, 57,0.05),rgba(14,13,12,0.96))]"
                 >
                   <p className="font-display text-[2.4rem] leading-none text-white/[0.06] transition-colors duration-500 group-hover:text-accent/22">
                     {String(i + 1).padStart(2, "0")}
@@ -138,13 +138,13 @@ export default function ServiceCategoryDetailPage({
               {category.packages.map((pkg) => (
                 <div
                   key={pkg.name}
-                  className={`service-bento-card group relative flex min-h-[480px] flex-col overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.03)] bg-[linear-gradient(160deg,rgba(255,255,255,0.02),rgba(255,255,255,0.005)_52%,rgba(200,155,46,0.04))] p-6 backdrop-blur-[2px] transition-[border-color,box-shadow,opacity] duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] hover:[animation-play-state:paused] ${
+                  className={`service-bento-card group relative flex min-h-[480px] flex-col overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.03)] bg-[linear-gradient(160deg,rgba(255,255,255,0.02),rgba(255,255,255,0.005)_52%,rgba(171, 131, 57,0.04))] p-6 backdrop-blur-[2px] transition-[border-color,box-shadow,opacity] duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] hover:[animation-play-state:paused] ${
                     pkg.featured
-                      ? "border-accent/35 shadow-[0_25px_80px_rgba(200,155,46,0.25)] hover:shadow-[0_28px_88px_rgba(200,155,46,0.28)]"
-                      : "opacity-95 hover:border-accent/35 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(200,155,46,0.15)]"
+                      ? "border-accent/35 shadow-[0_25px_80px_rgba(171, 131, 57,0.25)] hover:shadow-[0_28px_88px_rgba(171, 131, 57,0.28)]"
+                      : "opacity-95 hover:border-accent/35 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(171, 131, 57,0.15)]"
                   }`}
                 >
-                  <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(200,155,46,0.065),transparent_62%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(200,155,46,0.14),transparent_64%)] group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(171, 131, 57,0.065),transparent_62%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(171, 131, 57,0.14),transparent_64%)] group-hover:opacity-100" />
                   <div className="relative z-[3] flex flex-1 flex-col">
                     {pkg.featured && (
                       <span className="mb-3 inline-flex w-fit rounded-full bg-accent/14 px-3 py-0.5 text-[9px] uppercase tracking-[0.22em] text-accent/90">

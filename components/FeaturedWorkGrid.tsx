@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useRef, useState } from "react";
 import Image from "next/image";
@@ -110,16 +110,17 @@ export default function FeaturedWorkGrid() {
 
   return (
     <section id="featured-work" ref={sectionRef} className="cinematic-section section-tone-work relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_22%,rgba(200,155,46,0.08),transparent_36%),radial-gradient(circle_at_84%_78%,rgba(200,155,46,0.05),transparent_42%)]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(120deg,rgba(200,155,46,0.04),transparent_48%,rgba(200,155,46,0.03))] animate-[featuredAmbient_20s_ease-in-out_infinite]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_22%,rgba(171,131,57,0.08),transparent_36%),radial-gradient(circle_at_84%_78%,rgba(171,131,57,0.05),transparent_42%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(120deg,rgba(171,131,57,0.04),transparent_48%,rgba(171,131,57,0.03))] animate-[featuredAmbient_20s_ease-in-out_infinite]" />
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.025] [background-image:repeating-radial-gradient(circle_at_0_0,rgba(255,255,255,0.4)_0_1px,transparent_1px_4px)]" />
 
       <div className="section-wrap featured-chapters-intro">
-        <SectionMark label="PROJEKTET E PËRZGJEDHURA" />
+        <SectionMark label={"PROJEKTET E P\u00cbRZGJEDHURA"} />
         <h2 className="section-title mt-3 max-w-4xl">
-          Faqe që punojnë.
+          {"Faqe q\u00eb punojn\u00eb."}
           <br />
-          Biznese që <span className="text-accent">rriten</span>.
+          {"Biznese q\u00eb "}
+          <span className="text-accent">rriten</span>.
         </h2>
       </div>
 
@@ -175,7 +176,7 @@ export default function FeaturedWorkGrid() {
                       <span
                         key={`${project.slug}-${pill}`}
                         style={{ transitionDelay: `${pillIdx * 40}ms` }}
-                        className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 font-body text-[11px] tracking-[0.02em] text-white/76 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:border-white/18 hover:shadow-[0_0_12px_rgba(200,155,46,0.12)]"
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 font-body text-[11px] tracking-[0.02em] text-white/76 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:border-white/18 hover:shadow-[0_0_12px_rgba(171,131,57,0.12)]"
                       >
                         {pill}
                       </span>
@@ -189,11 +190,11 @@ export default function FeaturedWorkGrid() {
                       rel="noopener noreferrer"
                       className="luxury-link mt-8"
                     >
-                      SHIKO PROJEKTIN LIVE <span aria-hidden>→</span>
+                      SHIKO PROJEKTIN LIVE <span aria-hidden>{"\u2192"}</span>
                     </a>
                   ) : (
                     <span className="luxury-link mt-8 cursor-default opacity-50" aria-disabled>
-                      SË SHPEJTI
+                      {"S\u00cb SHPEJTI"}
                     </span>
                   )}
                 </div>
@@ -206,7 +207,7 @@ export default function FeaturedWorkGrid() {
                 >
                   <div
                     className={`relative overflow-hidden rounded-[1.25rem] border border-[rgba(255,255,255,0.05)] bg-[#0d0d0c] shadow-[0_28px_90px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.04)_inset] transition-[box-shadow,border-color] duration-500 ${
-                      activeIdx === idx ? "border-accent/25 shadow-[0_32px_100px_rgba(0,0,0,0.58),0_0_40px_rgba(200,155,46,0.08)]" : ""
+                      activeIdx === idx ? "border-accent/25 shadow-[0_32px_100px_rgba(0,0,0,0.58),0_0_40px_rgba(171,131,57,0.08)]" : ""
                     }`}
                   >
                     <div className="group/img relative aspect-[16/10] overflow-hidden">
@@ -228,7 +229,8 @@ export default function FeaturedWorkGrid() {
 
       <div className="section-wrap pb-2 pt-12">
         <Link href="/projektet" className="luxury-link">
-          Të gjitha projektet <span aria-hidden>→</span>
+          {"T\u00eb gjitha projektet "}
+          <span aria-hidden>{"\u2192"}</span>
         </Link>
       </div>
     </section>

@@ -14,7 +14,7 @@ export default function EasterEggOverlay() {
       el.setAttribute("aria-hidden", "true");
       el.className = "pointer-events-none fixed inset-0 z-[150]";
       el.style.background =
-        "radial-gradient(circle at 50% 42%, rgba(200,155,46,0.22), transparent 58%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06), transparent 45%)";
+        "radial-gradient(circle at 50% 42%, rgba(171, 131, 57,0.22), transparent 58%), radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06), transparent 45%)";
       el.style.opacity = "0";
       document.body.appendChild(el);
       gsap

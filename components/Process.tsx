@@ -240,7 +240,7 @@ export default function Process() {
     <section id="process" ref={sectionRef} className="cinematic-section section-tone-process process-journey">
       <div
         ref={bgShiftRef}
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_34%,rgba(200,155,46,0.16),transparent_42%),radial-gradient(circle_at_72%_70%,rgba(255,255,255,0.05),transparent_38%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_34%,rgba(171, 131, 57,0.16),transparent_42%),radial-gradient(circle_at_72%_70%,rgba(255,255,255,0.05),transparent_38%)]"
       />
       <div className="section-wrap">
         <SectionMark label="PROCESI" />
@@ -297,9 +297,9 @@ export default function Process() {
         <div className="mt-14 md:mt-16">
           <div
             ref={ctaRef}
-            className="relative flex flex-wrap items-center justify-between gap-8 overflow-hidden rounded-[1.1rem] border border-white/10 bg-[linear-gradient(135deg,rgba(10,10,10,0.98)_0%,rgba(16,16,16,0.98)_52%,rgba(200,155,46,0.16)_100%)] px-[28px] py-[40px] shadow-[0_24px_70px_rgba(0,0,0,0.38)] md:px-[48px] md:py-[56px]"
+            className="relative flex flex-wrap items-center justify-between gap-8 overflow-hidden rounded-[1.1rem] border border-white/10 bg-[linear-gradient(135deg,rgba(10,10,10,0.98)_0%,rgba(16,16,16,0.98)_52%,rgba(171, 131, 57,0.16)_100%)] px-[28px] py-[40px] shadow-[0_24px_70px_rgba(0,0,0,0.38)] md:px-[48px] md:py-[56px]"
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_24%,rgba(255,255,255,0.07),transparent_38%),radial-gradient(circle_at_84%_78%,rgba(200,155,46,0.16),transparent_44%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_24%,rgba(255,255,255,0.07),transparent_38%),radial-gradient(circle_at_84%_78%,rgba(171, 131, 57,0.16),transparent_44%)]" />
             <div className="pointer-events-none absolute -left-14 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-accent/20 blur-2xl" />
             <div className="pointer-events-none absolute right-8 top-8 h-14 w-14 rounded-full bg-white/10 blur-xl" />
             <div className="max-w-[720px]">

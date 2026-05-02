@@ -83,7 +83,7 @@ export default function SocialFollowSection() {
       id="social-follow"
       className="cinematic-section section-tone-about relative overflow-hidden border-t border-white/[0.08] !min-h-0 py-0 md:!min-h-0"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(200,155,46,0.06),transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(171, 131, 57,0.06),transparent_45%)]" />
       <div className="section-wrap relative py-16 md:py-24">
         <SectionMark label="RRJETET SOCIALE" />
         <h2 className="section-title mt-3 max-w-3xl text-white">Na ndiqni në rrjetet tona sociale.</h2>

@@ -144,7 +144,7 @@ export default function CTA() {
             ref={bgRef}
             className="pointer-events-none absolute inset-0 cta-cinematic-bg"
           />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_84%_72%,rgba(200,155,46,0.14),transparent_42%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_84%_72%,rgba(171, 131, 57,0.14),transparent_42%)]" />
           <div className="pointer-events-none absolute inset-0 cta-cinematic-vignette" />
           <div ref={contentRef} className="grid items-center gap-8 md:gap-10 lg:grid-cols-[1.08fr_0.92fr]">
             <div className="max-w-[40rem]">
@@ -158,7 +158,7 @@ export default function CTA() {
                 <span className="cta-headline-line block pb-[0.08em]">
                   <span className="cta-headline-line-inner block whitespace-normal md:whitespace-nowrap">Koha që faqja juaj</span>
                 </span>
-                <span className="cta-headline-line block pb-[0.08em] text-accent [text-shadow:0_0_28px_rgba(200,155,46,0.26)]">
+                <span className="cta-headline-line block pb-[0.08em] text-accent [text-shadow:0_0_28px_rgba(171, 131, 57,0.26)]">
                   <span className="cta-headline-line-inner block whitespace-normal md:whitespace-nowrap">të punojë për ju.</span>
                 </span>
               </h2>

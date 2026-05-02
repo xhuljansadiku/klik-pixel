@@ -34,7 +34,7 @@ export default function ServicePackages() {
               key={p.name}
               className={`rounded-[1rem] border p-5 md:p-6 ${
                 p.featured
-                  ? "border-accent/45 bg-accent/[0.07] shadow-[0_0_28px_rgba(200,155,46,0.08)]"
+                  ? "border-accent/45 bg-accent/[0.07] shadow-[0_0_28px_rgba(171, 131, 57,0.08)]"
                   : "border-white/10 bg-[#151515]"
               }`}
             >

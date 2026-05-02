@@ -52,7 +52,7 @@ export default function ContactPageClient() {
     <>
       <Navbar />
       <main className="relative overflow-hidden bg-bg pt-14 text-text md:pt-16">
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(200,155,46,0.09),transparent_30%)]" />
+        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(171, 131, 57,0.09),transparent_30%)]" />
         <PageHero
           label="KONTAKT"
           title="Jemi gati të të dëgjojmë."

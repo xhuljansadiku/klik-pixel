@@ -41,7 +41,7 @@ export default function CursorSpotlight() {
       className="pointer-events-none fixed inset-0 z-[1] mix-blend-screen"
       style={{
         background:
-          "radial-gradient(520px circle at var(--cursor-spot-x,50%) var(--cursor-spot-y,40%), rgba(200,155,46,0.07), transparent 62%)"
+          "radial-gradient(520px circle at var(--cursor-spot-x,50%) var(--cursor-spot-y,40%), rgba(171, 131, 57,0.07), transparent 62%)"
       }}
     />
   );

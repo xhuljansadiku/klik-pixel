@@ -122,7 +122,7 @@ export default function ChaosToClarity() {
         ref={pinRef}
         className="relative flex min-h-[100svh] items-center justify-center overflow-hidden py-16 md:py-20"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(200,155,46,0.14),transparent_55%)] opacity-90" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(171, 131, 57,0.14),transparent_55%)] opacity-90" />
         <div className="pointer-events-none absolute inset-0 noir-grid opacity-[0.14]" />
 
         <div className="section-wrap relative z-[1] w-full">

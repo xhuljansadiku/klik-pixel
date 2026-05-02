@@ -28,7 +28,7 @@ export default function CustomCursor() {
       const headline = target?.closest("[data-cursor='headline'], .section-title, .hero-headline-trigger, .cadence-title");
       gsap.to(aura, {
         scale: headline ? 2.35 : interactive ? 1.35 : 1,
-        backgroundColor: headline ? "rgba(245,245,240,0.92)" : interactive ? "rgba(200,155,46,0.18)" : "rgba(245,245,240,0.08)",
+        backgroundColor: headline ? "rgba(245,245,240,0.92)" : interactive ? "rgba(171, 131, 57,0.18)" : "rgba(245,245,240,0.08)",
         mixBlendMode: headline ? "difference" : "normal",
         duration: 0.25
       });

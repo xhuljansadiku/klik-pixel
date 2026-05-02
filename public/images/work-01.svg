@@ -1,7 +1,7 @@
 <svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="900" fill="#0D0D0C"/>
   <rect width="1200" height="900" fill="url(#grain)" opacity="0.18"/>
-  <circle cx="262" cy="240" r="220" fill="#C89B2E" fill-opacity="0.22"/>
+  <circle cx="262" cy="240" r="220" fill="#ab8339" fill-opacity="0.22"/>
   <circle cx="922" cy="694" r="290" fill="#F5F5F0" fill-opacity="0.14"/>
   <rect x="176" y="166" width="848" height="568" rx="28" fill="#141413" stroke="#3D3420" stroke-width="2"/>
   <rect x="226" y="222" width="748" height="456" rx="20" fill="url(#panel)"/>

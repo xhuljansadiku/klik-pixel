@@ -81,20 +81,20 @@ export default function Preloader() {
 
   return (
     <div className="preloader-shell fixed inset-0 z-[120] overflow-hidden bg-[#06070b]">
-      <div className="preloader-orb pointer-events-none absolute left-1/2 top-1/2 h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,180,95,0.28)_0%,_rgba(255,180,95,0.08)_34%,_rgba(0,0,0,0)_72%)]" />
+      <div className="preloader-orb pointer-events-none absolute left-1/2 top-1/2 h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(234,206,113,0.26)_0%,_rgba(171,131,57,0.1)_34%,_rgba(0,0,0,0)_72%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,8,12,0.55)_0%,rgba(7,8,12,0.9)_85%)]" />
 
       <div className="preloader-footer absolute bottom-8 left-1/2 w-[min(95vw,860px)] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] px-6 py-6 shadow-[0_0_40px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:px-10 sm:py-8">
         <div className="preloader-shine pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 -translate-x-full bg-[linear-gradient(110deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.22)_52%,rgba(255,255,255,0)_100%)]" />
         <div className="preloader-logo-wrap mb-4 flex justify-center sm:mb-5">
-          <div className="rounded-full border border-[#C89B2E]/35 bg-black/35 p-2.5 shadow-[0_0_24px_rgba(200,155,46,0.2)] sm:p-3">
+          <div className="rounded-full border border-[#ab8339]/35 bg-black/35 p-2.5 shadow-[0_0_24px_rgba(171, 131, 57,0.2)] sm:p-3">
             <Image
-              src="/images/logo.png"
+              src="/images/illyrianpixel_logo.png"
               alt="Illyrian Pixel logo"
-              width={64}
-              height={64}
+              width={280}
+              height={100}
               priority
-              className="h-14 w-14 object-contain sm:h-16 sm:w-16"
+              className="h-14 w-auto max-w-[min(260px,78vw)] object-contain sm:h-16"
             />
           </div>
         </div>

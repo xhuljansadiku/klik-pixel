@@ -79,7 +79,7 @@ export default function PriceEstimator() {
               max={24}
               value={pages}
               onChange={(e) => setPages(Number(e.target.value))}
-              className="mt-4 w-full accent-[#c89b2e]"
+              className="mt-4 w-full accent-[#ab8339]"
             />
           </div>
           <div className="rounded-[1rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
@@ -103,7 +103,7 @@ export default function PriceEstimator() {
                 >
                   <input
                     type="checkbox"
-                    className="h-3.5 w-3.5 accent-[#c89b2e]"
+                    className="h-3.5 w-3.5 accent-[#ab8339]"
                     checked={!!picked[f.id]}
                     onChange={() => setPicked((p) => ({ ...p, [f.id]: !p[f.id] }))}
                   />
