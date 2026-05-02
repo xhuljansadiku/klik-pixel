@@ -145,13 +145,13 @@ export default function CaseStudyPage({ params }: Props) {
               </a>
             ) : null}
             <Link href="/projektet" className="luxury-link">
-              {"←"} Kthehu te projektet
+              <span aria-hidden>←</span> Kthehu te projektet
             </Link>
             <Link
               href="/contact"
-              className="ml-auto rounded-full border border-accent/70 bg-accent px-6 py-3 text-[11px] tracking-[0.14em] text-black transition-opacity duration-200 hover:opacity-85"
+              className="interactive-button ip-cta-primary ml-auto"
             >
-              Nis projektin
+              Fillo Sot
             </Link>
           </div>
         </section>

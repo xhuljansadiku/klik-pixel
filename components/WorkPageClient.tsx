@@ -176,17 +176,8 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
                   </div>
 
                   <div className="wk-project-footer mt-auto flex items-center justify-end gap-4 pt-5">
-                    <Link
-                      href={`/projektet/${cs.slug}`}
-                      className="group flex shrink-0 items-center gap-2 text-sm text-white/50 transition-colors duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-accent"
-                    >
-                      Shiko projektin
-                      <span
-                        className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-[5px]"
-                        aria-hidden
-                      >
-                        →
-                      </span>
+                    <Link href={`/projektet/${cs.slug}`} className="luxury-link">
+                      Shiko projektin <span aria-hidden>→</span>
                     </Link>
                   </div>
                 </article>

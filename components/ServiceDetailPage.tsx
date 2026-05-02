@@ -117,13 +117,13 @@ export default function ServiceDetailPage({ service }: { service: ServiceItem })
 
                   <Link
                     href="/contact"
-                    className={`mt-8 block rounded-full px-5 py-2.5 text-center text-xs tracking-[0.12em] transition-all duration-200 ${
+                    className={
                       i === 1
-                        ? "bg-accent text-black hover:opacity-85"
-                        : "border border-white/18 text-white/75 hover:border-accent/45 hover:text-white"
-                    }`}
+                        ? "interactive-button ip-cta-primary mt-8 block text-center !text-xs !tracking-[0.12em]"
+                        : "luxury-link mt-8 block text-center"
+                    }
                   >
-                    Fillo tani →
+                    Fillo Sot <span aria-hidden>→</span>
                   </Link>
                 </article>
               ))}

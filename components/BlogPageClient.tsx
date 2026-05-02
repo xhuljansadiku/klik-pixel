@@ -66,11 +66,8 @@ export default function BlogPageClient() {
                     {post.title}
                   </h2>
                   <p className="mt-2 max-w-3xl text-sm text-white/62">{post.excerpt}</p>
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="mt-4 inline-flex text-xs tracking-[0.16em] text-white/75 underline decoration-transparent underline-offset-4 transition hover:text-accent hover:decoration-accent/80"
-                  >
-                    Lexo më shumë
+                  <Link href={`/blog/${post.slug}`} className="luxury-link mt-4">
+                    Lexo më shumë <span aria-hidden>→</span>
                   </Link>
                 </article>
               ))}

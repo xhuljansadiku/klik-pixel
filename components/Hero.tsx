@@ -32,6 +32,7 @@ export default function Hero() {
   const visualRef = useRef<HTMLDivElement | null>(null);
   const helmetRef = useRef<HTMLDivElement | null>(null);
   const particlesRef = useRef<HTMLDivElement | null>(null);
+  const particlesInnerRef = useRef<HTMLDivElement | null>(null);
   const depthGlowRef = useRef<HTMLDivElement | null>(null);
   const gradientRef = useRef<HTMLDivElement | null>(null);
   const ctaRef = useRef<HTMLAnchorElement | null>(null);
@@ -108,35 +109,46 @@ export default function Hero() {
           headlineRef.current?.addEventListener("mouseleave", onHeadlineLeave);
         }
 
-        if (visualRef.current) {
-          if (!isMobile) {
-            const setParallaxX = gsap.quickTo(visualRef.current, "--helmet-parallax-x", {
-              duration: 0.85,
-              ease: "power2.out"
-            });
-            const setParallaxY = gsap.quickTo(visualRef.current, "--helmet-parallax-y", {
-              duration: 0.85,
-              ease: "power2.out"
-            });
-            const xGlow = gsap.quickTo(depthGlowRef.current, "x", { duration: 0.85, ease: "power2.out" });
-            const yGlow = gsap.quickTo(depthGlowRef.current, "y", { duration: 0.85, ease: "power2.out" });
+            if (visualRef.current) {
+              if (!isMobile) {
+                const setParallaxX = gsap.quickTo(visualRef.current, "--helmet-parallax-x", {
+                  duration: 0.85,
+                  ease: "power2.out"
+                });
+                const setParallaxY = gsap.quickTo(visualRef.current, "--helmet-parallax-y", {
+                  duration: 0.85,
+                  ease: "power2.out"
+                });
+                const xGlow = gsap.quickTo(depthGlowRef.current, "x", { duration: 0.85, ease: "power2.out" });
+                const yGlow = gsap.quickTo(depthGlowRef.current, "y", { duration: 0.85, ease: "power2.out" });
+                const inner = particlesInnerRef.current;
+                const setParticleX = inner
+                  ? gsap.quickTo(inner, "x", { duration: 1.15, ease: "power2.out" })
+                  : null;
+                const setParticleY = inner
+                  ? gsap.quickTo(inner, "y", { duration: 1.15, ease: "power2.out" })
+                  : null;
 
-            onVisualMove = (event: PointerEvent) => {
-              const rect = visualRef.current!.getBoundingClientRect();
-              const px = (event.clientX - rect.left) / rect.width - 0.5;
-              const py = (event.clientY - rect.top) / rect.height - 0.5;
-              setParallaxX(px * 8);
-              setParallaxY(py * -6);
-              xGlow(px * 8);
-              yGlow(py * -7);
-            };
+                onVisualMove = (event: PointerEvent) => {
+                  const rect = visualRef.current!.getBoundingClientRect();
+                  const px = (event.clientX - rect.left) / rect.width - 0.5;
+                  const py = (event.clientY - rect.top) / rect.height - 0.5;
+                  setParallaxX(px * 8);
+                  setParallaxY(py * -6);
+                  xGlow(px * 8);
+                  yGlow(py * -7);
+                  setParticleX?.(px * 5);
+                  setParticleY?.(py * -4);
+                };
 
-            onVisualLeave = () => {
-              setParallaxX(0);
-              setParallaxY(0);
-              xGlow(0);
-              yGlow(0);
-            };
+                onVisualLeave = () => {
+                  setParallaxX(0);
+                  setParallaxY(0);
+                  xGlow(0);
+                  yGlow(0);
+                  setParticleX?.(0);
+                  setParticleY?.(0);
+                };
 
             visualRef.current.addEventListener("pointermove", onVisualMove);
             visualRef.current.addEventListener("pointerleave", onVisualLeave);
@@ -234,6 +246,10 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 hero-grid opacity-80 [filter:blur(0px)]"
       />
       <div
+        className="pointer-events-none absolute inset-0 z-[1] hero-depth-vignette"
+        aria-hidden
+      />
+      <div
         ref={contentRef}
         className="hero-layout section-wrap relative z-10 grid min-h-[100svh] items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16"
       >
@@ -247,13 +263,15 @@ export default function Hero() {
           </div>
           <h2
             ref={headlineRef}
-            className="hero-headline-trigger cadence-title font-display relative max-w-[12ch] text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.95] tracking-[0.01em]"
+            className="hero-headline-trigger cadence-title font-display relative max-w-[12ch] text-[clamp(2.55rem,7.8vw,6.9rem)] font-bold leading-[1.05] tracking-[-0.02em]"
           >
             <span className="headline-mask block overflow-hidden">
               <span className="headline-word block">
                 Ktheje biznesin në{" "}
                 <span className="hero-brand-word">
-                  <span className="text-accent">brand.</span>
+                  <span className="hero-brand-accent text-accent inline-block font-black uppercase">
+                    BRAND.
+                  </span>
                 </span>
               </span>
             </span>
@@ -261,9 +279,9 @@ export default function Hero() {
           </h2>
           <p
             ref={paragraphRef}
-            className="cadence-body mx-auto max-w-2xl text-[1.2rem] font-medium leading-[1.5] tracking-[0.01em] text-white/78 md:mx-0 md:text-[1.34rem] md:leading-[1.45]"
+            className="cadence-body mx-auto max-w-2xl text-[1.2rem] font-bold uppercase leading-[1.5] tracking-[0.12em] text-white/78 md:mx-0 md:text-[1.34rem] md:leading-[1.45]"
           >
-            Nga klikimi te klienti pa kompromis.
+            Nga klikimi te klienti.
           </p>
           <div className="hero-cta cadence-cta flex flex-wrap items-center justify-center gap-4 md:gap-5 lg:justify-start">
             <a
@@ -274,11 +292,11 @@ export default function Hero() {
                 window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
               }}
               data-magnetic="true"
-              className="interactive-button hero-primary-cta rounded-full border border-accent/75 bg-accent px-9 py-[1.05rem] text-[11px] tracking-[0.18em] text-black transition-all duration-300 hover:bg-[#d5ad4f]"
+              className="interactive-button ip-cta-primary ip-cta-primary--lg"
             >
-              NIS PROJEKTIN
+              FILLO SOT
             </a>
-            <a href="#services" className="luxury-link hero-process-link font-light">
+            <a href="#services" className="luxury-link">
               EKSPLORO PORTOFOLIN <span aria-hidden>→</span>
             </a>
           </div>
@@ -288,8 +306,11 @@ export default function Hero() {
           className="helmet-flow-scene hero-visual-shell relative h-[320px] overflow-visible md:h-[460px] lg:ml-[-10px]"
         >
           <div ref={depthGlowRef} className="absolute right-[12%] top-[8%] h-56 w-56 rounded-full bg-accent/20 blur-[90px] md:h-72 md:w-72" />
-          <div ref={particlesRef} className="helmet-particles pointer-events-none absolute -left-[76%] top-[7%] z-20 h-[84%] w-[130%] md:-left-[72%] md:top-[4%] md:h-[90%] md:w-[124%]">
-            <div className="absolute inset-0">
+          <div
+            ref={particlesRef}
+            className="helmet-particles pointer-events-none absolute -left-[76%] top-[7%] z-20 h-[84%] w-[130%] md:-left-[72%] md:top-[4%] md:h-[90%] md:w-[124%]"
+          >
+            <div ref={particlesInnerRef} className="helmet-particles-shift absolute inset-0">
               {voxelTrail.map((particle, index) => (
                 <span
                   key={index}
@@ -307,13 +328,13 @@ export default function Hero() {
           </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_44%,rgba(200,155,46,0.22),transparent_46%),radial-gradient(circle_at_24%_58%,rgba(255,255,255,0.04),transparent_34%)]" />
           <div ref={helmetRef} className="absolute right-0 top-[2%] z-30 h-[88%] w-[88%] md:h-[92%] md:w-[92%]">
-            <div className="helmet relative h-full w-full">
+            <div className="helmet helm-radial-feather relative h-full w-full">
               <Image
                 src="/images/hero-helmet.png"
                 alt="Vizual i helmetës së artë spartane"
                 fill
                 priority
-                className="object-contain object-right opacity-[0.96] [filter:contrast(1.12)_saturate(1.08)_brightness(0.98)]"
+                className="hero-helmet-img object-contain object-right opacity-[0.97] [filter:contrast(1.12)_saturate(1.08)_brightness(0.98)]"
               />
             </div>
           </div>

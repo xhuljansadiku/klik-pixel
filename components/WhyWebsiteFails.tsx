@@ -37,7 +37,7 @@ export default function WhyWebsiteFails() {
                 Website, e-commerce, marketing dhe SEO, të lidhura në një sistem që duket luks dhe sillet si biznes.
               </p>
             </div>
-            <a href="#services" className="luxury-link shrink-0 text-[11px] tracking-[0.16em]">
+            <a href="#services" className="luxury-link shrink-0">
               Shiko shërbimet <span aria-hidden>→</span>
             </a>
           </div>

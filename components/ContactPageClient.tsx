@@ -100,7 +100,7 @@ export default function ContactPageClient() {
                   />
                 </label>
                 {error ? <p className="text-xs text-red-300">{error}</p> : null}
-                <button className="rounded-full border border-accent/70 bg-accent px-5 py-2 text-[11px] tracking-[0.14em] text-black transition hover:bg-[#d5ad4f]">
+                <button type="submit" className="interactive-button ip-cta-primary">
                   DËRGO KËRKESËN
                 </button>
               </form>

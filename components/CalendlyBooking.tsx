@@ -28,7 +28,7 @@ export default function CalendlyBooking() {
             type="button"
             onClick={() => setOpen(true)}
             data-magnetic="true"
-            className="mt-7 inline-flex rounded-full border border-accent/70 bg-accent px-6 py-3 text-[11px] tracking-[0.16em] text-black transition hover:bg-[#d5ad4f]"
+            className="interactive-button ip-cta-primary mt-7"
           >
             REZERVO NJË CALL
           </button>

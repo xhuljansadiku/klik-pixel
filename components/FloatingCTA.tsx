@@ -4,10 +4,10 @@ import { useRef, useState } from "react";
 import { ensureGSAP, getIsMobile, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 
 const SECTIONS = [
-  { id: "hero", sub: "Gati për projekt?", cta: "Nis projektin", href: "#hero" },
+  { id: "hero", sub: "Gati për projekt?", cta: "Fillo Sot", href: "#hero" },
   { id: "services", sub: "Dëshiron sistem, jo patch-e?", cta: "Shiko si punojmë", href: "#process" },
   { id: "featured-work", sub: "Portofoli i përzgjedhur.", cta: "Shiko projektin", href: "/projektet/atelier-prime" },
-  { id: "cta", sub: "Thjeshtojmë fillimin.", cta: "Rezervo call", href: "#cta" }
+  { id: "cta", sub: "Thjeshtojmë fillimin.", cta: "Fillo Sot", href: "#cta" }
 ] as const;
 
 export default function FloatingCTA() {
@@ -148,7 +148,7 @@ export default function FloatingCTA() {
               document.getElementById("process")?.scrollIntoView({ behavior: "smooth", block: "start" });
             }
           }}
-          className="rounded-full border border-accent/65 bg-accent px-3 py-1.5 text-[10px] tracking-[0.12em] text-black transition-all duration-300 hover:scale-[1.02] sm:px-4 sm:py-2 sm:text-[11px] sm:tracking-[0.14em]"
+          className="interactive-button ip-cta-primary ip-cta-primary--sm hover:scale-[1.02]"
         >
           <span ref={btnLabelRef}>{cfg.cta}</span>
         </a>

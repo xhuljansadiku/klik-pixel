@@ -125,9 +125,9 @@ export default function Navbar() {
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
               data-magnetic="true"
-              className="hidden rounded-full border border-accent/65 bg-accent px-4 py-2 text-[11px] tracking-[0.12em] text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(200,155,46,0.25)] md:inline-flex"
+              className="interactive-button ip-cta-primary hidden md:inline-flex"
             >
-              Nis projektin
+              Fillo Sot
             </button>
             <button
               onClick={() => setMobileOpen(true)}

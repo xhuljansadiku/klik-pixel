@@ -59,7 +59,7 @@ export default function MiniWebsiteAudit() {
               type="button"
               onClick={onAnalyze}
               disabled={loading || !url.trim()}
-              className="h-11 rounded-full border border-accent/70 bg-accent px-6 text-[11px] tracking-[0.16em] text-black transition hover:bg-[#d5ad4f] disabled:cursor-not-allowed disabled:opacity-35"
+              className="interactive-button ip-cta-primary h-11 disabled:cursor-not-allowed disabled:opacity-35"
             >
               Analizo
             </button>

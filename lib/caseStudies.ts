@@ -19,17 +19,17 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "esm-group",
     title: "ESM Group",
-    category: "Website Korporativ Industrial",
+    category: "Website për Biznes Industrial",
     location: "Milano, Itali",
     flagCodes: ["it"],
     year: "2026",
     intro:
-      "Rifreshuam prezencën e një kompanie industriale, mesazh B2B më i qartë, strukturë më autoritare, kërkesa më konkrete nga klientët.",
+      "Një kompani serioze meriton një website të tillë.\nE puanuam ESM Group nga zero me një strukturë e qartë,\nmesazh i fortë, klientë që kuptojnë menjëherë me kë po flasin.",
     problem:
       "Oferta dhe eksperienca e kompanisë nuk pasqyroheshin qartë online, duke krijuar paqartësi në llojin e projekteve dhe ritmin e kontakteve hyrëse.",
     solution:
       "Ndërtuam strukturë të pastër me seksione service-first, proof konkret dhe flow navigimi që e çon përdoruesin drejt kërkesës pa friction.",
-    result: "Mesazh industrial i qartë, kontakte me pritshmëri reale.",
+    result: "Klientët e duhur, mesazhi i duhur e bëmë website-in të flasë për ta.",
     metrics: ["Mesazh B2B i strukturuar", "Navigim pa friction", "Kërkesa industriale cilësore"],
     tags: ["Industrial", "Corporate", "B2B"],
     heroImage: "/images/projects/esm-group.png",
@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
     flagCodes: ["xk", "de"],
     year: "2026",
     intro:
-      "Ristrukturuam paketat dhe tonin e brandit, vizitorët kuptojnë shpejt cilën paketë u përshtatet dhe vendosin më lehtë.",
+      "Një trajner i mirë meriton një website që shet për të.\nStrukturuam paketat, thjeshtëzuam rrugën e klientit.\nRezultati: më pak pyetje, më shumë blerje.",
     problem:
       "Informacioni ekzistonte, por hierarkia e përmbajtjes dhe narrativa e ofertës nuk e mbështesnin plotësisht perceptimin profesional të brandit.",
     solution:
@@ -76,12 +76,12 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "palushi-brothers",
     title: "Palushi Brothers Construction",
-    category: "Construction Lead Generation",
+    category: "Website për Kompani Ndërtimi",
     location: "Londër, Mbretëria e Bashkuar",
     flagCodes: ["gb"],
     year: "2026",
     intro:
-      "Përmirësuam besueshmërinë e parë, proof social, shërbime të qarta dhe kontakt që nxit bisedë serioze, jo hezitim.",
+      "Klientët e ndërtimit nuk kontaktojnë nëse nuk besojnë.\nE bëmë website-in të flasë për ta shërbime të qarta, rezultate reale, kontakt i lehtë.",
     problem:
       "Vizitorët vinin me pritshmëri të ndryshme dhe pa një kuadër të qartë të shërbimeve, gjë që e bënte më të vështirë filtrimin e kërkesave.",
     solution:

@@ -84,7 +84,7 @@ export default function MiniAssistant() {
             <button
               type="button"
               onClick={send}
-              className="rounded-full border border-accent/70 bg-accent px-3 py-2 text-[10px] tracking-[0.14em] text-black hover:bg-[#d5ad4f]"
+              className="interactive-button ip-cta-primary ip-cta-primary--sm !px-3 !py-2"
             >
               DËRGO
             </button>

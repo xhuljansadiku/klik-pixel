@@ -54,9 +54,9 @@ export default function MobileMenu({ isOpen, navItems, active, onClose, onNaviga
             window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
             onClose();
           }}
-          className="mt-3 inline-flex items-center justify-center rounded-full border border-accent/70 bg-accent px-5 py-2.5 text-[11px] tracking-[0.14em] text-black"
+          className="interactive-button ip-cta-primary mt-3 inline-flex w-full justify-center sm:w-auto"
         >
-          Nis projektin
+          Fillo Sot
         </button>
       </div>
     </div>

@@ -68,15 +68,12 @@ export default function ServiceCategoryDetailPage({
               <button
                 type="button"
                 onClick={openModal}
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-accent/75 bg-accent px-7 text-[12px] font-semibold tracking-[0.04em] text-[#0e0d0c] transition-all duration-500 hover:bg-[#d4a93a] hover:shadow-[0_0_24px_rgba(200,155,46,0.38)]"
+                className="interactive-button ip-cta-primary inline-flex h-11 items-center gap-2 !px-7 !text-[12px] !tracking-[0.04em] !text-[#0e0d0c]"
               >
                 Book a Discovery Call
               </button>
-              <a
-                href="#cmimet"
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-white/14 px-7 text-[12px] tracking-[0.04em] text-white/75 transition-all duration-500 hover:border-white/22 hover:text-white"
-              >
-                Shiko çmimet
+              <a href="#cmimet" className="luxury-link">
+                Shiko çmimet <span aria-hidden>→</span>
               </a>
             </div>
 
@@ -195,13 +192,13 @@ export default function ServiceCategoryDetailPage({
                     <button
                       type="button"
                       onClick={openModal}
-                      className={`mt-auto pt-8 inline-flex h-10 w-full items-center justify-center rounded-full text-[11px] font-medium tracking-[0.06em] transition-all duration-500 ${
+                      className={`mt-auto inline-flex w-full items-center justify-center pt-8 text-[11px] font-medium tracking-[0.06em] ${
                         pkg.featured
-                          ? "border border-accent/75 bg-accent text-[#0e0d0c] hover:bg-[#d4a93a] hover:shadow-[0_0_22px_rgba(200,155,46,0.32)]"
-                          : "border border-[rgba(255,255,255,0.06)] text-white/72 hover:border-accent/35 hover:text-white"
+                          ? "interactive-button ip-cta-primary !h-10 !py-0 !text-[11px] !tracking-[0.06em] !text-[#0e0d0c]"
+                          : "luxury-link"
                       }`}
                     >
-                      Book a Discovery Call
+                      Book a Discovery Call <span aria-hidden>→</span>
                     </button>
                   </div>
                 </div>
@@ -232,7 +229,7 @@ export default function ServiceCategoryDetailPage({
               <button
                 type="button"
                 onClick={openModal}
-                className="inline-flex h-12 items-center gap-2 rounded-full border border-accent/75 bg-accent px-8 text-[12px] font-semibold tracking-[0.04em] text-[#0e0d0c] transition-all duration-500 hover:bg-[#d4a93a] hover:shadow-[0_0_30px_rgba(200,155,46,0.42)]"
+                className="interactive-button ip-cta-primary ip-cta-primary--lg inline-flex h-12 items-center gap-2 !px-8 !text-[12px] !tracking-[0.04em] !text-[#0e0d0c]"
               >
                 Book a Discovery Call →
               </button>

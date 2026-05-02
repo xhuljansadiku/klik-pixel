@@ -29,7 +29,7 @@ export default function GlobalCTA({
             <Link
               href={primaryActionHref}
               data-magnetic="true"
-              className="rounded-full border border-accent/70 bg-accent px-6 py-3 text-[11px] tracking-[0.16em] text-black transition hover:bg-[#d5ad4f]"
+              className="interactive-button ip-cta-primary"
             >
               {primaryActionText}
             </Link>
@@ -38,16 +38,13 @@ export default function GlobalCTA({
               type="button"
               onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
               data-magnetic="true"
-              className="rounded-full border border-accent/70 bg-accent px-6 py-3 text-[11px] tracking-[0.16em] text-black transition hover:bg-[#d5ad4f]"
+              className="interactive-button ip-cta-primary"
             >
               {primaryActionText}
             </button>
           )}
-          <Link
-            href="/contact"
-            className="rounded-full border border-white/18 px-6 py-3 text-xs uppercase tracking-[0.2em] text-white/78 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-accent/45"
-          >
-            SHKO TE KONTAKTI
+          <Link href="/contact" className="luxury-link">
+            SHKO TE KONTAKTI <span aria-hidden>→</span>
           </Link>
         </div>
       </div>

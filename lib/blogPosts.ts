@@ -10,14 +10,15 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "si-te-rrisesh-klientet-online",
-    title: "Si të rrisësh klientët online pa djegur buxhetin",
+    title: "Ke trafikun. Por ku janë klientët?",
     category: "Rritje",
-    excerpt: "Nga struktura e ofertës te rrjedha e faqes: çfarë ndryshon realisht konvertimin.",
+    excerpt:
+      "Shumica e bizneseve shpenzojnë para për të sjellë njerëz në faqe dhe i humbin menjëherë.\nJo sepse oferta është e keqe, por sepse faqja nuk po bën punën e saj.",
     date: "Prill 2026",
     content: [
-      "Shumë biznese fokusohen te trafiku, por humbin në konvertim. Problemi shpesh nuk është reklama, por përputhja mes mesazhit dhe eksperiencës së faqes.",
-      "Nis me një ofertë të qartë mbi fold, një proof i besueshëm dhe një CTA të vetme dominuese për çdo seksion.",
-      "Mat vetëm 3 gjëra në fillim: klikim CTA, formular i nisur, formular i dërguar. Pastaj optimizo."
+      "Shumica e bizneseve shpenzojnë para për të sjellë njerëz në faqe dhe i humbin menjëherë. Jo sepse oferta është e keqe, por sepse faqja nuk po bën punën e saj.",
+      "Oferta e parë, dëshmia dhe autoriteti, një CTA e vetme për seksion — pastaj mat klikimet në CTA, fillimin e formularit dhe dërgimin.",
+      "Rritja fillon me një faqe që di punën e saj; pastaj çdo euro reklamë kthehet mbrapsht."
     ]
   },
   {
@@ -34,14 +35,15 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "pse-seo-eshte-kritik",
-    title: "Pse SEO është kritik për biznese serioze",
-    category: "SEO",
-    excerpt: "SEO nuk është vetëm pozicionim: është kanal kërkese me intent të lartë.",
+    title: "Pse SEO është kritik për biznese serioze (dhe jo një opsion)",
+    category: "Strategji",
+    excerpt:
+      "Të kesh një website të bukur që nuk shfaqet në Google është si të hapësh një dyqan luksoz në mes të shkretëtirës.\nAskush nuk e gjen, askush nuk blen.",
     date: "Prill 2026",
     content: [
-      "Një faqe pa SEO është si showroom pa rrugë hyrëse. Mund të duket bukur, por nuk sjell kërkesë të qëndrueshme.",
-      "SEO modern fillon nga strukturimi i faqeve sipas intentit: informim, krahasim, vendim.",
-      "Kombino SEO me proof social dhe një funnel të qartë për të kthyer trafikun organik në klientë realë."
+      "Google është kanali ku kërkohet zgjidhja; pa faqen e parë, biznesi është i padukshëm për shumicën e tregut.",
+      "SEO ul CAC në afatgjatë dhe ndërton autoritet; PPC zhduket kur ndalon pagesa.",
+      "UX dhe cilësia e faqes janë pjesë e renditjes. SEO është maratonë — shumica dështojnë sepse presin rezultate për dy javë."
     ]
   }
 ];

@@ -144,7 +144,7 @@ export default function Footer() {
             <div className="footer-reveal flex flex-col items-end">
               <a
                 href="/contact"
-                className="footer-main-cta group inline-flex items-center gap-2 rounded-full border-2 border-accent bg-transparent px-7 py-3.5 text-[13px] font-semibold tracking-[0.11em] text-accent shadow-none transition-all duration-300 ease-out hover:scale-105 hover:border-accent hover:bg-accent/10 hover:shadow-[0_0_28px_rgba(212,175,55,0.18)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
+                className="interactive-button ip-cta-primary ip-cta-primary--lg group gap-2 !px-7 !py-3.5 !text-[13px] !tracking-[0.11em]"
               >
                 Kontakto Tani <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>

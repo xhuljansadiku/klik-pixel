@@ -162,7 +162,7 @@ export default function ProposalMiniModal() {
             <button
               type="button"
               onClick={() => setStep((s) => s + 1)}
-              className="rounded-full border border-accent/70 bg-accent px-5 py-2 text-[11px] tracking-[0.16em] text-black hover:bg-[#d5ad4f]"
+              className="interactive-button ip-cta-primary"
             >
               VAZHDO
             </button>
@@ -174,9 +174,9 @@ export default function ProposalMiniModal() {
                 close();
               }}
               data-magnetic="true"
-              className="rounded-full border border-accent/70 bg-accent px-5 py-2 text-[11px] tracking-[0.16em] text-black hover:bg-[#d5ad4f]"
+              className="interactive-button ip-cta-primary"
             >
-              REZERVO CALL
+              FILLO SOT
             </button>
           )}
         </div>

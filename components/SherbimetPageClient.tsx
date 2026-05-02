@@ -94,15 +94,10 @@ export default function SherbimetPageClient() {
                       </span>
                     ))}
                   </div>
-                  <p className="relative z-[3] mt-auto inline-flex items-center gap-2 pt-5 text-[11px] font-medium tracking-[0.16em] text-white/76 transition-colors duration-300 group-hover:text-white">
-                    <span className="relative inline-block pb-[2px] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:opacity-80 after:transition-all after:duration-300 after:ease-out group-hover:after:scale-x-100 group-hover:after:opacity-100">
+                  <p className="relative z-[3] mt-auto pt-5">
+                    <span className="luxury-link-look">
                       Lexo më shumë
-                    </span>
-                    <span
-                      aria-hidden
-                      className="transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1.2,0.36,1)] group-hover:translate-x-[4px]"
-                    >
-                      →
+                      <span aria-hidden>→</span>
                     </span>
                   </p>
                 </Link>

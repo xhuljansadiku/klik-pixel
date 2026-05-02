@@ -188,7 +188,7 @@ export default function StrategyQuiz() {
                   type="button"
                   disabled={!canContinue}
                   onClick={goNext}
-                  className="rounded-full border border-accent/70 bg-accent px-5 py-2 text-[11px] tracking-[0.16em] text-black transition hover:bg-[#d5ad4f] disabled:opacity-35"
+                  className="interactive-button ip-cta-primary disabled:opacity-35"
                 >
                   VAZHDO
                 </button>
@@ -208,9 +208,9 @@ export default function StrategyQuiz() {
                     type="button"
                     onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
                     data-magnetic="true"
-                    className="rounded-full border border-accent/70 bg-accent px-5 py-2 text-[11px] tracking-[0.16em] text-black transition hover:bg-[#d5ad4f]"
+                    className="interactive-button ip-cta-primary"
                   >
-                    REZERVO CALL
+                    FILLO SOT
                   </button>
                   <button
                     type="button"

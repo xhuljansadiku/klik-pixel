@@ -145,24 +145,18 @@ export default function Services() {
                   </Fragment>
                 ))}
               </div>
-              <p className="relative z-[3] mt-auto inline-flex items-center gap-2 pt-5 text-[11px] font-medium tracking-[0.16em] text-white/76 transition-colors duration-300 group-hover:text-white">
-                <span className="relative inline-block pb-[2px] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:opacity-80 after:transition-all after:duration-300 after:ease-out group-hover:after:scale-x-100 group-hover:after:opacity-100">
+              <p className="relative z-[3] mt-auto pt-5">
+                <span className="luxury-link-look">
                   {service.cta}
+                  <span aria-hidden>→</span>
                 </span>
-                <span aria-hidden className="transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1.2,0.36,1)] group-hover:translate-x-[4px]">→</span>
               </p>
             </a>
           ))}
         </div>
         <div className="mt-10 border-t border-white/10 pt-8">
-          <a
-            href="/sherbimet"
-            className="group inline-flex items-center gap-3 font-display text-[clamp(1.45rem,3.2vw,2.4rem)] leading-[0.95] !text-[#f5f5f0] opacity-100 drop-shadow-[0_0_8px_rgba(255,255,255,0.16)] transition-transform duration-300 hover:translate-x-[6px]"
-          >
-            <span className="relative inline-block pb-[2px] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100">
-              Të gjitha shërbimet
-            </span>
-            <span aria-hidden className="text-[1.08em] text-accent transition-transform duration-300 ease-out group-hover:translate-x-[4px]">→</span>
+          <a href="/sherbimet" className="luxury-link">
+            Të gjitha shërbimet <span aria-hidden>→</span>
           </a>
         </div>
       </div>

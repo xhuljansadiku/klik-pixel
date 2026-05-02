@@ -8,8 +8,14 @@ type BlogPostPageProps = {
   params: { slug: string };
 };
 
+const DEDICATED_BLOG_SLUGS = new Set([
+  "si-te-rrisesh-klientet-online",
+  "gabimet-kryesore-ne-website",
+  "pse-seo-eshte-kritik"
+]);
+
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return blogPosts.filter((post) => !DEDICATED_BLOG_SLUGS.has(post.slug)).map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {

@@ -63,6 +63,21 @@ body::before {
   @apply font-display leading-[0.92] tracking-[-0.004em];
 }
 
+/* Blog growth article (si-te-rrisesh-klientet-online): H2 accent rule + body hierarchy */
+.blog-growth-h2 {
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.blog-growth-h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin-top: 12px;
+  background-color: #d4af37;
+}
+
 .muted {
   color: rgba(241, 238, 232, 0.63);
 }
@@ -215,34 +230,36 @@ body::before {
   opacity: 0.42;
 }
 
+/* Secondary CTA: text + arrow, no underline bar (Hero «EKSPLORO PORTOFOLIN» family) */
 .luxury-link {
-  @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-accent/90 transition-all duration-300;
+  @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] transition-all duration-300;
   position: relative;
   width: fit-content;
+  font-weight: 500;
+  color: rgba(248, 245, 238, 0.94);
   transition-duration: 280ms;
 }
 
 .luxury-link:hover {
-  @apply gap-3 text-accent;
+  gap: 0.65rem;
+  color: rgba(200, 155, 46, 0.98);
+  transform: translateX(4px);
 }
 
-.luxury-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  height: 1px;
-  width: 100%;
-  transform: scaleX(0.35);
-  transform-origin: left center;
-  background: linear-gradient(90deg, rgba(200, 155, 46, 0.95), rgba(200, 155, 46, 0));
-  opacity: 0.72;
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 260ms ease;
+/* Same typography/hover as .luxury-link when the label sits inside a parent .group <a> (no nested links). */
+.luxury-link-look {
+  @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] transition-all duration-300;
+  position: relative;
+  width: fit-content;
+  font-weight: 500;
+  color: rgba(248, 245, 238, 0.94);
+  transition-duration: 280ms;
 }
 
-.luxury-link:hover::after {
-  transform: scaleX(1);
-  opacity: 1;
+.group:hover .luxury-link-look {
+  gap: 0.65rem;
+  color: rgba(200, 155, 46, 0.98);
+  transform: translateX(4px);
 }
 
 .noir-mark {
@@ -331,6 +348,48 @@ body::before {
 
 .interactive-button:active {
   transform: translateY(0);
+}
+
+/* Primary CTA: gold pill (Hero «FILLO SOT» family) — use with .interactive-button */
+.ip-cta-primary {
+  @apply inline-flex items-center justify-center rounded-full border border-accent/75 bg-accent text-center text-black;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  padding: 0.8rem 1.55rem;
+  box-shadow: 0 0 24px rgba(200, 155, 46, 0.26), 0 4px 18px rgba(0, 0, 0, 0.32);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ip-cta-primary:hover {
+  background-color: #d5ad4f;
+  box-shadow:
+    0 0 0 1px rgba(200, 155, 46, 0.42),
+    0 0 32px rgba(200, 155, 46, 0.35),
+    0 12px 26px rgba(0, 0, 0, 0.36);
+}
+
+.ip-cta-primary--lg {
+  padding: 1.05rem 2.25rem;
+  letter-spacing: 0.18em;
+  box-shadow: 0 0 28px rgba(200, 155, 46, 0.28), 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.ip-cta-primary--sm {
+  padding: 0.38rem 0.75rem;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+@media (min-width: 640px) {
+  .ip-cta-primary--sm {
+    padding: 0.5rem 1rem;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
 }
 
 .trust-pill {
@@ -667,8 +726,6 @@ body::before {
 .hero-headline-trigger,
 .headline-mask,
 .headline-word,
-.hero-process-link,
-.hero-process-link::after,
 .helmet-flow-scene,
 .media-frame {
   will-change: transform, opacity;
@@ -695,6 +752,58 @@ body::before {
   z-index: 2;
 }
 
+.hero-brand-accent {
+  letter-spacing: 0.06em;
+  font-size: 1.18em;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .hero-brand-accent {
+    letter-spacing: 0.1em;
+    font-size: 1.26em;
+  }
+}
+
+/* Hero: helmet blends into page bg (no hard silhouette edge) */
+.helm-radial-feather {
+  -webkit-mask-image: radial-gradient(
+    ellipse 94% 98% at 76% 46%,
+    #000 20%,
+    rgba(0, 0, 0, 0.92) 46%,
+    rgba(0, 0, 0, 0.4) 66%,
+    transparent 82%
+  );
+  mask-image: radial-gradient(
+    ellipse 94% 98% at 76% 46%,
+    #000 20%,
+    rgba(0, 0, 0, 0.92) 46%,
+    rgba(0, 0, 0, 0.4) 66%,
+    transparent 82%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.hero-helmet-img {
+  transform: translateZ(0);
+}
+
+/* Deeper corners + slight lift behind helmet (vs flat #000) */
+.hero-depth-vignette {
+  background: radial-gradient(ellipse 72% 64% at 58% 44%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.22) 62%, rgba(0, 0, 0, 0.72) 100%),
+    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.55), transparent 45%),
+    radial-gradient(circle at 100% 8%, rgba(0, 0, 0, 0.42), transparent 40%);
+  mix-blend-mode: multiply;
+  opacity: 0.88;
+}
+
+.helmet-particles-shift {
+  will-change: transform;
+}
+
 .hero-brand-dot {
   color: rgb(200 155 46);
 }
@@ -712,29 +821,6 @@ body::before {
   opacity: 0.38;
   filter: blur(0.35px);
   mask-image: linear-gradient(90deg, transparent 0%, black 18%, black 100%);
-}
-
-.hero-primary-cta:hover {
-  box-shadow: 0 0 0 1px rgba(200, 155, 46, 0.36), 0 8px 22px rgba(200, 155, 46, 0.18);
-}
-
-.hero-process-link {
-  transform: translateX(0);
-  font-weight: 300;
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), color 280ms ease;
-}
-
-.hero-process-link::after {
-  transform: scaleX(0);
-  opacity: 0.86;
-}
-
-.hero-process-link:hover {
-  transform: translateX(5px);
-}
-
-.hero-process-link:hover::after {
-  transform: scaleX(1);
 }
 
 .helmet-flow-scene::before {
@@ -964,42 +1050,6 @@ body::before {
 }
 
 .group:hover .featured-card-live::after {
-  transform: scaleX(1);
-  opacity: 1;
-}
-
-.featured-grid-cta {
-  position: relative;
-  font-weight: 500;
-  color: #d4af37;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #d4af37, #f0cf72);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: filter 320ms ease, text-shadow 320ms ease;
-}
-
-.featured-grid-cta::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(200, 155, 46, 0.95), rgba(200, 155, 46, 0));
-  transform-origin: left center;
-  transform: scaleX(0.26);
-  transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
-  opacity: 0.78;
-}
-
-.featured-grid-cta:hover {
-  filter: drop-shadow(0 0 8px rgba(200, 155, 46, 0.35));
-  text-shadow: 0 0 14px rgba(200, 155, 46, 0.24);
-}
-
-.featured-grid-cta:hover::after {
   transform: scaleX(1);
   opacity: 1;
 }
@@ -1319,26 +1369,6 @@ body::before {
     radial-gradient(circle at 74% 70%, rgba(200, 155, 46, 0.12), transparent 48%);
   background-size: 140% 120%;
   background-position: 0% 50%;
-}
-
-.footer-main-cta {
-  transition:
-    transform 320ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 320ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 280ms ease;
-}
-
-.footer-main-cta span {
-  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.footer-main-cta:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 0 1px rgba(200, 155, 46, 0.32), 0 12px 34px rgba(200, 155, 46, 0.24);
-}
-
-.footer-main-cta:hover span {
-  transform: translateX(4px);
 }
 
 .footer-link {

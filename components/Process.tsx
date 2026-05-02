@@ -309,10 +309,11 @@ export default function Process() {
             </div>
             <a
               href="/#cta"
-              className="process-end-cta group relative inline-flex w-full shrink-0 items-center justify-center overflow-hidden rounded-[10px] border border-accent/70 bg-accent px-[28px] py-[14px] text-[13px] font-medium text-black no-underline shadow-[0_12px_28px_rgba(200,155,46,0.24)] transition-all duration-300 hover:-translate-y-[1px] hover:brightness-110 sm:w-auto"
+              className="process-end-cta interactive-button ip-cta-primary ip-cta-primary--lg relative inline-flex w-full shrink-0 items-center justify-center no-underline !text-[13px] !font-semibold sm:w-auto"
             >
-              <span className="pointer-events-none absolute inset-y-0 -left-[40%] w-[35%] -skew-x-12 bg-[linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.35),rgba(255,255,255,0))] opacity-0 transition-all duration-700 group-hover:left-[115%] group-hover:opacity-100" />
-              <span className="relative">Nisim projektin →</span>
+              <span className="relative">
+                Fillo Sot <span aria-hidden>→</span>
+              </span>
             </a>
           </div>
         </div>

@@ -78,9 +78,9 @@ export default function LeadMagnet() {
                   />
                   <button
                     type="submit"
-                    className="inline-flex h-[48px] w-full shrink-0 items-center justify-center rounded-[0.8rem] border border-accent/70 bg-accent px-6 text-[13px] font-medium text-black shadow-[0_10px_26px_rgba(200,155,46,0.24)] transition-all duration-300 hover:-translate-y-[1px] hover:brightness-110 sm:w-auto"
+                    className="interactive-button ip-cta-primary inline-flex h-[48px] w-full shrink-0 items-center justify-center !rounded-[0.8rem] !px-6 !text-[13px] sm:w-auto"
                   >
-                    Merr analizën →
+                    Fillo Sot →
                   </button>
                 </div>
               </form>

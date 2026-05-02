@@ -170,9 +170,9 @@ export default function CTA() {
                 onMouseLeave={onLeave}
                 onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
                 data-magnetic="true"
-                className="cta-body-step cadence-cta cta-button cta-premium interactive-button relative inline-flex w-full items-center justify-center overflow-hidden rounded-[0.85rem] border border-accent/75 bg-accent px-8 py-4 text-sm tracking-[0.14em] text-black transition-all duration-300 hover:-translate-y-[1px] hover:brightness-110 hover:shadow-[0_12px_34px_rgba(200,155,46,0.3)] sm:w-auto sm:min-w-[240px] sm:px-10"
+                className="cta-body-step cadence-cta interactive-button ip-cta-primary ip-cta-primary--lg relative inline-flex w-full items-center justify-center overflow-hidden !text-sm sm:w-auto sm:min-w-[240px]"
               >
-                <span className="cta-premium-label relative">Merrni analizën tuaj</span>
+                <span className="cta-premium-label relative">Fillo Sot</span>
               </button>
             </div>
           </div>

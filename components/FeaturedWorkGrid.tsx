@@ -3,12 +3,9 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 import SectionMark from "@/components/SectionMark";
 import { caseStudies, type CaseStudy } from "@/lib/caseStudies";
-
-const MotionLink = motion(Link);
 
 function resultPills(project: CaseStudy): string[] {
   const fromTags = project.tags.slice(0, 3);
@@ -16,19 +13,6 @@ function resultPills(project: CaseStudy): string[] {
   const extra = project.metrics.filter((m) => !fromTags.includes(m));
   return [...fromTags, ...extra].slice(0, 3);
 }
-
-const ctaVariants = {
-  rest: {},
-  hover: {}
-} as const;
-
-const ctaArrowVariants = {
-  rest: { x: 0 },
-  hover: {
-    x: 5,
-    transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] as const }
-  }
-};
 
 export default function FeaturedWorkGrid() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -182,7 +166,7 @@ export default function FeaturedWorkGrid() {
                     </span>
                     <span>{project.location}</span>
                   </p>
-                  <p className="mt-5 max-w-[52ch] font-body text-sm leading-relaxed text-white/72 md:text-base">
+                  <p className="mt-5 max-w-[52ch] whitespace-pre-line font-body text-sm leading-relaxed text-white/72 md:text-base">
                     {project.intro}
                   </p>
 
@@ -199,23 +183,16 @@ export default function FeaturedWorkGrid() {
                   </div>
 
                   {project.liveUrl ? (
-                    <motion.a
+                    <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      variants={ctaVariants}
-                      initial="rest"
-                      whileHover="hover"
-                      whileFocus="hover"
-                      className="featured-grid-cta mt-8 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]"
+                      className="luxury-link mt-8"
                     >
-                      SHIKO PROJEKTIN LIVE
-                      <motion.span aria-hidden variants={ctaArrowVariants} className="inline-block">
-                        {"→"}
-                      </motion.span>
-                    </motion.a>
+                      SHIKO PROJEKTIN LIVE <span aria-hidden>→</span>
+                    </a>
                   ) : (
-                    <span className="featured-grid-cta mt-8 inline-flex items-center gap-2 text-[12px] tracking-[0.18em]">
+                    <span className="luxury-link mt-8 cursor-default opacity-50" aria-disabled>
                       SË SHPEJTI
                     </span>
                   )}
@@ -250,19 +227,9 @@ export default function FeaturedWorkGrid() {
       </div>
 
       <div className="section-wrap pb-2 pt-12">
-        <MotionLink
-          href="/projektet"
-          variants={ctaVariants}
-          initial="rest"
-          whileHover="hover"
-          whileFocus="hover"
-          className="featured-grid-cta inline-flex items-center gap-2 text-[13px] tracking-[0.18em]"
-        >
-          Eksploro të gjitha projektet
-          <motion.span aria-hidden variants={ctaArrowVariants} className="inline-block">
-            {"→"}
-          </motion.span>
-        </MotionLink>
+        <Link href="/projektet" className="luxury-link">
+          Të gjitha projektet <span aria-hidden>→</span>
+        </Link>
       </div>
     </section>
   );

@@ -134,7 +134,7 @@ export default function InquiryModal() {
               Pas rezervimit, të kontaktojmë me një plan të qartë.
             </p>
             {error ? <p className="text-xs text-red-300">{error}</p> : null}
-            <button className="rounded-full border border-accent/70 bg-accent px-6 py-3 text-xs tracking-[0.14em] text-black transition-all duration-300 hover:scale-[1.02]">
+            <button type="button" className="interactive-button ip-cta-primary !text-xs !tracking-[0.14em]">
               DËRGO KËRKESËN
             </button>
           </form>
