@@ -187,9 +187,9 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
             <h2 className="mt-1 max-w-2xl font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
               {data.processHeadline ? (
                 <>
-                  {data.processHeadline.split(/, (.*)/s)[0]},{" "}
+                  {data.processHeadline.split(/, (.*)/)[0]},{" "}
                   <br />
-                  {data.processHeadline.split(/, (.*)/s)[1]}
+                  {data.processHeadline.split(/, (.*)/)[1]}
                 </>
               ) : (
                 <>
