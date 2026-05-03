@@ -6,9 +6,18 @@ import FitOneLineHeading from "@/components/FitOneLineHeading";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlobalCTA from "@/components/GlobalCTA";
-import { serviceCategories } from "@/lib/serviceCategories";
+import ServiceCardHeroVisual, {
+  type ServiceCardVisualVariant
+} from "@/components/ServiceCardHeroVisual";
+import { serviceCategories, type ServiceCategory } from "@/lib/serviceCategories";
 import { useReducedMotion } from "@/lib/gsap";
 import { usePinnedHeroScroll } from "@/lib/usePinnedHeroScroll";
+
+const visualVariantBySlug: Record<ServiceCategory["slug"], ServiceCardVisualVariant> = {
+  "web-ecommerce": "web",
+  "marketing-growth": "marketing",
+  "branding-content": "branding"
+};
 
 export default function SherbimetPageClient() {
   const heroSectionRef = useRef<HTMLElement>(null);
@@ -64,41 +73,38 @@ export default function SherbimetPageClient() {
                   href={`/services/${category.slug}`}
                   onMouseEnter={() => setHoveredCard(idx)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  className={`service-bento-card group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.03)] p-5 backdrop-blur-[2px] [perspective:1000px] [transform-style:preserve-3d] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] hover:[animation-play-state:paused] ${
-                    idx === 0
-                      ? "border-accent/35 shadow-[0_25px_80px_rgba(171, 131, 57,0.25)]"
-                      : "opacity-95 hover:border-accent/35 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(171, 131, 57,0.15)]"
-                  } ${hoveredCard !== null && hoveredCard !== idx ? "opacity-70 scale-[0.99]" : ""}`}
+                  className={`services-lux-grid-card service-bento-card group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-[24px] border border-[#333] !bg-[linear-gradient(165deg,#0B0B0B_0%,#000000_55%,#050505_100%)] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-[6px] [perspective:1000px] [transform-style:preserve-3d] transition-[transform,border-color,box-shadow,opacity,filter] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform before:pointer-events-none before:absolute before:inset-y-0 before:left-[-34%] before:z-[2] before:w-[42%] before:-skew-x-12 before:bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent)] before:opacity-0 before:translate-x-[-120%] before:transition-all before:duration-[800ms] before:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:before:opacity-25 group-hover:before:translate-x-[120%] animate-[servicesIdleGlow_3.6s_ease-in-out_infinite] hover:-translate-y-1.5 hover:border-[#D4AF37] hover:shadow-[0_28px_64px_rgba(0,0,0,0.5),0_0_0_1px_rgba(212,175,55,0.45),0_0_56px_rgba(212,175,55,0.18),inset_0_1px_0_rgba(212,175,55,0.12)] hover:[animation-play-state:paused] motion-reduce:transition-[border-color,box-shadow,opacity] motion-reduce:hover:translate-y-0 md:min-h-[448px] md:rounded-3xl md:p-8 ${
+                    hoveredCard !== null && hoveredCard !== idx ? "opacity-[0.68]" : "opacity-100"
+                  }`}
                 >
-                  <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_20%_8%,rgba(171, 131, 57,0.065),transparent_62%)] opacity-70 transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[radial-gradient(circle_at_72%_20%,rgba(171, 131, 57,0.14),transparent_64%)] group-hover:opacity-100" />
-                  <p className="relative z-[3] text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
-                    {category.subServices.slice(0, 3).join(" · ")}
-                  </p>
+                  <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_90%_60%_at_15%_-10%,rgba(171,131,57,0.07),transparent_55%)] opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_90%_100%,rgba(212,175,55,0.04),transparent_45%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div
+                    className="pointer-events-none absolute inset-x-6 top-0 z-[4] h-px bg-gradient-to-r from-transparent via-[#D4AF37]/45 to-transparent opacity-30 transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden
+                  />
                   <FitOneLineHeading
                     as="h2"
                     minRem={0.76}
-                    className="relative z-[3] mt-2 block w-full min-w-0 font-display leading-[1.12] text-accent/85 translate-y-[10px] opacity-90 tracking-[-0.02em] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:tracking-[-0.02em] group-hover:text-accent group-hover:[text-shadow:0_0_12px_rgba(171, 131, 57,0.22)]"
+                    className="relative z-[6] mt-1 block w-full min-w-0 pr-10 font-display text-[clamp(1.15rem,2.4vw,1.45rem)] leading-[1.15] text-[#ab8339]/88 tracking-[-0.02em] transition-all duration-300 ease-out group-hover:text-[#ab8339] group-hover:[text-shadow:0_0_20px_rgba(171,131,57,0.18)] md:pr-12"
                   >
                     {category.title}
                   </FitOneLineHeading>
-                  <p className="relative z-[3] mt-3 max-w-[58ch] text-sm leading-relaxed text-white/82 transition-opacity duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
+                  <p className="relative z-[6] mt-4 min-h-0 max-w-[54ch] flex-shrink-0 text-[0.9375rem] leading-[1.68] text-white/[0.78] transition-[color,opacity] duration-300 ease-out group-hover:text-white/[0.86] md:text-[15px]">
                     {category.description}
                   </p>
-                  <div className="relative z-[3] mt-4 flex min-h-[62px] flex-wrap content-start gap-2">
-                    {category.subServices.map((item, itemIdx) => (
-                      <span
-                        key={item}
-                        style={{ transitionDelay: `${itemIdx * 40}ms` }}
-                        className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 font-body text-[11px] tracking-[0.02em] text-white/76 scale-[0.98] transition-all duration-[600ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:shadow-[0_0_10px_rgba(171, 131, 57,0.2)]"
-                      >
-                        {item}
-                      </span>
-                    ))}
+                  <div className="relative z-[4] -mt-6 flex min-h-[156px] flex-1 items-center justify-center md:-mt-7 md:min-h-[172px]">
+                    <ServiceCardHeroVisual variant={visualVariantBySlug[category.slug]} />
                   </div>
-                  <p className="relative z-[3] mt-auto pt-5">
-                    <span className="luxury-link-look">
+                  <p className="relative z-[6] mt-auto border-t border-white/[0.09] pt-6">
+                    <span className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/88 transition-colors duration-300 ease-out group-hover:text-[#D4AF37]">
                       Lexo më shumë
-                      <span aria-hidden>→</span>
+                      <span
+                        className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-sm font-normal leading-none text-white/70 transition-[transform,border-color,background-color,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 group-hover:border-[#D4AF37]/35 group-hover:bg-[#D4AF37]/10 group-hover:text-[#D4AF37]"
+                        aria-hidden
+                      >
+                        →
+                      </span>
                     </span>
                   </p>
                 </Link>

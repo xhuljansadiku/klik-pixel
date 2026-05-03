@@ -109,46 +109,46 @@ export default function Hero() {
           headlineRef.current?.addEventListener("mouseleave", onHeadlineLeave);
         }
 
-            if (visualRef.current) {
-              if (!isMobile) {
-                const setParallaxX = gsap.quickTo(visualRef.current, "--helmet-parallax-x", {
-                  duration: 0.85,
-                  ease: "power2.out"
-                });
-                const setParallaxY = gsap.quickTo(visualRef.current, "--helmet-parallax-y", {
-                  duration: 0.85,
-                  ease: "power2.out"
-                });
-                const xGlow = gsap.quickTo(depthGlowRef.current, "x", { duration: 0.85, ease: "power2.out" });
-                const yGlow = gsap.quickTo(depthGlowRef.current, "y", { duration: 0.85, ease: "power2.out" });
-                const inner = particlesInnerRef.current;
-                const setParticleX = inner
-                  ? gsap.quickTo(inner, "x", { duration: 1.15, ease: "power2.out" })
-                  : null;
-                const setParticleY = inner
-                  ? gsap.quickTo(inner, "y", { duration: 1.15, ease: "power2.out" })
-                  : null;
+        if (visualRef.current) {
+          if (!isMobile) {
+            const setParallaxX = gsap.quickTo(visualRef.current, "--helmet-parallax-x", {
+              duration: 0.85,
+              ease: "power2.out"
+            });
+            const setParallaxY = gsap.quickTo(visualRef.current, "--helmet-parallax-y", {
+              duration: 0.85,
+              ease: "power2.out"
+            });
+            const xGlow = gsap.quickTo(depthGlowRef.current, "x", { duration: 0.85, ease: "power2.out" });
+            const yGlow = gsap.quickTo(depthGlowRef.current, "y", { duration: 0.85, ease: "power2.out" });
+            const inner = particlesInnerRef.current;
+            const setParticleX = inner
+              ? gsap.quickTo(inner, "x", { duration: 1.15, ease: "power2.out" })
+              : null;
+            const setParticleY = inner
+              ? gsap.quickTo(inner, "y", { duration: 1.15, ease: "power2.out" })
+              : null;
 
-                onVisualMove = (event: PointerEvent) => {
-                  const rect = visualRef.current!.getBoundingClientRect();
-                  const px = (event.clientX - rect.left) / rect.width - 0.5;
-                  const py = (event.clientY - rect.top) / rect.height - 0.5;
-                  setParallaxX(px * 8);
-                  setParallaxY(py * -6);
-                  xGlow(px * 8);
-                  yGlow(py * -7);
-                  setParticleX?.(px * 5);
-                  setParticleY?.(py * -4);
-                };
+            onVisualMove = (event: PointerEvent) => {
+              const rect = visualRef.current!.getBoundingClientRect();
+              const px = (event.clientX - rect.left) / rect.width - 0.5;
+              const py = (event.clientY - rect.top) / rect.height - 0.5;
+              setParallaxX(px * 8);
+              setParallaxY(py * -6);
+              xGlow(px * 8);
+              yGlow(py * -7);
+              setParticleX?.(px * 5);
+              setParticleY?.(py * -4);
+            };
 
-                onVisualLeave = () => {
-                  setParallaxX(0);
-                  setParallaxY(0);
-                  xGlow(0);
-                  yGlow(0);
-                  setParticleX?.(0);
-                  setParticleY?.(0);
-                };
+            onVisualLeave = () => {
+              setParallaxX(0);
+              setParallaxY(0);
+              xGlow(0);
+              yGlow(0);
+              setParticleX?.(0);
+              setParticleY?.(0);
+            };
 
             visualRef.current.addEventListener("pointermove", onVisualMove);
             visualRef.current.addEventListener("pointerleave", onVisualLeave);
@@ -219,7 +219,6 @@ export default function Hero() {
           repeat: -1,
           ease: "sine.inOut"
         });
-
       }
     }, sectionRef);
 

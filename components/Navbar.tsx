@@ -1,15 +1,16 @@
 ﻿"use client";
 
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ensureGSAP, useIsomorphicLayoutEffect } from "@/lib/gsap";
+import { ensureGSAP, MOTION, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 import MobileMenu from "@/components/MobileMenu";
 
 const navItems = [
   { id: "hero", label: "Home", href: "/", sectionId: "hero" },
-  { id: "services", label: "Sherbimet", href: "/sherbimet", sectionId: "services" },
+  { id: "services", label: "Sh\u00ebrbimet", href: "/sherbimet", sectionId: "services" },
+  { id: "pricing", label: "\u00c7mimet", href: "/cmimet" },
   { id: "featured-work", label: "Projektet", href: "/projektet", sectionId: "featured-work" },
   { id: "blog", label: "Blog", href: "/blog" },
   { id: "contact", label: "Kontakt", href: "/contact", sectionId: "cta" }
@@ -18,8 +19,14 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
+  const reduced = useReducedMotion();
+  const headerRef = useRef<HTMLElement>(null);
+  const desktopNavRef = useRef<HTMLDivElement>(null);
+  const actionsRef = useRef<HTMLDivElement>(null);
+
   const activeFromPath = (() => {
     if (pathname === "/") return "hero";
+    if (pathname.startsWith("/cmimet")) return "pricing";
     if (pathname.startsWith("/services") || pathname.startsWith("/sherbimet")) return "services";
     if (pathname.startsWith("/work") || pathname.startsWith("/projektet")) return "featured-work";
     if (pathname.startsWith("/blog")) return "blog";
@@ -30,6 +37,42 @@ export default function Navbar() {
   const [active, setActive] = useState(activeFromPath);
   const [mobileOpen, setMobileOpen] = useState(false);
   const sectionItems = useMemo(() => navItems.filter((item) => item.sectionId), []);
+
+  useLayoutEffect(() => {
+    if (reduced) return;
+    const { gsap } = ensureGSAP();
+    const headerEl = headerRef.current;
+    const desktop = desktopNavRef.current;
+    const actions = actionsRef.current;
+    if (!headerEl || !actions) return;
+
+    const ctx = gsap.context(() => {
+      const linkInners = desktop?.querySelectorAll<HTMLElement>(".ip-nav-link-inner");
+      const tl = gsap.timeline({ defaults: { ease: MOTION.ease.enter } });
+      const linkStart = 0;
+      if (linkInners?.length) {
+        tl.from(
+          linkInners,
+          {
+            opacity: 0,
+            y: -10,
+            filter: "blur(4px)",
+            stagger: MOTION.stagger.tight,
+            duration: MOTION.duration.fast + 0.14,
+            ease: "power3.out"
+          },
+          linkStart
+        );
+      }
+      tl.from(
+        actions,
+        { opacity: 0, y: -8, filter: "blur(4px)", duration: MOTION.duration.base, ease: "power3.out" },
+        linkInners?.length ? 0.08 : 0
+      );
+    }, headerEl);
+
+    return () => ctx.revert();
+  }, [reduced]);
 
   useIsomorphicLayoutEffect(() => {
     const { ScrollTrigger } = ensureGSAP();
@@ -62,6 +105,20 @@ export default function Navbar() {
     setActive(activeFromPath);
   }, [activeFromPath]);
 
+  useIsomorphicLayoutEffect(() => {
+    if (reduced) return;
+    const { gsap } = ensureGSAP();
+    const el = headerRef.current;
+    if (!el) return;
+    gsap.to(el, {
+      boxShadow: isScrolled
+        ? "0 12px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.04) inset"
+        : "0 0 0 rgba(0,0,0,0)",
+      duration: MOTION.duration.fast + 0.1,
+      ease: MOTION.ease.smooth
+    });
+  }, [isScrolled, reduced]);
+
   const navigate = (item: (typeof navItems)[number]) => {
     router.push(item.href);
     setActive(item.id);
@@ -71,12 +128,22 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[60] transition-all duration-500 ${
+        ref={headerRef}
+        className={`fixed inset-x-0 top-0 z-[60] transition-[background-color,border-color,backdrop-filter] duration-500 ${
           isScrolled ? "border-b border-white/[0.05] bg-[#0b0b0b]/72 backdrop-blur-[12px]" : "bg-transparent"
         }`}
       >
-        <nav className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-5 md:h-[72px] md:px-10 lg:px-14">
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px opacity-80"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, rgba(var(--color-accent-rgb), 0.45), rgba(var(--color-accent-light-rgb), 0.35), transparent)"
+          }}
+          aria-hidden
+        />
+        <nav className="relative mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between gap-2 px-3 sm:gap-3 sm:px-5 md:h-[72px] md:px-10 lg:px-14">
           <button
+            type="button"
             onClick={(e) => {
               if (e.altKey) {
                 e.preventDefault();
@@ -85,28 +152,28 @@ export default function Navbar() {
               }
               navigate(navItems[0]);
             }}
-            className="inline-flex items-center"
-            aria-label="Shko te fillimi (Alt+klik për surprizë të vogël)"
+            className="flex min-w-0 flex-1 items-center text-left sm:flex-initial sm:min-w-0"
+            aria-label="Shko te fillimi (Alt+klik p\u00ebr surpriz\u00eb t\u00eb vog\u00ebl)"
           >
-            <span className="inline-flex max-w-[min(400px,92vw)] items-center gap-[10px] whitespace-nowrap transition-all duration-300 hover:-translate-y-[1px] hover:opacity-90">
+            <span className="inline-flex min-w-0 max-w-full items-center gap-1.5 transition-all duration-300 hover:-translate-y-[1px] hover:opacity-90 sm:gap-2.5 md:gap-[10px]">
               <Image
                 src="/images/illyrianpixel_logo.png"
                 alt=""
                 width={200}
                 height={72}
-                className="h-9 w-auto max-w-[104px] shrink-0 object-contain md:max-w-[118px]"
+                className="h-8 w-auto max-w-[76px] shrink-0 object-contain sm:h-9 sm:max-w-[104px] md:max-w-[118px]"
               />
               <Image
                 src="/images/illyrianpixel_text.png"
                 alt="Illyrian Pixel"
                 width={360}
                 height={72}
-                className="h-9 w-auto max-w-[min(220px,46vw)] object-contain object-left md:max-w-[260px]"
+                className="h-8 min-w-0 w-auto max-w-[min(118px,30vw)] shrink object-contain object-left sm:h-9 sm:max-w-[min(180px,36vw)] md:max-w-[min(220px,46vw)] lg:max-w-[260px]"
               />
             </span>
           </button>
-          {/* end brand */}
-          <div className="hidden items-center gap-7 lg:flex">
+
+          <div ref={desktopNavRef} className="hidden items-center gap-8 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.id}
@@ -115,8 +182,10 @@ export default function Navbar() {
                   e.preventDefault();
                   navigate(item);
                 }}
-                className={`text-sm tracking-[0.08em] transition-colors duration-300 ${
-                  active === item.id ? "text-accent" : "text-white/64 hover:text-white/88"
+                className={`ip-nav-link-inner text-[13px] font-semibold tracking-[0.1em] transition-colors duration-300 ${
+                  active === item.id
+                    ? "text-accent hover:text-accentLight"
+                    : "text-white/64 hover:text-accentLight"
                 }`}
               >
                 {item.label}
@@ -124,20 +193,26 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div ref={actionsRef} className="flex shrink-0 items-center gap-2 sm:gap-2.5 md:gap-3">
             <button
+              type="button"
               onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
               data-magnetic="true"
-              className="interactive-button ip-cta-primary hidden md:inline-flex"
+              className="interactive-button ip-cta-primary ip-cta-navbar inline-flex items-center justify-center self-center"
             >
               Fillo Sot
             </button>
             <button
+              type="button"
               onClick={() => setMobileOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/80 lg:hidden"
-              aria-label="Hap menunë"
+              className="inline-flex h-10 min-h-[40px] w-10 min-w-[40px] touch-manipulation items-center justify-center rounded-full border border-white/18 bg-white/[0.03] text-white/85 transition-colors duration-300 hover:border-accent/55 hover:bg-white/[0.06] hover:text-accentLight lg:hidden"
+              aria-label="Hap menun\u00eb"
             >
-              <span className="text-lg leading-none">☰</span>
+              <span className="flex h-5 w-5 flex-col items-center justify-center gap-[5px]" aria-hidden>
+                <span className="block h-0.5 w-[18px] rounded-full bg-current" />
+                <span className="block h-0.5 w-[18px] rounded-full bg-current" />
+                <span className="block h-0.5 w-[18px] rounded-full bg-current" />
+              </span>
             </button>
           </div>
         </nav>
@@ -153,10 +228,3 @@ export default function Navbar() {
     </>
   );
 }
-
-
-
-
-
-
-

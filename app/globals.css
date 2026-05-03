@@ -383,10 +383,82 @@ body::before {
   box-shadow: 0 0 28px rgba(171, 131, 57, 0.28), 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
+/* Web / E-Commerce service hero — primary CTA gold glow pulse */
+@keyframes svcWebHeroCtaGlowPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 24px rgba(171, 131, 57, 0.26),
+      0 4px 18px rgba(0, 0, 0, 0.32);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(212, 175, 55, 0.35),
+      0 0 36px rgba(212, 175, 55, 0.38),
+      0 0 56px rgba(212, 175, 55, 0.14),
+      0 6px 22px rgba(0, 0, 0, 0.36);
+  }
+}
+
+.svc-web-hero-cta-pulse.ip-cta-primary {
+  animation: svcWebHeroCtaGlowPulse 2.75s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-web-hero-cta-pulse.ip-cta-primary {
+    animation: none;
+  }
+}
+
 .ip-cta-primary--sm {
   padding: 0.38rem 0.75rem;
   font-size: 10px;
   letter-spacing: 0.12em;
+}
+
+/* Navbar CTA: stays one line, fits inside h-14 / h-16 header on phones */
+.ip-cta-navbar {
+  flex-shrink: 0;
+  white-space: nowrap;
+  line-height: 1.15;
+  max-height: 2.75rem;
+  padding: 0.45rem 0.72rem;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 0 16px rgba(171, 131, 57, 0.22), 0 3px 12px rgba(0, 0, 0, 0.28);
+}
+
+@media (min-width: 380px) {
+  .ip-cta-navbar {
+    padding: 0.48rem 0.95rem;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (min-width: 480px) {
+  .ip-cta-navbar {
+    padding: 0.52rem 1.15rem;
+    font-size: 10px;
+    letter-spacing: 0.13em;
+  }
+}
+
+@media (min-width: 768px) {
+  .ip-cta-navbar {
+    max-height: none;
+    padding: 0.65rem 1.35rem;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    box-shadow: 0 0 24px rgba(171, 131, 57, 0.26), 0 4px 18px rgba(0, 0, 0, 0.32);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ip-cta-navbar {
+    padding: 0.8rem 1.55rem;
+    letter-spacing: 0.16em;
+  }
 }
 
 @media (min-width: 640px) {
@@ -594,6 +666,34 @@ body::before {
 .service-bento-card {
   border-color: rgba(234, 206, 113, 0.2);
   background: linear-gradient(165deg, rgba(20, 20, 20, 0.94), rgba(15, 15, 15, 0.95));
+}
+
+/* Home «SHËRBIMET TONA» — premium service cards */
+.services-lux-grid-card {
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.services-lux-grid-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.14);
+  transition: opacity 0.35s ease;
+}
+
+.services-lux-grid-card:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-lux-grid-card::after {
+    transition: none;
+  }
 }
 
 .services-luxe-card:hover {
@@ -1091,6 +1191,27 @@ body::before {
   }
 }
 
+/* Portfolio section — Bardhi Wellness floating 'B' coin spin */
+@keyframes portfolioBSpinY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.portfolio-b-spin {
+  animation: portfolioBSpinY 9s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-b-spin {
+    animation: none;
+  }
+}
+
 @keyframes servicesBreath {
   0% {
     transform: translateY(-50%) scale(1);
@@ -1103,6 +1224,80 @@ body::before {
   100% {
     transform: translateY(-50%) scale(1);
     opacity: 0.75;
+  }
+}
+
+/* Home service cards — hero visuals (gold / frost) */
+@keyframes serviceCardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes serviceWebGridBreathe {
+  0%,
+  100% {
+    opacity: 0.42;
+  }
+  50% {
+    opacity: 0.88;
+  }
+}
+
+@keyframes serviceWebWireTilt {
+  0%,
+  100% {
+    transform: rotate(-1.6deg) scale(1);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.02);
+  }
+}
+
+@keyframes serviceMarketingPulse {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.62;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes serviceBrandingRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes brandingOrbitGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.32)) drop-shadow(0 0 42px rgba(212, 175, 55, 0.12));
+    opacity: 0.88;
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.48)) drop-shadow(0 0 64px rgba(212, 175, 55, 0.2));
+    opacity: 1;
+  }
+}
+
+/* Web / E-Commerce service hero — wireframe cube (Y rotation only; float uses serviceCardFloat) */
+@keyframes serviceHeroCubeRotateY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
   }
 }
 

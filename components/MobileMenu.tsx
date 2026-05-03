@@ -41,8 +41,10 @@ export default function MobileMenu({ isOpen, navItems, active, onClose, onNaviga
               key={item.id}
               href={item.href}
               onClick={() => onNavigate(item)}
-              className={`text-left font-display text-[clamp(1.8rem,7.6vw,2.25rem)] leading-[0.95] ${
-                active === item.id ? "text-accent" : "text-white/86"
+              className={`text-left font-display text-[clamp(1.8rem,7.6vw,2.25rem)] leading-[0.95] transition-colors duration-300 ${
+                active === item.id
+                  ? "text-accent hover:text-accentLight"
+                  : "text-white/86 hover:text-accentLight"
               }`}
             >
               {item.label}
