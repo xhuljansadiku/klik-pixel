@@ -117,11 +117,14 @@ export default function FeaturedWorkGrid() {
       <div className="section-wrap featured-chapters-intro">
         <SectionMark label={"PROJEKTET E P\u00cbRZGJEDHURA"} />
         <h2 className="section-title mt-3 max-w-4xl">
-          {"Faqe q\u00eb punojn\u00eb."}
+          {"Website q\u00eb sjellin klient\u00eb."}
           <br />
           {"Biznese q\u00eb "}
-          <span className="text-accent">rriten</span>.
+          <span className="text-accent">rriten realisht</span>.
         </h2>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary/65 md:text-lg">
+          {"Jo thjesht projekte, por sisteme q\u00eb gjenerojn\u00eb klient\u00eb."}
+        </p>
       </div>
 
       <div className="mt-10 md:mt-12">

@@ -10,6 +10,7 @@ import MobileMenu from "@/components/MobileMenu";
 const navItems = [
   { id: "hero", label: "Home", href: "/", sectionId: "hero" },
   { id: "services", label: "Sh\u00ebrbimet", href: "/sherbimet", sectionId: "services" },
+  { id: "pse-ne", label: "Pse ne", href: "/", sectionId: "pse-ne" },
   { id: "pricing", label: "\u00c7mimet", href: "/cmimet" },
   { id: "featured-work", label: "Projektet", href: "/projektet", sectionId: "featured-work" },
   { id: "blog", label: "Blog", href: "/blog" },
@@ -120,6 +121,15 @@ export default function Navbar() {
   }, [isScrolled, reduced]);
 
   const navigate = (item: (typeof navItems)[number]) => {
+    if (item.sectionId && pathname === "/") {
+      const el = document.getElementById(item.sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        setActive(item.id);
+        setMobileOpen(false);
+        return;
+      }
+    }
     router.push(item.href);
     setActive(item.id);
     setMobileOpen(false);

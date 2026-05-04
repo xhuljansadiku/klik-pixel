@@ -239,7 +239,7 @@ export default function Hero() {
       className="cinematic-section section-tone-hero relative min-h-screen overflow-hidden"
     >
       <h1 className="sr-only">
-        Agjensi Dixhitale për Biznese Shqiptare, Website, Marketing dhe Branding
+        Më shumë klientë për biznesin tuaj — Website, SEO dhe Marketing për biznese shqiptare
       </h1>
       <div
         ref={gradientRef}
@@ -263,14 +263,14 @@ export default function Hero() {
           </div>
           <h2
             ref={headlineRef}
-            className="hero-headline-trigger cadence-title font-display relative max-w-[12ch] text-[clamp(2.55rem,7.8vw,6.9rem)] font-bold leading-[1.05] tracking-[-0.02em]"
+            className="hero-headline-trigger cadence-title font-display relative max-w-[22ch] text-[clamp(2rem,4vw,3.6rem)] font-bold leading-[1.08] tracking-[-0.02em]"
           >
             <span className="headline-mask block overflow-hidden">
               <span className="headline-word block">
-                Ktheje biznesin në{" "}
+                Më shumë klientë{" "}
                 <span className="hero-brand-word">
-                  <span className="hero-brand-accent text-accent inline-block font-black uppercase">
-                    BRAND.
+                  <span className="hero-brand-accent text-accent inline-block font-black">
+                    për biznesin tuaj.
                   </span>
                 </span>
               </span>
@@ -283,9 +283,15 @@ export default function Hero() {
           >
             <span className="block h-px w-8 shrink-0 bg-accent/55" aria-hidden />
             <p className="font-body text-[1rem] font-light leading-[1.5] tracking-[0.1em] text-white/62">
-              Nga klikimi te klienti
+              Ndërtojmë website, SEO dhe marketing online për biznese shqiptare në Shqipëri dhe diasporë.
             </p>
           </div>
+          <p className="font-body text-[0.9rem] font-light tracking-[0.04em] text-accent/80 text-center lg:text-left">
+            Plan konkret brenda 24 orëve pa pagesë.
+          </p>
+          <p className="font-body text-[0.85rem] font-light tracking-[0.08em] text-white/45 text-center lg:text-left">
+            Ju fokusohuni te biznesi. Klientët i sjellim ne.
+          </p>
           <div className="hero-cta cadence-cta flex flex-wrap items-center justify-center gap-4 md:gap-5 lg:justify-start">
             <Link
               ref={ctaRef}
@@ -293,11 +299,19 @@ export default function Hero() {
               data-magnetic="true"
               className="interactive-button ip-cta-primary ip-cta-primary--lg"
             >
-              FILLO SOT
+              Merr ofertë falas
             </Link>
             <a href="/projektet" className="luxury-link">
-              EKSPLORO PORTOFOLIN <span aria-hidden>→</span>
+              Shiko projektet <span aria-hidden>→</span>
             </a>
+          </div>
+          <div className="flex flex-col items-center gap-2 lg:items-start">
+            <p className="font-mono text-[11px] tracking-[0.1em] text-white/25 text-center lg:text-left">
+              Pa kosto · Pa detyrim · Përgjigje brenda 24 orëve
+            </p>
+            <p className="font-body text-[11px] tracking-[0.06em] text-white/35 text-center lg:text-left">
+              +100 projekte · Biznese në Shqipëri &amp; diasporë
+            </p>
           </div>
         </div>
         <div

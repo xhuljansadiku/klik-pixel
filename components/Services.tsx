@@ -61,13 +61,12 @@ export default function Services() {
           <SectionMark label="SHËRBIMET TONA" eyebrowClassName="!tracking-[0.32em] md:!tracking-[0.4em]" />
         </div>
         <h2 className="services-intro-item cadence-title section-title mt-3 max-w-4xl tracking-[-0.02em]">
-          Ne <span className="text-[#ab8339]">punojmë</span>.
-          <br />
-          Biznesi juaj <span className="text-[#ab8339]">rritet</span>.
+          <span className="block">Website, marketing dhe branding</span>
+          <span className="block">për më shumë <span className="text-[#ab8339]">klientë dhe shitje</span>.</span>
         </h2>
         <div className="services-intro-item mt-4 max-w-2xl">
           <p className="cadence-body muted text-sm md:text-base">
-            Bashkëpunojmë me biznese që duan më shumë se sa një faqe interneti.
+            Bashkëpunojmë me biznese Shqiptare që duan më shumë se një faqe interneti, duan rezultate reale dhe klientë të rinj.
           </p>
         </div>
 
