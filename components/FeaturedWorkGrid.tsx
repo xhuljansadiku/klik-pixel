@@ -213,7 +213,7 @@ export default function FeaturedWorkGrid() {
                     <div className="group/img relative aspect-[16/10] overflow-hidden">
                       <Image
                         src={project.heroImage}
-                        alt={`Pamje e projektit ${project.title}`}
+                        alt={`${project.title} — ${project.category} | Illyrian Pixel`}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         className="object-cover object-top transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/img:scale-[1.03]"

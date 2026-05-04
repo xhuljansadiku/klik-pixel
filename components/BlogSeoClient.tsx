@@ -152,11 +152,11 @@ export default function BlogSeoClient() {
               </p>
               <div className="mt-5">
                 <Link
-                  href="/#lead-magnet"
+                  href="/contact"
                   data-magnetic="true"
                   className="interactive-button ip-cta-primary ip-cta-primary--lg group max-w-full gap-2 text-center !px-6 !py-3.5 !text-[12px] !leading-snug !tracking-[0.08em] sm:!px-8 sm:!text-sm sm:!tracking-[0.1em]"
                 >
-                  <span>Fillo Sot — Kontrollo SEO-n Falas</span>
+                  <span>Fillo sot — Kontrollo SEO-n Falas</span>
                   <span aria-hidden className="shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
                     →
                   </span>

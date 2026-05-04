@@ -268,7 +268,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
               <SectionMark label="Projekte" eyebrowClassName="tracking-[0.22em]" />
               <h2 className="mt-1 max-w-xl font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
                 Rezultate në{" "}
-                <span className="text-[#D4AF37]">biznes real.</span>
+                <span className="text-[#D4AF37]">biznese reale.</span>
               </h2>
             </div>
             <Link href="/projektet" className="luxury-link shrink-0 text-[12px]">

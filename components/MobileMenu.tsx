@@ -30,7 +30,7 @@ export default function MobileMenu({ isOpen, navItems, active, onClose, onNaviga
     <div className="fixed inset-0 z-[80] bg-bg/94 backdrop-blur-xl">
       <div className="flex h-full flex-col px-5 py-5 sm:px-6 sm:py-6">
         <div className="flex items-center justify-between">
-          <p className="font-ui text-[11px] font-bold lowercase tracking-[1px] text-muted">menu</p>
+          <p className="font-ui text-[11px] font-bold tracking-[1px] text-muted">Menu</p>
           <button aria-label="Mbyll menunë" onClick={onClose} className="text-2xl text-white/82">
             ×
           </button>
@@ -41,7 +41,7 @@ export default function MobileMenu({ isOpen, navItems, active, onClose, onNaviga
               key={item.id}
               href={item.href}
               onClick={() => onNavigate(item)}
-              className={`text-left font-ui text-[clamp(1.25rem,5.5vw,1.65rem)] font-bold lowercase leading-tight tracking-[1px] transition-colors duration-300 ${
+              className={`text-left font-ui text-[clamp(1.25rem,5.5vw,1.65rem)] font-bold leading-tight tracking-[1px] transition-colors duration-300 ${
                 active === item.id
                   ? "text-accent hover:text-accentLight"
                   : "text-text hover:text-accentLight"
@@ -51,15 +51,13 @@ export default function MobileMenu({ isOpen, navItems, active, onClose, onNaviga
             </Link>
           ))}
         </div>
-        <button
-          onClick={() => {
-            window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
-            onClose();
-          }}
+        <Link
+          href="/contact"
+          onClick={() => onClose()}
           className="interactive-button ip-cta-primary mt-3 inline-flex w-full justify-center sm:w-auto"
         >
-          Fillo Sot
-        </button>
+          Fillo sot
+        </Link>
       </div>
     </div>
   );

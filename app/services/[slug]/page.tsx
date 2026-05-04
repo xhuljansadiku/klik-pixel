@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, seo as seoConfig } from "@/lib/seo";
 import { serviceCategoryBySlug } from "@/lib/serviceCategories";
 import ServiceCategoryDetailPage from "@/components/ServiceCategoryDetailPage";
 
@@ -21,24 +21,24 @@ export function generateStaticParams() {
 
 const SEO: Record<(typeof SERVICE_SLUGS)[number], { title: string; desc: string }> = {
   website: {
-    title: "Website profesionale — Tiranë & diasporë",
-    desc: "Website premium me dizajn luksoz, SEO dhe konvertim — ndërtuar për bizneset shqiptare. Konsultim falas, plan brenda 24h. Illyrian Pixel.",
+    title: "Website Premium me Konvertim të Lartë — Tiranë & Diasporë",
+    desc: "Ndërtojmë website luksoz me dizajn editorial, SEO on-page dhe arkitekturë konvertimi. Çdo faqe është strategji, jo vetëm estetikë. Konsultim falas · Plan 24h.",
   },
   ecommerce: {
-    title: "E-Commerce & dyqane online — Shqipëri & diasporë",
-    desc: "Dyqane online me checkout të optimizuar, pagesa Stripe/PayPal dhe analitikë shitjesh. 0 kosto konsultimi — Illyrian Pixel.",
+    title: "E-Commerce & Dyqane Online me ROI të Matshëm — Shqipëri",
+    desc: "Dyqane online me checkout të optimizuar, pagesa të integruara dhe analitikë shitjesh. Çdo element është projektuar për të rritur vlerën mesatare të porosisë. 0 kosto konsultimi.",
   },
   "marketing-growth": {
-    title: "Marketing & rritje për biznese — Tiranë & diasporë",
-    desc: "Ndaloni humbjen: më shumë thirrje dhe shitje për biznese në Tiranë dhe diasporë. Strategji, faqe që konvertojnë, ads të matura. Illyrian Pixel.",
+    title: "Marketing Strategjik për Biznese — SEO, Ads & Konvertim",
+    desc: "Marketing strategjik me ROI të matshëm: SEO që ndërton autoritet, Google Ads të optimizuara dhe faqe landing që konvertojnë. Më shumë klientë, jo thjesht trafik.",
   },
   "branding-content": {
-    title: "Branding & identitet luksoz — Tiranë & diasporë",
-    desc: "Privilegj i heshtur, prani luksoze: pozicionim dhe identitet për status, besim dhe klientë më të përzgjedhur. Illyrian Pixel.",
+    title: "Branding Identitar Luksoz — Pozicionim & Identitet Premium",
+    desc: "Branding që vendos çmimin tuaj. Identitet vizual, strategji mesazhi dhe pozicionim premium që tërheq klientët e duhur dhe justifikon çmimet e larta.",
   },
   smm: {
-    title: "Social Media Marketing — Instagram, Facebook, TikTok",
-    desc: "Menaxhim i plotë i social media: content, dizajn, posting dhe angazhim — për bizneset shqiptare. Plan konkret brenda 24h. Illyrian Pixel.",
+    title: "Social Media Marketing Premium — Instagram, Facebook, TikTok",
+    desc: "Menaxhim i plotë strategjik i rrjeteve sociale: content editorial, dizajn premium, posting i optimizuar dhe angazhim real. Ndërtojmë komunitet, jo vetëm followerë.",
   },
 };
 
@@ -49,10 +49,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildMetadata(seo.title, seo.desc, `/services/${slug}`);
 }
 
+const SERVICE_LABELS: Record<(typeof SERVICE_SLUGS)[number], string> = {
+  website: "Website Premium",
+  ecommerce: "E-Commerce",
+  "marketing-growth": "Marketing & Growth",
+  "branding-content": "Branding & Content",
+  smm: "Social Media",
+};
+
 export default async function ServiceDetailPage({ params }: Props) {
   const { slug } = await Promise.resolve(params);
   if (!SERVICE_SLUGS.includes(slug as (typeof SERVICE_SLUGS)[number])) notFound();
   const category = serviceCategoryBySlug(slug);
   if (!category) notFound();
-  return <ServiceCategoryDetailPage category={category} />;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: seoConfig.siteUrl },
+      { "@type": "ListItem", position: 2, name: "Shërbimet", item: `${seoConfig.siteUrl}/sherbimet` },
+      { "@type": "ListItem", position: 3, name: SERVICE_LABELS[slug as (typeof SERVICE_SLUGS)[number]], item: `${seoConfig.siteUrl}/services/${slug}` }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <ServiceCategoryDetailPage category={category} />
+    </>
+  );
 }

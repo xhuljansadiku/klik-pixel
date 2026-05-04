@@ -235,7 +235,7 @@ body::before {
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: var(--type-caption);
   font-weight: 600;
-  text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--color-text-muted);
 }
@@ -248,11 +248,11 @@ body::before {
   opacity: 0.42;
 }
 
-/* Secondary CTA — boutique: sans, lowercase, airy tracking */
+/* Secondary CTA — boutique: sans, uppercase, airy tracking */
 .luxury-link {
   @apply inline-flex items-center gap-2 text-xs transition-all duration-300;
   font-family: var(--font-body), system-ui, sans-serif;
-  text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
   width: fit-content;
@@ -271,7 +271,7 @@ body::before {
 .luxury-link-look {
   @apply inline-flex items-center gap-2 text-xs transition-all duration-300;
   font-family: var(--font-body), system-ui, sans-serif;
-  text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
   width: fit-content;
@@ -380,7 +380,7 @@ body::before {
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 700;
-  text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: 1px;
   padding: 0.8rem 1.55rem;
   box-shadow: 0 0 24px rgba(171, 131, 57, 0.26), 0 4px 18px rgba(0, 0, 0, 0.32);
@@ -435,7 +435,7 @@ body::before {
   padding: 0.38rem 0.75rem;
   font-size: 10px;
   letter-spacing: 1px;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 /* Navbar CTA: stays one line, fits inside h-14 / h-16 header on phones */
@@ -447,7 +447,7 @@ body::before {
   padding: 0.45rem 0.72rem;
   font-size: 9px;
   letter-spacing: 1px;
-  text-transform: lowercase;
+  text-transform: uppercase;
   box-shadow: 0 0 16px rgba(171, 131, 57, 0.22), 0 3px 12px rgba(0, 0, 0, 0.28);
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { MouseEvent, useRef } from "react";
+import Link from "next/link";
 import { ensureGSAP, MOTION, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 import SectionMark from "@/components/SectionMark";
 
@@ -10,7 +11,7 @@ export default function CTA() {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const bgRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const buttonRef = useRef<HTMLAnchorElement | null>(null);
   const reducedMotion = useReducedMotion();
 
   useIsomorphicLayoutEffect(() => {
@@ -112,7 +113,7 @@ export default function CTA() {
     return () => ctx.revert();
   }, [reducedMotion]);
 
-  const onMove = (event: MouseEvent<HTMLButtonElement>) => {
+  const onMove = (event: MouseEvent<HTMLAnchorElement>) => {
     if (reducedMotion || !buttonRef.current) return;
     const rect = buttonRef.current.getBoundingClientRect();
     const x = event.clientX - (rect.left + rect.width / 2);
@@ -164,16 +165,16 @@ export default function CTA() {
               </h2>
             </div>
             <div className="relative flex items-center justify-center p-2 md:p-4 lg:max-w-md lg:justify-self-end">
-              <button
+              <Link
                 ref={buttonRef}
+                href="/contact"
                 onMouseMove={onMove}
                 onMouseLeave={onLeave}
-                onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
                 data-magnetic="true"
                 className="cta-body-step cadence-cta interactive-button ip-cta-primary ip-cta-primary--lg relative inline-flex w-full items-center justify-center overflow-hidden !text-sm sm:w-auto sm:min-w-[240px]"
               >
-                <span className="cta-premium-label relative">Fillo Sot</span>
-              </button>
+                <span className="cta-premium-label relative">Fillo sot</span>
+              </Link>
             </div>
           </div>
         </div>

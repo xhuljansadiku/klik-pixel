@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ensureGSAP, useIsomorphicLayoutEffect } from "@/lib/gsap";
 
@@ -167,17 +168,9 @@ export default function ProposalMiniModal() {
               VAZHDO
             </button>
           ) : (
-            <button
-              type="button"
-              onClick={() => {
-                window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
-                close();
-              }}
-              data-magnetic="true"
-              className="interactive-button ip-cta-primary"
-            >
+            <Link href="/contact" onClick={close} data-magnetic="true" className="interactive-button ip-cta-primary">
               FILLO SOT
-            </button>
+            </Link>
           )}
         </div>
       </div>

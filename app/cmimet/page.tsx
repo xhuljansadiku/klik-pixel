@@ -3,7 +3,7 @@ import AllPackagesPageClient from "@/components/AllPackagesPageClient";
 import { buildMetadata } from "@/lib/seo";
 
 const DESC =
-  "Çmimet dhe paketat për website, e-commerce, marketing digjital (SEO, Google Ads, Meta) dhe branding në Tiranë dhe Shqipëri. Krahaso të gjitha nivelët në një faqe — Illyrian Pixel.";
+  "Investimi i duhur për rezultatin e duhur. Paketa transparente për website premium, e-commerce, SEO dhe branding — pa surpriza. Krahaso dhe zgjidh atë që përshtatet me objektivin tuaj.";
 
 export const metadata: Metadata = buildMetadata(
   "Çmimet & paketat — Web, Marketing, Branding",

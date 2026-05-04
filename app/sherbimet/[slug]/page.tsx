@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { redirect, notFound } from "next/navigation";
+import { permanentRedirect, notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { serviceCategories, serviceCategoryBySlug } from "@/lib/serviceCategories";
 
@@ -24,5 +24,5 @@ export default async function SherbimetCategoryPage({ params }: Props) {
   const { slug } = await Promise.resolve(params);
   const category = serviceCategoryBySlug(slug);
   if (!category) notFound();
-  redirect(`/services/${category.slug}`);
+  permanentRedirect(`/services/${category.slug}`);
 }

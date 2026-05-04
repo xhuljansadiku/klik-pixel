@@ -86,7 +86,7 @@ export default function InquiryModal() {
           <form className="space-y-4" onSubmit={onSubmit}>
             <div className="grid gap-4 md:grid-cols-2">
               <label className="text-sm">
-                <span className="mb-1 block text-white/72">Name</span>
+                <span className="mb-1 block text-white/72">Emri</span>
                 <input className="w-full rounded-lg border border-white/15 bg-black/30 px-3 py-2" value={form.name} onChange={(e) => setForm((s) => ({ ...s, name: e.target.value }))} />
               </label>
               <label className="text-sm">
@@ -96,11 +96,11 @@ export default function InquiryModal() {
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               <label className="text-sm">
-                <span className="mb-1 block text-white/72">Business name</span>
+                <span className="mb-1 block text-white/72">Emri i biznesit</span>
                 <input className="w-full rounded-lg border border-white/15 bg-black/30 px-3 py-2" value={form.businessName} onChange={(e) => setForm((s) => ({ ...s, businessName: e.target.value }))} />
               </label>
               <label className="text-sm">
-                <span className="mb-1 block text-white/72">Service</span>
+                <span className="mb-1 block text-white/72">Shërbimi</span>
                 <select className="w-full rounded-lg border border-white/15 bg-black/30 px-3 py-2" value={form.service} onChange={(e) => setForm((s) => ({ ...s, service: e.target.value }))}>
                   {services.map((item) => (
                     <option key={item}>{item}</option>
@@ -110,7 +110,7 @@ export default function InquiryModal() {
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               <label className="text-sm">
-                <span className="mb-1 block text-white/72">Budget</span>
+                <span className="mb-1 block text-white/72">Buxheti</span>
                 <select className="w-full rounded-lg border border-white/15 bg-black/30 px-3 py-2" value={form.budget} onChange={(e) => setForm((s) => ({ ...s, budget: e.target.value }))}>
                   {budgets.map((item) => (
                     <option key={item}>{item}</option>
@@ -118,7 +118,7 @@ export default function InquiryModal() {
                 </select>
               </label>
               <label className="text-sm">
-                <span className="mb-1 block text-white/72">Timeline</span>
+                <span className="mb-1 block text-white/72">Afati kohor</span>
                 <select className="w-full rounded-lg border border-white/15 bg-black/30 px-3 py-2" value={form.timeline} onChange={(e) => setForm((s) => ({ ...s, timeline: e.target.value }))}>
                   {timelines.map((item) => (
                     <option key={item}>{item}</option>
@@ -127,14 +127,14 @@ export default function InquiryModal() {
               </label>
             </div>
             <label className="text-sm">
-              <span className="mb-1 block text-white/72">Message</span>
+              <span className="mb-1 block text-white/72">Mesazhi</span>
               <textarea rows={5} className="w-full rounded-lg border border-white/15 bg-black/30 px-3 py-2" value={form.message} onChange={(e) => setForm((s) => ({ ...s, message: e.target.value }))} />
             </label>
             <p className="text-xs tracking-[0.08em] text-white/45">
-              Pas rezervimit, të kontaktojmë me një plan të qartë.
+              Pas dërgimit, do t&apos;ju kontaktojmë me plan të qartë.
             </p>
             {error ? <p className="text-xs text-red-300">{error}</p> : null}
-            <button type="button" className="interactive-button ip-cta-primary !text-xs !tracking-[0.14em]">
+            <button type="submit" className="interactive-button ip-cta-primary !text-xs !tracking-[0.14em]">
               DËRGO KËRKESËN
             </button>
           </form>

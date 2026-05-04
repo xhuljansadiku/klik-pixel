@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { ServicePackage } from "@/lib/serviceCategories";
 
 function CheckIcon() {
@@ -21,10 +22,6 @@ function CheckIcon() {
       />
     </svg>
   );
-}
-
-function openModal() {
-  window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
 }
 
 type Props = {
@@ -60,7 +57,7 @@ export default function ServicePackageCard({ pkg, conversionCta = true }: Props)
           {pkg.name}
         </p>
         {pkg.tagline && (
-          <p className="font-ui mt-1.5 text-[11px] font-bold lowercase leading-snug tracking-[1px] text-accent">
+          <p className="font-ui mt-1.5 text-[11px] font-bold leading-snug tracking-[1px] text-accent">
             {pkg.tagline}
           </p>
         )}
@@ -104,21 +101,19 @@ export default function ServicePackageCard({ pkg, conversionCta = true }: Props)
         </ul>
 
         {pkg.featured ? (
-          <button
-            type="button"
-            onClick={openModal}
+          <Link
+            href="/contact"
             className="interactive-button ip-cta-primary mt-auto inline-flex w-full items-center justify-center !h-10 !py-0 !text-[11px] !tracking-[1px] !text-[#0e0d0c]"
           >
             {ctaLabel} <span aria-hidden>→</span>
-          </button>
+          </Link>
         ) : (
-          <button
-            type="button"
-            onClick={openModal}
-            className="mt-auto inline-flex w-full items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.02] px-4 py-2.5 font-ui text-[11px] font-semibold lowercase tracking-[1px] text-text transition-all duration-300 hover:border-accent/35 hover:bg-accent/[0.06] hover:text-white"
+          <Link
+            href="/contact"
+            className="mt-auto inline-flex w-full items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.02] px-4 py-2.5 font-ui text-[11px] font-semibold tracking-[1px] text-text transition-all duration-300 hover:border-accent/35 hover:bg-accent/[0.06] hover:text-white"
           >
             {ctaLabel} <span aria-hidden>→</span>
-          </button>
+          </Link>
         )}
       </div>
     </div>

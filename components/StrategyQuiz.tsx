@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 
@@ -204,14 +205,9 @@ export default function StrategyQuiz() {
                   thirrje e shkurtër për të përputhur pritshmëritë me realitetin e tregut.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <button
-                    type="button"
-                    onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
-                    data-magnetic="true"
-                    className="interactive-button ip-cta-primary"
-                  >
+                  <Link href="/contact" data-magnetic="true" className="interactive-button ip-cta-primary">
                     FILLO SOT
-                  </button>
+                  </Link>
                   <button
                     type="button"
                     onClick={reset}

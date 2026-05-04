@@ -4,10 +4,10 @@ import { useRef, useState } from "react";
 import { ensureGSAP, getIsMobile, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 
 const SECTIONS = [
-  { id: "hero", sub: "Gati për projekt?", cta: "Fillo Sot", href: "#hero" },
+  { id: "hero", sub: "Gati për projekt?", cta: "Fillo sot", href: "/contact" },
   { id: "services", sub: "Dëshiron sistem, jo patch-e?", cta: "Shiko si punojmë", href: "#process" },
   { id: "featured-work", sub: "Portofoli i përzgjedhur.", cta: "Shiko projektin", href: "/projektet/atelier-prime" },
-  { id: "cta", sub: "Thjeshtojmë fillimin.", cta: "Fillo Sot", href: "#cta" }
+  { id: "cta", sub: "Thjeshtojmë fillimin.", cta: "Fillo sot", href: "/contact" }
 ] as const;
 
 export default function FloatingCTA() {
@@ -133,16 +133,6 @@ export default function FloatingCTA() {
           href={cfg.href}
           data-magnetic="true"
           onClick={(e) => {
-            if (cfg.id === "hero") {
-              e.preventDefault();
-              window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
-              return;
-            }
-            if (cfg.id === "cta") {
-              e.preventDefault();
-              document.getElementById("cta")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              return;
-            }
             if (cfg.id === "services") {
               e.preventDefault();
               document.getElementById("process")?.scrollIntoView({ behavior: "smooth", block: "start" });

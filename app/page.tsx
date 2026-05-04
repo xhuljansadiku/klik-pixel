@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { faqSchema } from "@/lib/seo";
 import BackToTop from "@/components/BackToTop";
 import BrandSignature from "@/components/BrandSignature";
 import BlogPreview from "@/components/BlogPreview";
@@ -25,9 +26,9 @@ import Testimonials from "@/components/Testimonials";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Illyrian Pixel, Agjensi Dixhitale për Biznese Shqiptare",
+  title: "Illyrian Pixel — Agjenci Ueb Dizajni Luksoz & Marketing Premium",
   description:
-    "Website profesionale, marketing dixhital dhe branding për biznese shqiptare në Shqipëri, Kosovë dhe diasporë. Analizë falas, kontaktoni sot."
+    "Ndërtojmë website premium, landing page që konvertojnë dhe marketing strategjik për biznese ambicioze. Konsultim falas · Plan brenda 24h · Illyrian Pixel."
 };
 
 export default function HomePage() {
@@ -49,6 +50,11 @@ export default function HomePage() {
       <SocialProofToasts />
       <WhatsAppButton />
       <BackToTop />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <main className="overflow-x-clip bg-bg pb-4 pt-14 md:pt-16">
         <Hero />
         <Services />

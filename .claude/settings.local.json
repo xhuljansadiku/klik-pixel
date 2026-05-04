@@ -4,7 +4,8 @@
       "Bash(npx tsc *)",
       "Bash(npx next *)",
       "PowerShell(Stop-Process -Name \"node\" -Force -ErrorAction SilentlyContinue)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(xargs grep *)"
     ]
   }
 }

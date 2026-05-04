@@ -69,7 +69,7 @@ export default function ContactPageClient() {
             Na trego projektin tënd.
           </h1>
           <p className="font-ui mt-4 max-w-[50ch] text-[15px] font-light leading-relaxed tracking-[0.2px] text-[#A0A0A0]">
-            një bisedë e shkurtër. një plan konkret. pa obligim.
+            Një bisedë e shkurtër. Një plan konkret. Pa obligim.
           </p>
         </div>
 
@@ -84,7 +84,7 @@ export default function ContactPageClient() {
                   rezervo takim
                 </p>
                 <p className="font-ui mt-1.5 text-[13px] font-light tracking-[0.3px] text-[#A0A0A0]">
-                  zgjidh orën që të përshtatet — 30 minuta, pa kosto.
+                  Zgjidh orën që të përshtatet — 30 minuta, pa kosto.
                 </p>
               </div>
               <div className="mx-6 mb-6 overflow-hidden rounded-xl border border-[#262626] md:mx-7 md:mb-7">
@@ -120,7 +120,7 @@ export default function ContactPageClient() {
                       Faleminderit.
                     </p>
                     <p className="font-ui mt-2 text-[13px] font-light leading-relaxed tracking-[0.3px] text-[#A0A0A0]">
-                      kërkesa u regjistrua — do t&apos;ju kontaktojmë me plan të qartë brenda 24 orësh.
+                      Kërkesa u regjistrua — do t&apos;ju kontaktojmë me plan të qartë brenda 24 orësh.
                     </p>
                   </div>
                 ) : (
@@ -128,13 +128,13 @@ export default function ContactPageClient() {
                     <div className="grid gap-6 md:grid-cols-2">
                       <LuxInput
                         label="Emri"
-                        placeholder="si quhesh?"
+                        placeholder="Si quhesh?"
                         value={form.name}
                         onChange={set("name")}
                       />
                       <LuxInput
                         label="E-mail"
-                        placeholder="email profesional..."
+                        placeholder="Email profesional..."
                         type="email"
                         value={form.email}
                         onChange={set("email")}
@@ -143,7 +143,7 @@ export default function ContactPageClient() {
 
                     <LuxInput
                       label="Emri i biznesit"
-                      placeholder="emri i kompanisë..."
+                      placeholder="Emri i kompanisë..."
                       value={form.businessName}
                       onChange={set("businessName")}
                     />
@@ -178,7 +178,7 @@ export default function ContactPageClient() {
                         rows={4}
                         value={form.message}
                         onChange={(e) => set("message")(e.target.value)}
-                        placeholder="na trego pak se me çfarë ke nevojë..."
+                        placeholder="Na trego pak se me çfarë ke nevojë..."
                         className="font-ui w-full resize-none border-b border-[#262626] bg-transparent py-3 text-[14px] font-light leading-relaxed tracking-[0.3px] text-white outline-none transition-colors duration-300 placeholder:text-[#A0A0A0]/55 focus:border-[#ab8339]"
                       />
                     </label>
@@ -192,9 +192,9 @@ export default function ContactPageClient() {
                     <button
                       type="submit"
                       disabled={!canSubmit}
-                      className="font-ui mt-2 w-full rounded-[2px] bg-[#ab8339] px-8 py-4 text-[12px] font-bold lowercase tracking-[1px] text-[#0a0a0a] transition-all duration-500 ease-in-out hover:shadow-[0_0_28px_rgba(171,131,57,0.45),0_0_56px_rgba(171,131,57,0.18)] disabled:cursor-not-allowed disabled:opacity-40"
+                      className="font-ui mt-2 w-full rounded-[2px] bg-[#ab8339] px-8 py-4 text-[12px] font-bold tracking-[1px] text-[#0a0a0a] transition-all duration-500 ease-in-out hover:shadow-[0_0_28px_rgba(171,131,57,0.45),0_0_56px_rgba(171,131,57,0.18)] disabled:cursor-not-allowed disabled:opacity-40"
                     >
-                      dërgoje kërkesën →
+                      Dërgoje Kërkesën →
                     </button>
                   </form>
                 )}
@@ -203,7 +203,7 @@ export default function ContactPageClient() {
                 <div className="mt-8 flex flex-wrap items-center gap-5 border-t border-[#262626] pt-6">
                   <a
                     href="mailto:info@illyrianpixel.com"
-                    className="font-ui text-[12px] font-light lowercase tracking-[0.5px] text-[#A0A0A0] transition-colors duration-300 hover:text-[#ab8339]"
+                    className="font-ui text-[12px] font-light tracking-[0.5px] text-[#A0A0A0] transition-colors duration-300 hover:text-[#ab8339]"
                   >
                     info@illyrianpixel.com
                   </a>
@@ -211,17 +211,17 @@ export default function ContactPageClient() {
                     href={whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-ui text-[12px] font-light lowercase tracking-[0.5px] text-[#A0A0A0] transition-colors duration-300 hover:text-[#ab8339]"
+                    className="font-ui text-[12px] font-light tracking-[0.5px] text-[#A0A0A0] transition-colors duration-300 hover:text-[#ab8339]"
                   >
-                    whatsapp
+                    WhatsApp
                   </a>
                   <a
                     href="https://www.instagram.com/illyrianpixel"
                     target="_blank"
                     rel="noreferrer"
-                    className="font-ui text-[12px] font-light lowercase tracking-[0.5px] text-[#A0A0A0] transition-colors duration-300 hover:text-[#ab8339]"
+                    className="font-ui text-[12px] font-light tracking-[0.5px] text-[#A0A0A0] transition-colors duration-300 hover:text-[#ab8339]"
                   >
-                    instagram
+                    Instagram
                   </a>
                 </div>
               </div>

@@ -182,7 +182,7 @@ export default function Navbar() {
                   e.preventDefault();
                   navigate(item);
                 }}
-                className={`ip-nav-link-inner font-ui text-[14px] font-bold lowercase tracking-[1px] transition-colors duration-300 ${
+                className={`ip-nav-link-inner font-ui text-[14px] font-bold tracking-[1px] transition-colors duration-300 ${
                   active === item.id
                     ? "text-accent hover:text-accentLight"
                     : "text-white/64 hover:text-accentLight"
@@ -194,14 +194,13 @@ export default function Navbar() {
           </div>
 
           <div ref={actionsRef} className="flex shrink-0 items-center gap-2 sm:gap-2.5 md:gap-3">
-            <button
-              type="button"
-              onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry-modal"))}
+            <Link
+              href="/contact"
               data-magnetic="true"
               className="interactive-button ip-cta-primary ip-cta-navbar inline-flex items-center justify-center self-center"
             >
-              Fillo Sot
-            </button>
+              Fillo sot
+            </Link>
             <button
               type="button"
               onClick={() => setMobileOpen(true)}

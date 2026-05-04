@@ -158,11 +158,11 @@ export default function BlogUxMistakesClient() {
               </p>
               <div className="mt-5">
                 <Link
-                  href="/#lead-magnet"
+                  href="/contact"
                   data-magnetic="true"
                   className="interactive-button ip-cta-primary ip-cta-primary--lg group gap-2 !px-8 !py-3.5 !text-sm !tracking-[0.12em]"
                 >
-                  <span>Fillo Sot</span>
+                  <span>Fillo sot</span>
                   <span aria-hidden className="shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
                     →
                   </span>

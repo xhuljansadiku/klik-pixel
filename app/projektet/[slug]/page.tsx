@@ -17,13 +17,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cs = caseStudyBySlug(params.slug);
   if (!cs) return {};
+  const cleanIntro = cs.intro.replace(/\n/g, " ");
   return {
     title: `${cs.title} | Illyrian Pixel`,
-    description: cs.intro,
+    description: cleanIntro,
+    alternates: { canonical: `${seo.siteUrl}/projektet/${cs.slug}` },
     openGraph: {
-      title: `${cs.title} | Illyrian Pixel`,
-      description: cs.intro,
-      images: [cs.heroImage || seo.ogImage]
+      title: `${cs.title} — Rast Studimi | Illyrian Pixel`,
+      description: cleanIntro,
+      images: [{ url: cs.heroImage || seo.ogImage, width: 1200, height: 630, alt: `${cs.title} — ${cs.category}` }]
     }
   };
 }
@@ -32,9 +34,24 @@ export default function CaseStudyPage({ params }: Props) {
   const cs = caseStudyBySlug(params.slug);
   if (!cs) notFound();
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: seo.siteUrl },
+      { "@type": "ListItem", position: 2, name: "Projektet", item: `${seo.siteUrl}/projektet` },
+      { "@type": "ListItem", position: 3, name: cs.title, item: `${seo.siteUrl}/projektet/${cs.slug}` }
+    ]
+  };
+
   return (
     <>
       <Navbar />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <main className="relative overflow-hidden bg-bg pt-14 text-text md:pt-16">
         <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_10%_14%,rgba(171, 131, 57,0.08),transparent_35%),radial-gradient(circle_at_88%_82%,rgba(171, 131, 57,0.05),transparent_40%)]" />
 
@@ -151,7 +168,7 @@ export default function CaseStudyPage({ params }: Props) {
               href="/contact"
               className="interactive-button ip-cta-primary ml-auto"
             >
-              Fillo Sot
+              Fillo sot
             </Link>
           </div>
         </section>

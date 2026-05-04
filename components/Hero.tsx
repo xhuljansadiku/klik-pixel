@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ensureGSAP, getIsMobile, MOTION, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 
 export default function Hero() {
@@ -276,26 +277,25 @@ export default function Hero() {
             </span>
             <span aria-hidden className="hero-brand-trail" />
           </h2>
-          <p
+          <div
             ref={paragraphRef}
-            className="cadence-body mx-auto max-w-2xl text-[1.2rem] font-bold uppercase leading-[1.5] tracking-[0.12em] text-white/78 md:mx-0 md:text-[1.34rem] md:leading-[1.45]"
+            className="cadence-body mx-auto flex items-center gap-4 md:mx-0"
           >
-            Nga klikimi te klienti.
-          </p>
+            <span className="block h-px w-8 shrink-0 bg-accent/55" aria-hidden />
+            <p className="font-body text-[1rem] font-light leading-[1.5] tracking-[0.1em] text-white/62">
+              Nga klikimi te klienti
+            </p>
+          </div>
           <div className="hero-cta cadence-cta flex flex-wrap items-center justify-center gap-4 md:gap-5 lg:justify-start">
-            <a
+            <Link
               ref={ctaRef}
-              href="#cta"
-              onClick={(event) => {
-                event.preventDefault();
-                window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
-              }}
+              href="/contact"
               data-magnetic="true"
               className="interactive-button ip-cta-primary ip-cta-primary--lg"
             >
               FILLO SOT
-            </a>
-            <a href="#services" className="luxury-link">
+            </Link>
+            <a href="/projektet" className="luxury-link">
               EKSPLORO PORTOFOLIN <span aria-hidden>→</span>
             </a>
           </div>
@@ -330,7 +330,7 @@ export default function Hero() {
             <div className="helmet helm-radial-feather relative h-full w-full">
               <Image
                 src="/images/hero-helmet.png"
-                alt="Vizual i helmetës së artë spartane"
+                alt="Illyrian Pixel — Agjenci Dixhitale Premium për Biznese Shqiptare"
                 fill
                 priority
                 className="hero-helmet-img object-contain object-right opacity-[0.97] [filter:contrast(1.12)_saturate(1.08)_brightness(0.98)]"

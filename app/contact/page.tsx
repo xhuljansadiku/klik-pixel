@@ -2,8 +2,9 @@ import { buildMetadata } from "@/lib/seo";
 import ContactPageClient from "@/components/ContactPageClient";
 
 export const metadata = buildMetadata(
-  "Contact",
-  "Jemi gati të të dëgjojmë. Një bisedë e shkurtër është hapi i parë drejt suksesit."
+  "Kontakt — Bisedë Falas, Plan Brenda 24h",
+  "Tregoni projektin tuaj. Brenda 24 orësh merrni një plan konkret pa asnjë obligim. Agjenci premium dixhitale në Tiranë — Illyrian Pixel.",
+  "/contact"
 );
 
 export default function ContactPage() {

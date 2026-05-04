@@ -39,8 +39,8 @@ export default function LeadMagnet() {
     <section id="lead-magnet" className="cinematic-section section-tone-about border-t border-white/[0.08] !min-h-0 py-0 md:!min-h-0">
       <div className="section-wrap py-20 md:py-24">
         <div className="relative overflow-hidden rounded-[1.1rem] border border-white/10 bg-black/30 px-6 py-10 shadow-[0_24px_80px_rgba(0,0,0,0.35)] md:px-10 md:py-12">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(171, 131, 57,0.16),transparent_38%),radial-gradient(circle_at_84%_80%,rgba(255,255,255,0.06),transparent_44%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0)_46%,rgba(171, 131, 57,0.08)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(171,131,57,0.16),transparent_38%),radial-gradient(circle_at_84%_80%,rgba(255,255,255,0.06),transparent_44%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0)_46%,rgba(171,131,57,0.08)_100%)]" />
           <div className="pointer-events-none absolute -left-10 top-1/2 h-24 w-24 -translate-y-1/2 rounded-full bg-accent/20 blur-2xl" />
           <div className="pointer-events-none absolute -right-8 top-6 h-16 w-16 rounded-full bg-white/10 blur-xl" />
           <div className="relative mx-auto max-w-[460px]">
@@ -49,6 +49,9 @@ export default function LeadMagnet() {
             </div>
             <h2 className="lead-reveal section-title mt-3 max-w-4xl text-white">
               Merr një vlerësim falas.
+              <span className="sr-only">
+                Analizë SEO dhe vlerësim uebsajti për biznese premium — agjenci ueb dizajni luksoz në Tiranë.
+              </span>
             </h2>
             <p className="lead-reveal mt-4 text-sm leading-relaxed text-white/62 md:text-base">
               Lini email-in tuaj dhe ne ju dërgojmë një listë të qartë me hapat që duhet të ndërhyni menjëherë.
@@ -64,7 +67,7 @@ export default function LeadMagnet() {
                   value={website}
                   onChange={(event) => setWebsite(event.target.value)}
                   placeholder="https://faqja-juaj.com"
-                  className="mb-3 h-[48px] w-full rounded-[0.8rem] border border-white/15 bg-black/35 px-4 py-2 text-sm text-white placeholder:text-white/35 outline-none transition duration-300 focus:border-accent/55 focus:shadow-[0_0_0_3px_rgba(171, 131, 57,0.14)]"
+                  className="mb-3 h-[48px] w-full rounded-[0.8rem] border border-white/15 bg-black/35 px-4 py-2 text-sm text-white placeholder:text-white/35 outline-none transition duration-300 focus:border-accent/55 focus:shadow-[0_0_0_3px_rgba(171,131,57,0.14)]"
                   required
                 />
                 <div className="flex flex-col gap-3 sm:flex-row">
@@ -73,14 +76,14 @@ export default function LeadMagnet() {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder="email@juaj.com"
-                    className="h-[48px] w-full rounded-[0.8rem] border border-white/15 bg-black/35 px-4 py-2 text-sm text-white placeholder:text-white/35 outline-none transition duration-300 focus:border-accent/55 focus:shadow-[0_0_0_3px_rgba(171, 131, 57,0.14)]"
+                    className="h-[48px] w-full rounded-[0.8rem] border border-white/15 bg-black/35 px-4 py-2 text-sm text-white placeholder:text-white/35 outline-none transition duration-300 focus:border-accent/55 focus:shadow-[0_0_0_3px_rgba(171,131,57,0.14)]"
                     required
                   />
                   <button
                     type="submit"
                     className="interactive-button ip-cta-primary inline-flex h-[48px] w-full shrink-0 items-center justify-center !rounded-[0.8rem] !px-6 !text-[13px] sm:w-auto"
                   >
-                    Fillo Sot →
+                    fillo sot →
                   </button>
                 </div>
               </form>

@@ -20,10 +20,6 @@ import { usePinnedHeroScroll } from "@/lib/usePinnedHeroScroll";
 const HERO_TEXTURE =
   "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80";
 
-function openModal() {
-  window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
-}
-
 function conversionLandingForSlug(slug: ServiceCategory["slug"]): ConversionLandingData | null {
   switch (slug) {
     case "website":
@@ -171,15 +167,14 @@ export default function ServiceCategoryDetailPage({
             )}
             <p
               ref={heroStatsRef}
-              className={`${category.subheadline ? "mt-4" : "mt-8"} max-w-[56ch] font-body text-base leading-relaxed text-white/52 md:text-[17px]`}
+              className={`${category.subheadline ? "mt-4" : "mt-8"} max-w-[52ch] font-display text-[clamp(1.05rem,2.2vw,1.35rem)] leading-[1.35] tracking-[-0.01em] text-white/80`}
             >
               {category.description}
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                onClick={openModal}
+              <Link
+                href="/contact"
                 className={`interactive-button ip-cta-primary inline-flex h-11 items-center gap-2 !px-7 !text-[12px] !tracking-[0.04em] !text-[#0e0d0c] ${
                   isWebPackages ||
                   category.slug === "marketing-growth" ||
@@ -197,7 +192,7 @@ export default function ServiceCategoryDetailPage({
                         ? (category.ctaPrimary ?? "Transformo përshtypjen")
                         : "Merr ofertë falas"
                   : "Rezervo Tani"}
-              </button>
+              </Link>
               <a
                 href={
                   isWebPackages
@@ -264,17 +259,15 @@ export default function ServiceCategoryDetailPage({
             <div className="svc-reveal-heading">
               <SectionMark label="Paketat" eyebrowClassName="tracking-[0.22em]" />
               <h2 className="mt-1 max-w-2xl font-display text-[clamp(1.9rem,4vw,3.15rem)] leading-[1.04] tracking-[-0.02em] text-white">
-                Zgjidhni nivelin e duhur{" "}
-                <span className="text-white/55">për objektivin tuaj.</span>
+                Zgjidhni nivelin{" "}
+                <span className="text-white/55">që ju përshtatet.</span>
               </h2>
               <p className="mt-5 max-w-[52ch] text-[14px] leading-relaxed text-white/48">
-                Çdo paketë mund të personalizohet. Nëse nuk gjeni atë që kërkoni, na shkruani: ndërtojmë
-                edhe zgjidhje tërësisht të personalizuara.
+                Çdo paketë personalizohet sipas nevojës. Na kontaktoni për zgjidhje speciale.
                 {isWebPackages && (
                   <>
                     {" "}
-                    E-commerce dhe website Tirana / Shqipëri me të njëjtin standard për biznese që duan të
-                    rriten në Google dhe jo vetëm të duken mirë.
+                    Ofrojmë e-commerce dhe website në Tiranë/Shqipëri me standarde të larta, për biznese që duan rritje në Google.
                   </>
                 )}
                 {category.slug === "marketing-growth" && (
@@ -319,7 +312,7 @@ export default function ServiceCategoryDetailPage({
 
               <div className="relative z-[1]">
                 <SectionMark
-                  label="Hapi tjetër"
+                  label="Hapi i radhës"
                   eyebrowClassName="tracking-[0.22em] !text-accent/80"
                 />
                 <h2 className="mx-auto mt-3 max-w-[18ch] font-display text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[0.96] tracking-[-0.02em] text-white md:max-w-none">
@@ -341,9 +334,9 @@ export default function ServiceCategoryDetailPage({
                     </>
                   ) : (
                     <>
-                      Nisemi me një{" "}
+                      Fillojmë gjithçka me një{" "}
                       <span className="bg-gradient-to-r from-accent via-[#eace71] to-accent bg-clip-text text-transparent">
-                        bisedë falas
+                        bisedë pa pagesë
                       </span>
                       .
                     </>
@@ -366,8 +359,8 @@ export default function ServiceCategoryDetailPage({
                         </>
                       ) : (
                         <>
-                          30 minuta · pa obligim · përgjigje brenda 24h. Flasim për biznesin tuaj, objektivat dhe
-                          {isWebPackages && " si e çojmë faqen nga vizitorë te klientë."}
+                          30 minuta · pa detyrim · përgjigje brenda 24 orëve. Diskutojmë për biznesin tuaj, qëllimet dhe mënyrën si e kthejmë vizitorët e faqes në klientë të vërtetë.
+                          {isWebPackages && ""}
                         </>
                       )}
                     </>
@@ -379,9 +372,8 @@ export default function ServiceCategoryDetailPage({
                 </p>
 
                 <div className="mt-9 flex flex-wrap justify-center gap-4">
-                  <button
-                    type="button"
-                    onClick={openModal}
+                  <Link
+                    href="/contact"
                     className="interactive-button ip-cta-primary ip-cta-primary--lg inline-flex h-12 items-center gap-2 !px-8 !text-[12px] !tracking-[0.04em] !text-[#0e0d0c]"
                   >
                     {isConversionLanding
@@ -391,7 +383,7 @@ export default function ServiceCategoryDetailPage({
                           ? "Rezervo orën tuaj të parë →"
                           : "Rezervo konsultë →"
                       : "Rezervo Tani →"}
-                  </button>
+                  </Link>
                   <Link
                     href="/contact"
                     className="inline-flex h-12 items-center rounded-full border border-white/15 px-7 text-[11px] font-medium uppercase tracking-[0.14em] text-white/75 transition-colors duration-300 hover:border-accent/35 hover:text-white"

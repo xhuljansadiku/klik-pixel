@@ -123,7 +123,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceItem })
                         : "luxury-link mt-8 block text-center"
                     }
                   >
-                    Fillo Sot <span aria-hidden>→</span>
+                    Fillo sot <span aria-hidden>→</span>
                   </Link>
                 </article>
               ))}

@@ -14,11 +14,11 @@ const HERO_TEXTURE =
   "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80";
 
 const FILTERS: { slug: ServiceCategory["slug"]; label: string }[] = [
-  { slug: "website",          label: "website" },
-  { slug: "ecommerce",        label: "e-commerce" },
-  { slug: "marketing-growth", label: "marketing" },
-  { slug: "branding-content", label: "branding" },
-  { slug: "smm",              label: "social media" },
+  { slug: "website",          label: "Website" },
+  { slug: "ecommerce",        label: "E-Commerce" },
+  { slug: "marketing-growth", label: "Marketing" },
+  { slug: "branding-content", label: "Branding" },
+  { slug: "smm",              label: "Social Media" },
 ];
 
 export default function AllPackagesPageClient() {
@@ -79,7 +79,7 @@ export default function AllPackagesPageClient() {
                 key={f.slug}
                 type="button"
                 onClick={() => setActive(f.slug)}
-                className={`font-ui relative shrink-0 px-4 py-4 text-[12px] font-medium lowercase tracking-[0.8px] transition-colors duration-200 md:px-5 md:text-[13px] ${
+                className={`font-ui relative shrink-0 px-4 py-4 text-[12px] font-medium tracking-[0.8px] transition-colors duration-200 md:px-5 md:text-[13px] ${
                   active === f.slug
                     ? "text-accent"
                     : "text-white/45 hover:text-white/75"

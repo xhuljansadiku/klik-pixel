@@ -307,13 +307,8 @@ export default function Process() {
               <p className="mb-[10px] font-display text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.08] text-white">Gati të fillojmë?</p>
               <p className="max-w-[58ch] text-[14px] leading-[1.65] text-white/52 md:text-[15px]">Biseda e parë është falas, na tregoni çfarë keni nevojë.</p>
             </div>
-            <a
-              href="/#cta"
-              className="process-end-cta interactive-button ip-cta-primary ip-cta-primary--lg relative inline-flex w-full shrink-0 items-center justify-center no-underline !text-[13px] !font-semibold sm:w-auto"
-            >
-              <span className="relative">
-                Fillo Sot <span aria-hidden>→</span>
-              </span>
+            <a href="/contact" className="luxury-link shrink-0">
+              Na kontaktoni <span aria-hidden>→</span>
             </a>
           </div>
         </div>
