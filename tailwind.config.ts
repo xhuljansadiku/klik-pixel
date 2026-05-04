@@ -9,11 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0b0b0b",
-        text: "#f5f5f0",
+        bg: "#0A0A0A",
+        text: "#E0E0E0",
+        /** Secondary labels, captions, de-emphasized UI */
+        muted: "#A0A0A0",
         accent: "#ab8339",
-        accentLight: "#eace71",
-        muted: "rgba(245,245,240,0.65)"
+        accentLight: "#eace71"
       },
       boxShadow: {
         glow: "0 0 0 1px rgba(171, 131, 57, 0.2), 0 12px 48px rgba(171, 131, 57, 0.12)"
@@ -22,9 +23,12 @@ const config: Config = {
         xl2: "1.25rem"
       },
       fontFamily: {
-        display: ["var(--font-display)"],
-        body: ["var(--font-body)"]
-      }
+        /** Serif — editorial, pricing, elite / trust */
+        display: ["var(--font-display)", "Georgia", "serif"],
+        /** Sans — services, lists, UI (same variable as body) */
+        body: ["var(--font-body)", "system-ui", "sans-serif"],
+        ui: ["var(--font-body)", "system-ui", "sans-serif"],
+      },
     }
   },
   plugins: []

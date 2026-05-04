@@ -18,7 +18,7 @@ const serviceItems: Array<{
     ordinal: "01",
     title: "Web & E-Commerce",
     desc: "Zhvillim website dhe dyqane online (E-commerce) të optimizuara për SEO, shpejtësi maksimale dhe konvertim klientësh.",
-    href: "/services/web-ecommerce",
+    href: "/services/website",
     visualVariant: "web",
     cta: "LEXO M\u00cb SHUM\u00cb"
   },
@@ -136,12 +136,12 @@ export default function Services() {
               <FitOneLineHeading
                 as="h3"
                 minRem={0.76}
-                className="relative z-[6] row-start-1 block w-full min-w-0 pr-12 font-display text-[clamp(1.15rem,2.4vw,1.45rem)] leading-[1.15] text-[#ab8339]/88 tracking-[-0.02em] transition-all duration-300 ease-out group-hover:text-[#ab8339] group-hover:[text-shadow:0_0_20px_rgba(171,131,57,0.18)] md:pr-14"
+                className="relative z-[6] row-start-1 block w-full min-w-0 pr-12 font-ui text-[clamp(1.05rem,2.2vw,1.35rem)] font-bold lowercase leading-[1.2] tracking-[1px] text-accent transition-all duration-300 ease-out group-hover:text-accentLight group-hover:[text-shadow:0_0_20px_rgba(171,131,57,0.18)] md:pr-14"
               >
                 {service.title}
               </FitOneLineHeading>
 
-              <p className="relative z-[6] row-start-2 mt-4 min-h-0 max-w-[54ch] self-start text-[0.9375rem] leading-[1.68] text-white/[0.78] transition-[color,opacity] duration-300 ease-out group-hover:text-white/[0.86] md:text-[15px]">
+              <p className="relative z-[6] row-start-2 mt-4 min-h-0 max-w-[54ch] self-start font-body text-[0.9375rem] font-normal leading-[1.6] text-text transition-[color,opacity] duration-300 ease-out group-hover:text-[#ececec] md:text-[15px]">
                 {service.desc}
               </p>
 

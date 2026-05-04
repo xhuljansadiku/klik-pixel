@@ -1,4 +1,4 @@
-﻿import {
+import {
   conversionTrustStatsDefault,
   conversionWhyUsHeroDefault,
   type ConversionLandingData,
@@ -12,44 +12,44 @@ export const webConversionLandingData: ConversionLandingData = {
       {
         icon: "convert",
         title: "Ekspertizë e provuar",
-        body: "Vite përvojë në faqe dhe e-commerce që konvertojnë: strukturë, kopje dhe CTA të testuara në projekte reale për shqiptarë kudo në botë.",
+        body: "Vite eksperiencë në faqe dhe e-commerce që konvertojnë: strukturë, kopje dhe CTA të testuara në projekte reale për shqiptarë kudo në botë.",
       },
       {
         icon: "seo",
         title: "Arkitekturë që zgjat",
-        body: "SEO, shpejtësi dhe meta të ndërtuara për të përballuar rritjen, jo për një 'lançim të bukur' që plaket pas pak muajsh.",
+        body: "SEO, shpejtësi dhe meta të ndërtuara për të përballuar rritjen — jo për një ‘lançim të bukur’ që plaket pas pak muajsh.",
       },
       {
         icon: "speed",
-        title: "Performancë",
-        body: "Core Web Vitals dhe ngarkesa në mobile të optimizuara si për klientët vendorë, ashtu edhe për ata që ju gjejnë nga jashtë vendit.",
+        title: "Performancë e matur profesionalisht",
+        body: "Core Web Vitals dhe ngarkesa në mobile të optimizuara si për klientët vendorë ashtu edhe për ata që ju gjejnë nga jashtë vendit.",
       },
       {
         icon: "support",
         title: "Partneritet pas lançimit",
-        body: "Mbështetje e vazhdueshme, rishikime dhe optimizim. Besimi ndërtohet kur ekipi mbetet i pranishëm edhe pas lançimit.",
+        body: "Mbështetje e vazhdueshme, rishikime dhe optimizim — sepse besimi ndërtohet kur ekipi mbetet i pranishëm edhe pas go-live.",
       },
     ],
   },
   process: [
     {
-      step: "01.",
-      title: "Auditim dhe strategji",
+      step: "01",
+      title: "Auditim & Strategji",
       desc: "Analizojmë tregun dhe objektivat tuaja për të ndërtuar një rrugëtim unik që garanton kthim investimi (ROI).",
     },
     {
-      step: "02.",
-      title: "Arkitekturë dhe UX",
-      desc: "Përdorim psikologjinë e konvertimit për të krijuar struktura dhe dizajne që jo vetëm duken luksoze, por nxisin veprimin e vizitorit.",
+      step: "02",
+      title: "Arkitekturë & UX",
+      desc: "Përdorim psikologjinë e konvertimit për të krijuar struktura dhe dizajne që jo vetëm duken luksoze, por detyrojnë veprimin e vizitorit.",
     },
     {
-      step: "03.",
-      title: "Zhvillim dhe SEO",
+      step: "03",
+      title: "Zhvillim & SEO",
       desc: "Kodim i shpejtë, i pastër dhe i optimizuar për Google. Sigurojmë që faqja juaj të jetë teknikisht e pamposhtur nga konkurrenca.",
     },
     {
-      step: "04.",
-      title: "Lançim dhe shkallëzim",
+      step: "04",
+      title: "Launch & Shkallëzim",
       desc: "Monitorim i vazhdueshëm pas lançimit. Optimizojmë performancën bazuar në të dhëna reale për të rritur shitjet tuaja çdo muaj.",
     },
   ],

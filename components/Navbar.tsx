@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
@@ -130,7 +130,7 @@ export default function Navbar() {
       <header
         ref={headerRef}
         className={`fixed inset-x-0 top-0 z-[60] transition-[background-color,border-color,backdrop-filter] duration-500 ${
-          isScrolled ? "border-b border-white/[0.05] bg-[#0b0b0b]/72 backdrop-blur-[12px]" : "bg-transparent"
+          isScrolled ? "border-b border-white/[0.05] bg-bg/72 backdrop-blur-[12px]" : "bg-transparent"
         }`}
       >
         <div
@@ -182,7 +182,7 @@ export default function Navbar() {
                   e.preventDefault();
                   navigate(item);
                 }}
-                className={`ip-nav-link-inner text-[13px] font-semibold tracking-[0.1em] transition-colors duration-300 ${
+                className={`ip-nav-link-inner font-ui text-[14px] font-bold lowercase tracking-[1px] transition-colors duration-300 ${
                   active === item.id
                     ? "text-accent hover:text-accentLight"
                     : "text-white/64 hover:text-accentLight"

@@ -163,7 +163,7 @@ export function BrandingOrbitGlow({ className = "" }: { className?: string }) {
 }
 
 export function ServiceHeroDecoration({ slug }: { slug: ServiceCategory["slug"] }) {
-  if (slug === "web-ecommerce") {
+  if (slug === "website" || slug === "ecommerce") {
     return <WebWireframeCube className={SERVICE_HERO_DECOR_SHELL} />;
   }
   if (slug === "marketing-growth") {

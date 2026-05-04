@@ -4,8 +4,50 @@ import Image from "next/image";
 import Link from "next/link";
 import ConversionTrustBar from "@/components/ConversionTrustBar";
 import SectionMark from "@/components/SectionMark";
-import type { ConversionLandingData, WhyUsItem } from "@/lib/conversionLandingShared";
+import type {
+  ConversionLandingData,
+  ConversionTextCardSection,
+  WhyUsItem,
+} from "@/lib/conversionLandingShared";
 import { getPortfolioCardsFromSlugs } from "@/lib/conversionLandingShared";
+
+function TextCardSection({ data }: { data: ConversionTextCardSection }) {
+  return (
+    <section
+      id={data.anchorId}
+      className="relative z-[1] scroll-mt-28 border-b border-white/[0.07]"
+    >
+      <div className="section-wrap py-20 md:py-28">
+        <div className="svc-reveal-heading">
+          <SectionMark label={data.eyebrow} eyebrowClassName="tracking-[0.22em]" />
+          <h2 className="mt-1 max-w-[min(100%,52rem)] font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
+            {data.headingBefore}{" "}
+            <span className="text-[#D4AF37]">{data.headingAccent}</span>
+          </h2>
+          {data.intro ? (
+            <p className="mt-5 max-w-[56ch] text-[14px] leading-relaxed text-white/56 md:text-[15px]">
+              {data.intro}
+            </p>
+          ) : null}
+        </div>
+
+        <div className="mt-14 grid gap-4 sm:grid-cols-2">
+          {data.items.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-2xl border border-white/[0.08] bg-[linear-gradient(165deg,rgba(24,23,22,0.92),rgba(14,13,12,0.96))] p-6 transition-[border-color,box-shadow] duration-300 hover:border-[#D4AF37]/28 hover:shadow-[0_18px_44px_rgba(0,0,0,0.26)]"
+            >
+              <h3 className="font-display text-[1.05rem] tracking-[-0.015em] text-white md:text-[1.12rem]">
+                {item.title}
+              </h3>
+              <p className="mt-2.5 text-[13px] leading-relaxed text-white/50 md:text-[14px]">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function WhyIcon({ type }: { type: WhyUsItem["icon"] }) {
   const common = "h-6 w-6 text-[#D4AF37]";
@@ -142,10 +184,18 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
         </div>
       </section>
 
+      {data.painSection ? <TextCardSection data={data.painSection} /> : null}
+      {data.solutionSection ? <TextCardSection data={data.solutionSection} /> : null}
+      {data.outcomesSection ? <TextCardSection data={data.outcomesSection} /> : null}
+      {data.visualPowerSection ? <TextCardSection data={data.visualPowerSection} /> : null}
+
       <section id="strategji" className="relative z-[1] scroll-mt-28 border-b border-white/[0.07]">
         <div className="section-wrap py-20 md:py-28">
           <div className="svc-reveal-heading">
-            <SectionMark label="Pse ne" eyebrowClassName="tracking-[0.22em]" />
+            <SectionMark
+              label={data.whyUsEyebrow ?? "Pse ne"}
+              eyebrowClassName="tracking-[0.22em]"
+            />
             <h2 className="mt-1 max-w-[min(100%,52rem)] font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
               {data.whyUs.headingBefore}{" "}
               <span className="text-[#D4AF37]">{data.whyUs.headingAccent}</span>
@@ -185,13 +235,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
           <div className="svc-reveal-heading">
             <SectionMark label="Procesi" eyebrowClassName="tracking-[0.22em]" />
             <h2 className="mt-1 max-w-2xl font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
-              {data.processHeadline ? (
-                <>
-                  {data.processHeadline.split(/, (.*)/)[0]},{" "}
-                  <br />
-                  {data.processHeadline.split(/, (.*)/)[1]}
-                </>
-              ) : (
+              {data.processHeadline ?? (
                 <>
                   Katër hapa të qartë,{" "}
                   <span className="text-white/50">pa surpriza.</span>

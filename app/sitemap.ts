@@ -1,4 +1,4 @@
-﻿import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { caseStudies } from "@/lib/caseStudies";
 import { blogPosts } from "@/lib/blogPosts";
 import { seo } from "@/lib/seo";
@@ -8,9 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/sherbimet",
     "/cmimet",
-    "/services/web-ecommerce",
+    "/services/website",
+    "/services/ecommerce",
     "/services/marketing-growth",
     "/services/branding-content",
+    "/services/smm",
     "/projektet",
     "/about",
     "/blog",

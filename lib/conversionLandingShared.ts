@@ -1,4 +1,4 @@
-﻿import { caseStudies } from "@/lib/caseStudies";
+import { caseStudies } from "@/lib/caseStudies";
 
 export type WhyUsIcon =
   | "convert"
@@ -36,23 +36,43 @@ export type ConversionTrustStats = {
 
 export const conversionTrustStatsDefault: ConversionTrustStats = {
   primaryCount: 6,
-  primaryLabel: "vite përvojë",
+  primaryLabel: "Vite Eksperiencë",
   secondaryCount: 100,
-  secondaryLabel: "projekte të suksesshme",
+  secondaryLabel: "Projekte",
   tertiaryCount: 80,
-  tertiaryLabel: "klientë besnikë",
+  tertiaryLabel: "Klientë Besnikë",
 };
 
-/** Shared "Pse ne" headline + intro — all service conversion landings */
+/** Shared “Pse ne” headline + intro — all service conversion landings */
 export const conversionWhyUsHeroDefault = {
-  headingBefore: "6 vite përvojë në ndërtimin e sistemeve",
-  headingAccent: "që gjenerojnë fitim",
+  headingBefore: "6 Vite Përvojë në Ndërtimin e Sistemeve",
+  headingAccent: "që Gjenerojnë Fitim",
   intro:
     "Prej vitesh punojmë me biznese shqiptare në Shqipëri, në rajon dhe në diasporë — me procese të qarta, komunikim profesional dhe rezultate që mund të verifikohen. Ekspertiza jonë vjen nga përsëritja: projekte të përfunduara, klientë që kthehen dhe sisteme që mbajnë ngarkesën kur biznesi rritet. Zgjedhja për ne është zgjedhje për partneritet të besueshëm, jo për premtime të pamatuara.",
 } as const;
 
+/** Pain / solution / outcomes blocks (optional; e.g. marketing-growth CRO flow) */
+export type ConversionTextCardSection = {
+  anchorId?: string;
+  eyebrow: string;
+  headingBefore: string;
+  headingAccent: string;
+  intro?: string;
+  items: readonly { title: string; body: string }[];
+};
+
 export type ConversionLandingData = {
   trustStats: ConversionTrustStats;
+  /** Situata / problemi — optional, rendered after trust bar */
+  painSection?: ConversionTextCardSection;
+  /** Si e zgjidhim — optional */
+  solutionSection?: ConversionTextCardSection;
+  /** Çfarë merrni në praktikë — optional, outcome-framed */
+  outcomesSection?: ConversionTextCardSection;
+  /** Pamja / përmbajtja si motor konvertimi — opsionale (e.g. branding-content) */
+  visualPowerSection?: ConversionTextCardSection;
+  /** Overrides SectionMark label above whyUs (default: "Pse ne") */
+  whyUsEyebrow?: string;
   whyUs: {
     headingBefore: string;
     headingAccent: string;

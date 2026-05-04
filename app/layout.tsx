@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond, Press_Start_2P } from "next/font/google";
+import { Cormorant_Garamond, Press_Start_2P, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { localBusinessSchema, organizationSchema, seo } from "@/lib/seo";
 import InquiryModal from "@/components/InquiryModal";
@@ -8,21 +8,25 @@ import MagneticButtons from "@/components/MagneticButtons";
 import GlobalReveals from "@/components/GlobalReveals";
 import InteractiveGlow from "@/components/InteractiveGlow";
 
-const body = Inter({
-  subsets: ["latin"],
-  variable: "--font-body"
+/** Primary sans: body, UI, nav, buttons — luxury boutique rhythm */
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-body",
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const display = Cormorant_Garamond({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-display",
-  weight: ["400", "500", "600", "700"]
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const pixel = Press_Start_2P({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-pixel"
+  variable: "--font-pixel",
 });
 
 export const metadata: Metadata = {
@@ -52,7 +56,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="sq" suppressHydrationWarning>
-      <body suppressHydrationWarning className={`${body.variable} ${display.variable} ${pixel.variable} bg-bg font-body text-text`}>
+      <body
+        suppressHydrationWarning
+        className={`${plusJakarta.variable} ${display.variable} ${pixel.variable} bg-bg font-body text-text antialiased`}
+      >
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger

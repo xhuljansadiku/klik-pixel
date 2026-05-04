@@ -13,10 +13,12 @@ import { serviceCategories, type ServiceCategory } from "@/lib/serviceCategories
 import { useReducedMotion } from "@/lib/gsap";
 import { usePinnedHeroScroll } from "@/lib/usePinnedHeroScroll";
 
-const visualVariantBySlug: Record<ServiceCategory["slug"], ServiceCardVisualVariant> = {
-  "web-ecommerce": "web",
+const OVERVIEW_SLUGS = ["website", "marketing-growth", "branding-content"] as const;
+
+const visualVariantBySlug: Partial<Record<ServiceCategory["slug"], ServiceCardVisualVariant>> = {
+  "website":          "web",
   "marketing-growth": "marketing",
-  "branding-content": "branding"
+  "branding-content": "branding",
 };
 
 export default function SherbimetPageClient() {
@@ -67,7 +69,7 @@ export default function SherbimetPageClient() {
         <section className="relative z-[1] border-b border-white/10">
           <div className="section-wrap py-14 md:py-20">
             <div className="mt-2 grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {serviceCategories.map((category, idx) => (
+              {serviceCategories.filter(c => (OVERVIEW_SLUGS as readonly string[]).includes(c.slug)).map((category, idx) => (
                 <Link
                   key={category.slug}
                   href={`/services/${category.slug}`}
@@ -86,15 +88,15 @@ export default function SherbimetPageClient() {
                   <FitOneLineHeading
                     as="h2"
                     minRem={0.76}
-                    className="relative z-[6] mt-1 block w-full min-w-0 pr-10 font-display text-[clamp(1.15rem,2.4vw,1.45rem)] leading-[1.15] text-[#ab8339]/88 tracking-[-0.02em] transition-all duration-300 ease-out group-hover:text-[#ab8339] group-hover:[text-shadow:0_0_20px_rgba(171,131,57,0.18)] md:pr-12"
+                    className="relative z-[6] mt-1 block w-full min-w-0 pr-10 font-ui text-[clamp(1.05rem,2.2vw,1.35rem)] font-bold lowercase leading-[1.2] tracking-[1px] text-accent transition-all duration-300 ease-out group-hover:text-accentLight group-hover:[text-shadow:0_0_20px_rgba(171,131,57,0.18)] md:pr-12"
                   >
                     {category.title}
                   </FitOneLineHeading>
-                  <p className="relative z-[6] mt-4 min-h-0 max-w-[54ch] flex-shrink-0 text-[0.9375rem] leading-[1.68] text-white/[0.78] transition-[color,opacity] duration-300 ease-out group-hover:text-white/[0.86] md:text-[15px]">
+                  <p className="relative z-[6] mt-4 min-h-0 max-w-[54ch] flex-shrink-0 font-body text-[0.9375rem] font-normal leading-[1.6] text-text transition-[color,opacity] duration-300 ease-out group-hover:text-[#ececec] md:text-[15px]">
                     {category.description}
                   </p>
                   <div className="relative z-[4] -mt-6 flex min-h-[156px] flex-1 items-center justify-center md:-mt-7 md:min-h-[172px]">
-                    <ServiceCardHeroVisual variant={visualVariantBySlug[category.slug]} />
+                    <ServiceCardHeroVisual variant={visualVariantBySlug[category.slug] ?? "web"} />
                   </div>
                   <p className="relative z-[6] mt-auto border-t border-white/[0.09] pt-6">
                     <span className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/88 transition-colors duration-300 ease-out group-hover:text-[#D4AF37]">

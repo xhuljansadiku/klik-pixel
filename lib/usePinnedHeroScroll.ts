@@ -6,6 +6,8 @@ import { ensureGSAP, useIsomorphicLayoutEffect } from "@/lib/gsap";
 type PinnedHeroScrollOptions = {
   /** When false, skip all hero motion (handled by caller via useReducedMotion). */
   enabled: boolean;
+  /** When false, skip ScrollTrigger pin on the hero (prevents a pinned layer from blocking clicks on sticky UI below, e.g. /cmimet). */
+  enablePin?: boolean;
   /** Section that pins + drives scrub; also GSAP context root. */
   heroSectionRef: RefObject<HTMLElement | null>;
   heroTitleRef: RefObject<HTMLElement | null>;
@@ -17,6 +19,7 @@ type PinnedHeroScrollOptions = {
 
 export function usePinnedHeroScroll({
   enabled,
+  enablePin = true,
   heroSectionRef,
   heroTitleRef,
   heroStatsRef,
@@ -45,7 +48,7 @@ export function usePinnedHeroScroll({
       }
 
       const section = heroSectionRef.current;
-      if (section && title && window.matchMedia("(min-width: 900px)").matches) {
+      if (section && title && enablePin && window.matchMedia("(min-width: 900px)").matches) {
         gsap.to(title, {
           scale: 0.88,
           transformOrigin: "left top",
@@ -80,5 +83,5 @@ export function usePinnedHeroScroll({
     }, heroSectionRef);
 
     return () => ctx.revert();
-  }, [enabled, refreshKey]);
+  }, [enabled, enablePin, refreshKey]);
 }

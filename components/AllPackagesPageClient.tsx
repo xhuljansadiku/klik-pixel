@@ -1,32 +1,45 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionMark from "@/components/SectionMark";
 import ServicePackageCard from "@/components/ServicePackageCard";
-import { serviceCategories } from "@/lib/serviceCategories";
+import { serviceCategories, type ServiceCategory } from "@/lib/serviceCategories";
 import { useReducedMotion } from "@/lib/gsap";
 import { usePinnedHeroScroll } from "@/lib/usePinnedHeroScroll";
 
 const HERO_TEXTURE =
   "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80";
 
+const FILTERS: { slug: ServiceCategory["slug"]; label: string }[] = [
+  { slug: "website",          label: "website" },
+  { slug: "ecommerce",        label: "e-commerce" },
+  { slug: "marketing-growth", label: "marketing" },
+  { slug: "branding-content", label: "branding" },
+  { slug: "smm",              label: "social media" },
+];
+
 export default function AllPackagesPageClient() {
   const heroSectionRef = useRef<HTMLElement>(null);
-  const heroTitleRef = useRef<HTMLHeadingElement>(null);
-  const heroStatsRef = useRef<HTMLParagraphElement>(null);
+  const heroTitleRef   = useRef<HTMLHeadingElement>(null);
+  const heroStatsRef   = useRef<HTMLParagraphElement>(null);
   const heroTextureRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  const [active, setActive] = useState<ServiceCategory["slug"]>("website");
 
   usePinnedHeroScroll({
     enabled: !reduced,
+    /** Pinning the hero leaves a high z-index layer that eats clicks on the sticky filter tabs below. */
+    enablePin: false,
     heroSectionRef,
     heroTitleRef,
     heroStatsRef,
     heroTextureRef,
   });
+
+  const visible = serviceCategories.filter((c) => c.slug === active);
 
   return (
     <>
@@ -34,6 +47,7 @@ export default function AllPackagesPageClient() {
       <main className="relative overflow-hidden bg-bg pb-4 pt-14 text-text md:pt-16">
         <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(171,131,57,0.09),transparent_30%)]" />
 
+        {/* ── HERO ── */}
         <section ref={heroSectionRef} className="relative z-[1] border-b border-white/10">
           <div
             ref={heroTextureRef}
@@ -51,20 +65,46 @@ export default function AllPackagesPageClient() {
               Të gjitha paketat në një vend.
             </h1>
             <p ref={heroStatsRef} className="mt-8 max-w-[56ch] text-base text-white/62">
-              Krahaso paketat për Web & E-Commerce, Marketing & Growth dhe Branding & Content. Çdo ofertë
+              Krahaso paketat për Website, E-Commerce, Marketing, Branding dhe Social Media. Çdo ofertë
               mund të personalizohet — konsultimi fillestar është falas.
             </p>
           </div>
         </section>
 
-        {serviceCategories.map((category) => (
+        {/* ── FILTER TABS ── */}
+        <section className="sticky top-14 z-[50] border-b border-white/[0.07] bg-bg/90 backdrop-blur-[14px] md:top-[72px]">
+          <div className="mx-auto flex w-full max-w-[1280px] items-center gap-0 overflow-x-auto px-5 md:px-10 lg:px-14">
+            {FILTERS.map((f) => (
+              <button
+                key={f.slug}
+                type="button"
+                onClick={() => setActive(f.slug)}
+                className={`font-ui relative shrink-0 px-4 py-4 text-[12px] font-medium lowercase tracking-[0.8px] transition-colors duration-200 md:px-5 md:text-[13px] ${
+                  active === f.slug
+                    ? "text-accent"
+                    : "text-white/45 hover:text-white/75"
+                }`}
+              >
+                {f.label}
+                {active === f.slug && (
+                  <span className="absolute inset-x-0 bottom-0 h-[1.5px] bg-accent" />
+                )}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* ── PACKAGE SECTIONS ── */}
+        {visible.map((category) => (
           <section
             key={category.slug}
             id={category.slug}
-            className="relative z-[1] scroll-mt-24 border-b border-white/[0.07]"
+            className="relative z-[1] scroll-mt-28 border-b border-white/[0.07]"
           >
             <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-24 bg-gradient-to-b from-accent/[0.025] to-transparent" />
             <div className="section-wrap relative z-[1] py-14 md:py-20">
+
+              {/* Section header */}
               <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
                   <SectionMark label={category.title} eyebrowClassName="tracking-[0.18em]" />
@@ -72,7 +112,9 @@ export default function AllPackagesPageClient() {
                     Paketat për{" "}
                     <span className="text-accent/85">{category.title}</span>
                   </h2>
-                  <p className="mt-3 max-w-[52ch] text-[14px] leading-relaxed text-white/48">{category.short}</p>
+                  <p className="mt-3 max-w-[52ch] text-[14px] leading-relaxed text-white/48">
+                    {category.short}
+                  </p>
                 </div>
                 <Link
                   href={`/services/${category.slug}`}
@@ -82,9 +124,14 @@ export default function AllPackagesPageClient() {
                 </Link>
               </div>
 
+              {/* Cards */}
               <div className="mt-12 grid items-stretch gap-5 md:grid-cols-3">
                 {category.packages.map((pkg) => (
-                  <ServicePackageCard key={`${category.slug}-${pkg.name}`} pkg={pkg} conversionCta />
+                  <ServicePackageCard
+                    key={`${category.slug}-${pkg.name}`}
+                    pkg={pkg}
+                    conversionCta
+                  />
                 ))}
               </div>
             </div>
