@@ -66,10 +66,10 @@ export default function TrustedClients() {
             <SectionMark label="Klientët tanë" />
           </div>
           <h2 className="tc-header section-title mt-2 text-white">
-            Biznese që na kanë besuar
+            Marka dhe biznese që na besojnë
           </h2>
-          <p className="tc-header mt-4 max-w-[420px] font-body text-[0.94rem] font-light leading-relaxed tracking-[0.02em] text-white/45">
-            Nga biznese lokale në Shqipëri deri te kompani në diasporë.
+          <p className="tc-header mt-4 max-w-[480px] font-body text-[0.94rem] font-light leading-relaxed tracking-[0.02em] text-white/45">
+            Nga Shqipëria në tregun ndërkombëtar, bashkëpunojmë me biznese që kërkojnë rritje dhe rezultate reale.
           </p>
         </div>
       </div>
@@ -106,6 +106,19 @@ export default function TrustedClients() {
                 </div>
               ))}
             </div>
+          ))}
+        </div>
+      </div>
+      {/* Trust stats */}
+      <div className="section-wrap relative z-10 !pt-0 !pb-20 md:!pb-28">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          {["6+ vite eksperiencë", "100+ projekte", "Biznese në Shqipëri & diasporë"].map((item, i) => (
+            <span key={item} className="inline-flex items-center gap-3">
+              {i > 0 && (
+                <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-accent/40" aria-hidden />
+              )}
+              <span className="font-mono text-[11px] tracking-[0.14em] text-white/42">{item}</span>
+            </span>
           ))}
         </div>
       </div>

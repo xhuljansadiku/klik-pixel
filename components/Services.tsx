@@ -61,7 +61,7 @@ export default function Services() {
           <SectionMark label="SHËRBIMET TONA" eyebrowClassName="!tracking-[0.32em] md:!tracking-[0.4em]" />
         </div>
         <h2 className="services-intro-item cadence-title section-title mt-3 max-w-4xl tracking-[-0.02em]">
-          <span className="block">Website, marketing dhe branding</span>
+          <span className="block">Website, Marketing dhe Branding</span>
           <span className="block">për më shumë <span className="text-[#ab8339]">klientë dhe shitje</span>.</span>
         </h2>
         <div className="services-intro-item mt-4 max-w-2xl">
@@ -82,6 +82,7 @@ export default function Services() {
                 cardRefs.current[idx] = node;
               }}
               headingAs="h3"
+              headingMaxRem={1.1}
             />
           ))}
         </div>

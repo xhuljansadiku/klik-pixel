@@ -17,6 +17,7 @@ type FitOneLineHeadingProps = {
   children: ReactNode;
   minRem?: number;
   maxRem?: number;
+  forceOneLine?: boolean;
 };
 
 function lineHeightPx(el: HTMLElement, fontSizeRem: number): number {
@@ -30,7 +31,8 @@ export default function FitOneLineHeading({
   className = "",
   children,
   minRem = 0.72,
-  maxRem = 2.65
+  maxRem = 2.65,
+  forceOneLine = false
 }: FitOneLineHeadingProps) {
   const elRef = useRef<HTMLHeadingElement>(null);
   const [rem, setRem] = useState(maxRem);
@@ -69,7 +71,7 @@ export default function FitOneLineHeading({
       el.style.fontSize = `${lo}rem`;
       void el.offsetWidth;
 
-      if (el.scrollWidth <= w + 1) {
+      if (el.scrollWidth <= w + 1 || forceOneLine) {
         setMode("one");
         setRem(lo);
         return;

@@ -305,14 +305,6 @@ export default function Hero() {
               Shiko projektet <span aria-hidden>→</span>
             </a>
           </div>
-          <div className="flex flex-col items-center gap-2 lg:items-start">
-            <p className="font-mono text-[11px] tracking-[0.1em] text-white/25 text-center lg:text-left">
-              Pa kosto · Pa detyrim · Përgjigje brenda 24 orëve
-            </p>
-            <p className="font-body text-[11px] tracking-[0.06em] text-white/35 text-center lg:text-left">
-              +100 projekte · Biznese në Shqipëri &amp; diasporë
-            </p>
-          </div>
         </div>
         <div
           ref={visualRef}

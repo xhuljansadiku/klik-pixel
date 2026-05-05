@@ -44,7 +44,6 @@ const panels = [
   },
 ];
 
-const trustItems = ["6+ vite eksperiencë", "100+ projekte", "Biznese në Shqipëri & diasporë"];
 
 export default function PseNe() {
   const sectionRef   = useRef<HTMLElement | null>(null);
@@ -260,19 +259,7 @@ export default function PseNe() {
               Ne nuk ndërtojmë vetëm website. Ndërtojmë sisteme dixhitale që sjellin klientë, kërkesa dhe rritje reale për biznesin tuaj.
             </p>
 
-            {/* Trust line — premium dots */}
             <div ref={bottomRef} className="flex flex-col items-start gap-6">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                {trustItems.map((item, i) => (
-                  <span key={item} className="inline-flex items-center gap-3">
-                    {i > 0 && (
-                      <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-accent/40" aria-hidden />
-                    )}
-                    <span className="font-mono text-[11px] tracking-[0.14em] text-white/42">{item}</span>
-                  </span>
-                ))}
-              </div>
-
               {/* CTA block */}
               <div className="flex flex-col items-start gap-6">
                 <div className="flex items-center gap-2.5">

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import FitOneLineHeading from "@/components/FitOneLineHeading";
+import { createElement } from "react";
 import ServiceCardHeroVisual from "@/components/ServiceCardHeroVisual";
 import type { ServiceOverviewCard } from "@/lib/serviceOverviewCards";
 
@@ -12,6 +12,7 @@ export type ServiceOverviewLuxCardProps = {
   setHoveredCard: (idx: number | null) => void;
   cardRef?: (node: HTMLAnchorElement | null) => void;
   headingAs?: "h2" | "h3";
+  headingMaxRem?: number;
 };
 
 export default function ServiceOverviewLuxCard({
@@ -20,7 +21,8 @@ export default function ServiceOverviewLuxCard({
   hoveredCard,
   setHoveredCard,
   cardRef,
-  headingAs = "h3"
+  headingAs = "h3",
+  headingMaxRem
 }: ServiceOverviewLuxCardProps) {
   return (
     <Link
@@ -46,21 +48,15 @@ export default function ServiceOverviewLuxCard({
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_90%_60%_at_15%_-10%,rgba(171,131,57,0.07),transparent_55%)] opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_90%_100%,rgba(212,175,55,0.04),transparent_45%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-      <FitOneLineHeading
-        as={headingAs}
-        minRem={0.76}
-        className="relative z-[6] row-start-1 block w-full min-w-0 pr-12 font-ui text-[clamp(1.05rem,2.2vw,1.35rem)] font-bold leading-[1.2] tracking-[1px] text-accent transition-all duration-300 ease-out group-hover:text-accentLight group-hover:[text-shadow:0_0_20px_rgba(171,131,57,0.18)] md:pr-14"
-      >
-        {service.titleLines ? (
-          <>
-            {service.titleLines[0]}
-            <br />
-            {service.titleLines[1]}
-          </>
-        ) : (
-          service.title
-        )}
-      </FitOneLineHeading>
+      {createElement(
+        headingAs,
+        {
+          className:
+            "relative z-[6] row-start-1 block w-full min-w-0 overflow-hidden whitespace-nowrap pr-12 font-ui font-bold leading-[1.2] tracking-[1px] text-accent transition-all duration-300 ease-out group-hover:text-accentLight group-hover:[text-shadow:0_0_20px_rgba(171,131,57,0.18)] md:pr-14",
+          style: { fontSize: "clamp(0.78rem, 2.8vw, 1.1rem)" },
+        },
+        service.title
+      )}
 
       <p className="relative z-[6] row-start-2 mt-4 min-h-0 max-w-[54ch] self-start font-body text-[0.9375rem] font-normal leading-[1.6] text-text transition-[color,opacity] duration-300 ease-out group-hover:text-[#ececec] md:text-[15px]">
         {service.desc}

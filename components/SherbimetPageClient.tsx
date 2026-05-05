@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlobalCTA from "@/components/GlobalCTA";
 import ServiceOverviewLuxCard from "@/components/ServiceOverviewLuxCard";
-import { SERVICE_OVERVIEW_CARDS } from "@/lib/serviceOverviewCards";
+import { SHERBIMET_PAGE_CARDS } from "@/lib/serviceOverviewCards";
 import { useReducedMotion } from "@/lib/gsap";
 import { usePinnedHeroScroll } from "@/lib/usePinnedHeroScroll";
 
@@ -44,7 +44,7 @@ export default function SherbimetPageClient() {
               data-cursor="headline"
               className="hero-headline-trigger cadence-title mt-4 max-w-4xl bg-[url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80')] bg-[length:170%] bg-[position:22%_48%] bg-clip-text font-display text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.95] tracking-[0.01em] pb-[0.12em] text-transparent"
             >
-              Tre shërbime,
+              Gjashtë shërbime,
               <br />
               çdo gjë që ju duhet.
             </h1>
@@ -56,8 +56,8 @@ export default function SherbimetPageClient() {
 
         <section className="relative z-[1] border-b border-white/10">
           <div className="section-wrap py-14 md:py-20">
-            <div className="mt-2 grid auto-rows-[1fr] gap-6 sm:gap-7 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch lg:gap-8">
-              {SERVICE_OVERVIEW_CARDS.map((service, idx) => (
+            <div className="mt-2 grid auto-rows-[1fr] gap-6 sm:gap-7 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch lg:gap-8">
+              {SHERBIMET_PAGE_CARDS.map((service, idx) => (
                 <ServiceOverviewLuxCard
                   key={service.href}
                   service={service}
@@ -65,6 +65,7 @@ export default function SherbimetPageClient() {
                   hoveredCard={hoveredCard}
                   setHoveredCard={setHoveredCard}
                   headingAs="h2"
+                  headingMaxRem={1.1}
                 />
               ))}
             </div>
