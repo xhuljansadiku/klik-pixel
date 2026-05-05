@@ -1877,3 +1877,19 @@ html[data-aura="cta"] body {
     animation: none;
   }
 }
+
+/* ── Trusted Clients marquee ───────────────────────────────── */
+.trusted-marquee--animated {
+  animation: ip-loop-x 40s linear infinite;
+}
+
+.trusted-clients-strip:hover .trusted-marquee--animated {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trusted-marquee--animated {
+    animation: none;
+  }
+}
+

@@ -22,6 +22,7 @@ import SectionAura from "@/components/SectionAura";
 import ScrollProgress from "@/components/ScrollProgress";
 import PseNe from "@/components/PseNe";
 import Services from "@/components/Services";
+import TrustedClients from "@/components/TrustedClients";
 import SocialFollowSection from "@/components/SocialFollowSection";
 import SocialProofToasts from "@/components/SocialProofToasts";
 import Testimonials from "@/components/Testimonials";
@@ -61,6 +62,7 @@ export default function HomePage() {
         <Hero />
         <Services />
         <PseNe />
+        <TrustedClients />
         <FeaturedWork />
         <Process />
         <Testimonials />
