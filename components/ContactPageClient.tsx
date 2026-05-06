@@ -99,13 +99,12 @@ export default function ContactPageClient() {
             <p className="hero-eyebrow font-mono text-[10px] uppercase tracking-[0.32em] text-accent/55">{"KONTAKT"}</p>
             <div className="hero-line1 mt-8 overflow-hidden">
               <h1 className="font-display text-[clamp(2rem,4.5vw,4.2rem)] font-bold leading-[1.04] tracking-[-0.03em] text-white">
-                {"Na trego "}
-                <span className="text-accent">{"projektin tënd."}</span>
+                {"Rezervo një konsultë falas dhe merr një plan konkret për biznesin tënd."}
               </h1>
             </div>
             <div className="hero-divider mt-10 h-px w-14 bg-gradient-to-r from-accent/60 to-transparent" />
             <p className="hero-subtext mt-6 font-body text-[1rem] font-light leading-[1.75] tracking-[0.01em] text-white/42">
-              {"Një bisedë e shkurtër. Një plan konkret. Pa obligim."}
+              {"30 minuta pa detyrim. Do dalësh me ide të qarta për hapat e radhës."}
             </p>
           </div>
         </section>
