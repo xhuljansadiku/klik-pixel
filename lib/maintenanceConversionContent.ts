@@ -39,7 +39,7 @@ export const maintenanceConversionLandingData: ConversionLandingData = {
     headingBefore: "Mirëmbajtje aktive që",
     headingAccent: "mban biznesin tuaj gjithmonë online.",
     intro:
-      "Ne nuk presim të ndodhë problemi. Monitorojmë, sigurojmë dhe optimizojmë çdo ditë — kështu ju keni një partner teknik gjithmonë aktiv, jo dikë që reagon pas dëmit.",
+      "Ne monitorojmë, mbrojmë dhe optimizojmë çdo ditë që ju të fokusoheni te biznesi, jo te problemet teknike.",
     items: [
       {
         icon: "support",
