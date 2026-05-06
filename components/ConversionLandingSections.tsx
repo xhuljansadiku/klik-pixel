@@ -267,10 +267,15 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
             <div>
               <SectionMark label="Projekte" eyebrowClassName="tracking-[0.22em]" />
               <h2 className="mt-1 max-w-xl font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
-                {"Rezultate reale"}
+                {data.portfolioHeadingBefore ?? "Rezultate reale"}
                 <br />
-                <span className="text-[#D4AF37]">{"për biznese reale."}</span>
+                <span className="text-[#D4AF37]">{data.portfolioHeadingAccent ?? "për biznese reale."}</span>
               </h2>
+              {data.portfolioSubline && (
+                <p className="mt-3 max-w-[52ch] text-[14px] leading-relaxed text-white/50">
+                  {data.portfolioSubline}
+                </p>
+              )}
             </div>
             <Link href="/projektet" className="luxury-link shrink-0 text-[12px]">
               Shiko të gjitha <span aria-hidden>→</span>
@@ -347,7 +352,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
                     <h3 className="mt-1.5 font-display text-[1.2rem] tracking-[-0.02em] text-white transition-colors duration-300 group-hover:text-[#D4AF37]/90">
                       {item.title}
                     </h3>
-                    <p className="mt-2 line-clamp-2 text-[13px] leading-relaxed text-white/52">{blurb}</p>
+                    <p className="mt-2 line-clamp-3 whitespace-pre-line text-[13px] leading-relaxed text-white/52">{blurb}</p>
                     <span className="luxury-link-look mt-3 inline-flex items-center gap-1 text-[11px]">
                       Shiko projektin <span aria-hidden>→</span>
                     </span>

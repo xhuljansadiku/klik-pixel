@@ -85,6 +85,12 @@ export type ConversionLandingData = {
   portfolioSlugs: readonly string[];
   /** Optional per-slug blurb overrides for portfolio cards */
   portfolioBlurbs?: Record<string, string>;
+  /** Optional custom portfolio section heading (white part) */
+  portfolioHeadingBefore?: string;
+  /** Optional custom portfolio section heading (accent part) */
+  portfolioHeadingAccent?: string;
+  /** Optional subline below the portfolio heading */
+  portfolioSubline?: string;
   testimonials: readonly { quote: string; name: string; role: string; location?: string }[];
   /** Optional overrides for the feedback section header (falls back to generic) */
   feedbackLabel?: string;
