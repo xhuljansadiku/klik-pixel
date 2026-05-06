@@ -37,7 +37,7 @@ export const maintenanceConversionLandingData: ConversionLandingData = {
   whyUsEyebrow: "Pse na zgjedhin",
   whyUs: {
     headingBefore: "Mirëmbajtje aktive që",
-    headingAccent: "e mban biznesin tuaj online.",
+    headingAccent: "mban biznesin tuaj gjithmonë online.",
     intro:
       "Ne nuk presim të ndodhë problemi. Monitorojmë, sigurojmë dhe optimizojmë çdo ditë — kështu ju keni një partner teknik gjithmonë aktiv, jo dikë që reagon pas dëmit.",
     items: [
