@@ -7,11 +7,7 @@ import Footer from "@/components/Footer";
 import SectionMark from "@/components/SectionMark";
 import ServicePackageCard from "@/components/ServicePackageCard";
 import { serviceCategories, type ServiceCategory } from "@/lib/serviceCategories";
-import { useReducedMotion } from "@/lib/gsap";
-import { usePinnedHeroScroll } from "@/lib/usePinnedHeroScroll";
-
-const HERO_TEXTURE =
-  "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80";
+import { ensureGSAP, useIsomorphicLayoutEffect } from "@/lib/gsap";
 
 const FILTERS: { slug: ServiceCategory["slug"]; label: string }[] = [
   { slug: "website",          label: "Website" },
@@ -22,22 +18,37 @@ const FILTERS: { slug: ServiceCategory["slug"]; label: string }[] = [
 ];
 
 export default function AllPackagesPageClient() {
-  const heroSectionRef = useRef<HTMLElement>(null);
-  const heroTitleRef   = useRef<HTMLHeadingElement>(null);
-  const heroStatsRef   = useRef<HTMLParagraphElement>(null);
-  const heroTextureRef = useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState<ServiceCategory["slug"]>("website");
 
-  usePinnedHeroScroll({
-    enabled: !reduced,
-    /** Pinning the hero leaves a high z-index layer that eats clicks on the sticky filter tabs below. */
-    enablePin: false,
-    heroSectionRef,
-    heroTitleRef,
-    heroStatsRef,
-    heroTextureRef,
-  });
+  useIsomorphicLayoutEffect(() => {
+    if (!heroRef.current) return;
+    const { gsap } = ensureGSAP();
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ delay: 0.1 });
+      tl.fromTo(".hero-eyebrow",
+        { opacity: 0, y: 10, filter: "blur(3px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }
+      )
+      .fromTo(".hero-line1",
+        { opacity: 0, y: 56 },
+        { opacity: 1, y: 0, duration: 0.85, ease: "power4.out" }, "-=0.25"
+      )
+      .fromTo(".hero-line2",
+        { opacity: 0, y: 56 },
+        { opacity: 1, y: 0, duration: 0.85, ease: "power4.out" }, "-=0.62"
+      )
+      .fromTo(".hero-divider",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.5, ease: "power3.out", transformOrigin: "left" }, "-=0.3"
+      )
+      .fromTo(".hero-subtext",
+        { opacity: 0, y: 14, filter: "blur(3px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.65, ease: "power3.out" }, "-=0.25"
+      );
+    }, heroRef);
+    return () => ctx.revert();
+  }, []);
 
   const visible = serviceCategories.filter((c) => c.slug === active);
 
@@ -48,25 +59,28 @@ export default function AllPackagesPageClient() {
         <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_8%_10%,rgba(171,131,57,0.09),transparent_30%)]" />
 
         {/* ── HERO ── */}
-        <section ref={heroSectionRef} className="relative z-[1] border-b border-white/10">
-          <div
-            ref={heroTextureRef}
-            className="pointer-events-none absolute inset-0 z-0 bg-[length:180%] bg-[position:20%_50%] opacity-0"
-            style={{ backgroundImage: `url(${HERO_TEXTURE})` }}
+        <section ref={heroRef} className="relative z-[1] overflow-hidden border-b border-white/[0.06] bg-[#070707]">
+          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.022]"
+            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")", mixBlendMode: "overlay" }}
           />
-          <div className="section-wrap relative z-[1] py-20 md:py-28">
-            <div className="sv-label mb-5 h-px w-[180px] bg-gradient-to-r from-accent/80 to-transparent" />
-            <p className="sv-label text-[10px] uppercase tracking-[0.3em] text-accent/80">ÇMIMET & PAKETAT</p>
-            <h1
-              ref={heroTitleRef}
-              data-cursor="headline"
-              className="hero-headline-trigger cadence-title mt-4 max-w-4xl bg-[url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1800&q=80')] bg-[length:170%] bg-[position:22%_48%] bg-clip-text font-display text-[clamp(2.55rem,7.8vw,6.9rem)] leading-[0.95] tracking-[0.01em] pb-[0.12em] text-transparent"
-            >
-              Të gjitha paketat në një vend.
-            </h1>
-            <p ref={heroStatsRef} className="mt-8 max-w-[56ch] text-base text-white/62">
-              Krahaso paketat për Website, E-Commerce, Marketing, Branding dhe Social Media. Çdo ofertë
-              mund të personalizohet — konsultimi fillestar është falas.
+          <div aria-hidden className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[#ab8339]/[0.07] blur-[130px]" />
+          <div aria-hidden className="pointer-events-none absolute left-5 top-0 h-full w-px bg-gradient-to-b from-transparent via-accent/18 to-transparent md:left-10 lg:left-14" />
+
+          <div className="section-wrap relative py-28 md:py-40">
+            <p className="hero-eyebrow font-mono text-[10px] uppercase tracking-[0.32em] text-accent/55">{"ÇMIMET & PAKETAT"}</p>
+            <div className="hero-line1 mt-8 overflow-hidden">
+              <h1 className="font-display text-[clamp(2.6rem,6.5vw,5.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-white">
+                {"Të gjitha paketat"}
+              </h1>
+            </div>
+            <div className="hero-line2 overflow-hidden">
+              <h1 className="cursor-default font-display text-[clamp(2.6rem,6.5vw,5.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-accent transition-all duration-500 hover:[text-shadow:0_0_48px_rgba(171,131,57,0.55)]">
+                {"në një vend."}
+              </h1>
+            </div>
+            <div className="hero-divider mt-10 h-px w-14 bg-gradient-to-r from-accent/60 to-transparent" />
+            <p className="hero-subtext mt-6 font-body text-[1rem] font-light leading-[1.75] tracking-[0.01em] text-white/42">
+              {"Krahaso paketat për Website, E-Commerce, Marketing, Branding dhe Social Media. Çdo ofertë personalizohet falas."}
             </p>
           </div>
         </section>
