@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useRef, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { buildWhatsAppChatHref, DEFAULT_WHATSAPP_E164 } from "@/lib/whatsappPrefill";
+import { ensureGSAP, useIsomorphicLayoutEffect } from "@/lib/gsap";
 
 const services = ["Websites", "E-commerce", "Marketing", "SEO", "Branding"];
 const budgets = ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"];
@@ -18,7 +19,33 @@ const CARD =
   "relative overflow-hidden rounded-[1.5rem] border border-[#262626] bg-[rgba(10,10,10,0.72)] backdrop-blur-[12px]";
 
 export default function ContactPageClient() {
+  const heroRef = useRef<HTMLElement>(null);
   const [success, setSuccess] = useState(false);
+
+  useIsomorphicLayoutEffect(() => {
+    if (!heroRef.current) return;
+    const { gsap } = ensureGSAP();
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ delay: 0.1 });
+      tl.fromTo(".hero-eyebrow",
+        { opacity: 0, y: 10, filter: "blur(3px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }
+      )
+      .fromTo(".hero-line1",
+        { opacity: 0, y: 56 },
+        { opacity: 1, y: 0, duration: 0.85, ease: "power4.out" }, "-=0.25"
+      )
+      .fromTo(".hero-divider",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.5, ease: "power3.out", transformOrigin: "left" }, "-=0.3"
+      )
+      .fromTo(".hero-subtext",
+        { opacity: 0, y: 14, filter: "blur(3px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.65, ease: "power3.out" }, "-=0.25"
+      );
+    }, heroRef);
+    return () => ctx.revert();
+  }, []);
   const [error, setError] = useState("");
   const [form, setForm] = useState({
     name: "",
@@ -61,17 +88,27 @@ export default function ContactPageClient() {
         <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_90%_78%,rgba(171,131,57,0.06),transparent_38%)]" />
 
         {/* ── HERO ── */}
-        <div className="mx-auto w-full max-w-[1280px] px-5 pb-0 pt-20 md:px-10 md:pt-28 lg:px-14">
-          <p className="font-ui text-[10px] font-semibold uppercase tracking-[0.28em] text-[#ab8339]/80">
-            kontakt
-          </p>
-          <h1 className="font-display mt-4 max-w-2xl text-[clamp(2.6rem,6vw,4.8rem)] leading-[0.93] tracking-[-0.02em] text-white">
-            Na trego projektin tënd.
-          </h1>
-          <p className="font-ui mt-4 max-w-[50ch] text-[15px] font-light leading-relaxed tracking-[0.2px] text-[#A0A0A0]">
-            Një bisedë e shkurtër. Një plan konkret. Pa obligim.
-          </p>
-        </div>
+        <section ref={heroRef} className="relative z-[1] overflow-hidden border-b border-white/[0.06] bg-[#070707]">
+          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.022]"
+            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")", mixBlendMode: "overlay" }}
+          />
+          <div aria-hidden className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[#ab8339]/[0.07] blur-[130px]" />
+          <div aria-hidden className="pointer-events-none absolute left-5 top-0 h-full w-px bg-gradient-to-b from-transparent via-accent/18 to-transparent md:left-10 lg:left-14" />
+
+          <div className="section-wrap relative py-28 md:py-40">
+            <p className="hero-eyebrow font-mono text-[10px] uppercase tracking-[0.32em] text-accent/55">{"KONTAKT"}</p>
+            <div className="hero-line1 mt-8 overflow-hidden">
+              <h1 className="font-display text-[clamp(2rem,4.5vw,4.2rem)] font-bold leading-[1.04] tracking-[-0.03em] text-white">
+                {"Na trego "}
+                <span className="text-accent">{"projektin tënd."}</span>
+              </h1>
+            </div>
+            <div className="hero-divider mt-10 h-px w-14 bg-gradient-to-r from-accent/60 to-transparent" />
+            <p className="hero-subtext mt-6 font-body text-[1rem] font-light leading-[1.75] tracking-[0.01em] text-white/42">
+              {"Një bisedë e shkurtër. Një plan konkret. Pa obligim."}
+            </p>
+          </div>
+        </section>
 
         {/* ── MAIN GRID ── */}
         <section className="mx-auto w-full max-w-[1280px] px-5 py-14 md:px-10 md:py-18 lg:px-14">
