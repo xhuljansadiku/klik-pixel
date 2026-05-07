@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { ensureGSAP, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
 import { SOCIAL_LINKS, type SocialIconId } from "@/lib/socialLinks";
@@ -36,54 +36,12 @@ function SocialIcon({ icon }: { icon: SocialIconId }) {
   return null;
 }
 
-const ALBANIA_WALL_CLOCK_ZONES = ["Europe/Tirana", "Europe/Rome", "Europe/Berlin"] as const;
 
-function resolveAlbaniaWallClockTimeZone(): string | undefined {
-  for (const timeZone of ALBANIA_WALL_CLOCK_ZONES) {
-    try {
-      new Intl.DateTimeFormat("en-US", { timeZone }).format(new Date());
-      return timeZone;
-    } catch {
-      /* invalid in this ICU build */
-    }
-  }
-  return undefined;
-}
-
-function formatAlbaniaWallClock(now: Date): string {
-  const timeZone = resolveAlbaniaWallClockTimeZone();
-  const base = { hour: "numeric" as const, minute: "2-digit" as const, hour12: true };
-  if (timeZone) {
-    try {
-      return new Intl.DateTimeFormat("en-US", { ...base, timeZone }).format(now);
-    } catch {
-      try {
-        return now.toLocaleTimeString("en-US", { ...base, timeZone });
-      } catch { /* last resort */ }
-    }
-  }
-  try {
-    return now.toLocaleTimeString("en-US", base);
-  } catch {
-    return "";
-  }
-}
-
-const useIsomorphicLayoutEffectClock =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement | null>(null);
   const auraRef = useRef<HTMLDivElement | null>(null);
   const reducedMotion = useReducedMotion();
-  const [tiranaTime, setTiranaTime] = useState("");
-
-  useIsomorphicLayoutEffectClock(() => {
-    const update = () => setTiranaTime(formatAlbaniaWallClock(new Date()));
-    update();
-    const id = window.setInterval(update, 1000);
-    return () => window.clearInterval(id);
-  }, []);
 
   useIsomorphicLayoutEffect(() => {
     if (!footerRef.current) return;
