@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Çfarë kam nevojë të përgatis para fillimit?",
-    a: "Mjafton të na tregoni çfarë bën biznesi juaj, kë synoni të arrini dhe çfarë nuk ju pëlqen tek prezenca juaj aktuale. Për pjesën tjetër kujdesemi ne, struktura, tekstet dhe dizajni."
+    a: "Mjafton të na tregoni çfarë bën biznesi juaj, kë synoni të arrini dhe çfarë nuk ju pëlqen tek prezenca juaj aktuale.\nPër pjesën tjetër kujdesemi ne, struktura, tekstet dhe dizajni."
   }
 ];
 
