@@ -88,16 +88,16 @@ export default function Process() {
         );
         gsap.fromTo(
           ctaRef.current,
-          { opacity: 0, y: 24, filter: "blur(4px)" },
+          { opacity: 0, y: 24 },
           {
             opacity: 1,
             y: 0,
-            filter: "blur(0px)",
             duration: 0.75,
             ease: "power3.out",
             scrollTrigger: {
               trigger: ctaRef.current,
-              start: "top 88%"
+              start: "top 92%",
+              once: true
             }
           }
         );
@@ -106,16 +106,16 @@ export default function Process() {
 
       gsap.fromTo(
         headingRef.current,
-        { opacity: 0, y: 26, filter: "blur(5px)" },
+        { opacity: 0, y: 26 },
         {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
           duration: 0.95,
           ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 80%"
+            start: "top 80%",
+            once: true
           }
         }
       );
@@ -173,20 +173,18 @@ export default function Process() {
         if (!step) return;
         gsap.fromTo(
           step,
-          { opacity: 0.42, y: 26, filter: "blur(4px)" },
+          { opacity: 0, y: 26 },
           {
-            opacity: 0.96,
+            opacity: 1,
             y: 0,
-            filter: "blur(0px)",
             duration: 0.75,
             ease: "power3.out",
             scrollTrigger: {
               trigger: step,
-              start: "top 70%",
-              end: "bottom 48%",
-              scrub: 0.85,
-              onToggle: (self) => {
-                step.classList.toggle("process-step-active", self.isActive);
+              start: "top 78%",
+              once: true,
+              onEnter: () => {
+                step.classList.add("process-step-active");
               }
             }
           }
@@ -195,16 +193,16 @@ export default function Process() {
 
       gsap.fromTo(
         ctaRef.current,
-        { opacity: 0, y: 28, filter: "blur(4px)" },
+        { opacity: 0, y: 28 },
         {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
           duration: 0.85,
           ease: "power3.out",
           scrollTrigger: {
             trigger: ctaRef.current,
-            start: "top 86%"
+            start: "top 88%",
+            once: true
           }
         }
       );
