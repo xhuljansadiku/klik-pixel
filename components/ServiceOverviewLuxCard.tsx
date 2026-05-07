@@ -65,7 +65,7 @@ export default function ServiceOverviewLuxCard({
       </div>
 
       <div className="relative z-[6] row-start-4 mt-6 flex min-h-[3.5rem] w-full items-end border-t border-white/[0.09] pt-6">
-        <span className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/88 transition-colors duration-300 ease-out group-hover:text-[#D4AF37]">
+        <span className="luxury-link-look">
           {service.cta}
         </span>
       </div>
