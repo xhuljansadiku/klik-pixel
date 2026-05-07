@@ -9,7 +9,7 @@ const whatsappHref = buildWhatsAppChatHref(WHATSAPP_NUMBER);
 
 /** Same footprint as BackToTop FAB */
 const fabButtonClass =
-  "inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#25D366]/45 bg-[#25D366] text-white shadow-[0_10px_28px_rgba(0,0,0,0.42)] transition-transform duration-300 hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]";
+  "inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#ab8339]/45 bg-[#ab8339] text-[#0e0d0c] shadow-[0_10px_28px_rgba(171,131,57,0.35)] transition-transform duration-300 hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ab8339]/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]";
 
 const hoverPreviewClass =
   "pointer-events-none absolute right-full top-1/2 z-[6] mr-3 w-[min(240px,calc(100vw-6rem))] -translate-y-1/2 rounded-2xl border border-white/12 bg-[#111]/92 p-3 text-left shadow-[0_12px_28px_rgba(0,0,0,0.4)] backdrop-blur-md transition-all duration-300 ease-out";
@@ -58,7 +58,7 @@ export default function WhatsAppButton() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full border border-[#25D366]/55 bg-[#25D366] px-3 py-1.5 text-[11px] font-medium text-black transition-transform duration-300 hover:scale-[1.03]"
+              className="inline-flex items-center rounded-full border border-[#ab8339]/55 bg-[#ab8339] px-3 py-1.5 text-[11px] font-medium text-[#0e0d0c] transition-transform duration-300 hover:scale-[1.03]"
             >
               Hap WhatsApp
             </a>
