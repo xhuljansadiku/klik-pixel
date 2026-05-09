@@ -53,7 +53,6 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Basic",
         price: "€349",
-        tagline: "Fillon kontaktet, ndalet humbja",
         ideal: "Faqe biznesi e pastër dhe serioze. Klientët ju gjejnë, ju kontaktojnë.",
         features: [
           "Dizajn profesional dhe i pastër",
@@ -66,7 +65,6 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Business",
         price: "€599",
-        tagline: "Website që konverton vizitorë në klientë",
         ideal: "Struktura e duhur, mesazhi i duhur. Klientët mbërrijnë dhe ndjekin hapin tjetër.",
         features: [
           "Gjithçka nga Basic",
@@ -81,7 +79,6 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Premium",
         price: "€899",
-        tagline: "Website që mbyllet vetë, pa justifikime",
         ideal: "Dizajn i personalizuar, SEO i avancuar dhe funnel konvertimi nga vizitori te klienti.",
         features: [
           "Gjithçka nga Business",
@@ -94,7 +91,6 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Custom",
         price: "Nga €1,200",
-        tagline: "Ndërtuar saktësisht për ju",
         ideal: "E-Commerce, funksione speciale ose integrime? Ne e ndërtojmë nga zero për nevojat tuaja.",
         features: [
           "Gjithçka nga Premium",
