@@ -84,7 +84,7 @@ export default function GoogleAdsPage() {
               <span className="text-accent">jo vetëm klikime</span>
             </h1>
             <p className="mt-5 max-w-[48ch] text-[1.05rem] leading-[1.6] text-white/60">
-              Google Ads me ROI real. Setup, optimizim javor dhe raportim transparent.
+              Ne menaxhojmë fushatat. Ju paguani buxhetin e reklamave drejtpërdrejt tek Google.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link href="/contact" className="interactive-button ip-cta-primary inline-flex h-11 items-center gap-2 !px-7 !text-[15px] !font-medium !text-[#0e0d0c]">
@@ -98,20 +98,52 @@ export default function GoogleAdsPage() {
           </div>
         </section>
 
+        {/* How it works */}
+        <section className="relative z-[1] border-b border-white/[0.06]">
+          <div className="section-wrap py-12 md:py-16">
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] px-6 py-5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent/60">Tarifa jonë</p>
+                <p className="mt-2 font-display text-[1.1rem] font-medium text-white">Fee menaxhimi</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-white/50">
+                  Çmimi i paketës = tarifa jonë për setup, optimizim dhe raportim.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] px-6 py-5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent/60">Buxheti i reklamave</p>
+                <p className="mt-2 font-display text-[1.1rem] font-medium text-white">Paguhet nga ju</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-white/50">
+                  Buxhetin e Google Ads e kontrolloni dhe paguani vetë, direkt tek Google.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] px-6 py-5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent/60">Transparencë totale</p>
+                <p className="mt-2 font-display text-[1.1rem] font-medium text-white">Çdo euro nën kontroll</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-white/50">
+                  Shihni saktësisht ku shkon çdo euro. Raport i qartë çdo javë ose 2 javë.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Packages */}
         <section className="relative z-[1]">
           <div className="section-wrap py-20 md:py-28">
-            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-accent/55">PAKETAT</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-accent/55">TARIFA MENAXHIMI</p>
             <h2 className="mt-3 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.06] tracking-[-0.02em] text-white">
               Zgjidhni nivelin e duhur
             </h2>
+            <p className="mt-2 text-[13px] text-white/40">
+              Buxheti i reklamave nuk përfshihet — paguhet nga ju direkt tek Google.
+            </p>
             <div className="mt-12 grid items-stretch gap-5 md:grid-cols-3">
               {packages.map((pkg) => (
                 <ServicePackageCard key={pkg.name} pkg={pkg} />
               ))}
             </div>
             <p className="mt-8 text-center text-[11px] text-white/28">
-              Të gjitha çmimet janë pa TVSH · Konsultimi fillestar është gjithmonë falas
+              Çmimet e mësipërme janë tarifa menaxhimi pa TVSH · Buxheti i reklamave paguhet nga klienti direkt tek Google
             </p>
           </div>
         </section>
