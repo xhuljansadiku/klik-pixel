@@ -79,9 +79,6 @@ export default function AllPackagesPageClient() {
               </h1>
             </div>
             <div className="hero-divider mt-10 h-px w-14 bg-gradient-to-r from-accent/60 to-transparent" />
-            <p className="hero-subtext mt-6 font-body text-[1rem] font-light leading-[1.75] tracking-[0.01em] text-white/42">
-              {"Krahaso paketat për Website, E-Commerce, Marketing, Branding dhe Social Media. Çdo ofertë personalizohet falas."}
-            </p>
           </div>
         </section>
 
