@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { ensureGSAP, getIsMobile, useIsomorphicLayoutEffect, useReducedMotion } from "@/lib/gsap";
@@ -233,7 +233,7 @@ export default function Process() {
         <SectionMark label="PROCESI" />
         <h2 ref={headingRef} className="section-title mt-3 mb-14 max-w-5xl">
           Proces i qartë, pa surpriza
-          <br />
+          <br className="hidden md:block" />
           <span className="text-accent">Nga ideja te një website që sjell klientë</span>
         </h2>
         <div ref={timelineRef} className="process-timeline relative pb-2">

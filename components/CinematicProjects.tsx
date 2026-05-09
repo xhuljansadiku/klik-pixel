@@ -256,7 +256,7 @@ export default function CinematicProjects() {
             <div className={`relative max-w-2xl text-center transition-all duration-700 ${activeIdx === NUM_SLIDES - 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <span className="font-mono text-[11px] tracking-[0.22em] text-accent/60">HAPI TJETËR</span>
               <h2 className="font-display mt-4 text-[clamp(2.2rem,5vw,4.5rem)] font-normal leading-[1.06] tracking-[-0.025em] text-white">
-                Dëshiron rezultate si këto<br />
+                Dëshiron rezultate si këto<br className="hidden md:block" />
                 <span className="text-accent">për biznesin tënd?</span>
               </h2>
               <p className="font-body mx-auto mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-white/45">
@@ -332,7 +332,7 @@ export default function CinematicProjects() {
         {/* Mobile CTA */}
         <div className="cp-mobile-item px-5 py-16 text-center md:px-10">
           <h2 className="font-display text-[clamp(1.8rem,6vw,2.4rem)] font-normal leading-[1.06] text-white">
-            Dëshiron rezultate si këto<br />
+            Dëshiron rezultate si këto<br className="hidden md:block" />
             <span className="text-accent">për biznesin tënd?</span>
           </h2>
           <div className="mt-8 flex flex-col items-center gap-4">

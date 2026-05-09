@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import SectionMark from "@/components/SectionMark";
@@ -45,7 +45,7 @@ export default function FAQ() {
                 <span className="text-accent/85">{open === idx ? "−" : "+"}</span>
               </button>
               <div className={`grid transition-all duration-300 ${open === idx ? "grid-rows-[1fr] opacity-100 pt-3" : "grid-rows-[0fr] opacity-0"}`}>
-                <p className="overflow-hidden whitespace-pre-line text-sm leading-relaxed text-white/70 md:text-base">{item.a}</p>
+                <p className="overflow-hidden md:whitespace-pre-line text-sm leading-relaxed text-white/70 md:text-base">{item.a}</p>
               </div>
             </div>
           ))}

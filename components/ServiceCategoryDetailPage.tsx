@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -93,7 +93,7 @@ export default function ServiceCategoryDetailPage({ category }: { category: Serv
             <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-accent/55">{eyebrow}</p>
 
             {/* Headline — clamp(42px,5vw,64px) */}
-            <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.625rem,5vw,4rem)] font-bold leading-[1.1] tracking-[-0.02em] text-white whitespace-pre-line">
+            <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.625rem,5vw,4rem)] font-bold leading-[1.1] tracking-[-0.02em] text-white md:whitespace-pre-line">
               {(() => {
                 const t = category.headline;
                 const i = t.lastIndexOf(" ");
@@ -110,7 +110,7 @@ export default function ServiceCategoryDetailPage({ category }: { category: Serv
 
             {/* Supporting text — 16px, optional */}
             {category.description && (
-              <p className="mt-3 max-w-[52ch] whitespace-pre-line text-base leading-relaxed text-white/55">
+              <p className="mt-3 max-w-[52ch] md:whitespace-pre-line text-base leading-relaxed text-white/55">
                 {category.description}
               </p>
             )}
@@ -175,7 +175,7 @@ export default function ServiceCategoryDetailPage({ category }: { category: Serv
                       <span className="h-2 w-2 rounded-full bg-red-400/70" aria-hidden />
                       <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-red-400/60">Problemi</p>
                     </div>
-                    <p className="max-w-[44ch] font-display text-[clamp(2rem,3.5vw,2.75rem)] font-medium leading-[1.18] tracking-[-0.01em] text-white whitespace-pre-line">
+                    <p className="max-w-[44ch] font-display text-[clamp(2rem,3.5vw,2.75rem)] font-medium leading-[1.18] tracking-[-0.01em] text-white md:whitespace-pre-line">
                       {painIntro}
                     </p>
                     <div className="mt-7 h-px w-12 bg-gradient-to-r from-red-400/30 to-transparent" />
@@ -218,7 +218,7 @@ export default function ServiceCategoryDetailPage({ category }: { category: Serv
             <div className="section-wrap py-20 md:py-28">
               <div className="svc-reveal-heading">
                 <SectionMark label={data?.feedbackLabel ?? "Klientët"} eyebrowClassName="tracking-[0.22em]" />
-                <h2 className="mt-1 max-w-xl font-display text-[clamp(1.6rem,3.2vw,2.4rem)] leading-[1.05] tracking-[-0.02em] text-white whitespace-pre-line">
+                <h2 className="mt-1 max-w-xl font-display text-[clamp(1.6rem,3.2vw,2.4rem)] leading-[1.05] tracking-[-0.02em] text-white md:whitespace-pre-line">
                   {data?.feedbackHeadline ?? "Rezultate reale."}
                 </h2>
               </div>
@@ -296,9 +296,9 @@ export default function ServiceCategoryDetailPage({ category }: { category: Serv
                   {category.slug === "marketing-growth" ? (
                     <>Nesër do të jetë{" "}<span className="bg-gradient-to-r from-accent via-[#eace71] to-accent bg-clip-text text-transparent">më shtrenjtë</span>{" "}se sot.</>
                   ) : category.slug === "branding-content" ? (
-                    <>Prania juaj meriton<br /><span className="bg-gradient-to-r from-accent via-[#eace71] to-accent bg-clip-text text-transparent">të njëjtin nivel si puna juaj.</span></>
+                    <>Prania juaj meriton<br className="hidden md:block" /><span className="bg-gradient-to-r from-accent via-[#eace71] to-accent bg-clip-text text-transparent">të njëjtin nivel si puna juaj.</span></>
                   ) : (
-                    <>{"Një bisedë pa pagesë."}<br /><span className="bg-gradient-to-r from-accent via-[#eace71] to-accent bg-clip-text text-transparent">{"Një plan i qartë për më shumë klientë."}</span></>
+                    <>{"Një bisedë pa pagesë."}<br className="hidden md:block" /><span className="bg-gradient-to-r from-accent via-[#eace71] to-accent bg-clip-text text-transparent">{"Një plan i qartë për më shumë klientë."}</span></>
                   )}
                 </h2>
                 <p className="mx-auto mt-6 max-w-[44ch] text-[14px] leading-relaxed text-white/50">

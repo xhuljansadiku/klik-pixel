@@ -48,7 +48,7 @@ export default function BlogGrowthClient() {
               </p>
               <h1 ref={heroTitleRef} className="section-title font-display mt-5 max-w-4xl">
                 Ke trafikun.
-                <br />
+                <br className="hidden md:block" />
                 Por ku janë <span className="text-accent">klientët?</span>
               </h1>
               <p ref={heroStatsRef} className="mt-5 max-w-3xl text-base leading-relaxed text-white/68 md:text-[1.1rem]">
@@ -133,7 +133,7 @@ export default function BlogGrowthClient() {
               <p className="text-[1.02rem] leading-relaxed text-[#D1D1D1] md:text-[1.08rem]">
                 Gabimi që shohim çdo ditë: faqe me gjashtë butona dhe shumë popup-e. Kur klienti nuk di ku të klikojë,
                 nuk klikon askund. Çdo seksion duhet të ketë një qëllim të vetëm dhe një hap të qartë.
-                <br />
+                <br className="hidden md:block" />
                 Zgjidh një: &quot;Kontakto tani&quot;, &quot;Merr ofertën&quot; ose &quot;Fillo sot&quot;, dhe mbaje
                 konsistent.
               </p>

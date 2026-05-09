@@ -99,7 +99,7 @@ export default function PrivacyPage() {
             <div className="mt-6 h-px w-12 bg-gradient-to-r from-accent/60 to-transparent" />
             <p className="mt-5 max-w-xl font-body text-[0.95rem] font-light leading-relaxed text-white/45">
               E fundit e përditësuar: Maj 2026 · Illyrian Pixel, Tiranë, Shqipëri
-              <br />
+              <br className="hidden md:block" />
               Bazuar në Rregulloren (BE) 2016/679, GDPR
             </p>
           </div>
@@ -112,7 +112,7 @@ export default function PrivacyPage() {
                 <h2 className="font-display text-[1.2rem] font-semibold tracking-[-0.01em] text-white">
                   {s.title}
                 </h2>
-                <p className="mt-3 whitespace-pre-line font-body text-[0.9rem] leading-[1.85] text-white/60">
+                <p className="mt-3 md:whitespace-pre-line font-body text-[0.9rem] leading-[1.85] text-white/60">
                   {s.body}
                 </p>
               </article>

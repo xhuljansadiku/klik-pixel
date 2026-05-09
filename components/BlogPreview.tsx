@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import SectionMark from "@/components/SectionMark";
 import { blogPosts } from "@/lib/blogPosts";
 
@@ -38,7 +38,7 @@ export default function BlogPreview() {
               <h3 className="mt-2 font-display text-[clamp(1.55rem,3vw,2.3rem)] leading-[1.02] text-white transition-transform duration-300 group-hover:-translate-y-[1px]">
                 {post.title}
               </h3>
-              <p className="mt-2 max-w-3xl whitespace-pre-line text-sm text-white/62">{post.excerpt}</p>
+              <p className="mt-2 max-w-3xl md:whitespace-pre-line text-sm text-white/62">{post.excerpt}</p>
               <Link href={`/blog/${post.slug}`} className="luxury-link mt-4">
                 Lexo më shumë <span aria-hidden>→</span>
               </Link>

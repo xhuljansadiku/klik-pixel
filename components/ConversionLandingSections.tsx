@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +25,7 @@ function TextCardSection({ data }: { data: ConversionTextCardSection }) {
             <span className="text-[#D4AF37]">{data.headingAccent}</span>
           </h2>
           {data.intro ? (
-            <p className="mt-5 max-w-[56ch] whitespace-pre-line text-[14px] leading-relaxed text-white/56 md:text-[15px]">
+            <p className="mt-5 max-w-[56ch] md:whitespace-pre-line text-[14px] leading-relaxed text-white/56 md:text-[15px]">
               {data.intro}
             </p>
           ) : null}
@@ -40,7 +40,7 @@ function TextCardSection({ data }: { data: ConversionTextCardSection }) {
               <h3 className="font-display text-[1.05rem] tracking-[-0.015em] text-white md:text-[1.12rem]">
                 {item.title}
               </h3>
-              <p className="mt-2.5 whitespace-pre-line text-[13px] leading-relaxed text-white/50 md:text-[14px]">
+              <p className="mt-2.5 md:whitespace-pre-line text-[13px] leading-relaxed text-white/50 md:text-[14px]">
                 {item.body}
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
               {data.whyUs.headingBefore}{" "}
               <span className="text-[#D4AF37]">{data.whyUs.headingAccent}</span>
             </h2>
-            <p className="mt-5 max-w-[56ch] whitespace-pre-line text-[14px] leading-relaxed text-white/56 md:text-[15px]">
+            <p className="mt-5 max-w-[56ch] md:whitespace-pre-line text-[14px] leading-relaxed text-white/56 md:text-[15px]">
               {data.whyUs.intro}
             </p>
           </div>
@@ -236,7 +236,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
         <div className="section-wrap relative z-[1] py-20 md:py-28">
           <div className="svc-reveal-heading">
             <SectionMark label="Procesi" eyebrowClassName="tracking-[0.22em]" />
-            <h2 className="mt-1 max-w-2xl whitespace-pre-line font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
+            <h2 className="mt-1 max-w-2xl md:whitespace-pre-line font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
               {data.processHeadline ?? (
                 <>
                   Katër hapa të qartë,{" "}
@@ -255,7 +255,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
                 <span className="font-display text-[2rem] leading-none text-accentLight/70">{p.step}</span>
                 <div>
                   <h3 className="font-display text-[1.05rem] tracking-[-0.015em] text-white">{p.title}</h3>
-                  <p className="mt-2 whitespace-pre-line text-[13px] leading-relaxed text-white/48">{p.desc}</p>
+                  <p className="mt-2 md:whitespace-pre-line text-[13px] leading-relaxed text-white/48">{p.desc}</p>
                 </div>
               </li>
             ))}
@@ -270,7 +270,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
               <SectionMark label="Projekte" eyebrowClassName="tracking-[0.22em]" />
               <h2 className="mt-1 max-w-xl font-display text-[clamp(1.9rem,4vw,3.05rem)] leading-[1.05] tracking-[-0.02em] text-white">
                 {data.portfolioHeadingBefore ?? "Rezultate reale"}
-                <br />
+                <br className="hidden md:block" />
                 <span className="text-[#D4AF37]">{data.portfolioHeadingAccent ?? "për biznese reale."}</span>
               </h2>
               {data.portfolioSubline && (
@@ -354,7 +354,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
                     <h3 className="mt-1.5 font-display text-[1.2rem] tracking-[-0.02em] text-white transition-colors duration-300 group-hover:text-[#D4AF37]/90">
                       {item.title}
                     </h3>
-                    <p className="mt-2 line-clamp-3 whitespace-pre-line text-[13px] leading-relaxed text-white/52">{blurb}</p>
+                    <p className="mt-2 line-clamp-3 md:whitespace-pre-line text-[13px] leading-relaxed text-white/52">{blurb}</p>
                     <span className="luxury-link-look mt-3 inline-flex items-center gap-1 text-[11px]">
                       Shiko projektin <span aria-hidden>→</span>
                     </span>
@@ -401,7 +401,7 @@ export default function ConversionLandingSections(data: ConversionLandingData) {
                 >
                   &ldquo;
                 </span>
-                <p className="flex-1 whitespace-pre-line text-[14px] leading-[1.7] text-white/75">{t.quote}</p>
+                <p className="flex-1 md:whitespace-pre-line text-[14px] leading-[1.7] text-white/75">{t.quote}</p>
                 <footer className="mt-5 border-t border-white/[0.06] pt-4">
                   <cite className="not-italic">
                     <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">

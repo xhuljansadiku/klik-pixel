@@ -168,7 +168,7 @@ export default function FeaturedWorkGrid() {
                     </span>
                     <span>{project.location}</span>
                   </p>
-                  <p className="mt-5 max-w-[52ch] whitespace-pre-line font-body text-sm leading-relaxed text-white/72 md:text-base">
+                  <p className="mt-5 max-w-[52ch] md:whitespace-pre-line font-body text-sm leading-relaxed text-white/72 md:text-base">
                     {project.intro}
                   </p>
 

@@ -127,12 +127,12 @@ export default function ContactPageClient() {
           <div className="section-wrap relative py-28 md:py-40">
             <p className="hero-eyebrow font-mono text-[10px] uppercase tracking-[0.32em] text-accent/55">{"KONTAKT"}</p>
             <div className="hero-line1 mt-8 overflow-hidden">
-              <h1 className="whitespace-pre-line font-display text-[clamp(2rem,4.5vw,4.2rem)] font-bold leading-[1.14] md:leading-[1.04] tracking-[-0.015em] md:tracking-[-0.03em] text-white">
+              <h1 className="md:whitespace-pre-line font-display text-[clamp(2rem,4.5vw,4.2rem)] font-bold leading-[1.14] md:leading-[1.04] tracking-[-0.015em] md:tracking-[-0.03em] text-white">
                 {"Rezervo një konsultë falas\ndhe merr një plan konkret\npër biznesin tënd."}
               </h1>
             </div>
             <div className="hero-divider mt-10 h-px w-14 bg-gradient-to-r from-accent/60 to-transparent" />
-            <p className="hero-subtext mt-6 whitespace-pre-line font-body text-[1rem] font-light leading-[1.75] tracking-[0.01em] text-white/42">
+            <p className="hero-subtext mt-6 md:whitespace-pre-line font-body text-[1rem] font-light leading-[1.75] tracking-[0.01em] text-white/42">
               {"30 minuta pa detyrim.\nDo dalësh me ide të qarta për hapat e radhës."}
             </p>
           </div>

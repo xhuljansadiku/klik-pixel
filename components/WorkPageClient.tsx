@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import Image from "next/image";
@@ -160,13 +160,13 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
                     {cs.title === "ESM Group" ? (
                       <>
                         ESM
-                        <br />
+                        <br className="hidden md:block" />
                         Group
                       </>
                     ) : cs.title === "Bardhi Wellness" ? (
                       <>
                         Bardhi
-                        <br />
+                        <br className="hidden md:block" />
                         Wellness
                       </>
                     ) : (

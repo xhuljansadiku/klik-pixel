@@ -55,7 +55,7 @@ export default function BlogUxMistakesClient() {
                   </span>
                 </span>
               </h1>
-              <p ref={heroStatsRef} className="mt-5 max-w-3xl whitespace-pre-line text-base leading-relaxed text-white/68 md:text-[1.1rem]">
+              <p ref={heroStatsRef} className="mt-5 max-w-3xl md:whitespace-pre-line text-base leading-relaxed text-white/68 md:text-[1.1rem]">
                 Një website i paqartë nuk humbet thjesht vizitorë; humbet klientë.
                 {"\n"}
                 Vizitori hyn, nuk kupton çfarë të bëjë dhe largohet.
@@ -75,11 +75,11 @@ export default function BlogUxMistakesClient() {
               </h2>
               <p className="text-[1.02rem] leading-relaxed text-[#D1D1D1] md:text-[1.08rem]">
                 Vizitori merr vendimin pa e kuptuar vetë brenda 5 sekondave të para.
-                <br />
+                <br className="hidden md:block" />
                 Nëse titulli kryesor është i paqartë ose shumë i përgjithshëm, ai largohet.
-                <br />
+                <br className="hidden md:block" />
                 &quot;Agjenci dixhitale inovative me zgjidhje të personalizuara&quot; nuk i thotë asgjë askujt.
-                <br />
+                <br className="hidden md:block" />
                 Thuaj saktësisht çfarë bën dhe për kë.
               </p>
             </section>
@@ -88,9 +88,9 @@ export default function BlogUxMistakesClient() {
               <h2 className="blog-growth-h2 font-display text-[clamp(1.5rem,3vw,2rem)] leading-tight text-white">Shumë opsione, zero vendime</h2>
               <p className="text-[1.02rem] leading-relaxed text-[#D1D1D1] md:text-[1.08rem]">
                 Shumë butona, shumë menu dhe shumë popup-e e hutojnë klientin.
-                <br />
+                <br className="hidden md:block" />
                 Kur gjithçka kërkon vëmendje, asgjë nuk e merr atë.
-                <br />
+                <br className="hidden md:block" />
                 Çdo faqe duhet të ketë një qëllim të vetëm dhe ta udhëheqë vizitorin drejt një hapi të qartë.
               </p>
             </section>
@@ -99,9 +99,9 @@ export default function BlogUxMistakesClient() {
               <h2 className="blog-growth-h2 font-display text-[clamp(1.5rem,3vw,2rem)] leading-tight text-white">Mungon dëshmia</h2>
               <p className="text-[1.02rem] leading-relaxed text-[#D1D1D1] md:text-[1.08rem]">
                 Njerëzit nuk besojnë atë që thua ti për veten, besojnë atë që thonë të tjerët për ty.
-                <br />
+                <br className="hidden md:block" />
                 Pa komente reale, pa numra dhe pa rezultate konkrete, besimi nuk ndërtohet.
-                <br />
+                <br className="hidden md:block" />
                 Dhe pa besim, nuk ka kontakt.
               </p>
             </section>
@@ -110,7 +110,7 @@ export default function BlogUxMistakesClient() {
               <h2 className="blog-growth-h2 font-display text-[clamp(1.5rem,3vw,2rem)] leading-tight text-white">Kontakti është i fshehur</h2>
               <p className="text-[1.02rem] leading-relaxed text-[#D1D1D1] md:text-[1.08rem]">
                 Nëse klientit i duhet të kërkojë numrin e telefonit ose formularin, ju e keni humbur atë.
-                <br />
+                <br className="hidden md:block" />
                 Kontakti duhet të jetë gjithmonë i dukshëm: në krye, në fund dhe kudo ku vizitori është gati të marrë një
                 vendim.
               </p>
@@ -120,7 +120,7 @@ export default function BlogUxMistakesClient() {
               <h2 className="blog-growth-h2 font-display text-[clamp(1.5rem,3vw,2rem)] leading-tight text-white">Barriera e celularit</h2>
               <p className="text-[1.02rem] leading-relaxed text-[#D1D1D1] md:text-[1.08rem]">
                 Mbi 60% e vizitorëve vijnë nga telefoni.
-                <br />
+                <br className="hidden md:block" />
                 Nëse butonat janë të vegjël, teksti del jashtë ekranit ose formulari është i vështirë për t&apos;u
                 plotësuar, ju po humbisni shumicën e audiencës pa e ditur.
               </p>
@@ -135,10 +135,10 @@ export default function BlogUxMistakesClient() {
                 </h2>
                 <p className="text-[1.02rem] leading-relaxed text-[#D1D1D1] md:text-[1.08rem]">
                   Nuk ka nevojë të ndërtosh gjithçka nga e para.
-                  <br />
+                  <br className="hidden md:block" />
                   Shpesh mjaftojnë ndryshime kirurgjikale: një titull më i qartë, një hierarki vizuale më e pastër dhe një
                   thirrje për veprim në vendin e duhur.
-                  <br />
+                  <br className="hidden md:block" />
                   Ne rishikojmë rrugëtimin e klientit tuaj dhe e thjeshtojmë atë deri në konversion.
                 </p>
               </section>

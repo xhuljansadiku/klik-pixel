@@ -116,9 +116,9 @@ export default function AllPackagesPageClient() {
             className="relative z-[1] scroll-mt-28 border-b border-white/[0.07]"
           >
             <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-24 bg-gradient-to-b from-accent/[0.025] to-transparent" />
-            <div className="section-wrap relative z-[1] py-14 md:py-20">
 
-              {/* Section header */}
+            {/* Section header — stays constrained */}
+            <div className="section-wrap relative z-[1] !pb-0 pt-14 md:pt-20">
               <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
                   <SectionMark label={category.title} eyebrowClassName="tracking-[0.18em]" />
@@ -130,16 +130,12 @@ export default function AllPackagesPageClient() {
                     {category.short}
                   </p>
                 </div>
-                <Link
-                  href={`/services/${category.slug}`}
-                  className="luxury-link shrink-0 text-[12px] uppercase tracking-[0.12em]"
-                >
-                  Detaje & proces <span aria-hidden>→</span>
-                </Link>
               </div>
+            </div>
 
-              {/* Cards */}
-              <div className="mt-12 grid items-stretch gap-5 md:grid-cols-3">
+            {/* Cards — full width for 4 pkgs, centered for 3 */}
+            <div className={`relative z-[1] pb-14 md:pb-20 ${category.packages.length >= 4 ? 'px-5 md:px-10 lg:px-16 xl:px-28 2xl:px-40' : 'section-wrap !pt-0'}`}>
+              <div className={`mt-12 grid items-stretch gap-5 ${category.packages.length >= 4 ? 'sm:grid-cols-2 xl:grid-cols-4' : 'md:grid-cols-3'}`}>
                 {category.packages.map((pkg) => (
                   <ServicePackageCard
                     key={`${category.slug}-${pkg.name}`}

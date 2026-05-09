@@ -144,7 +144,7 @@ export default function SherbimetPageClient() {
             <p className="sp-eyebrow font-mono text-[10px] uppercase tracking-[0.28em] text-accent/50">{"Si punojmë"}</p>
             <h2 className="sp-headline mt-5 font-display text-[clamp(1.8rem,3.8vw,3.2rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
               {"Një shërbim ose sistem i plotë."}
-              <br />
+              <br className="hidden md:block" />
               <span className="text-accent">{"Zgjidhni ju."}</span>
             </h2>
             <p className="sp-subtext mt-6 max-w-[50ch] font-body text-[0.95rem] font-light leading-[1.7] text-white/45">

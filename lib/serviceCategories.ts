@@ -12,8 +12,10 @@ export type ServicePackage = {
   ideal: string;
   tagline?: string;
   features: string[];
+  notIncluded?: string[];
   featureBullets?: ServiceFeatureBullet[];
   featured?: boolean;
+  cta?: string;
 };
 
 export type ServiceCategory = {
@@ -50,45 +52,69 @@ export const serviceCategories: ServiceCategory[] = [
     packages: [
       {
         name: "Basic",
-        price: "€350",
-        tagline: "Faqe biznesi profesionale",
-        ideal: "Dizajn profesional dhe i pastër me strukturë që sjell kontakte.",
+        price: "€349",
+        tagline: "Fillon kontaktet, ndalet humbja",
+        ideal: "Faqe biznesi e pastër dhe serioze. Klientët ju gjejnë, ju kontaktojnë.",
         features: [
           "Dizajn profesional dhe i pastër",
           "Deri në 5 faqe",
-          "Strukturë që sjell kontakte",
-          "SEO bazë",
           "Form kontakti",
+          "SEO bazë",
+          "Mobile-first & i shpejtë",
+        ],
+        notIncluded: [
+          "E-Commerce / shitje online",
+          "Shumëgjuhësh",
         ],
       },
       {
         name: "Business",
-        price: "€650",
-        tagline: "Website biznesi i plotë",
-        ideal: "Website me strukturë të optimizuar për konvertim dhe shumëgjuhësh.",
+        price: "€599",
+        tagline: "Website që konverton vizitorë në klientë",
+        ideal: "Struktura e duhur, mesazhi i duhur. Klientët mbërrijnë dhe ndjekin hapin tjetër.",
         features: [
           "Gjithçka nga Basic",
           "Deri në 8 faqe",
           "Strukturë e optimizuar për konvertim",
           "Google Analytics",
-          "Mobile & speed optimization",
           "1–2 gjuhë",
+          "Mobile & speed optimization",
+        ],
+        notIncluded: [
+          "E-Commerce / shitje online",
         ],
         featured: true,
       },
       {
         name: "Premium",
-        price: "€950",
-        tagline: "Website custom i avancuar",
-        ideal: "Dizajn 100% custom me strukturë të avancuar dhe integrime të plota.",
+        price: "€899",
+        tagline: "Website që mbyllet vetë, pa justifikime",
+        ideal: "Dizajn i personalizuar, SEO i avancuar dhe funnel konvertimi nga vizitori te klienti.",
         features: [
           "Gjithçka nga Business",
           "Dizajn 100% custom",
-          "Strukturë e avancuar (CTA, funnels)",
           "SEO i avancuar (on-page)",
           "Integrime (WhatsApp, booking, etj.)",
-          "Trajnim për përdorim",
+          "Funnels & CTA strategjike",
+          "Trajnim + 30 ditë mbështetje",
         ],
+        notIncluded: [
+          "E-Commerce / shitje online",
+        ],
+      },
+      {
+        name: "Custom",
+        price: "Nga €1,200",
+        tagline: "Ndërtuar saktësisht për ju",
+        ideal: "E-Commerce, funksione speciale ose integrime? Ne e ndërtojmë nga zero për nevojat tuaja.",
+        features: [
+          "Gjithçka nga Premium",
+          "E-Commerce ose funksione speciale",
+          "Integrime të avancuara",
+          "CMS i personalizuar",
+          "Mbështetje e dedikuar",
+        ],
+        cta: "Kërko ofertë",
       },
     ],
   },
@@ -117,46 +143,49 @@ export const serviceCategories: ServiceCategory[] = [
     packages: [
       {
         name: "Starter",
-        price: "€700",
-        tagline: "Dyqan bazë online",
-        ideal: "Dyqan online funksional me pagesa të integruara.",
+        price: "€699",
+        tagline: "Dyqan që fillon të shesë menjëherë",
+        ideal: "Hapi i parë i saktë online. Produkte, pagesa dhe checkout gati për shitje.",
         features: [
-          "Dyqan online funksional",
-          "Deri në 20 produkte",
+          "Deri në 30 produkte",
           "Pagesa të integruara",
-          "Checkout i thjeshtë",
-          "Mobile friendly",
+          "Checkout i optimizuar",
+          "Mobile-first & i shpejtë",
+          "Form porosie + konfirmim automatik",
+        ],
+        notIncluded: [
+          "Filtra & kategori të avancuara",
+          "Automatizime & SEO i plotë",
         ],
       },
       {
         name: "Growth",
-        price: "€1,200",
-        tagline: "Dyqan i plotë me rritje",
-        ideal: "Dyqan me strukturë që rrit shitjet dhe redukton braktisjen.",
+        price: "€1,199",
+        tagline: "Dyqan që rrit shitjet çdo muaj",
+        ideal: "Struktura e duhur për të kthyer vizitorët në blerës dhe blerësit në klientë të rregullt.",
         features: [
-          "Gjithçka nga Starter",
-          "Deri në 100 produkte",
-          "Strukturë që rrit shitjet",
-          "Filtra & kategori",
-          "Analitikë bazë",
-          "Reduktim i braktisjes",
+          "Deri në 200 produkte",
+          "Filtra, kategori & kërkim i avancuar",
+          "Checkout që redukton braktisjen",
+          "Analitikë shitjesh + Google Analytics",
+          "SEO bazë për produkte & kategori",
+        ],
+        notIncluded: [
+          "Automatizime të avancuara",
         ],
         featured: true,
       },
       {
         name: "Advanced",
-        price: "€2,000",
-        tagline: "Platformë e-commerce e plotë",
-        ideal: "Platformë e plotë me automatizime, SEO dhe performance të lartë.",
+        price: "€1,999",
+        tagline: "Platformë e-commerce për shkallëzim",
+        ideal: "Sistem i plotë për bizneset që duan të dominojnë online — pa kufij, pa kompromis.",
         features: [
           "Produkte të pakufizuara",
-          "Strukturë që rrit shitjet (upsell & funnels)",
-          "Checkout i optimizuar",
-          "Pagesa të integruara (Stripe, PayPal)",
-          "Automatizime (email, porosi, etj.)",
-          "SEO për produkte & kategori",
-          "Performance & shpejtësi e lartë",
-          "Trajnim + support fillestar",
+          "Upsell, cross-sell & funnels shitjesh",
+          "Automatizime (email, porosi, rikuperim karroce)",
+          "SEO i avancuar për produkte & kategori",
+          "Performancë & Core Web Vitals të optimizuara",
         ],
       },
     ],
