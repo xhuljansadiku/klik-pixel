@@ -66,7 +66,7 @@ export default function ServicePackageCard({ pkg }: Props) {
             )}
           </div>
 
-          <p className="font-ui mt-2 text-[12px] font-normal leading-[1.6] text-text">{pkg.ideal}</p>
+          <p className="font-ui mt-2 md:whitespace-pre-line text-[12px] font-normal leading-[1.6] text-text">{pkg.ideal}</p>
 
           <div className="my-5 h-px bg-white/[0.07]" />
 

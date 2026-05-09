@@ -53,7 +53,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Basic",
         price: "€349",
-        ideal: "Faqe biznesi e pastër dhe serioze. Klientët ju gjejnë, ju kontaktojnë.",
+        ideal: "Faqe biznesi e pastër dhe serioze.\nKlientët ju gjejnë, ju kontaktojnë.",
         features: [
           "Dizajn profesional dhe i pastër",
           "Deri në 5 faqe",
@@ -65,7 +65,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Business",
         price: "€599",
-        ideal: "Struktura e duhur, mesazhi i duhur. Klientët mbërrijnë dhe ndjekin hapin tjetër.",
+        ideal: "Struktura e duhur, mesazhi i duhur.\nKlientët mbërrijnë dhe ndjekin hapin tjetër.",
         features: [
           "Gjithçka nga Basic",
           "Deri në 8 faqe",
@@ -91,7 +91,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Custom",
         price: "Nga €1,200",
-        ideal: "E-Commerce, funksione speciale ose integrime? Ne e ndërtojmë nga zero për nevojat tuaja.",
+        ideal: "E-Commerce, funksione speciale ose integrime?\nNe e ndërtojmë nga zero për nevojat tuaja.",
         features: [
           "Gjithçka nga Premium",
           "E-Commerce ose funksione speciale",
