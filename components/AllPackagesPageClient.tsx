@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -143,6 +144,28 @@ export default function AllPackagesPageClient() {
                   />
                 ))}
               </div>
+
+              {category.slug === "marketing-growth" && (
+                <div className="mt-10 border-t border-white/[0.06] pt-8">
+                  <p className="mb-4 text-[12px] uppercase tracking-[0.2em] text-white/30">Kërkon vetëm një shërbim?</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      href="/services/seo"
+                      className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-[13px] text-white/60 transition-all duration-300 hover:border-accent/35 hover:text-white"
+                    >
+                      Kërkon vetëm SEO?
+                      <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </Link>
+                    <Link
+                      href="/services/google-ads"
+                      className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-[13px] text-white/60 transition-all duration-300 hover:border-accent/35 hover:text-white"
+                    >
+                      Kërkon vetëm reklama?
+                      <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
         ))}
