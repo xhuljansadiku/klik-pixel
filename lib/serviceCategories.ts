@@ -47,7 +47,7 @@ export const serviceCategories: ServiceCategory[] = [
       "I thjeshtë për t'u menaxhuar",
     ],
     short:
-      "Website moderne për biznese që duan më shumë klientë, jo vetëm prezencë online.",
+      "Website moderne për biznese që duan më shumë klientë,\njo vetëm prezencë online.",
     icon: "◈",
     packages: [
       {

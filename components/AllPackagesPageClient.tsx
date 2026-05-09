@@ -126,7 +126,7 @@ export default function AllPackagesPageClient() {
                     Paketat për{" "}
                     <span className="text-accent/85">{category.title}</span>
                   </h2>
-                  <p className="mt-3 max-w-[52ch] text-[14px] leading-relaxed text-white/48">
+                  <p className="mt-3 max-w-[52ch] md:whitespace-pre-line text-[14px] leading-relaxed text-white/48">
                     {category.short}
                   </p>
                 </div>
