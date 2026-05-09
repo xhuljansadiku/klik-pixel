@@ -24,7 +24,7 @@ type Props = {
   conversionCta?: boolean;
 };
 
-export default function ServicePackageCard({ pkg, conversionCta = true }: Props) {
+export default function ServicePackageCard({ pkg }: Props) {
   const ctaLabel = pkg.cta ?? "Fillo Tani";
 
   return (
