@@ -174,24 +174,28 @@ export default function WorkPageClient({ projects }: { projects: CaseStudy[] }) 
                     )}
                   </h2>
 
-                  <div className="wk-img-wrapper relative mt-5 h-[240px] overflow-hidden rounded-[0.95rem] md:h-[280px]">
-                    <div className="wk-img-inner absolute -bottom-10 -top-10 left-0 right-0">
+                  <div className="wk-img-wrapper relative mt-5 overflow-hidden rounded-[0.95rem]">
+                    <div className="wk-img-inner">
                       <Image
                         src={cs.heroImage}
                         alt={cs.title}
-                        fill
+                        width={800}
+                        height={500}
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 48vw, 32vw"
-                        className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105"
+                        className="w-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105"
                       />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b0b0b]/55 to-transparent" />
                     </div>
                   </div>
 
                   <div className="wk-project-footer mt-auto flex items-center justify-end gap-4 pt-5">
-                    <Link href={`/projektet/${cs.slug}`} className="luxury-link">
-                      {"Shiko projektin "}
-                      <span aria-hidden>{"\u2192"}</span>
-                    </Link>
+                    {cs.liveUrl ? (
+                      <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" className="luxury-link">
+                        {"Shiko projektin "}
+                        <span aria-hidden>{"\u2192"}</span>
+                      </a>
+                    ) : (
+                      <span className="text-[11px] uppercase tracking-[0.18em] text-white/30">Se shpejti</span>
+                    )}
                   </div>
                 </article>
               ))}
