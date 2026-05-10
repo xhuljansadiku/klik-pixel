@@ -10,7 +10,6 @@ const services = ["Websites", "E-commerce", "Marketing", "SEO", "Branding"];
 const budgets = ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"];
 const timelines = ["ASAP", "2-4 javë", "1-2 muaj", "Fleksibël"];
 
-const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com";
 const whatsappHref = buildWhatsAppChatHref(
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || DEFAULT_WHATSAPP_E164
 );
@@ -62,7 +61,6 @@ export default function ContactPageClient() {
     () =>
       form.name.trim().length > 1 &&
       /\S+@\S+\.\S+/.test(form.email) &&
-      form.businessName.trim().length > 1 &&
       form.message.trim().length > 6,
     [form]
   );
@@ -139,28 +137,8 @@ export default function ContactPageClient() {
         </section>
 
         {/* ── MAIN GRID ── */}
-        <section className="mx-auto w-full max-w-[1280px] px-5 py-14 md:px-10 md:py-18 lg:px-14">
-          <div className="grid items-start gap-6 lg:grid-cols-[1fr_1.18fr]">
-
-            {/* ── Booking card ── */}
-            <article className={CARD}>
-              <div className="p-6 md:p-7">
-                <p className="font-ui text-[10px] font-semibold uppercase tracking-[0.22em] text-[#ab8339]/70">
-                  Rezervo konsultë falas (30 min)
-                </p>
-                <p className="font-ui mt-1.5 text-[13px] font-light tracking-[0.3px] text-[#A0A0A0]">
-                  Diskutojmë projektin, qëllimet dhe si ta kthejmë në klientë realë.
-                </p>
-              </div>
-              <div className="mx-6 mb-6 overflow-hidden rounded-xl border border-[#262626] md:mx-7 md:mb-7">
-                <iframe
-                  title="Calendly booking"
-                  src={calendlyUrl}
-                  className="h-[500px] w-full"
-                  loading="lazy"
-                />
-              </div>
-            </article>
+        <section className="mx-auto w-full max-w-[860px] px-5 py-14 md:px-10 md:py-18 lg:px-14">
+          <div className="grid items-start gap-6">
 
             {/* ── Form card ── */}
             <article className={CARD}>
@@ -207,7 +185,7 @@ export default function ContactPageClient() {
                     </div>
 
                     <LuxInput
-                      label="Emri i biznesit"
+                      label="Emri i biznesit (Nëse keni një të tillë)"
                       placeholder="Emri i kompanisë..."
                       value={form.businessName}
                       onChange={set("businessName")}
