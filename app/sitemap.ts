@@ -13,10 +13,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/marketing-growth",
     "/services/branding-content",
     "/services/smm",
+    "/services/mirembajtja",
+    "/services/seo",
+    "/services/google-ads",
     "/projektet",
+    "/work",
     "/about",
     "/blog",
-    "/contact"
+    "/contact",
+    "/privacy",
+    "/terms"
   ].map((path) => ({
     url: `${seo.siteUrl}${path}`,
     lastModified: new Date()
