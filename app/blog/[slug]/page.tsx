@@ -11,7 +11,10 @@ type BlogPostPageProps = {
 const DEDICATED_BLOG_SLUGS = new Set([
   "si-te-rrisesh-klientet-online",
   "gabimet-kryesore-ne-website",
-  "pse-seo-eshte-kritik"
+  "pse-seo-eshte-kritik",
+  "google-ads-vs-seo",
+  "pse-ecommerce-eshte-i-rendesishem",
+  "cfare-eshte-branding"
 ]);
 
 export async function generateStaticParams() {

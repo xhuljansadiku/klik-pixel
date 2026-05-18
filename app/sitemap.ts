@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/seo",
     "/services/google-ads",
     "/projektet",
-    "/work",
     "/about",
     "/blog",
     "/contact",
@@ -33,12 +32,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date()
   }));
 
+  const dedicatedBlogSlugs = [
+    "google-ads-vs-seo",
+    "pse-ecommerce-eshte-i-rendesishem",
+    "cfare-eshte-branding"
+  ].map((slug) => ({
+    url: `${seo.siteUrl}/blog/${slug}`,
+    lastModified: new Date()
+  }));
+
   const blogRoutes = blogPosts.map((item) => ({
     url: `${seo.siteUrl}/blog/${item.slug}`,
     lastModified: new Date()
   }));
 
-  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes];
+  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes, ...dedicatedBlogSlugs];
 }
 
 

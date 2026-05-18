@@ -45,6 +45,33 @@ export const blogPosts: BlogPost[] = [
       "SEO ul CAC në afatgjatë dhe ndërton autoritet; PPC zhduket kur ndalon pagesa.",
       "UX dhe cilësia e faqes janë pjesë e renditjes. SEO është maratonë, shumica dështojnë sepse presin rezultate për dy javë."
     ]
+  },
+  {
+    slug: "google-ads-vs-seo",
+    title: "Google Ads apo SEO: Ku të investosh para?",
+    category: "Marketing",
+    excerpt:
+      "Dy kanale të ndryshme, dy logjika të ndryshme.\nNjëra jep rezultate nesër, tjetra ndërton diçka që zgjat vite.\nJa si të zgjedhësh sipas situatës suaj.",
+    date: "Maj 2026",
+    content: []
+  },
+  {
+    slug: "pse-ecommerce-eshte-i-rendesishem",
+    title: "Dyqani juaj fizik mbyllet në orën 18:00. Dyqani online kurrë.",
+    category: "E-Commerce",
+    excerpt:
+      "Pse bizneset shqiptare kanë nevojë për dyqan online në 2026.\nGabimet më të shpeshta, kostot reale dhe çfarë humbisni çdo muaj pa e-commerce.",
+    date: "Maj 2026",
+    content: []
+  },
+  {
+    slug: "cfare-eshte-branding",
+    title: "Branding nuk është logo. Është çfarë ndiejnë të tjerët.",
+    category: "Branding",
+    excerpt:
+      "Çfarë është branding në të vërtetë, pse bizneset shqiptare e nënvlerësojnë dhe çfarë humbasin duke e trajtuar si thjesht logo dhe ngjyrë.",
+    date: "Maj 2026",
+    content: []
   }
 ];
 
