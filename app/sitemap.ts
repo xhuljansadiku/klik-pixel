@@ -32,21 +32,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date()
   }));
 
-  const dedicatedBlogSlugs = [
+  const dedicatedBlogSlugs = new Set([
+    "si-te-rrisesh-klientet-online",
+    "gabimet-kryesore-ne-website",
+    "pse-seo-eshte-kritik",
     "google-ads-vs-seo",
     "pse-ecommerce-eshte-i-rendesishem",
     "cfare-eshte-branding"
-  ].map((slug) => ({
+  ]);
+
+  const dedicatedBlogRoutes = [...dedicatedBlogSlugs].map((slug) => ({
     url: `${seo.siteUrl}/blog/${slug}`,
     lastModified: new Date()
   }));
 
-  const blogRoutes = blogPosts.map((item) => ({
-    url: `${seo.siteUrl}/blog/${item.slug}`,
-    lastModified: new Date()
-  }));
+  const blogRoutes = blogPosts
+    .filter((item) => !dedicatedBlogSlugs.has(item.slug))
+    .map((item) => ({
+      url: `${seo.siteUrl}/blog/${item.slug}`,
+      lastModified: new Date()
+    }));
 
-  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes, ...dedicatedBlogSlugs];
+  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes, ...dedicatedBlogRoutes];
 }
 
 

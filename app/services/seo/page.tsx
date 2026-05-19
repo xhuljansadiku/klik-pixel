@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePackageCard from "@/components/ServicePackageCard";
 import type { ServicePackage } from "@/lib/serviceCategories";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "SEO për Biznese Shqiptare — Pozicionim në Google",
-  description: "SEO strategjik që ju sjell klientë organikë nga Google. Keywords, on-page dhe link building për bizneset shqiptare.",
-};
+export const metadata = buildMetadata(
+  "SEO për Biznese Shqiptare — Pozicionim në Google",
+  "SEO strategjik që ju sjell klientë organikë nga Google. Keywords, on-page dhe link building për bizneset shqiptare.",
+  "/services/seo"
+);
 
 const packages: ServicePackage[] = [
   {

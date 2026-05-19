@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePackageCard from "@/components/ServicePackageCard";
 import type { ServicePackage } from "@/lib/serviceCategories";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Google Ads për Biznese Shqiptare — Reklama me ROI Real",
-  description: "Reklama Google Ads që sjellin klientë, jo vetëm klikime. Setup, optimizim dhe raportim transparent për bizneset shqiptare.",
-};
+export const metadata = buildMetadata(
+  "Google Ads për Biznese Shqiptare — Reklama me ROI Real",
+  "Reklama Google Ads që sjellin klientë, jo vetëm klikime. Setup, optimizim dhe raportim transparent për bizneset shqiptare.",
+  "/services/google-ads"
+);
 
 const packages: ServicePackage[] = [
   {

@@ -52,7 +52,6 @@ export const metadata: Metadata = {
   creator: "Illyrian Pixel",
   publisher: "Illyrian Pixel",
   alternates: {
-    canonical: seo.siteUrl,
     languages: {
       "sq": seo.siteUrl,
       "sq-AL": seo.siteUrl,

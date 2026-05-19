@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: false,
   async redirects() {
     return [
+      // www → non-www (covers both http and https www variants)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.illyrianpixel.com" }],
+        destination: "https://illyrianpixel.com/:path*",
+        permanent: true
+      },
       { source: "/process", destination: "/sherbimet", permanent: true },
       { source: "/services/web-ecommerce", destination: "/services/website", permanent: true },
       { source: "/services/websites", destination: "/services/website", permanent: true },
